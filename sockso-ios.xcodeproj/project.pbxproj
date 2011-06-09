@@ -12,7 +12,7 @@
 		DC43F91013A14E4F001B41F6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90F13A14E4F001B41F6 /* CoreGraphics.framework */; };
 		DC43F91613A14E4F001B41F6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC43F91413A14E4F001B41F6 /* InfoPlist.strings */; };
 		DC43F91913A14E4F001B41F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC43F91813A14E4F001B41F6 /* main.m */; };
-		DC43F91C13A14E4F001B41F6 /* sockso_iosAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC43F91B13A14E4F001B41F6 /* sockso_iosAppDelegate.m */; };
+		DC43F91C13A14E4F001B41F6 /* SocksoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC43F91B13A14E4F001B41F6 /* SocksoAppDelegate.m */; };
 		DC43F91F13A14E4F001B41F6 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC43F91D13A14E4F001B41F6 /* MainWindow.xib */; };
 		DC43F92613A14E50001B41F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90B13A14E4F001B41F6 /* UIKit.framework */; };
 		DC43F92713A14E50001B41F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90D13A14E4F001B41F6 /* Foundation.framework */; };
@@ -20,6 +20,8 @@
 		DC43F93013A14E50001B41F6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC43F92E13A14E50001B41F6 /* InfoPlist.strings */; };
 		DC43F93313A14E50001B41F6 /* sockso_iosTests.h in Resources */ = {isa = PBXBuildFile; fileRef = DC43F93213A14E50001B41F6 /* sockso_iosTests.h */; };
 		DC43F93513A14E50001B41F6 /* sockso_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC43F93413A14E50001B41F6 /* sockso_iosTests.m */; };
+		DC43F94113A14E7F001B41F6 /* SocksoView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC43F93F13A14E7F001B41F6 /* SocksoView.m */; };
+		DC43F94213A14E7F001B41F6 /* SocksoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC43F94013A14E7F001B41F6 /* SocksoView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,19 +39,22 @@
 		DC43F90B13A14E4F001B41F6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DC43F90D13A14E4F001B41F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		DC43F90F13A14E4F001B41F6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		DC43F91313A14E4F001B41F6 /* sockso-ios-Info.plist */ = {isa = PBXFileReference; path = "sockso-ios-Info.plist"; sourceTree = "<group>"; };
+		DC43F91313A14E4F001B41F6 /* sockso-ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sockso-ios-Info.plist"; sourceTree = "<group>"; };
 		DC43F91513A14E4F001B41F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		DC43F91713A14E4F001B41F6 /* sockso-ios-Prefix.pch */ = {isa = PBXFileReference; path = "sockso-ios-Prefix.pch"; sourceTree = "<group>"; };
+		DC43F91713A14E4F001B41F6 /* sockso-ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sockso-ios-Prefix.pch"; sourceTree = "<group>"; };
 		DC43F91813A14E4F001B41F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		DC43F91A13A14E4F001B41F6 /* sockso_iosAppDelegate.h */ = {isa = PBXFileReference; path = sockso_iosAppDelegate.h; sourceTree = "<group>"; };
-		DC43F91B13A14E4F001B41F6 /* sockso_iosAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sockso_iosAppDelegate.m; sourceTree = "<group>"; };
+		DC43F91A13A14E4F001B41F6 /* SocksoAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocksoAppDelegate.h; sourceTree = "<group>"; };
+		DC43F91B13A14E4F001B41F6 /* SocksoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocksoAppDelegate.m; sourceTree = "<group>"; };
 		DC43F91E13A14E4F001B41F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		DC43F92513A14E50001B41F6 /* sockso-iosTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "sockso-iosTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DC43F92D13A14E50001B41F6 /* sockso-iosTests-Info.plist */ = {isa = PBXFileReference; path = "sockso-iosTests-Info.plist"; sourceTree = "<group>"; };
+		DC43F92D13A14E50001B41F6 /* sockso-iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sockso-iosTests-Info.plist"; sourceTree = "<group>"; };
 		DC43F92F13A14E50001B41F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		DC43F93113A14E50001B41F6 /* sockso-iosTests-Prefix.pch */ = {isa = PBXFileReference; path = "sockso-iosTests-Prefix.pch"; sourceTree = "<group>"; };
+		DC43F93113A14E50001B41F6 /* sockso-iosTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sockso-iosTests-Prefix.pch"; sourceTree = "<group>"; };
 		DC43F93213A14E50001B41F6 /* sockso_iosTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sockso_iosTests.h; sourceTree = "<group>"; };
 		DC43F93413A14E50001B41F6 /* sockso_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sockso_iosTests.m; sourceTree = "<group>"; };
+		DC43F93E13A14E7F001B41F6 /* SocksoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocksoView.h; sourceTree = "<group>"; };
+		DC43F93F13A14E7F001B41F6 /* SocksoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocksoView.m; sourceTree = "<group>"; };
+		DC43F94013A14E7F001B41F6 /* SocksoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocksoView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,9 +113,8 @@
 		DC43F91113A14E4F001B41F6 /* sockso-ios */ = {
 			isa = PBXGroup;
 			children = (
-				DC43F91A13A14E4F001B41F6 /* sockso_iosAppDelegate.h */,
-				DC43F91B13A14E4F001B41F6 /* sockso_iosAppDelegate.m */,
-				DC43F91D13A14E4F001B41F6 /* MainWindow.xib */,
+				DC43F94413A1503F001B41F6 /* Resources */,
+				DC43F94313A15012001B41F6 /* Classes */,
 				DC43F91213A14E4F001B41F6 /* Supporting Files */,
 			);
 			path = "sockso-ios";
@@ -145,6 +149,26 @@
 				DC43F93113A14E50001B41F6 /* sockso-iosTests-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DC43F94313A15012001B41F6 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DC43F93E13A14E7F001B41F6 /* SocksoView.h */,
+				DC43F93F13A14E7F001B41F6 /* SocksoView.m */,
+				DC43F91A13A14E4F001B41F6 /* SocksoAppDelegate.h */,
+				DC43F91B13A14E4F001B41F6 /* SocksoAppDelegate.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		DC43F94413A1503F001B41F6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DC43F91D13A14E4F001B41F6 /* MainWindow.xib */,
+				DC43F94013A14E7F001B41F6 /* SocksoView.xib */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +240,7 @@
 			files = (
 				DC43F91613A14E4F001B41F6 /* InfoPlist.strings in Resources */,
 				DC43F91F13A14E4F001B41F6 /* MainWindow.xib in Resources */,
+				DC43F94213A14E7F001B41F6 /* SocksoView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,7 +277,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC43F91913A14E4F001B41F6 /* main.m in Sources */,
-				DC43F91C13A14E4F001B41F6 /* sockso_iosAppDelegate.m in Sources */,
+				DC43F91C13A14E4F001B41F6 /* SocksoAppDelegate.m in Sources */,
+				DC43F94113A14E7F001B41F6 /* SocksoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
