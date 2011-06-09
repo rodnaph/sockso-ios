@@ -23,6 +23,7 @@
 		DC43F94113A14E7F001B41F6 /* ConnectView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC43F93F13A14E7F001B41F6 /* ConnectView.m */; };
 		DC43F94213A14E7F001B41F6 /* ConnectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC43F94013A14E7F001B41F6 /* ConnectView.xib */; };
 		DC43F94713A154A5001B41F6 /* background.gif in Resources */ = {isa = PBXBuildFile; fileRef = DC43F94613A154A5001B41F6 /* background.gif */; };
+		DC43F95E13A16E1C001B41F6 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DC43F95D13A16E1C001B41F6 /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		DC43F93F13A14E7F001B41F6 /* ConnectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectView.m; sourceTree = "<group>"; };
 		DC43F94013A14E7F001B41F6 /* ConnectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectView.xib; sourceTree = "<group>"; };
 		DC43F94613A154A5001B41F6 /* background.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = background.gif; sourceTree = "<group>"; };
+		DC43F95D13A16E1C001B41F6 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,9 +179,18 @@
 		DC43F94513A15476001B41F6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DC43F94613A154A5001B41F6 /* background.gif */,
+				DC43F95A13A16DA6001B41F6 /* Images */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		DC43F95A13A16DA6001B41F6 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				DC43F95D13A16E1C001B41F6 /* logo.png */,
+				DC43F94613A154A5001B41F6 /* background.gif */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +264,7 @@
 				DC43F91F13A14E4F001B41F6 /* MainWindow.xib in Resources */,
 				DC43F94213A14E7F001B41F6 /* ConnectView.xib in Resources */,
 				DC43F94713A154A5001B41F6 /* background.gif in Resources */,
+				DC43F95E13A16E1C001B41F6 /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

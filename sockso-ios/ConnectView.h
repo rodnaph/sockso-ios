@@ -1,4 +1,9 @@
 
+//
+//  The initial view that presents the user with the dialog
+//  to enter the details of the server to connect to.
+//
+
 #import <UIKit/UIKit.h>
 
 @interface ConnectView : UIViewController <UITextFieldDelegate> {
