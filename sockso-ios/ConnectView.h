@@ -1,7 +1,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ConnectView : UIViewController {
+@interface ConnectView : UIViewController <UITextFieldDelegate> {
     UITextField *server;
     UIButton *connect;
     UIImage *background;

@@ -10,7 +10,7 @@
 - (id) init {
     
     UIImage *aImage = [UIImage imageNamed:@"background.gif"];
-    
+        
     self.background = aImage;
     [aImage release];
     
@@ -18,16 +18,22 @@
     
 }
 
-- (IBAction) connectClicked {
+- (BOOL) textFieldShouldReturn:(UITextField *)textField {
     
-    server.text = @"CLICKED!";
+    [server resignFirstResponder];
+    
+    return YES;
     
 }
 
-- (void) drawRect:(CGRect) rect {
-    
-    
-    
+- (IBAction) connectClicked {
+}
+
+- (void) dealloc {
+    [server release];
+    [connect release];
+    [background release];
+    [super dealloc];
 }
 
 @end
