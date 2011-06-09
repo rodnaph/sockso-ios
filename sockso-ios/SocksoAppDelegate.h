@@ -1,12 +1,12 @@
 
 #import <UIKit/UIKit.h>
-#import "SocksoView.h"
+#import "ConnectView.h"
 
 @interface SocksoAppDelegate : NSObject <UIApplicationDelegate> {
-    SocksoView *view;
+    ConnectView *view;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) SocksoView *view;
+@property (nonatomic, retain) ConnectView *view;
 
 @end

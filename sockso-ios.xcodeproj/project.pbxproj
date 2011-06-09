@@ -20,8 +20,9 @@
 		DC43F93013A14E50001B41F6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC43F92E13A14E50001B41F6 /* InfoPlist.strings */; };
 		DC43F93313A14E50001B41F6 /* sockso_iosTests.h in Resources */ = {isa = PBXBuildFile; fileRef = DC43F93213A14E50001B41F6 /* sockso_iosTests.h */; };
 		DC43F93513A14E50001B41F6 /* sockso_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC43F93413A14E50001B41F6 /* sockso_iosTests.m */; };
-		DC43F94113A14E7F001B41F6 /* SocksoView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC43F93F13A14E7F001B41F6 /* SocksoView.m */; };
-		DC43F94213A14E7F001B41F6 /* SocksoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC43F94013A14E7F001B41F6 /* SocksoView.xib */; };
+		DC43F94113A14E7F001B41F6 /* ConnectView.m in Sources */ = {isa = PBXBuildFile; fileRef = DC43F93F13A14E7F001B41F6 /* ConnectView.m */; };
+		DC43F94213A14E7F001B41F6 /* ConnectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC43F94013A14E7F001B41F6 /* ConnectView.xib */; };
+		DC43F94713A154A5001B41F6 /* background.gif in Resources */ = {isa = PBXBuildFile; fileRef = DC43F94613A154A5001B41F6 /* background.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,9 +53,10 @@
 		DC43F93113A14E50001B41F6 /* sockso-iosTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sockso-iosTests-Prefix.pch"; sourceTree = "<group>"; };
 		DC43F93213A14E50001B41F6 /* sockso_iosTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sockso_iosTests.h; sourceTree = "<group>"; };
 		DC43F93413A14E50001B41F6 /* sockso_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sockso_iosTests.m; sourceTree = "<group>"; };
-		DC43F93E13A14E7F001B41F6 /* SocksoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocksoView.h; sourceTree = "<group>"; };
-		DC43F93F13A14E7F001B41F6 /* SocksoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocksoView.m; sourceTree = "<group>"; };
-		DC43F94013A14E7F001B41F6 /* SocksoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SocksoView.xib; sourceTree = "<group>"; };
+		DC43F93E13A14E7F001B41F6 /* ConnectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectView.h; sourceTree = "<group>"; };
+		DC43F93F13A14E7F001B41F6 /* ConnectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectView.m; sourceTree = "<group>"; };
+		DC43F94013A14E7F001B41F6 /* ConnectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConnectView.xib; sourceTree = "<group>"; };
+		DC43F94613A154A5001B41F6 /* background.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = background.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,7 +115,8 @@
 		DC43F91113A14E4F001B41F6 /* sockso-ios */ = {
 			isa = PBXGroup;
 			children = (
-				DC43F94413A1503F001B41F6 /* Resources */,
+				DC43F94513A15476001B41F6 /* Resources */,
+				DC43F94413A1503F001B41F6 /* Views */,
 				DC43F94313A15012001B41F6 /* Classes */,
 				DC43F91213A14E4F001B41F6 /* Supporting Files */,
 			);
@@ -154,19 +157,27 @@
 		DC43F94313A15012001B41F6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				DC43F93E13A14E7F001B41F6 /* SocksoView.h */,
-				DC43F93F13A14E7F001B41F6 /* SocksoView.m */,
+				DC43F93E13A14E7F001B41F6 /* ConnectView.h */,
+				DC43F93F13A14E7F001B41F6 /* ConnectView.m */,
 				DC43F91A13A14E4F001B41F6 /* SocksoAppDelegate.h */,
 				DC43F91B13A14E4F001B41F6 /* SocksoAppDelegate.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
 		};
-		DC43F94413A1503F001B41F6 /* Resources */ = {
+		DC43F94413A1503F001B41F6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				DC43F91D13A14E4F001B41F6 /* MainWindow.xib */,
-				DC43F94013A14E7F001B41F6 /* SocksoView.xib */,
+				DC43F94013A14E7F001B41F6 /* ConnectView.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		DC43F94513A15476001B41F6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DC43F94613A154A5001B41F6 /* background.gif */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -240,7 +251,8 @@
 			files = (
 				DC43F91613A14E4F001B41F6 /* InfoPlist.strings in Resources */,
 				DC43F91F13A14E4F001B41F6 /* MainWindow.xib in Resources */,
-				DC43F94213A14E7F001B41F6 /* SocksoView.xib in Resources */,
+				DC43F94213A14E7F001B41F6 /* ConnectView.xib in Resources */,
+				DC43F94713A154A5001B41F6 /* background.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,7 +290,7 @@
 			files = (
 				DC43F91913A14E4F001B41F6 /* main.m in Sources */,
 				DC43F91C13A14E4F001B41F6 /* SocksoAppDelegate.m in Sources */,
-				DC43F94113A14E7F001B41F6 /* SocksoView.m in Sources */,
+				DC43F94113A14E7F001B41F6 /* ConnectView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

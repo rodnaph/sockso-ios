@@ -1,6 +1,6 @@
 
 #import "SocksoAppDelegate.h"
-#import "SocksoView.h"
+#import "ConnectView.h"
 
 @implementation SocksoAppDelegate
 
@@ -9,9 +9,9 @@
 
 - (void) applicationDidFinishLaunching:(UIApplication *)application {
     
-    SocksoView *aView = [[SocksoView alloc]
-                         initWithNibName:@"SocksoView"
-                         bundle:[NSBundle mainBundle]];
+    ConnectView *aView = [[ConnectView alloc]
+                          initWithNibName:@"ConnectView"
+                          bundle:[NSBundle mainBundle]];
     
     self.view = aView;
     [aView release];
