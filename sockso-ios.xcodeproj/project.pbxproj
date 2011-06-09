@@ -1,0 +1,440 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DC43F90C13A14E4F001B41F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90B13A14E4F001B41F6 /* UIKit.framework */; };
+		DC43F90E13A14E4F001B41F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90D13A14E4F001B41F6 /* Foundation.framework */; };
+		DC43F91013A14E4F001B41F6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90F13A14E4F001B41F6 /* CoreGraphics.framework */; };
+		DC43F91613A14E4F001B41F6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC43F91413A14E4F001B41F6 /* InfoPlist.strings */; };
+		DC43F91913A14E4F001B41F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC43F91813A14E4F001B41F6 /* main.m */; };
+		DC43F91C13A14E4F001B41F6 /* sockso_iosAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC43F91B13A14E4F001B41F6 /* sockso_iosAppDelegate.m */; };
+		DC43F91F13A14E4F001B41F6 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC43F91D13A14E4F001B41F6 /* MainWindow.xib */; };
+		DC43F92613A14E50001B41F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90B13A14E4F001B41F6 /* UIKit.framework */; };
+		DC43F92713A14E50001B41F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90D13A14E4F001B41F6 /* Foundation.framework */; };
+		DC43F92813A14E50001B41F6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90F13A14E4F001B41F6 /* CoreGraphics.framework */; };
+		DC43F93013A14E50001B41F6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC43F92E13A14E50001B41F6 /* InfoPlist.strings */; };
+		DC43F93313A14E50001B41F6 /* sockso_iosTests.h in Resources */ = {isa = PBXBuildFile; fileRef = DC43F93213A14E50001B41F6 /* sockso_iosTests.h */; };
+		DC43F93513A14E50001B41F6 /* sockso_iosTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DC43F93413A14E50001B41F6 /* sockso_iosTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DC43F92913A14E50001B41F6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC43F8FE13A14E4F001B41F6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC43F90613A14E4F001B41F6;
+			remoteInfo = "sockso-ios";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DC43F90713A14E4F001B41F6 /* sockso-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sockso-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC43F90B13A14E4F001B41F6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DC43F90D13A14E4F001B41F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DC43F90F13A14E4F001B41F6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DC43F91313A14E4F001B41F6 /* sockso-ios-Info.plist */ = {isa = PBXFileReference; path = "sockso-ios-Info.plist"; sourceTree = "<group>"; };
+		DC43F91513A14E4F001B41F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DC43F91713A14E4F001B41F6 /* sockso-ios-Prefix.pch */ = {isa = PBXFileReference; path = "sockso-ios-Prefix.pch"; sourceTree = "<group>"; };
+		DC43F91813A14E4F001B41F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DC43F91A13A14E4F001B41F6 /* sockso_iosAppDelegate.h */ = {isa = PBXFileReference; path = sockso_iosAppDelegate.h; sourceTree = "<group>"; };
+		DC43F91B13A14E4F001B41F6 /* sockso_iosAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sockso_iosAppDelegate.m; sourceTree = "<group>"; };
+		DC43F91E13A14E4F001B41F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		DC43F92513A14E50001B41F6 /* sockso-iosTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "sockso-iosTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC43F92D13A14E50001B41F6 /* sockso-iosTests-Info.plist */ = {isa = PBXFileReference; path = "sockso-iosTests-Info.plist"; sourceTree = "<group>"; };
+		DC43F92F13A14E50001B41F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DC43F93113A14E50001B41F6 /* sockso-iosTests-Prefix.pch */ = {isa = PBXFileReference; path = "sockso-iosTests-Prefix.pch"; sourceTree = "<group>"; };
+		DC43F93213A14E50001B41F6 /* sockso_iosTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sockso_iosTests.h; sourceTree = "<group>"; };
+		DC43F93413A14E50001B41F6 /* sockso_iosTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sockso_iosTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DC43F90413A14E4F001B41F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC43F90C13A14E4F001B41F6 /* UIKit.framework in Frameworks */,
+				DC43F90E13A14E4F001B41F6 /* Foundation.framework in Frameworks */,
+				DC43F91013A14E4F001B41F6 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC43F92113A14E50001B41F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC43F92613A14E50001B41F6 /* UIKit.framework in Frameworks */,
+				DC43F92713A14E50001B41F6 /* Foundation.framework in Frameworks */,
+				DC43F92813A14E50001B41F6 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DC43F8FC13A14E4F001B41F6 = {
+			isa = PBXGroup;
+			children = (
+				DC43F91113A14E4F001B41F6 /* sockso-ios */,
+				DC43F92B13A14E50001B41F6 /* sockso-iosTests */,
+				DC43F90A13A14E4F001B41F6 /* Frameworks */,
+				DC43F90813A14E4F001B41F6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DC43F90813A14E4F001B41F6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DC43F90713A14E4F001B41F6 /* sockso-ios.app */,
+				DC43F92513A14E50001B41F6 /* sockso-iosTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DC43F90A13A14E4F001B41F6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC43F90B13A14E4F001B41F6 /* UIKit.framework */,
+				DC43F90D13A14E4F001B41F6 /* Foundation.framework */,
+				DC43F90F13A14E4F001B41F6 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DC43F91113A14E4F001B41F6 /* sockso-ios */ = {
+			isa = PBXGroup;
+			children = (
+				DC43F91A13A14E4F001B41F6 /* sockso_iosAppDelegate.h */,
+				DC43F91B13A14E4F001B41F6 /* sockso_iosAppDelegate.m */,
+				DC43F91D13A14E4F001B41F6 /* MainWindow.xib */,
+				DC43F91213A14E4F001B41F6 /* Supporting Files */,
+			);
+			path = "sockso-ios";
+			sourceTree = "<group>";
+		};
+		DC43F91213A14E4F001B41F6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DC43F91313A14E4F001B41F6 /* sockso-ios-Info.plist */,
+				DC43F91413A14E4F001B41F6 /* InfoPlist.strings */,
+				DC43F91713A14E4F001B41F6 /* sockso-ios-Prefix.pch */,
+				DC43F91813A14E4F001B41F6 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DC43F92B13A14E50001B41F6 /* sockso-iosTests */ = {
+			isa = PBXGroup;
+			children = (
+				DC43F93213A14E50001B41F6 /* sockso_iosTests.h */,
+				DC43F93413A14E50001B41F6 /* sockso_iosTests.m */,
+				DC43F92C13A14E50001B41F6 /* Supporting Files */,
+			);
+			path = "sockso-iosTests";
+			sourceTree = "<group>";
+		};
+		DC43F92C13A14E50001B41F6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DC43F92D13A14E50001B41F6 /* sockso-iosTests-Info.plist */,
+				DC43F92E13A14E50001B41F6 /* InfoPlist.strings */,
+				DC43F93113A14E50001B41F6 /* sockso-iosTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DC43F90613A14E4F001B41F6 /* sockso-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC43F93813A14E50001B41F6 /* Build configuration list for PBXNativeTarget "sockso-ios" */;
+			buildPhases = (
+				DC43F90313A14E4F001B41F6 /* Sources */,
+				DC43F90413A14E4F001B41F6 /* Frameworks */,
+				DC43F90513A14E4F001B41F6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "sockso-ios";
+			productName = "sockso-ios";
+			productReference = DC43F90713A14E4F001B41F6 /* sockso-ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DC43F92413A14E50001B41F6 /* sockso-iosTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC43F93B13A14E50001B41F6 /* Build configuration list for PBXNativeTarget "sockso-iosTests" */;
+			buildPhases = (
+				DC43F92013A14E50001B41F6 /* Sources */,
+				DC43F92113A14E50001B41F6 /* Frameworks */,
+				DC43F92213A14E50001B41F6 /* Resources */,
+				DC43F92313A14E50001B41F6 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC43F92A13A14E50001B41F6 /* PBXTargetDependency */,
+			);
+			name = "sockso-iosTests";
+			productName = "sockso-iosTests";
+			productReference = DC43F92513A14E50001B41F6 /* sockso-iosTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DC43F8FE13A14E4F001B41F6 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = DC43F90113A14E4F001B41F6 /* Build configuration list for PBXProject "sockso-ios" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DC43F8FC13A14E4F001B41F6;
+			productRefGroup = DC43F90813A14E4F001B41F6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DC43F90613A14E4F001B41F6 /* sockso-ios */,
+				DC43F92413A14E50001B41F6 /* sockso-iosTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DC43F90513A14E4F001B41F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC43F91613A14E4F001B41F6 /* InfoPlist.strings in Resources */,
+				DC43F91F13A14E4F001B41F6 /* MainWindow.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC43F92213A14E50001B41F6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC43F93013A14E50001B41F6 /* InfoPlist.strings in Resources */,
+				DC43F93313A14E50001B41F6 /* sockso_iosTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DC43F92313A14E50001B41F6 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DC43F90313A14E4F001B41F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC43F91913A14E4F001B41F6 /* main.m in Sources */,
+				DC43F91C13A14E4F001B41F6 /* sockso_iosAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC43F92013A14E50001B41F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC43F93513A14E50001B41F6 /* sockso_iosTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DC43F92A13A14E50001B41F6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC43F90613A14E4F001B41F6 /* sockso-ios */;
+			targetProxy = DC43F92913A14E50001B41F6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DC43F91413A14E4F001B41F6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC43F91513A14E4F001B41F6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DC43F91D13A14E4F001B41F6 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC43F91E13A14E4F001B41F6 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		DC43F92E13A14E50001B41F6 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DC43F92F13A14E50001B41F6 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DC43F93613A14E50001B41F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DC43F93713A14E50001B41F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		DC43F93913A14E50001B41F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sockso-ios/sockso-ios-Prefix.pch";
+				INFOPLIST_FILE = "sockso-ios/sockso-ios-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DC43F93A13A14E50001B41F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sockso-ios/sockso-ios-Prefix.pch";
+				INFOPLIST_FILE = "sockso-ios/sockso-ios-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		DC43F93C13A14E50001B41F6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/sockso-ios.app/sockso-ios";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sockso-iosTests/sockso-iosTests-Prefix.pch";
+				INFOPLIST_FILE = "sockso-iosTests/sockso-iosTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		DC43F93D13A14E50001B41F6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/sockso-ios.app/sockso-ios";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sockso-iosTests/sockso-iosTests-Prefix.pch";
+				INFOPLIST_FILE = "sockso-iosTests/sockso-iosTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DC43F90113A14E4F001B41F6 /* Build configuration list for PBXProject "sockso-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC43F93613A14E50001B41F6 /* Debug */,
+				DC43F93713A14E50001B41F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC43F93813A14E50001B41F6 /* Build configuration list for PBXNativeTarget "sockso-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC43F93913A14E50001B41F6 /* Debug */,
+				DC43F93A13A14E50001B41F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DC43F93B13A14E50001B41F6 /* Build configuration list for PBXNativeTarget "sockso-iosTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC43F93C13A14E50001B41F6 /* Debug */,
+				DC43F93D13A14E50001B41F6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DC43F8FE13A14E4F001B41F6 /* Project object */;
+}
