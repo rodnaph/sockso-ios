@@ -5,18 +5,6 @@
 
 @synthesize server;
 @synthesize connect;
-@synthesize background;
-
-- (id) init {
-    
-    UIImage *aImage = [UIImage imageNamed:@"background.gif"];
-        
-    self.background = aImage;
-    [aImage release];
-    
-    return self;
-    
-}
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     
@@ -32,7 +20,6 @@
 - (void) dealloc {
     [server release];
     [connect release];
-    [background release];
     [super dealloc];
 }
 
