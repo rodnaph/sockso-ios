@@ -6,14 +6,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ConnectView : UIViewController <UITextFieldDelegate> {
+@interface ConnectViewController : UIViewController <UITextFieldDelegate> {
     UITextField *server;
     UIButton *connect;
+    UIButton *community;
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *server;
 @property (nonatomic, retain) IBOutlet UIButton *connect;
+@property (nonatomic, retain) IBOutlet UIButton *community;
 
-- (IBAction) connectClicked; 
+- (IBAction) connectClicked;
+- (IBAction) communityClicked;
 
 @end

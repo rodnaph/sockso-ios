@@ -1,24 +1,24 @@
 
 #import "SocksoAppDelegate.h"
-#import "ConnectView.h"
+#import "ConnectViewController.h"
 
 @implementation SocksoAppDelegate
 
 @synthesize window;
-@synthesize view;
+@synthesize viewController;
 
 - (void) applicationDidFinishLaunching:(UIApplication *)application {
     
-    ConnectView *aView = [[ConnectView alloc]
-                          initWithNibName:@"ConnectView"
-                          bundle:[NSBundle mainBundle]];
+    ConnectViewController *aViewController = [[ConnectViewController alloc]
+                                              initWithNibName:@"ConnectView"
+                                              bundle:[NSBundle mainBundle]];
     
-    self.view = aView;
-    [aView release];
+    self.viewController = aViewController;
+    [aViewController release];
     
-    [self.window addSubview:self.view.view];
+    [self.window addSubview:self.viewController.view];
     [self.window makeKeyAndVisible];
-        
+
 }
 
 - (void) dealloc {

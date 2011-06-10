@@ -1,10 +1,11 @@
 
-#import "ConnectView.h"
+#import "ConnectViewController.h"
 
-@implementation ConnectView
+@implementation ConnectViewController
 
 @synthesize server;
 @synthesize connect;
+@synthesize community;
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     
@@ -14,7 +15,16 @@
     
 }
 
+- (IBAction) communityClicked {
+    
+    server.text = @"Community!";
+    
+}
+
 - (IBAction) connectClicked {
+    
+    server.text = @"Connext!";
+    
 }
 
 - (void) dealloc {
