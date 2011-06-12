@@ -5,12 +5,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JSON.h"
 
 @interface ConnectViewController : UIViewController <UITextFieldDelegate> {
     UITextField *server;
     UIButton *connect;
     UIButton *community;
     NSMutableData *responseData;
+    @private SBJsonParser *parser;
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *server;

@@ -2,6 +2,7 @@
 #import "ConnectViewController.h"
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
+#import "JSON.h"
 
 @implementation ConnectViewController
 
@@ -9,17 +10,21 @@
 @synthesize connect;
 @synthesize community;
 
+- (void) viewDidLoad {
+    
+    [super viewDidLoad];
+    
+    parser = [[SBJsonParser alloc] init];
+    
+}
+
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     [server resignFirstResponder];
     return YES;
 }
 
 - (IBAction) communityClicked {
-
     [self showCommunityList];
-    
-    server.text = @"Community!";
-    
 }
 
 - (void) showCommunityList {
@@ -34,7 +39,9 @@
 
 - (void) requestFinished: (ASIHTTPRequest *) request {
     
-    NSLog( @"JSON: %@", [request responseString] );
+    id json = [parser objectWithString:[request responseString]];
+    
+    NSLog( @"JSON: %@", json );
     
 }
 
@@ -47,6 +54,7 @@
 - (void) dealloc {
     [server release];
     [connect release];
+    [parser release];
     [super dealloc];
 }
 
