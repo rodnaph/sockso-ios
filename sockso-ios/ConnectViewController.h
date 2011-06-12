@@ -10,6 +10,7 @@
     UITextField *server;
     UIButton *connect;
     UIButton *community;
+    NSMutableData *responseData;
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *server;
