@@ -7,9 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DC03908113B8F5FD00843F95 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC03908013B8F5FD00843F95 /* HomeView.xib */; };
-		DC03908513B8F69400843F95 /* NavController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC03908413B8F69400843F95 /* NavController.m */; };
 		DC03909313B8FE6800843F95 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC03909213B8FE6800843F95 /* HomeViewController.m */; };
+		DC0390A013B906C700843F95 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC03909F13B906C700843F95 /* HomeView.xib */; };
 		DC43F90C13A14E4F001B41F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90B13A14E4F001B41F6 /* UIKit.framework */; };
 		DC43F90E13A14E4F001B41F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90D13A14E4F001B41F6 /* Foundation.framework */; };
 		DC43F91013A14E4F001B41F6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90F13A14E4F001B41F6 /* CoreGraphics.framework */; };
@@ -27,7 +26,6 @@
 		DC43F94713A154A5001B41F6 /* background.gif in Resources */ = {isa = PBXBuildFile; fileRef = DC43F94613A154A5001B41F6 /* background.gif */; };
 		DC43F95E13A16E1C001B41F6 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DC43F95D13A16E1C001B41F6 /* logo.png */; };
 		DC43F96013A1F224001B41F6 /* community.png in Resources */ = {isa = PBXBuildFile; fileRef = DC43F95F13A1F223001B41F6 /* community.png */; };
-		DC5B659613A4D406006ED498 /* JsonFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5B659513A4D406006ED498 /* JsonFetcher.m */; };
 		DC5B65D013A4DF55006ED498 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5B65C713A4DF55006ED498 /* NSObject+SBJSON.m */; };
 		DC5B65D113A4DF55006ED498 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5B65C913A4DF55006ED498 /* NSString+SBJSON.m */; };
 		DC5B65D213A4DF55006ED498 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5B65CB13A4DF55006ED498 /* SBJsonBase.m */; };
@@ -59,11 +57,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DC03908013B8F5FD00843F95 /* HomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
-		DC03908313B8F69400843F95 /* NavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavController.h; sourceTree = "<group>"; };
-		DC03908413B8F69400843F95 /* NavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavController.m; sourceTree = "<group>"; };
 		DC03909113B8FE6800843F95 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		DC03909213B8FE6800843F95 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		DC03909F13B906C700843F95 /* HomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
 		DC43F90713A14E4F001B41F6 /* sockso-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sockso-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC43F90B13A14E4F001B41F6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DC43F90D13A14E4F001B41F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -86,8 +82,6 @@
 		DC43F94613A154A5001B41F6 /* background.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = background.gif; sourceTree = "<group>"; };
 		DC43F95D13A16E1C001B41F6 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../logo.png; sourceTree = "<group>"; };
 		DC43F95F13A1F223001B41F6 /* community.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = community.png; sourceTree = "<group>"; };
-		DC5B659413A4D406006ED498 /* JsonFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JsonFetcher.h; sourceTree = "<group>"; };
-		DC5B659513A4D406006ED498 /* JsonFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JsonFetcher.m; sourceTree = "<group>"; };
 		DC5B65C513A4DF55006ED498 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		DC5B65C613A4DF55006ED498 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		DC5B65C713A4DF55006ED498 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -240,10 +234,6 @@
 				DC43F93F13A14E7F001B41F6 /* ConnectViewController.m */,
 				DC43F91A13A14E4F001B41F6 /* SocksoAppDelegate.h */,
 				DC43F91B13A14E4F001B41F6 /* SocksoAppDelegate.m */,
-				DC5B659413A4D406006ED498 /* JsonFetcher.h */,
-				DC5B659513A4D406006ED498 /* JsonFetcher.m */,
-				DC03908313B8F69400843F95 /* NavController.h */,
-				DC03908413B8F69400843F95 /* NavController.m */,
 				DC03909113B8FE6800843F95 /* HomeViewController.h */,
 				DC03909213B8FE6800843F95 /* HomeViewController.m */,
 			);
@@ -254,7 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				DC43F94013A14E7F001B41F6 /* ConnectView.xib */,
-				DC03908013B8F5FD00843F95 /* HomeView.xib */,
+				DC03909F13B906C700843F95 /* HomeView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -405,7 +395,7 @@
 				DC43F94713A154A5001B41F6 /* background.gif in Resources */,
 				DC43F95E13A16E1C001B41F6 /* logo.png in Resources */,
 				DC43F96013A1F224001B41F6 /* community.png in Resources */,
-				DC03908113B8F5FD00843F95 /* HomeView.xib in Resources */,
+				DC0390A013B906C700843F95 /* HomeView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,7 +434,6 @@
 				DC43F91913A14E4F001B41F6 /* main.m in Sources */,
 				DC43F91C13A14E4F001B41F6 /* SocksoAppDelegate.m in Sources */,
 				DC43F94113A14E7F001B41F6 /* ConnectViewController.m in Sources */,
-				DC5B659613A4D406006ED498 /* JsonFetcher.m in Sources */,
 				DC5B65D013A4DF55006ED498 /* NSObject+SBJSON.m in Sources */,
 				DC5B65D113A4DF55006ED498 /* NSString+SBJSON.m in Sources */,
 				DC5B65D213A4DF55006ED498 /* SBJsonBase.m in Sources */,
@@ -459,7 +448,6 @@
 				DC5B65F013A4DFD4006ED498 /* ASIInputStream.m in Sources */,
 				DC5B65F113A4DFD4006ED498 /* ASINetworkQueue.m in Sources */,
 				DC5B65F413A4DFE4006ED498 /* Reachability.m in Sources */,
-				DC03908513B8F69400843F95 /* NavController.m in Sources */,
 				DC03909313B8FE6800843F95 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

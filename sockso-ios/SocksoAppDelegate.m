@@ -9,9 +9,18 @@
 
 - (void) applicationDidFinishLaunching:(UIApplication *)application {
 
-    navigationController = [[NavController alloc] init];
+    ConnectViewController *aView = [[ConnectViewController alloc]
+                                    initWithNibName:@"ConnectView"
+                                    bundle:nil];
+
+    UINavigationController *navController = [[UINavigationController alloc]
+                                             initWithRootViewController:aView];
     
-    [self.window addSubview:[navigationController view]];
+    self.navigationController = navController;
+    [navController release];
+    [aView release];
+    
+    [self.window addSubview:navigationController.view];
     [self.window makeKeyAndVisible];
 
 }

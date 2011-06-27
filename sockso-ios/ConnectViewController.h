@@ -23,5 +23,6 @@
 - (IBAction) communityClicked;
 
 - (void) showCommunityList;
+- (void) showHomeView;
 
 @end

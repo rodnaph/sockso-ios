@@ -1,8 +1,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeViewController : UIViewController {
-    
+@interface HomeViewController : UITableViewController  <UISearchDisplayDelegate, UISearchBarDelegate> {
 }
 
 @end

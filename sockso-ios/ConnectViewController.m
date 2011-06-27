@@ -3,6 +3,7 @@
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
 #import "JSON.h"
+#import "HomeViewController.h"
 
 @implementation ConnectViewController
 
@@ -49,9 +50,15 @@
 
 - (IBAction) connectClicked {
     
-    ConnectViewController *aView = [[ConnectViewController alloc]
-                                    initWithNibName:@"HomeView"
-                                    bundle:[NSBundle mainBundle]];
+    [self showHomeView];
+    
+}
+
+- (void) showHomeView {
+    
+    HomeViewController *aView = [[HomeViewController alloc]
+                                  initWithNibName:@"HomeView"
+                                  bundle:[NSBundle mainBundle]];
     
     [self.navigationController pushViewController:aView animated:TRUE];
     [aView release];
