@@ -4,8 +4,7 @@
 
 @implementation SocksoAppDelegate
 
-@synthesize window;
-@synthesize navigationController;
+@synthesize window, navigationController;
 
 - (void) applicationDidFinishLaunching:(UIApplication *)application {
 
@@ -16,9 +15,13 @@
     UINavigationController *navController = [[UINavigationController alloc]
                                              initWithRootViewController:aView];
     
+    NSLog( @"Create navigation controller" );
+    
     self.navigationController = navController;
     [navController release];
     [aView release];
+    
+    NSLog( @"Make window visible" );
     
     [self.window addSubview:navigationController.view];
     [self.window makeKeyAndVisible];
