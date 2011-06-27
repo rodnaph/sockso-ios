@@ -22,4 +22,6 @@
 - (IBAction) connectClicked;
 - (IBAction) communityClicked;
 
+- (void) showCommunityList;
+
 @end

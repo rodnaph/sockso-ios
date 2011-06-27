@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC03908113B8F5FD00843F95 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC03908013B8F5FD00843F95 /* HomeView.xib */; };
+		DC03908513B8F69400843F95 /* NavController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC03908413B8F69400843F95 /* NavController.m */; };
+		DC03909313B8FE6800843F95 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC03909213B8FE6800843F95 /* HomeViewController.m */; };
 		DC43F90C13A14E4F001B41F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90B13A14E4F001B41F6 /* UIKit.framework */; };
 		DC43F90E13A14E4F001B41F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90D13A14E4F001B41F6 /* Foundation.framework */; };
 		DC43F91013A14E4F001B41F6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90F13A14E4F001B41F6 /* CoreGraphics.framework */; };
 		DC43F91613A14E4F001B41F6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC43F91413A14E4F001B41F6 /* InfoPlist.strings */; };
 		DC43F91913A14E4F001B41F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC43F91813A14E4F001B41F6 /* main.m */; };
 		DC43F91C13A14E4F001B41F6 /* SocksoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC43F91B13A14E4F001B41F6 /* SocksoAppDelegate.m */; };
-		DC43F91F13A14E4F001B41F6 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC43F91D13A14E4F001B41F6 /* MainWindow.xib */; };
 		DC43F92613A14E50001B41F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90B13A14E4F001B41F6 /* UIKit.framework */; };
 		DC43F92713A14E50001B41F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90D13A14E4F001B41F6 /* Foundation.framework */; };
 		DC43F92813A14E50001B41F6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90F13A14E4F001B41F6 /* CoreGraphics.framework */; };
@@ -57,6 +59,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC03908013B8F5FD00843F95 /* HomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
+		DC03908313B8F69400843F95 /* NavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavController.h; sourceTree = "<group>"; };
+		DC03908413B8F69400843F95 /* NavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavController.m; sourceTree = "<group>"; };
+		DC03909113B8FE6800843F95 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		DC03909213B8FE6800843F95 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		DC43F90713A14E4F001B41F6 /* sockso-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sockso-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC43F90B13A14E4F001B41F6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DC43F90D13A14E4F001B41F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -67,7 +74,6 @@
 		DC43F91813A14E4F001B41F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DC43F91A13A14E4F001B41F6 /* SocksoAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocksoAppDelegate.h; sourceTree = "<group>"; };
 		DC43F91B13A14E4F001B41F6 /* SocksoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocksoAppDelegate.m; sourceTree = "<group>"; };
-		DC43F91E13A14E4F001B41F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
 		DC43F92513A14E50001B41F6 /* sockso-iosTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "sockso-iosTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC43F92D13A14E50001B41F6 /* sockso-iosTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sockso-iosTests-Info.plist"; sourceTree = "<group>"; };
 		DC43F92F13A14E50001B41F6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -236,6 +242,10 @@
 				DC43F91B13A14E4F001B41F6 /* SocksoAppDelegate.m */,
 				DC5B659413A4D406006ED498 /* JsonFetcher.h */,
 				DC5B659513A4D406006ED498 /* JsonFetcher.m */,
+				DC03908313B8F69400843F95 /* NavController.h */,
+				DC03908413B8F69400843F95 /* NavController.m */,
+				DC03909113B8FE6800843F95 /* HomeViewController.h */,
+				DC03909213B8FE6800843F95 /* HomeViewController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -243,8 +253,8 @@
 		DC43F94413A1503F001B41F6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DC43F91D13A14E4F001B41F6 /* MainWindow.xib */,
 				DC43F94013A14E7F001B41F6 /* ConnectView.xib */,
+				DC03908013B8F5FD00843F95 /* HomeView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -391,11 +401,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC43F91613A14E4F001B41F6 /* InfoPlist.strings in Resources */,
-				DC43F91F13A14E4F001B41F6 /* MainWindow.xib in Resources */,
 				DC43F94213A14E7F001B41F6 /* ConnectView.xib in Resources */,
 				DC43F94713A154A5001B41F6 /* background.gif in Resources */,
 				DC43F95E13A16E1C001B41F6 /* logo.png in Resources */,
 				DC43F96013A1F224001B41F6 /* community.png in Resources */,
+				DC03908113B8F5FD00843F95 /* HomeView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +459,8 @@
 				DC5B65F013A4DFD4006ED498 /* ASIInputStream.m in Sources */,
 				DC5B65F113A4DFD4006ED498 /* ASINetworkQueue.m in Sources */,
 				DC5B65F413A4DFE4006ED498 /* Reachability.m in Sources */,
+				DC03908513B8F69400843F95 /* NavController.m in Sources */,
+				DC03909313B8FE6800843F95 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,14 +489,6 @@
 				DC43F91513A14E4F001B41F6 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		DC43F91D13A14E4F001B41F6 /* MainWindow.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DC43F91E13A14E4F001B41F6 /* en */,
-			);
-			name = MainWindow.xib;
 			sourceTree = "<group>";
 		};
 		DC43F92E13A14E50001B41F6 /* InfoPlist.strings */ = {

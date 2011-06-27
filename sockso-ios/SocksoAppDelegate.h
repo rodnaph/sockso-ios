@@ -1,12 +1,12 @@
 
 #import <UIKit/UIKit.h>
-#import "ConnectViewController.h"
+#import "NavController.h"
 
 @interface SocksoAppDelegate : NSObject <UIApplicationDelegate> {
-    ConnectViewController *viewController;
+    NavController *navigationController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) ConnectViewController *viewController;
+@property (nonatomic, retain) NavController *navigationController;
 
 @end

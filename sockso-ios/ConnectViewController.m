@@ -24,7 +24,9 @@
 }
 
 - (IBAction) communityClicked {
+ 
     [self showCommunityList];
+    
 }
 
 - (void) showCommunityList {
@@ -47,7 +49,12 @@
 
 - (IBAction) connectClicked {
     
-    server.text = @"Connext!";
+    ConnectViewController *aView = [[ConnectViewController alloc]
+                                    initWithNibName:@"HomeView"
+                                    bundle:[NSBundle mainBundle]];
+    
+    [self.navigationController pushViewController:aView animated:TRUE];
+    [aView release];
     
 }
 

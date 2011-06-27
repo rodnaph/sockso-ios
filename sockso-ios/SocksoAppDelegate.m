@@ -5,23 +5,19 @@
 @implementation SocksoAppDelegate
 
 @synthesize window;
-@synthesize viewController;
+@synthesize navigationController;
 
 - (void) applicationDidFinishLaunching:(UIApplication *)application {
+
+    navigationController = [[NavController alloc] init];
     
-    ConnectViewController *aViewController = [[ConnectViewController alloc]
-                                              initWithNibName:@"ConnectView"
-                                              bundle:[NSBundle mainBundle]];
-    
-    self.viewController = aViewController;
-    [aViewController release];
-    
-    [self.window addSubview:self.viewController.view];
+    [self.window addSubview:[navigationController view]];
     [self.window makeKeyAndVisible];
 
 }
 
 - (void) dealloc {
+    [navigationController release];
     [window release];
     [super dealloc];
 }
