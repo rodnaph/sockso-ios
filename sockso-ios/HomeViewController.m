@@ -7,11 +7,11 @@
 
 @implementation HomeViewController
 
-@synthesize listContent;
+@synthesize listContent, serverInfo;
 
 - (void) viewDidLoad {
     
-    self.title = @"Sockso";
+    self.title = [serverInfo objectForKey:@"title"];
     self.listContent = [[NSMutableArray alloc] init];
 
     [self.tableView reloadData];
