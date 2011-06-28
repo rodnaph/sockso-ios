@@ -153,6 +153,8 @@
                                   initWithNibName:@"HomeView"
                                   bundle:[NSBundle mainBundle]];
     
+    [serverInfo setValue:[server text] forKey:@"ipAndPort"];
+    
     aView.serverInfo = serverInfo;
     
     [self.navigationController pushViewController:aView animated:TRUE];

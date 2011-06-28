@@ -58,55 +58,82 @@
 //
 
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[self getSearchUrl:searchBar]];
     
-    NSString *baseUrl = @"http://192.168.0.2:4444/json/search/";
-    NSString *fullUrl = [baseUrl stringByAppendingString:[searchBar text]];
-    NSURL *url = [NSURL URLWithString:fullUrl];
- 
-    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
-    [request setDelegate:self];
+    [request setCompletionBlock:^{
+        [self showSearchResults:[request responseString]];
+        [self.searchDisplayController setActive:FALSE];
+    }];
+    
+    [request setFailedBlock:^{
+        [self showSearchFailed];
+    }];
+    
     [request startAsynchronous];
     
 }
 
 //
-// search request returned
+// returns the URL for a search query using the string in the searchbar
 //
 
-- (void) requestFinished: (ASIHTTPRequest *) request {
+- (NSURL *) getSearchUrl:(UISearchBar *) searchBar {
+        
+    NSString *fullUrl = [NSString stringWithFormat:@"http://%@/json/search/%@",
+                         [serverInfo objectForKey:@"ipAndPort"],
+                         [searchBar text]];
+    NSURL *url = [NSURL URLWithString:fullUrl];
+
+    NSLog( @"Search Query URL: %@", fullUrl );
+
+    return url;
+
+}
+
+//
+// Informs the user their search failed
+//
+
+- (void) showSearchFailed {
+    
+    // @todo
+    
+}
+
+//
+// puts search result data into listContent then reloads the table
+//
+
+- (void) showSearchResults:(NSString *) resultData {
     
     SBJsonParser *parser = [[SBJsonParser alloc] init];
-    NSArray *results = [parser objectWithString:[request responseString]];
+    NSArray *results = [parser objectWithString:resultData];
 
-    [self.listContent removeAllObjects];
-    
-    for ( NSDictionary *result in results ) {
-        MusicItem *item = [MusicItem
-                           itemWithName:[result objectForKey:@"id"]
-                           name:[result objectForKey:@"name"]];
-        [self.listContent addObject:item];
-    }
-
-    NSLog( @"Call Reload" );
-    
+    [self parseSearchResults:results];
     [self.tableView reloadData];
-    [self.searchDisplayController setActive:FALSE];
     
     [parser release];
     
 }
 
+//
+// parses search results to repopulate list contents with MusicItem objects
+//
 
-- (BOOL) searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+- (void) parseSearchResults:(NSArray *) results {
     
-    return YES;
+    [self.listContent removeAllObjects];
     
-}
+    for ( NSDictionary *result in results ) {
+        
+        MusicItem *item = [MusicItem
+                           itemWithName:[result objectForKey:@"id"]
+                           name:[result objectForKey:@"name"]];
+        [self.listContent addObject:item];
+        
+    }
 
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
-    
-    return YES;
-    
 }
 
 @end

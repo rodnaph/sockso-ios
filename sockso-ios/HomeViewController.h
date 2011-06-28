@@ -9,4 +9,9 @@
 @property (nonatomic, retain) NSMutableArray *listContent;
 @property (nonatomic, retain) NSDictionary *serverInfo;
 
+- (void) showSearchResults:(NSString *) resultData;
+- (void) showSearchFailed;
+- (NSURL *) getSearchUrl:(UISearchBar *) searchBar;
+- (void) parseSearchResults:(NSArray *) results;
+
 @end
