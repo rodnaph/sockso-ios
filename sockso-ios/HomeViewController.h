@@ -11,7 +11,8 @@
 
 - (void) showSearchResults:(NSString *) resultData;
 - (void) showSearchFailed;
-- (NSURL *) getSearchUrl:(UISearchBar *) searchBar;
+- (NSURL *) getSearchUrl:(NSString *) searchText;
 - (void) parseSearchResults:(NSArray *) results;
+- (void) performSearch:(NSString *) searchText;
 
 @end

@@ -59,11 +59,23 @@
 
 - (void) searchBarSearchButtonClicked:(UISearchBar *)searchBar {
 
-    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:[self getSearchUrl:searchBar]];
+    [searchBar resignFirstResponder];
+    
+    [self performSearch:[searchBar text]];
+    
+}
+
+//
+//  perform a search with the specified text
+//
+
+- (void) performSearch:(NSString *)searchText {
+    
+    NSURL *url = [self getSearchUrl:searchText];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
     
     [request setCompletionBlock:^{
         [self showSearchResults:[request responseString]];
-        [self.searchDisplayController setActive:FALSE];
     }];
     
     [request setFailedBlock:^{
@@ -78,11 +90,11 @@
 // returns the URL for a search query using the string in the searchbar
 //
 
-- (NSURL *) getSearchUrl:(UISearchBar *) searchBar {
+- (NSURL *) getSearchUrl:(NSString *) searchText {
         
     NSString *fullUrl = [NSString stringWithFormat:@"http://%@/json/search/%@",
                          [serverInfo objectForKey:@"ipAndPort"],
-                         [searchBar text]];
+                         searchText];
     NSURL *url = [NSURL URLWithString:fullUrl];
 
     NSLog( @"Search Query URL: %@", fullUrl );
@@ -112,7 +124,7 @@
 
     [self parseSearchResults:results];
     [self.tableView reloadData];
-    
+
     [parser release];
     
 }
@@ -136,4 +148,13 @@
 
 }
 
+- (BOOL) searchBarShouldEndEditing:(UISearchBar *) searchBar {
+    
+    NSLog( @"Check should end" );
+    
+    return YES;
+    
+}
+
 @end
+
