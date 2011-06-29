@@ -4,8 +4,7 @@
 @implementation sockso_iosTests
 
 - (void)testExample {
-    
-    STFail( @"Unit tests are not implemented yet in sockso-iosTests" );
+
     
 }
 

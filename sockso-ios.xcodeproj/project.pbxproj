@@ -57,6 +57,7 @@
 		DCF0660313BBD69F000ECDEE /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF0660213BBD69F000ECDEE /* Track.m */; };
 		DCF0660613BBD6E9000ECDEE /* Artist.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF0660513BBD6E9000ECDEE /* Artist.m */; };
 		DCF0660913BBD6F5000ECDEE /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF0660813BBD6F4000ECDEE /* Album.m */; };
+		DCF0660C13BBD883000ECDEE /* MusicItemTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF0660B13BBD883000ECDEE /* MusicItemTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +155,8 @@
 		DCF0660513BBD6E9000ECDEE /* Artist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Artist.m; sourceTree = "<group>"; };
 		DCF0660713BBD6F4000ECDEE /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Album.h; sourceTree = "<group>"; };
 		DCF0660813BBD6F4000ECDEE /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
+		DCF0660A13BBD883000ECDEE /* MusicItemTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicItemTest.h; sourceTree = "<group>"; };
+		DCF0660B13BBD883000ECDEE /* MusicItemTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicItemTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +254,8 @@
 				DC43F93213A14E50001B41F6 /* sockso_iosTests.h */,
 				DC43F93413A14E50001B41F6 /* sockso_iosTests.m */,
 				DC43F92C13A14E50001B41F6 /* Supporting Files */,
+				DCF0660A13BBD883000ECDEE /* MusicItemTest.h */,
+				DCF0660B13BBD883000ECDEE /* MusicItemTest.m */,
 			);
 			path = "sockso-iosTests";
 			sourceTree = "<group>";
@@ -557,6 +562,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC43F93513A14E50001B41F6 /* sockso_iosTests.m in Sources */,
+				DCF0660C13BBD883000ECDEE /* MusicItemTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
