@@ -1,7 +1,6 @@
 
 #import "ConnectViewController.h"
 #import "ASIHTTPRequest.h"
-#import "ASIFormDataRequest.h"
 #import "JSON.h"
 #import "HomeViewController.h"
 #import "CommunityViewController.h"
@@ -50,7 +49,7 @@
 
     NSURL *url = [NSURL URLWithString:@"http://sockso.pu-gh.com/community.html?format=json"];
     
-    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     [request setCompletionBlock:^{
         NSArray *servers = [self getCommunityServers:[request responseString]];
         [self showCommunityPage:servers];
@@ -84,18 +83,6 @@
     [self.navigationController pushViewController:aView animated:YES];
     [aView release];
 
-}
-
-//
-// Handler for when fetching community servers has returned
-//
-
-- (void) requestFinished: (ASIHTTPRequest *) request {
-    
-    id json = [parser objectWithString:[request responseString]];
-    
-    NSLog( @"JSON: %@", json );
-    
 }
 
 //
