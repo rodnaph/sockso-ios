@@ -5,6 +5,7 @@
 #import "ASIFormDataRequest.h"
 #import "JSON.h"
 #import "SocksoServer.h"
+#import "PlayViewController.h"
 
 @implementation HomeViewController
 
@@ -17,6 +18,10 @@
 
 }
 
+//
+// Create a view controller for the server
+//
+
 + (HomeViewController *) viewForServer:(SocksoServer *)server {
     
     HomeViewController *aView = [[HomeViewController alloc]
@@ -27,11 +32,6 @@
     
     return [aView autorelease];
     
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	// There is only one section.
-	return 1;
 }
 
 //
@@ -54,8 +54,12 @@
 
 	static NSString *kCellID = @"cellID";
 	
-	UITableViewCell *cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellID] autorelease];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellID];
+    
+	if ( cell == nil ) {
+		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellID] autorelease];
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	}
 	
     MusicItem *item = [self.listContent objectAtIndex:indexPath.row];
 	
@@ -156,25 +160,30 @@
         MusicItem *item = [MusicItem
                            itemWithName:[result objectForKey:@"id"]
                            name:[result objectForKey:@"name"]];
+        
         [self.listContent addObject:item];
         
     }
 
 }
 
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
-{
-    // Return YES to cause the search result table view to be reloaded.
-    return NO;
+//
+// Music item selected
+//
+
+- (void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    MusicItem *item = [listContent objectAtIndex:[indexPath row]];
+    PlayViewController *aView = [PlayViewController viewForTrack:item server:server];
+    
+    [self.navigationController pushViewController:aView animated:YES];
+    
 }
 
 
-- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
-{
-    // Return YES to cause the search result table view to be reloaded.
-    return NO;
-}
-
+//
+// dealloc
+//
 
 - (void) dealloc {
     

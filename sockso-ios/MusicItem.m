@@ -15,10 +15,19 @@
     
 }
 
+- (BOOL) isTrack {
+    
+    return [[mid substringToIndex:2] isEqualToString:@"tr"];
+    
+}
+
 - (void) dealloc {
+    
     [mid release];
     [name release];
+    
     [super dealloc];
+    
 }
 
 @end
