@@ -1,7 +1,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CommunityViewController : UIViewController {
+@interface CommunityViewController : UITableViewController {
     NSArray *servers;
 }
 

@@ -65,7 +65,7 @@
 
 - (NSArray *) getCommunityServers:(NSString *) serverJson {
     
-    id json = [parser objectWithString:[request responseString]];
+    return [parser objectWithString:serverJson];
     
 }
 
