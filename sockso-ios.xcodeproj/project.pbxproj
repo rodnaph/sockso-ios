@@ -259,20 +259,10 @@
 		DC43F94313A15012001B41F6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				DC43F93E13A14E7F001B41F6 /* ConnectViewController.h */,
-				DC43F93F13A14E7F001B41F6 /* ConnectViewController.m */,
+				DCF065FF13BBD62E000ECDEE /* Controllers */,
+				DCF065FE13BBD622000ECDEE /* Sockso */,
 				DC43F91A13A14E4F001B41F6 /* SocksoAppDelegate.h */,
 				DC43F91B13A14E4F001B41F6 /* SocksoAppDelegate.m */,
-				DC03909113B8FE6800843F95 /* HomeViewController.h */,
-				DC03909213B8FE6800843F95 /* HomeViewController.m */,
-				DC0390A413B9149000843F95 /* MusicItem.h */,
-				DC0390A513B9149000843F95 /* MusicItem.m */,
-				DCB881BC13BA5E980095656A /* CommunityViewController.h */,
-				DCB881BD13BA5E980095656A /* CommunityViewController.m */,
-				DCEB12A313BB0E98000806A4 /* SocksoServer.h */,
-				DCEB12A413BB0E98000806A4 /* SocksoServer.m */,
-				DCF065CD13BBBE57000ECDEE /* PlayViewController.h */,
-				DCF065CE13BBBE59000ECDEE /* PlayViewController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -371,6 +361,40 @@
 				DCF065E213BBCA7C000ECDEE /* AudioStreamer.h */,
 			);
 			name = AudioStreamer;
+			sourceTree = "<group>";
+		};
+		DCF065FE13BBD622000ECDEE /* Sockso */ = {
+			isa = PBXGroup;
+			children = (
+				DCEB12A313BB0E98000806A4 /* SocksoServer.h */,
+				DCEB12A413BB0E98000806A4 /* SocksoServer.m */,
+				DCF0660013BBD63C000ECDEE /* Music */,
+			);
+			name = Sockso;
+			sourceTree = "<group>";
+		};
+		DCF065FF13BBD62E000ECDEE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DC43F93E13A14E7F001B41F6 /* ConnectViewController.h */,
+				DC43F93F13A14E7F001B41F6 /* ConnectViewController.m */,
+				DC03909113B8FE6800843F95 /* HomeViewController.h */,
+				DC03909213B8FE6800843F95 /* HomeViewController.m */,
+				DCB881BC13BA5E980095656A /* CommunityViewController.h */,
+				DCB881BD13BA5E980095656A /* CommunityViewController.m */,
+				DCF065CD13BBBE57000ECDEE /* PlayViewController.h */,
+				DCF065CE13BBBE59000ECDEE /* PlayViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		DCF0660013BBD63C000ECDEE /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				DC0390A413B9149000843F95 /* MusicItem.h */,
+				DC0390A513B9149000843F95 /* MusicItem.m */,
+			);
+			name = Music;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
