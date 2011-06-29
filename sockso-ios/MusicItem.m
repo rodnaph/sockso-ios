@@ -15,6 +15,12 @@
     
 }
 
+- (NSString *) getId {
+    
+    return [mid substringFromIndex:2];
+                                    
+}
+
 - (BOOL) isTrack {
     
     return [[mid substringToIndex:2] isEqualToString:@"tr"];

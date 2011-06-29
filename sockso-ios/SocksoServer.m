@@ -1,5 +1,6 @@
 
 #import "SocksoServer.h"
+#import "MusicItem.h"
 
 @implementation SocksoServer
 

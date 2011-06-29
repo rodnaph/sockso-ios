@@ -10,6 +10,7 @@
 
 + (id) itemWithName:(NSString *)mid name:(NSString *)name;
 
+- (NSString *) getId;
 - (BOOL) isTrack;
 
 @end

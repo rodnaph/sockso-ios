@@ -52,6 +52,8 @@
 		DCEB12A513BB0E99000806A4 /* SocksoServer.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEB12A413BB0E98000806A4 /* SocksoServer.m */; };
 		DCF065CB13BBB9DB000ECDEE /* PlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCF065CA13BBB9DB000ECDEE /* PlayView.xib */; };
 		DCF065CF13BBBE5C000ECDEE /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF065CE13BBBE59000ECDEE /* PlayViewController.m */; };
+		DCF065E313BBCA7C000ECDEE /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF065E113BBCA7C000ECDEE /* AudioStreamer.m */; };
+		DCF065ED13BBCBD8000ECDEE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF065EC13BBCBD8000ECDEE /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,6 +142,9 @@
 		DCF065CA13BBB9DB000ECDEE /* PlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayView.xib; sourceTree = "<group>"; };
 		DCF065CD13BBBE57000ECDEE /* PlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayViewController.h; sourceTree = "<group>"; };
 		DCF065CE13BBBE59000ECDEE /* PlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewController.m; sourceTree = "<group>"; };
+		DCF065E113BBCA7C000ECDEE /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioStreamer.m; path = "../../../Downloads/mattgallagher-AudioStreamer-bf263da/Classes/AudioStreamer.m"; sourceTree = "<group>"; };
+		DCF065E213BBCA7C000ECDEE /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioStreamer.h; path = "../../../Downloads/mattgallagher-AudioStreamer-bf263da/Classes/AudioStreamer.h"; sourceTree = "<group>"; };
+		DCF065EC13BBCBD8000ECDEE /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCF065ED13BBCBD8000ECDEE /* AudioToolbox.framework in Frameworks */,
 				DCAE3C8013BB47360017BE29 /* QuartzCore.framework in Frameworks */,
 				DC5B660513A4E46B006ED498 /* libz.1.2.3.dylib in Frameworks */,
 				DC43F91013A14E4F001B41F6 /* CoreGraphics.framework in Frameworks */,
@@ -174,6 +180,7 @@
 		DC43F8FC13A14E4F001B41F6 = {
 			isa = PBXGroup;
 			children = (
+				DCF065EC13BBCBD8000ECDEE /* AudioToolbox.framework */,
 				DCAE3C7F13BB47360017BE29 /* QuartzCore.framework */,
 				DC5B660413A4E46B006ED498 /* libz.1.2.3.dylib */,
 				DC5B660313A4E45F006ED498 /* CoreGraphics.framework */,
@@ -303,6 +310,7 @@
 		DC4C95F413A4CB6100958C0E /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				DCF065E013BBCA69000ECDEE /* AudioStreamer */,
 				DC5B65D513A4DF86006ED498 /* ASIHTTPRequest */,
 				DC5B65C413A4DF38006ED498 /* JSON */,
 			);
@@ -354,6 +362,15 @@
 				DC5B65E913A4DFD4006ED498 /* ASIProgressDelegate.h */,
 			);
 			name = ASIHTTPRequest;
+			sourceTree = "<group>";
+		};
+		DCF065E013BBCA69000ECDEE /* AudioStreamer */ = {
+			isa = PBXGroup;
+			children = (
+				DCF065E113BBCA7C000ECDEE /* AudioStreamer.m */,
+				DCF065E213BBCA7C000ECDEE /* AudioStreamer.h */,
+			);
+			name = AudioStreamer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -489,6 +506,7 @@
 				DCB881BE13BA5E980095656A /* CommunityViewController.m in Sources */,
 				DCEB12A513BB0E99000806A4 /* SocksoServer.m in Sources */,
 				DCF065CF13BBBE5C000ECDEE /* PlayViewController.m in Sources */,
+				DCF065E313BBCA7C000ECDEE /* AudioStreamer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
