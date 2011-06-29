@@ -13,21 +13,13 @@
 
 + (SocksoServer *) fromData:(NSString *)ipAndPort title:(NSString *)title tagline:(NSString *)tagline {
         
-    SocksoServer *server = [[SocksoServer alloc] init];
+    SocksoServer *server = [SocksoServer alloc];
     
     server.ipAndPort = ipAndPort;
     server.title = title;
     server.tagline = tagline;
     
     return [server autorelease];
-    
-}
-
-- (id) init {
-    
-    [super init];
-    
-    return self;
     
 }
 

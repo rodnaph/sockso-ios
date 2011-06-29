@@ -4,7 +4,7 @@
 
 @implementation PlayViewController
 
-@synthesize nameLabel, item, server;
+@synthesize nameLabel, item, server, controls;
 
 //
 //  Create play controller to play a track on a server
@@ -24,6 +24,8 @@
 }
 
 - (void) viewDidAppear:(BOOL) animated {
+    
+    [nameLabel setText:item.name];
     
     [server play:item];
     
