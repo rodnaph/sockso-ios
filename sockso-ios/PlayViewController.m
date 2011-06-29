@@ -1,11 +1,10 @@
 
 #import "PlayViewController.h"
 #import "MusicItem.h"
-#import "AudioStreamer.h"
 
 @implementation PlayViewController
 
-@synthesize nameLabel, item, server, streamer;
+@synthesize nameLabel, item, server;
 
 //
 //  Create play controller to play a track on a server
@@ -26,23 +25,12 @@
 
 - (void) viewDidAppear:(BOOL) animated {
     
-    NSString *playUrl = [NSString stringWithFormat:@"http://%@/stream/%@",
-                         server.ipAndPort,
-                         [item getId]];
-    
-    NSLog( @"Play url: %@", playUrl );
-    
-	NSURL *url = [NSURL URLWithString:playUrl];
-	streamer = [[AudioStreamer alloc] initWithURL:url];
-    
-    [streamer start];
+    [server play:item];
     
 }
 
 - (void) dealloc {
-    
-    [streamer release];
-    
+        
     [super dealloc];
     
 }
