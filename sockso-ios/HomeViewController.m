@@ -15,8 +15,6 @@
     self.title = server.title;
     self.listContent = [[NSMutableArray alloc] init];
 
-    [self.tableView reloadData];
-    
 }
 
 + (HomeViewController *) viewForServer:(SocksoServer *)server {
@@ -31,11 +29,18 @@
     
 }
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+	// There is only one section.
+	return 1;
+}
+
 //
 // return the number of rows in the list
 //
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    NSLog( @"Check listContent count" );
     
 	return [self.listContent count];
 
@@ -49,19 +54,15 @@
 
 	static NSString *kCellID = @"cellID";
 	
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellID];
-    
-	if ( cell == nil ) {
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellID] autorelease];
-		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-	}
+	UITableViewCell *cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellID] autorelease];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	
     MusicItem *item = [self.listContent objectAtIndex:indexPath.row];
 	
 	cell.textLabel.text = item.name;
-
-    NSLog( @"Item: %@", item.name );
-
+    
+    NSLog( @"Cell: %@ (%@)", item.name, item.mid );
+    
 	return cell;
     
 }
@@ -160,6 +161,20 @@
     }
 
 }
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    // Return YES to cause the search result table view to be reloaded.
+    return NO;
+}
+
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
+{
+    // Return YES to cause the search result table view to be reloaded.
+    return NO;
+}
+
 
 - (void) dealloc {
     

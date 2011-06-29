@@ -7,7 +7,7 @@
     SocksoServer *server;
 }
 
-@property (nonatomic, retain) NSMutableArray *listContent;
+@property (nonatomic, retain) IBOutlet NSMutableArray *listContent;
 @property (nonatomic, retain) SocksoServer *server;
 
 + (HomeViewController *) viewForServer:(SocksoServer *) server;
