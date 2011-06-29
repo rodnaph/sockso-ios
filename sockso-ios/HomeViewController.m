@@ -40,8 +40,6 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    NSLog( @"Check listContent count" );
-    
 	return [self.listContent count];
 
 }
@@ -64,9 +62,7 @@
     MusicItem *item = [self.listContent objectAtIndex:indexPath.row];
 	
 	cell.textLabel.text = item.name;
-    
-    NSLog( @"Cell: %@ (%@)", item.name, item.mid );
-    
+        
 	return cell;
     
 }
