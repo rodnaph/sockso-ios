@@ -4,6 +4,7 @@
 #import "ASIFormDataRequest.h"
 #import "JSON.h"
 #import "HomeViewController.h"
+#import "CommunityViewController.h"
 
 @implementation ConnectViewController
 
@@ -36,9 +37,9 @@
 //
 
 - (IBAction) communityClicked {
- 
+
     [self fetchCommunityList];
-    
+
 }
 
 //
@@ -50,8 +51,38 @@
     NSURL *url = [NSURL URLWithString:@"http://sockso.pu-gh.com/community.html?format=json"];
     
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
-    [request setDelegate:self];
+    [request setCompletionBlock:^{
+        NSArray *servers = [self getCommunityServers:[request responseString]];
+        [self showCommunityPage:servers];
+    }];
     [request startAsynchronous];
+    
+}
+
+//
+// Parse the JSON to retrieve a list of community servers
+//
+
+- (NSArray *) getCommunityServers:(NSString *) serverJson {
+    
+    id json = [parser objectWithString:[request responseString]];
+    
+}
+
+//
+// Show the community page with the specified selection of servers
+//
+
+- (void) showCommunityPage:(NSArray *) servers {
+    
+    CommunityViewController *aView = [[CommunityViewController alloc]
+                                      initWithNibName:@"CommunityView"
+                                      bundle:nil];
+    
+    aView.servers = servers;
+    
+    [self.navigationController pushViewController:aView animated:YES];
+    [aView release];
 
 }
 

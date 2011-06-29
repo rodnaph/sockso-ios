@@ -46,6 +46,8 @@
 		DC5B660213A4E457006ED498 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5B660113A4E457006ED498 /* MobileCoreServices.framework */; };
 		DC5B660513A4E46B006ED498 /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5B660413A4E46B006ED498 /* libz.1.2.3.dylib */; };
 		DC8659B413B9345100DB4DB3 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC8659B313B9345100DB4DB3 /* MainWindow.xib */; };
+		DCB881BA13BA5E660095656A /* CommunityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCB881B913BA5E660095656A /* CommunityView.xib */; };
+		DCB881BE13BA5E980095656A /* CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB881BD13BA5E980095656A /* CommunityViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +127,9 @@
 		DC5B660313A4E45F006ED498 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DC5B660413A4E46B006ED498 /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
 		DC8659B313B9345100DB4DB3 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		DCB881B913BA5E660095656A /* CommunityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommunityView.xib; sourceTree = "<group>"; };
+		DCB881BC13BA5E980095656A /* CommunityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityViewController.h; sourceTree = "<group>"; };
+		DCB881BD13BA5E980095656A /* CommunityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +248,8 @@
 				DC03909213B8FE6800843F95 /* HomeViewController.m */,
 				DC0390A413B9149000843F95 /* MusicItem.h */,
 				DC0390A513B9149000843F95 /* MusicItem.m */,
+				DCB881BC13BA5E980095656A /* CommunityViewController.h */,
+				DCB881BD13BA5E980095656A /* CommunityViewController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -253,6 +260,7 @@
 				DC43F94013A14E7F001B41F6 /* ConnectView.xib */,
 				DC03909F13B906C700843F95 /* HomeView.xib */,
 				DC8659B313B9345100DB4DB3 /* MainWindow.xib */,
+				DCB881B913BA5E660095656A /* CommunityView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -405,6 +413,7 @@
 				DC43F96013A1F224001B41F6 /* community.png in Resources */,
 				DC0390A013B906C700843F95 /* HomeView.xib in Resources */,
 				DC8659B413B9345100DB4DB3 /* MainWindow.xib in Resources */,
+				DCB881BA13BA5E660095656A /* CommunityView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,6 +468,7 @@
 				DC5B65F413A4DFE4006ED498 /* Reachability.m in Sources */,
 				DC03909313B8FE6800843F95 /* HomeViewController.m in Sources */,
 				DC0390A613B9149000843F95 /* MusicItem.m in Sources */,
+				DCB881BE13BA5E980095656A /* CommunityViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -28,11 +28,15 @@
 - (IBAction) connectClicked;
 - (IBAction) communityClicked;
 
-- (void) fetchCommunityList;
 - (void) showHomeView:(NSDictionary *) serverInfo;
-- (void) showConnecting;
 - (void) tryToConnect;
 - (void) showConnectFailed;
+
+- (void) showConnecting;
 - (void) setControlsActive:(BOOL) active;
+
+- (void) fetchCommunityList;
+- (void) showCommunityPage:(NSArray *) servers;
+- (NSArray *) getCommunityServers:(NSString *) serverJson;
 
 @end
