@@ -9,11 +9,13 @@
 
 @synthesize server, connect, community, activity;
 
+//
+// Handler for view load time
+//
+
 - (void) viewDidLoad {
     
     [super viewDidLoad];
-    
-    NSLog( @"View did load" );
     
     parser = [[SBJsonParser alloc] init];
     
