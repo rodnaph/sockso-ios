@@ -193,7 +193,11 @@
     
     [serverInfo setValue:[server text] forKey:@"ipAndPort"];
     
-    [self.navigationController pushViewController:[HomeViewController viewForServer:serverInfo]
+    SocksoServer *socksoServer = [SocksoServer fromData:[server text]
+                                                  title:[serverInfo objectForKey:@"title"]
+                                                tagline:[serverInfo objectForKey:@"tagline"]];
+    
+    [self.navigationController pushViewController:[HomeViewController viewForServer:socksoServer]
                                          animated:TRUE];
     
 }

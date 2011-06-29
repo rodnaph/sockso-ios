@@ -4,27 +4,28 @@
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
 #import "JSON.h"
+#import "SocksoServer.h"
 
 @implementation HomeViewController
 
-@synthesize listContent, serverInfo;
+@synthesize listContent, server;
 
 - (void) viewDidLoad {
     
-    self.title = [serverInfo objectForKey:@"title"];
+    self.title = server.title;
     self.listContent = [[NSMutableArray alloc] init];
 
     [self.tableView reloadData];
     
 }
 
-+ (HomeViewController *) viewForServer:(NSDictionary *)server {
++ (HomeViewController *) viewForServer:(SocksoServer *)server {
     
     HomeViewController *aView = [[HomeViewController alloc]
                                  initWithNibName:@"HomeView"
                                  bundle:nil];
     
-    aView.serverInfo = server;
+    aView.server = server;
     
     return [aView autorelease];
     
@@ -105,7 +106,7 @@
 - (NSURL *) getSearchUrl:(NSString *) searchText {
         
     NSString *fullUrl = [NSString stringWithFormat:@"http://%@/json/search/%@",
-                         [serverInfo objectForKey:@"ipAndPort"],
+                         server.ipAndPort,
                          searchText];
     NSURL *url = [NSURL URLWithString:fullUrl];
 
@@ -163,7 +164,6 @@
 - (void) dealloc {
     
     [listContent release];
-    [serverInfo release];
     
     [super dealloc];
     

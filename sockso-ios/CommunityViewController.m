@@ -1,6 +1,7 @@
 
 #import "CommunityViewController.h"
 #import "HomeViewController.h"
+#import "SocksoServer.h"
 
 @implementation CommunityViewController
 
@@ -56,8 +57,15 @@
 
 - (void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSDictionary *server = [self.servers objectAtIndex:[indexPath row]];
-
+    NSDictionary *serverInfo = [self.servers objectAtIndex:[indexPath row]];
+    NSString *ipAndPort = [NSString stringWithFormat:@"%@:%@",
+                           [serverInfo objectForKey:@"ip"],
+                           [serverInfo objectForKey:@"port"]];
+    
+    SocksoServer *server = [SocksoServer fromData:ipAndPort
+                                          title:[serverInfo objectForKey:@"title"]
+                                          tagline:[serverInfo objectForKey:@"tagline"]];
+    
     [self.navigationController pushViewController:[HomeViewController viewForServer:server]
                                          animated:YES];
         

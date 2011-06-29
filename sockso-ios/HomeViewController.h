@@ -1,15 +1,16 @@
 
 #import <UIKit/UIKit.h>
+#import "SocksoServer.h"
 
 @interface HomeViewController : UITableViewController  <UISearchDisplayDelegate, UISearchBarDelegate> {
 	NSMutableArray *listContent;
-    NSDictionary *serverInfo;
+    SocksoServer *server;
 }
 
 @property (nonatomic, retain) NSMutableArray *listContent;
-@property (nonatomic, retain) NSDictionary *serverInfo;
+@property (nonatomic, retain) SocksoServer *server;
 
-+ (HomeViewController *) viewForServer:(NSDictionary *) server;
++ (HomeViewController *) viewForServer:(SocksoServer *) server;
 
 - (void) showSearchResults:(NSString *) resultData;
 - (void) showSearchFailed;
