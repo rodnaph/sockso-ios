@@ -57,17 +57,10 @@
 - (void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSDictionary *server = [self.servers objectAtIndex:[indexPath row]];
-    
-    HomeViewController *aView = [[HomeViewController alloc]
-                                 initWithNibName:@"HomeView"
-                                 bundle:nil];
 
-    aView.serverInfo = server;
-    
-    [self.navigationController pushViewController:aView animated:YES];
-    
-    [aView release];
-    
+    [self.navigationController pushViewController:[HomeViewController viewForServer:server]
+                                         animated:YES];
+        
 }
 
 @end

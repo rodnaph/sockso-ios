@@ -169,16 +169,10 @@
     
     [self setControlsActive:YES];
     
-    HomeViewController *aView = [[HomeViewController alloc]
-                                  initWithNibName:@"HomeView"
-                                  bundle:[NSBundle mainBundle]];
-    
     [serverInfo setValue:[server text] forKey:@"ipAndPort"];
     
-    aView.serverInfo = serverInfo;
-    
-    [self.navigationController pushViewController:aView animated:TRUE];
-    [aView release];
+    [self.navigationController pushViewController:[HomeViewController viewForServer:serverInfo]
+                                         animated:TRUE];
     
 }
 

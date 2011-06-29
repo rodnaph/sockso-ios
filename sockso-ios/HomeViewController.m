@@ -18,6 +18,18 @@
     
 }
 
++ (HomeViewController *) viewForServer:(NSDictionary *)server {
+    
+    HomeViewController *aView = [[HomeViewController alloc]
+                                 initWithNibName:@"HomeView"
+                                 bundle:nil];
+    
+    aView.serverInfo = server;
+    
+    return [aView autorelease];
+    
+}
+
 //
 // return the number of rows in the list
 //
