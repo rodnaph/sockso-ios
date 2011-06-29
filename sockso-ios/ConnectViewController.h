@@ -9,6 +9,7 @@
 
 @interface ConnectViewController : UIViewController <UITextFieldDelegate> {
     
+    UILabel *connectFailed;
     UITextField *server;
     UIButton *connect;
     UIButton *community;
@@ -20,6 +21,7 @@
     
 }
 
+@property (nonatomic, retain) IBOutlet UILabel *connectFailed;
 @property (nonatomic, retain) IBOutlet UITextField *server;
 @property (nonatomic, retain) IBOutlet UIButton *connect;
 @property (nonatomic, retain) IBOutlet UIButton *community;

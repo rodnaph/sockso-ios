@@ -4,10 +4,11 @@
 #import "JSON.h"
 #import "HomeViewController.h"
 #import "CommunityViewController.h"
+#import "QuartzCore/CAAnimation.h"
 
 @implementation ConnectViewController
 
-@synthesize server, connect, community, activity;
+@synthesize server, connect, community, activity, connectFailed;
 
 //
 // Handler for view load time
@@ -156,9 +157,30 @@
 //
 
 - (void) showConnectFailed {
-   
+    
+    connectFailed.alpha = 0;
+    [connectFailed setHidden:NO];
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDelegate:self];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    [UIView setAnimationDuration:0.5f];
+    connectFailed.alpha = 1;
+    [UIView setAnimationDidStopSelector:@selector(showLabelAnimationDidStop:finished:)];
+    [UIView commitAnimations];
+    
     [self setControlsActive:YES];
     
+}
+
+- (void)showLabelAnimationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag {
+
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    [UIView setAnimationDuration:1.0f];
+    connectFailed.alpha = 0;
+    [UIView commitAnimations];
+
 }
 
 //
@@ -183,8 +205,6 @@
 - (void) dealloc {
     
     [server release];
-    [connect release];
-    [parser release];
     
     [super dealloc];
     

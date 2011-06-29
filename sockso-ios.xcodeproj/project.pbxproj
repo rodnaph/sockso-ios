@@ -46,6 +46,7 @@
 		DC5B660213A4E457006ED498 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5B660113A4E457006ED498 /* MobileCoreServices.framework */; };
 		DC5B660513A4E46B006ED498 /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5B660413A4E46B006ED498 /* libz.1.2.3.dylib */; };
 		DC8659B413B9345100DB4DB3 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC8659B313B9345100DB4DB3 /* MainWindow.xib */; };
+		DCAE3C8013BB47360017BE29 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCAE3C7F13BB47360017BE29 /* QuartzCore.framework */; };
 		DCB881BA13BA5E660095656A /* CommunityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCB881B913BA5E660095656A /* CommunityView.xib */; };
 		DCB881BE13BA5E980095656A /* CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB881BD13BA5E980095656A /* CommunityViewController.m */; };
 		DCEB12A513BB0E99000806A4 /* SocksoServer.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEB12A413BB0E98000806A4 /* SocksoServer.m */; };
@@ -128,6 +129,7 @@
 		DC5B660313A4E45F006ED498 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DC5B660413A4E46B006ED498 /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
 		DC8659B313B9345100DB4DB3 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		DCAE3C7F13BB47360017BE29 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DCB881B913BA5E660095656A /* CommunityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommunityView.xib; sourceTree = "<group>"; };
 		DCB881BC13BA5E980095656A /* CommunityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityViewController.h; sourceTree = "<group>"; };
 		DCB881BD13BA5E980095656A /* CommunityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityViewController.m; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DCAE3C8013BB47360017BE29 /* QuartzCore.framework in Frameworks */,
 				DC5B660513A4E46B006ED498 /* libz.1.2.3.dylib in Frameworks */,
 				DC43F91013A14E4F001B41F6 /* CoreGraphics.framework in Frameworks */,
 				DC5B660213A4E457006ED498 /* MobileCoreServices.framework in Frameworks */,
@@ -166,6 +169,7 @@
 		DC43F8FC13A14E4F001B41F6 = {
 			isa = PBXGroup;
 			children = (
+				DCAE3C7F13BB47360017BE29 /* QuartzCore.framework */,
 				DC5B660413A4E46B006ED498 /* libz.1.2.3.dylib */,
 				DC5B660313A4E45F006ED498 /* CoreGraphics.framework */,
 				DC5B660113A4E457006ED498 /* MobileCoreServices.framework */,
