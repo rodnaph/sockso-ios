@@ -63,4 +63,12 @@
         
 }
 
+- (void) dealloc {
+    
+    [servers release];
+    
+    [super dealloc];
+    
+}
+
 @end

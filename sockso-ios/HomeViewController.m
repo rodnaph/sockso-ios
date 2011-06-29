@@ -160,11 +160,12 @@
 
 }
 
-- (BOOL) searchBarShouldEndEditing:(UISearchBar *) searchBar {
+- (void) dealloc {
     
-    NSLog( @"Check should end" );
+    [listContent release];
+    [serverInfo release];
     
-    return YES;
+    [super dealloc];
     
 }
 
