@@ -4,10 +4,17 @@
 #import "AudioStreamer.h"
 #import "JSON.h"
 
+typedef enum {
+    SS_MODE_STOPPED = 0,
+    SS_MODE_PLAYING = 1,
+    SS_MODE_PAUSED = 2
+} SocksoServerMode;
+
 @interface SocksoServer : NSObject {
     NSString *ipAndPort, *title, *tagline;
     AudioStreamer *streamer;
     SBJsonParser *parser;
+    int mode;
 }
 
 @property (nonatomic, retain) NSString *ipAndPort, *title, *tagline;

@@ -46,6 +46,7 @@
     
     [super init];
     
+    mode = SS_MODE_STOPPED;
     parser = [[SBJsonParser alloc] init];
     
     return self;
@@ -134,7 +135,8 @@
 
 - (void) play:(MusicItem *)item {
 
-    if ( streamer ) {
+    if ( mode != SS_MODE_STOPPED ) {
+        [streamer stop];
         [streamer release];
     }
     
@@ -149,6 +151,8 @@
     
     [streamer start];
 
+    mode = SS_MODE_PLAYING;
+    
 }
 
 //
