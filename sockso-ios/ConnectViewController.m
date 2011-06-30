@@ -18,6 +18,8 @@
     
     [super viewDidLoad];
     
+    self.title = @"Sockso iOS";
+    
     parser = [[SBJsonParser alloc] init];
     
 }

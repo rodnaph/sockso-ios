@@ -15,7 +15,15 @@
 - (void) viewDidLoad {
     
     self.title = server.title;
+    
+    if ( [self.title isEqualToString:@""] ) {
+        self.title = server.tagline;
+    }
 
+    if ( [self.title isEqualToString:@""] ) {
+        self.title = @"Sockso";
+    }
+    
 }
 
 //

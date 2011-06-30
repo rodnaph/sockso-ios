@@ -99,7 +99,7 @@
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentVerticalAlignment">0</int>
-						<string key="IBUIText">192.168.2.16:4444</string>
+						<string key="IBUIText">192.168.0.2:4444</string>
 						<int key="IBUIBorderStyle">3</int>
 						<string key="IBUIPlaceholder">Server IP/DNS</string>
 						<object class="NSColor" key="IBUITextColor">
