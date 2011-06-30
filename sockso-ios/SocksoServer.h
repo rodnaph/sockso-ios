@@ -2,14 +2,17 @@
 #import <Foundation/Foundation.h>
 #import "MusicItem.h"
 #import "AudioStreamer.h"
+#import "JSON.h"
 
 @interface SocksoServer : NSObject {
     NSString *ipAndPort, *title, *tagline;
     AudioStreamer *streamer;
+    SBJsonParser *parser;
 }
 
 @property (nonatomic, retain) NSString *ipAndPort, *title, *tagline;
 @property (nonatomic, retain) AudioStreamer *streamer;
+@property (nonatomic, retain) SBJsonParser *parser;
 
 // not yet connected to sockso server
 + (SocksoServer *) disconnectedServer:(NSString *) ipAndPort;

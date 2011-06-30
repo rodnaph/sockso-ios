@@ -8,7 +8,7 @@
 
 @implementation ConnectViewController
 
-@synthesize server, connect, community, activity, connectFailed;
+@synthesize serverInput, connect, community, activity, connectFailed;
 
 //
 // Handler for view load time
@@ -28,7 +28,7 @@
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     
-    [server resignFirstResponder];
+    [serverInput resignFirstResponder];
     
     return YES;
     
@@ -106,6 +106,10 @@
 
 - (IBAction) tryToConnect {
 
+    SocksoServer *server = [SocksoServer disconnectedServer:[serverInput text]];
+    
+    [server connect:^{ [self showHomeView:server]; }
+          onFailure:^{ [self showConnectFailed]; }];
     
 }
 
@@ -129,7 +133,7 @@
     [activity setHidden:active];
     [activity startAnimating];
     
-    [server setEnabled:active];
+    [serverInput setEnabled:active];
     [community setEnabled:active];
     [connect setEnabled:active];
 
@@ -170,30 +174,11 @@
 // Show the home view for the server specified in the server input
 //
 
-- (void) showHomeView:(NSDictionary *) serverInfo {
+- (void) showHomeView:(SocksoServer *) server {
     
     [self setControlsActive:YES];
-    
-    [serverInfo setValue:[server text] forKey:@"ipAndPort"];
-    
-    SocksoServer *socksoServer = [SocksoServer connectedServer:[server text]
-                                                  title:[serverInfo objectForKey:@"title"]
-                                                tagline:[serverInfo objectForKey:@"tagline"]];
-    
-    [self.navigationController pushViewController:[HomeViewController viewForServer:socksoServer]
+    [self.navigationController pushViewController:[HomeViewController viewForServer:server]
                                          animated:TRUE];
-    
-}
-
-//
-// dealloc
-//
-
-- (void) dealloc {
-    
-    [server release];
-    
-    [super dealloc];
     
 }
 

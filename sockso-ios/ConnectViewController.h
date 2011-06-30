@@ -6,11 +6,12 @@
 
 #import <UIKit/UIKit.h>
 #import "JSON.h"
+#import "SocksoServer.h"
 
 @interface ConnectViewController : UIViewController <UITextFieldDelegate> {
     
     UILabel *connectFailed;
-    UITextField *server;
+    UITextField *serverInput;
     UIButton *connect;
     UIButton *community;
     UIActivityIndicatorView *activity;
@@ -22,7 +23,7 @@
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *connectFailed;
-@property (nonatomic, retain) IBOutlet UITextField *server;
+@property (nonatomic, retain) IBOutlet UITextField *serverInput;
 @property (nonatomic, retain) IBOutlet UIButton *connect;
 @property (nonatomic, retain) IBOutlet UIButton *community;
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView *activity;
@@ -30,7 +31,7 @@
 - (IBAction) connectClicked;
 - (IBAction) communityClicked;
 
-- (void) showHomeView:(NSDictionary *) serverInfo;
+- (void) showHomeView:(SocksoServer *) server;
 - (void) tryToConnect;
 - (void) showConnectFailed;
 

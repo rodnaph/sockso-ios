@@ -7,7 +7,7 @@
 
 @implementation SocksoServer
 
-@synthesize ipAndPort, title, tagline, streamer;
+@synthesize ipAndPort, title, tagline, streamer, parser;
 
 + (SocksoServer *) disconnectedServer:(NSString *)ipAndPort {
     
@@ -15,25 +15,38 @@
     
     server.ipAndPort = ipAndPort;
     
-    return server;
+    return [server autorelease];
 
 }
 
 + (SocksoServer *) connectedServer:(NSString *)ipAndPort title:(NSString *)title tagline:(NSString *)tagline {
-        
-    SocksoServer *server = [SocksoServer alloc];
+
+    SocksoServer * server = [SocksoServer disconnectedServer:ipAndPort];
     
-    server.ipAndPort = ipAndPort;
     server.title = title;
     server.tagline = tagline;
     
-    return [server autorelease];
+    return server;
     
 }
 
+- (id) init {
+    
+    [super init];
+    
+    parser = [[SBJsonParser alloc] init];
+    
+    return self;
+    
+}
+
+//
+//  try and connect to the server
+//
+
 - (void) connect:(void (^)(void))onConnect onFailure:(void (^)(void))onFailure {
     
-    NSString *fullUrl = [NSString stringWithFormat:@"http://%@/json/serverinfo", [server text]];
+    NSString *fullUrl = [NSString stringWithFormat:@"http://%@/json/serverinfo", ipAndPort];
     NSURL *url = [NSURL URLWithString:fullUrl];
     
     NSLog( @"Connecting to server at: %@", fullUrl );
@@ -41,17 +54,23 @@
     __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     
     [request setCompletionBlock:^{
+        
         NSDictionary *serverInfo = [parser objectWithString:[request responseString]];
+        self.title = [serverInfo objectForKey:@"title"];
+        self.tagline = [serverInfo objectForKey:@"tagline"];
+        
         onConnect();
+        
     }];
     
-    [request setFailedBlock:^{
-        onFailure();
-    }];
-    
+    [request setFailedBlock:onFailure];
     [request startAsynchronous];
 
 }
+
+//
+//  start playing a music item, stop any other playing if it is
+//
 
 - (void) play:(MusicItem *)item {
 
@@ -72,6 +91,10 @@
 
 }
 
+//
+//  play the current track if it's paused or stopped
+//
+
 - (void) play {
     
 }
@@ -79,6 +102,7 @@
 - (void) dealloc {
         
     [streamer release];
+    [parser release];
     
     [super dealloc];
     
