@@ -9,15 +9,23 @@
 
 @synthesize ipAndPort, title, tagline, streamer, parser;
 
+//
+// creates a server not yet connected
+//
+
 + (SocksoServer *) disconnectedServer:(NSString *)ipAndPort {
     
-    SocksoServer *server = [SocksoServer alloc];
+    SocksoServer *server = [[SocksoServer alloc] init];
     
     server.ipAndPort = ipAndPort;
     
     return [server autorelease];
 
 }
+
+//
+// creates a server connected to the specified address
+//
 
 + (SocksoServer *) connectedServer:(NSString *)ipAndPort title:(NSString *)title tagline:(NSString *)tagline {
 
