@@ -20,6 +20,7 @@ typedef enum {
 @property (nonatomic, retain) NSString *ipAndPort, *title, *tagline;
 @property (nonatomic, retain) AudioStreamer *streamer;
 @property (nonatomic, retain) SBJsonParser *parser;
+@property (nonatomic) int mode;
 
 + (SocksoServer *) disconnectedServer:(NSString *) ipAndPort;
 + (SocksoServer *) connectedServer:(NSString *) ipAndPort title:(NSString *) title tagline:(NSString *) tagline;
@@ -28,6 +29,7 @@ typedef enum {
 
 - (void) play:(MusicItem*) item;
 - (void) play;
+- (void) pause;
 
 // connection and querying
 

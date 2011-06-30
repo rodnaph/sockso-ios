@@ -7,7 +7,7 @@
 
 @implementation SocksoServer
 
-@synthesize ipAndPort, title, tagline, streamer, parser;
+@synthesize ipAndPort, title, tagline, streamer, parser, mode;
 
 //
 // creates a server not yet connected
@@ -156,15 +156,31 @@
 }
 
 //
-//  play the current track if it's paused or stopped
+// play the current track if it's paused or stopped
 //
 
 - (void) play {
     
+    [streamer start];
+    mode = SS_MODE_PLAYING;
+    
+}
+
+//
+// pause current track
+//
+
+- (void) pause {
+    
+    [streamer pause];
+    mode = SS_MODE_PAUSED;
+    
 }
 
 - (void) dealloc {
-        
+
+    NSLog( @"SERVER DEALLOCATED" );
+    
     [streamer release];
     [parser release];
     
