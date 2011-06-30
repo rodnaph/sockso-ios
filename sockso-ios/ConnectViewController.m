@@ -106,23 +106,6 @@
 
 - (IBAction) tryToConnect {
 
-    NSString *fullUrl = [NSString stringWithFormat:@"http://%@/json/serverinfo", [server text]];
-    NSURL *url = [NSURL URLWithString:fullUrl];
-
-    NSLog( @"Connecting to server at: %@", fullUrl );
-    
-    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    
-    [request setCompletionBlock:^{
-        NSDictionary *serverInfo = [parser objectWithString:[request responseString]];
-        [self showHomeView:serverInfo];
-    }];
-    
-    [request setFailedBlock:^{
-        [self showConnectFailed];
-    }];
-    
-    [request startAsynchronous];
     
 }
 
@@ -193,7 +176,7 @@
     
     [serverInfo setValue:[server text] forKey:@"ipAndPort"];
     
-    SocksoServer *socksoServer = [SocksoServer fromData:[server text]
+    SocksoServer *socksoServer = [SocksoServer connectedServer:[server text]
                                                   title:[serverInfo objectForKey:@"title"]
                                                 tagline:[serverInfo objectForKey:@"tagline"]];
     

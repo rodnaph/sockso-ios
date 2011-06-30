@@ -2,16 +2,24 @@
 #import "SocksoServer.h"
 #import "MusicItem.h"
 #import "AudioStreamer.h"
+#import "ASIHTTPRequest.h"
+#import "JSON.h"
 
 @implementation SocksoServer
 
 @synthesize ipAndPort, title, tagline, streamer;
 
-//
-// Create a server with minimal data
-//
++ (SocksoServer *) disconnectedServer:(NSString *)ipAndPort {
+    
+    SocksoServer *server = [SocksoServer alloc];
+    
+    server.ipAndPort = ipAndPort;
+    
+    return server;
 
-+ (SocksoServer *) fromData:(NSString *)ipAndPort title:(NSString *)title tagline:(NSString *)tagline {
+}
+
++ (SocksoServer *) connectedServer:(NSString *)ipAndPort title:(NSString *)title tagline:(NSString *)tagline {
         
     SocksoServer *server = [SocksoServer alloc];
     
@@ -23,7 +31,29 @@
     
 }
 
-- (void) play:(MusicItem *) item {
+- (void) connect:(void (^)(void))onConnect onFailure:(void (^)(void))onFailure {
+    
+    NSString *fullUrl = [NSString stringWithFormat:@"http://%@/json/serverinfo", [server text]];
+    NSURL *url = [NSURL URLWithString:fullUrl];
+    
+    NSLog( @"Connecting to server at: %@", fullUrl );
+    
+    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    
+    [request setCompletionBlock:^{
+        NSDictionary *serverInfo = [parser objectWithString:[request responseString]];
+        onConnect();
+    }];
+    
+    [request setFailedBlock:^{
+        onFailure();
+    }];
+    
+    [request startAsynchronous];
+
+}
+
+- (void) play:(MusicItem *)item {
 
     if ( streamer ) {
         [streamer release];

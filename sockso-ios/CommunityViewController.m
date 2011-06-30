@@ -62,7 +62,7 @@
                            [serverInfo objectForKey:@"ip"],
                            [serverInfo objectForKey:@"port"]];
     
-    SocksoServer *server = [SocksoServer fromData:ipAndPort
+    SocksoServer *server = [SocksoServer connectedServer:ipAndPort
                                           title:[serverInfo objectForKey:@"title"]
                                           tagline:[serverInfo objectForKey:@"tagline"]];
     
