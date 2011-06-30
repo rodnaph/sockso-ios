@@ -15,7 +15,6 @@
 - (void) viewDidLoad {
     
     self.title = server.title;
-    self.listContent = [[NSMutableArray alloc] init];
 
 }
 
@@ -109,9 +108,7 @@
 //
 
 - (void) showSearchResults:(NSMutableArray *) items {
-    
-    [self.listContent release];
-    
+        
     self.listContent = items;
     
     [self.tableView reloadData];
