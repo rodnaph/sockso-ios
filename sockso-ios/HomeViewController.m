@@ -6,6 +6,7 @@
 #import "JSON.h"
 #import "SocksoServer.h"
 #import "PlayViewController.h"
+#import "MusicViewController.h"
 
 @implementation HomeViewController
 
@@ -170,9 +171,15 @@
 - (void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     MusicItem *item = [listContent objectAtIndex:[indexPath row]];
-    PlayViewController *aView = [PlayViewController viewForTrack:item server:server];
     
-    [self.navigationController pushViewController:aView animated:YES];
+    if ( [item isTrack] ) {
+        [self.navigationController pushViewController:[PlayViewController viewForTrack:item server:server]
+                                             animated:YES];
+    }
+    
+    else {
+        [self.navigationController pushViewController:[MusicViewController viewForItem:item] animated:YES];
+    }
     
 }
 
