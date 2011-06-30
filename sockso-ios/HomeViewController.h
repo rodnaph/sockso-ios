@@ -12,10 +12,9 @@
 
 + (HomeViewController *) viewForServer:(SocksoServer *) server;
 
-- (void) showSearchResults:(NSString *) resultData;
+- (void) showSearchResults:(NSMutableArray *) items;
 - (void) showSearchFailed;
-- (NSURL *) getSearchUrl:(NSString *) searchText;
-- (void) parseSearchResults:(NSArray *) results;
-- (void) performSearch:(NSString *) searchText;
+
+- (void) performSearch:(NSString *) query;
 
 @end

@@ -14,15 +14,21 @@
 @property (nonatomic, retain) AudioStreamer *streamer;
 @property (nonatomic, retain) SBJsonParser *parser;
 
-// not yet connected to sockso server
 + (SocksoServer *) disconnectedServer:(NSString *) ipAndPort;
-
-// connected to a sockso server
 + (SocksoServer *) connectedServer:(NSString *) ipAndPort title:(NSString *) title tagline:(NSString *) tagline;
+
+// playing musc stream
 
 - (void) play:(MusicItem*) item;
 - (void) play;
 
+// connection and querying
+
 - (void) connect:(void (^)(void)) onConnect onFailure:(void (^)(void)) onFailure;
+- (void) search:(NSString *)query onConnect:(void (^)(NSMutableArray *))onConnect onFailure:(void (^)(void))onFailure;
+
+// private
+
+- (NSURL *) getSearchUrl:(NSString *)query;
 
 @end

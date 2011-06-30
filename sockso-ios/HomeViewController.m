@@ -84,38 +84,14 @@
 //  perform a search with the specified text
 //
 
-- (void) performSearch:(NSString *)searchText {
+- (void) performSearch:(NSString *)query {
     
-    NSURL *url = [self getSearchUrl:searchText];
-    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    [server search:query
+         onConnect:^(NSMutableArray *items) {
+             [self showSearchResults:items];
+         }
+         onFailure:^{}];
     
-    [request setCompletionBlock:^{
-        [self showSearchResults:[request responseString]];
-    }];
-    
-    [request setFailedBlock:^{
-        [self showSearchFailed];
-    }];
-    
-    [request startAsynchronous];
-    
-}
-
-//
-// returns the URL for a search query using the string in the searchbar
-//
-
-- (NSURL *) getSearchUrl:(NSString *) searchText {
-        
-    NSString *fullUrl = [NSString stringWithFormat:@"http://%@/json/search/%@",
-                         server.ipAndPort,
-                         searchText];
-    NSURL *url = [NSURL URLWithString:fullUrl];
-
-    NSLog( @"Search Query URL: %@", fullUrl );
-
-    return url;
-
 }
 
 //
@@ -132,36 +108,14 @@
 // puts search result data into listContent then reloads the table
 //
 
-- (void) showSearchResults:(NSString *) resultData {
+- (void) showSearchResults:(NSMutableArray *) items {
     
-    SBJsonParser *parser = [[SBJsonParser alloc] init];
-    NSArray *results = [parser objectWithString:resultData];
-
-    [self parseSearchResults:results];
+    [self.listContent release];
+    
+    self.listContent = items;
+    
     [self.tableView reloadData];
-
-    [parser release];
     
-}
-
-//
-// parses search results to repopulate list contents with MusicItem objects
-//
-
-- (void) parseSearchResults:(NSArray *) results {
-    
-    [self.listContent removeAllObjects];
-    
-    for ( NSDictionary *result in results ) {
-        
-        MusicItem *item = [MusicItem
-                           itemWithName:[result objectForKey:@"id"]
-                           name:[result objectForKey:@"name"]];
-        
-        [self.listContent addObject:item];
-        
-    }
-
 }
 
 //

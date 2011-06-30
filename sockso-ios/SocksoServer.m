@@ -38,6 +38,10 @@
     
 }
 
+//
+// init server objects
+//
+
 - (id) init {
     
     [super init];
@@ -75,6 +79,54 @@
     [request startAsynchronous];
 
 }
+
+//
+// Perform the search and return the results to the onConnect handler
+//
+
+- (void) search:(NSString *)query onConnect:(void (^)(NSMutableArray *))onConnect onFailure:(void (^)(void))onFailure {
+    
+    NSURL *url = [self getSearchUrl:query];
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    
+    [request setCompletionBlock:^{
+
+        NSArray *results = [parser objectWithString:[request responseString]];
+        NSMutableArray *items = [[[NSMutableArray alloc] init] autorelease];
+
+        for ( NSDictionary *result in results ) {
+            MusicItem *item = [MusicItem
+                               itemWithName:[result objectForKey:@"id"]
+                               name:[result objectForKey:@"name"]];
+            [items addObject:item];
+        }
+
+        onConnect( items );
+
+    }];
+    
+    [request setFailedBlock:onFailure];
+    [request startAsynchronous];
+    
+}
+
+//
+// returns the URL for a search query using the string in the searchbar
+//
+
+- (NSURL *) getSearchUrl:(NSString *) query {
+    
+    NSString *fullUrl = [NSString stringWithFormat:@"http://%@/json/search/%@",
+                         ipAndPort,
+                         query];
+    NSURL *url = [NSURL URLWithString:fullUrl];
+    
+    NSLog( @"Search Query URL: %@", fullUrl );
+    
+    return url;
+    
+}
+
 
 //
 //  start playing a music item, stop any other playing if it is
