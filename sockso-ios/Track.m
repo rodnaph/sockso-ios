@@ -17,7 +17,7 @@
     Album *album = [[[Album alloc] init] autorelease];
     Artist *artist = [[[Artist alloc] init] autorelease];
     
-    NSDictionary *artistData = [data objectForKey:@"album"];
+    NSDictionary *artistData = [data objectForKey:@"artist"];
     artist.mid = [NSString stringWithFormat:@"al%@", [artistData objectForKey:@"id"]];
     artist.name = [artistData objectForKey:@"name"];
     
@@ -27,6 +27,8 @@
     
     track.mid = [NSString stringWithFormat:@"tr%@", [data objectForKey:@"id"]];
     track.name = [data objectForKey:@"name"];
+    track.album = album;
+    track.artist = artist;
     
     return track;
     

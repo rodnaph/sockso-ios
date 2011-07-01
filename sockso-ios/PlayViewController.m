@@ -5,7 +5,8 @@
 
 @implementation PlayViewController
 
-@synthesize nameLabel, playButton, track, server, controls;
+@synthesize nameLabel, playButton, track, server, controls, artworkImage,
+            albumLabel, artistLabel;
 
 //
 //  Create play controller to play a track on a server
@@ -29,7 +30,18 @@
 - (void) viewDidAppear:(BOOL) animated {
     
     [nameLabel setText:track.name];
+    [albumLabel setText:track.album.name];
+    [artistLabel setText:track.artist.name];
     
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/file/cover/%@",
+                                       server.ipAndPort,
+                                       track.album.mid]];
+    
+    NSLog( @"Fetch image: %@ (%@)", url, track.album.name );
+    
+    // @todo make asyc loading
+    artworkImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+
     [server play:track];
     
 }
