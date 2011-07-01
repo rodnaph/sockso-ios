@@ -2,6 +2,7 @@
 #import "CommunityViewController.h"
 #import "HomeViewController.h"
 #import "SocksoServer.h"
+#import "CommunityServer.h"
 
 @implementation CommunityViewController
 
@@ -40,11 +41,11 @@
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	}
 	
-    NSDictionary *server = [self.servers objectAtIndex:indexPath.row];
+    CommunityServer *server = [self.servers objectAtIndex:indexPath.row];
 	
 	cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",
-                           [server objectForKey:@"title"],
-                           [server objectForKey:@"tagline"]];
+                           server.title,
+                           server.tagline];
     
 	return cell;
     

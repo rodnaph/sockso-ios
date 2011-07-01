@@ -1,10 +1,9 @@
 
 #import "ConnectViewController.h"
-#import "ASIHTTPRequest.h"
-#import "JSON.h"
 #import "HomeViewController.h"
 #import "CommunityViewController.h"
 #import "QuartzCore/CAAnimation.h"
+#import "CommunityServer.h"
 
 @implementation ConnectViewController
 
@@ -18,9 +17,7 @@
     
     [super viewDidLoad];
     
-    self.title = @"Sockso iOS";
-    
-    parser = [[SBJsonParser alloc] init];
+    self.title = @"Connect";
     
 }
 
@@ -42,42 +39,17 @@
 
 - (IBAction) communityClicked {
 
-    [self fetchCommunityList];
-
-}
-
-//
-// Fetch community servers
-//
-
-- (void) fetchCommunityList {
-
-    NSURL *url = [NSURL URLWithString:@"http://sockso.pu-gh.com/community.html?format=json"];
-    
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    [request setCompletionBlock:^{
-        NSArray *servers = [self getCommunityServers:[request responseString]];
-        [self showCommunityPage:servers];
+    [CommunityServer fetchAll:^(NSMutableArray *servers) {
+        [self showCommunityView:servers];
     }];
-    [request startAsynchronous];
-    
-}
 
-//
-// Parse the JSON to retrieve a list of community servers
-//
-
-- (NSArray *) getCommunityServers:(NSString *) serverJson {
-    
-    return [parser objectWithString:serverJson];
-    
 }
 
 //
 // Show the community page with the specified selection of servers
 //
 
-- (void) showCommunityPage:(NSArray *) servers {
+- (void) showCommunityView:(NSMutableArray *) servers {
     
     CommunityViewController *aView = [[CommunityViewController alloc]
                                       initWithNibName:@"CommunityView"

@@ -43,8 +43,7 @@
         [playButton setTitle:@"Play" forState:UIControlStateNormal];    
         [server pause];
     }
-    
-    
+
 }
 
 - (void) dealloc {

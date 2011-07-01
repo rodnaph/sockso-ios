@@ -179,8 +179,6 @@
 
 - (void) dealloc {
 
-    NSLog( @"SERVER DEALLOCATED" );
-    
     [streamer release];
     [parser release];
     
