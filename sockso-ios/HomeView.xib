@@ -52,6 +52,7 @@
 							<reference key="NSWindow"/>
 							<int key="IBUIContentMode">3</int>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+							<string key="IBPlaceholder">Search for music</string>
 							<object class="IBUITextInputTraits" key="IBTextInputTraits">
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
