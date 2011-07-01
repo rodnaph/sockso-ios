@@ -16,4 +16,6 @@
 
 - (IBAction) playClicked;
 
+- (void) loadAlbumArt;
+
 @end

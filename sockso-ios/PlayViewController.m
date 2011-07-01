@@ -33,18 +33,32 @@
     [albumLabel setText:track.album.name];
     [artistLabel setText:track.artist.name];
     
+    [NSThread detachNewThreadSelector:@selector(loadAlbumArt)
+                             toTarget:self withObject:nil];
+
+    [server play:track];
+    
+}
+
+//
+// Loads album art
+//
+
+- (void) loadAlbumArt {
+    
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/file/cover/%@",
                                        server.ipAndPort,
                                        track.album.mid]];
     
     NSLog( @"Fetch image: %@ (%@)", url, track.album.name );
     
-    // @todo make asyc loading
     artworkImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
 
-    [server play:track];
-    
 }
+
+//
+// Toggle play/paused
+//
 
 - (IBAction) playClicked {
     
@@ -58,12 +72,6 @@
         [server pause];
     }
 
-}
-
-- (void) dealloc {
-        
-    [super dealloc];
-    
 }
 
 @end
