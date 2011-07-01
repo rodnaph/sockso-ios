@@ -7,13 +7,7 @@
 #import <UIKit/UIKit.h>
 #import "SocksoServer.h"
 
-@interface ConnectViewController : UIViewController <UITextFieldDelegate> {
-    UILabel *connectFailed;
-    UITextField *serverInput;
-    UIButton *connect;
-    UIButton *community;
-    UIActivityIndicatorView *activity;    
-}
+@interface ConnectViewController : UIViewController <UITextFieldDelegate> {}
 
 @property (nonatomic, retain) IBOutlet UILabel *connectFailed;
 @property (nonatomic, retain) IBOutlet UITextField *serverInput;

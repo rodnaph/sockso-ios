@@ -11,15 +11,11 @@ typedef enum {
 } SocksoServerMode;
 
 @interface SocksoServer : NSObject {
-    NSString *ipAndPort, *title, *tagline;
     AudioStreamer *streamer;
     SBJsonParser *parser;
-    int mode;
 }
 
 @property (nonatomic, retain) NSString *ipAndPort, *title, *tagline;
-@property (nonatomic, retain) AudioStreamer *streamer;
-@property (nonatomic, retain) SBJsonParser *parser;
 @property (nonatomic) int mode;
 
 + (SocksoServer *) disconnectedServer:(NSString *) ipAndPort;

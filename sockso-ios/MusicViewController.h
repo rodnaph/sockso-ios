@@ -2,9 +2,7 @@
 #import <UIKit/UIKit.h>
 #import "MusicItem.h"
 
-@interface MusicViewController : UITableViewController {
-    MusicItem *item;
-}
+@interface MusicViewController : UITableViewController {}
 
 @property (nonatomic, retain) MusicItem *item;
 

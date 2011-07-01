@@ -4,10 +4,8 @@
 
 @interface HomeViewController : UITableViewController  <UISearchDisplayDelegate, UISearchBarDelegate> {
 	NSMutableArray *listContent;
-    SocksoServer *server;
 }
 
-@property (nonatomic, retain) IBOutlet NSMutableArray *listContent;
 @property (nonatomic, retain) SocksoServer *server;
 
 + (HomeViewController *) viewForServer:(SocksoServer *) server;

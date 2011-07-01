@@ -3,14 +3,7 @@
 #import "MusicItem.h"
 #import "SocksoServer.h"
 
-@interface PlayViewController : UIViewController {
-    UILabel *nameLabel;
-    UIButton *playButton;
-    UISegmentedControl *controls;
-    
-    MusicItem *item;
-    SocksoServer *server;
-}
+@interface PlayViewController : UIViewController {}
 
 @property (nonatomic, retain) IBOutlet UILabel *nameLabel;
 @property (nonatomic, retain) IBOutlet UIButton *playButton;

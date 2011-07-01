@@ -4,9 +4,7 @@
 #define CS_MIN_VERSION @"1.3.5"
 #define CS_SOCKSO_DOMAIN @"sockso.pu-gh.com"
 
-@interface CommunityServer : NSObject {
-    NSString *title, *tagline, *version, *ipAndPort;
-}
+@interface CommunityServer : NSObject {}
 
 @property (nonatomic, retain) NSString *title, *tagline, *version, *ipAndPort;
 

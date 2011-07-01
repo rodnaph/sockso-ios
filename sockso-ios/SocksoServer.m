@@ -7,7 +7,7 @@
 
 @implementation SocksoServer
 
-@synthesize ipAndPort, title, tagline, streamer, parser, mode;
+@synthesize ipAndPort, title, tagline, mode;
 
 //
 // creates a server not yet connected

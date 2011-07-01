@@ -10,7 +10,7 @@
 
 @implementation HomeViewController
 
-@synthesize listContent, server;
+@synthesize server;
 
 - (void) viewDidLoad {
     
@@ -48,7 +48,7 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-	return [self.listContent count];
+	return [listContent count];
 
 }
 
@@ -67,7 +67,7 @@
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	}
 	
-    MusicItem *item = [self.listContent objectAtIndex:indexPath.row];
+    MusicItem *item = [listContent objectAtIndex:indexPath.row];
 	
 	cell.textLabel.text = item.name;
         
@@ -117,7 +117,7 @@
 
 - (void) showSearchResults:(NSMutableArray *) items {
         
-    self.listContent = items;
+    listContent = items;
     
     [self.tableView reloadData];
     
