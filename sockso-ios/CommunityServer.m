@@ -61,9 +61,6 @@
         if ( [server isSupportedVersion] ) {
             [servers addObject:server];
         }
-        else {
-            [server release];
-        }
     }
     
     return servers;
@@ -75,8 +72,6 @@
 //
 
 - (BOOL) isSupportedVersion {
-    
-    return NO;
     
     NSArray *versionParts = [version componentsSeparatedByString:@"."];
     
