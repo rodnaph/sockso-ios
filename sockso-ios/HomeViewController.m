@@ -7,6 +7,7 @@
 #import "SocksoServer.h"
 #import "PlayViewController.h"
 #import "MusicViewController.h"
+#import "Track.h"
 
 @implementation HomeViewController
 
@@ -132,8 +133,14 @@
     MusicItem *item = [self.listContent objectAtIndex:[indexPath row]];
     
     if ( [item isTrack] ) {
-        [self.navigationController pushViewController:[PlayViewController viewForTrack:item server:server]
-                                             animated:YES];
+        
+        int trackId = [[item.mid substringFromIndex:2] intValue];
+        
+        [server getTrack:trackId onComplete:^(Track *track){
+            [self.navigationController pushViewController:[PlayViewController viewForTrack:track server:server]
+                                                 animated:YES];
+        }];
+        
     }
     
     else {

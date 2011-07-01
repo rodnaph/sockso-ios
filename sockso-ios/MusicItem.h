@@ -1,10 +1,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MusicItem : NSObject {
-    NSString *mid; // eg. tr123, al456
-    NSString *name;
-}
+@interface MusicItem : NSObject {}
 
 @property (nonatomic, retain) NSString *mid, *name;
 

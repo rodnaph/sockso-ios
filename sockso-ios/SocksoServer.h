@@ -3,6 +3,7 @@
 #import "MusicItem.h"
 #import "AudioStreamer.h"
 #import "JSON.h"
+#import "Track.h"
 
 typedef enum {
     SS_MODE_STOPPED = 0,
@@ -31,6 +32,7 @@ typedef enum {
 
 - (void) connect:(void (^)(void)) onConnect onFailure:(void (^)(void)) onFailure;
 - (void) search:(NSString *)query onComplete:(void (^)(NSMutableArray *))onComplete onFailure:(void (^)(void))onFailure;
+- (void) getTrack:(int)trackId onComplete:(void (^)(Track *))onComplete;
 
 // private
 

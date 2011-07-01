@@ -1,23 +1,25 @@
 
 #import "PlayViewController.h"
 #import "SocksoServer.h"
-#import "MusicItem.h"
+#import "Track.h"
 
 @implementation PlayViewController
 
-@synthesize nameLabel, playButton, item, server, controls;
+@synthesize nameLabel, playButton, track, server, controls;
 
 //
 //  Create play controller to play a track on a server
 //
 
-+ (PlayViewController *) viewForTrack:(MusicItem *)item server:(SocksoServer *) server {
++ (PlayViewController *) viewForTrack:(Track *)track server:(SocksoServer *) server {
     
     PlayViewController *aView = [[PlayViewController alloc]
                                  initWithNibName:@"PlayView"
                                  bundle:nil];
 
-    aView.item = item;
+    NSLog( @"Track: %@", track.mid );
+    
+    aView.track = track;
     aView.server = server;
     
     return [aView autorelease];
@@ -26,9 +28,9 @@
 
 - (void) viewDidAppear:(BOOL) animated {
     
-    [nameLabel setText:item.name];
+    [nameLabel setText:track.name];
     
-    [server play:item];
+    [server play:track];
     
 }
 

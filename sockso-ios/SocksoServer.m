@@ -114,6 +114,27 @@
 }
 
 //
+//  Find a track by id
+//
+
+- (void) getTrack:(int)trackId onComplete:(void (^)(Track *))onComplete {
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/api/tracks/%d",
+                                       ipAndPort,
+                                       trackId]];
+    
+    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    
+    [request setCompletionBlock:^{
+        NSDictionary *data = [parser objectWithString:[request responseString]];
+        onComplete( [Track fromData:data] );
+    }];
+    
+    [request startAsynchronous];
+    
+}
+
+//
 // returns the URL for a search query using the string in the searchbar
 //
 
