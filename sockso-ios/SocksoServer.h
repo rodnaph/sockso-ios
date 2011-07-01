@@ -30,7 +30,7 @@ typedef enum {
 // connection and querying
 
 - (void) connect:(void (^)(void)) onConnect onFailure:(void (^)(void)) onFailure;
-- (void) search:(NSString *)query onConnect:(void (^)(NSMutableArray *))onConnect onFailure:(void (^)(void))onFailure;
+- (void) search:(NSString *)query onComplete:(void (^)(NSMutableArray *))onComplete onFailure:(void (^)(void))onFailure;
 
 // private
 

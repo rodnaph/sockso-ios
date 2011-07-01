@@ -85,11 +85,11 @@
 // Perform the search and return the results to the onConnect handler
 //
 
-- (void) search:(NSString *)query onConnect:(void (^)(NSMutableArray *))onConnect onFailure:(void (^)(void))onFailure {
+- (void) search:(NSString *)query onComplete:(void (^)(NSMutableArray *))onComplete onFailure:(void (^)(void))onFailure {
     
     NSURL *url = [self getSearchUrl:query];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    
+        
     [request setCompletionBlock:^{
 
         NSArray *results = [parser objectWithString:[request responseString]];
@@ -102,7 +102,9 @@
             [items addObject:item];
         }
 
-        onConnect( items );
+        NSLog( @"Search returned %d results", [items count] );
+        
+        onComplete( items );
 
     }];
     

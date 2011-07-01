@@ -10,7 +10,7 @@
 
 @implementation HomeViewController
 
-@synthesize server;
+@synthesize server, listContent;
 
 - (void) viewDidLoad {
     
@@ -48,7 +48,7 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-	return [listContent count];
+	return [self.listContent count];
 
 }
 
@@ -67,7 +67,7 @@
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	}
 	
-    MusicItem *item = [listContent objectAtIndex:indexPath.row];
+    MusicItem *item = [self.listContent objectAtIndex:indexPath.row];
 	
 	cell.textLabel.text = item.name;
         
@@ -94,7 +94,7 @@
 - (void) performSearch:(NSString *)query {
     
     [server search:query
-         onConnect:^(NSMutableArray *items) {
+         onComplete:^(NSMutableArray *items) {
              [self showSearchResults:items];
          }
          onFailure:^{}];
@@ -117,7 +117,7 @@
 
 - (void) showSearchResults:(NSMutableArray *) items {
         
-    listContent = items;
+    self.listContent = items;
     
     [self.tableView reloadData];
     
@@ -129,7 +129,7 @@
 
 - (void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    MusicItem *item = [listContent objectAtIndex:[indexPath row]];
+    MusicItem *item = [self.listContent objectAtIndex:[indexPath row]];
     
     if ( [item isTrack] ) {
         [self.navigationController pushViewController:[PlayViewController viewForTrack:item server:server]
@@ -149,7 +149,7 @@
 
 - (void) dealloc {
     
-    [listContent release];
+    [self.listContent release];
     
     [super dealloc];
     
