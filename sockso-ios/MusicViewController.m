@@ -3,15 +3,15 @@
 
 @implementation MusicViewController
 
-@synthesize item;
+@synthesize items;
 
-+ (MusicViewController *) viewForItem:(MusicItem *)item {
++ (MusicViewController *) viewForItems:(NSMutableArray *)items {
     
     MusicViewController *aView = [[MusicViewController alloc]
                                   initWithNibName:@"MusicView"
                                   bundle:nil];
     
-    aView.item = item;
+    aView.items = items;
     
     return [aView autorelease];
     
@@ -19,7 +19,7 @@
 
 - (void) viewDidLoad {
     
-    self.title = item.name;
+    self.title = @"TITLE"; // items.name;
     
 }
 

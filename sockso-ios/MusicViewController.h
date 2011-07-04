@@ -1,11 +1,10 @@
 
 #import <UIKit/UIKit.h>
-#import "MusicItem.h"
 
 @interface MusicViewController : UITableViewController {}
 
-@property (nonatomic, retain) MusicItem *item;
+@property (nonatomic, retain) NSMutableArray *items;
 
-+ (MusicViewController *) viewForItem:(MusicItem *) item;
++ (MusicViewController *) viewForItems:(NSMutableArray *)items;
 
 @end
