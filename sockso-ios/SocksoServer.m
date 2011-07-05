@@ -204,6 +204,9 @@
 
     [streamer release];
     [parser release];
+    [ipAndPort release];
+    [title release];
+    [tagline release];
     
     [super dealloc];
     

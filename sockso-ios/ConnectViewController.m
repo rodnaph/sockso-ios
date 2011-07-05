@@ -156,4 +156,16 @@
     
 }
 
+- (void) dealloc {
+    
+    [serverInput release];
+    [connect release];
+    [community release];
+    [activity release];
+    [connectFailed release];
+    
+    [super dealloc];
+    
+}
+
 @end

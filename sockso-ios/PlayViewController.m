@@ -5,8 +5,7 @@
 
 @implementation PlayViewController
 
-@synthesize nameLabel, playButton, track, server, controls, artworkImage,
-            albumLabel, artistLabel;
+@synthesize nameLabel, playButton, track, server, artworkImage, albumLabel, artistLabel;
 
 //
 //  Create play controller to play a track on a server
@@ -72,6 +71,20 @@
         [server pause];
     }
 
+}
+
+- (void) dealloc {
+    
+    [nameLabel release];
+    [playButton release];
+    [track release];
+    [server release];
+    [artworkImage release];
+    [albumLabel release];
+    [artistLabel release];
+    
+    [super dealloc];
+    
 }
 
 @end

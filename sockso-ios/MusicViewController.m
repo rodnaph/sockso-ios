@@ -23,4 +23,12 @@
     
 }
 
+- (void) dealloc {
+    
+    [items release];
+    
+    [super dealloc];
+    
+}
+
 @end

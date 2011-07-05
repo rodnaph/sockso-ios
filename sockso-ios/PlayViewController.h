@@ -7,7 +7,6 @@
 
 @property (nonatomic, retain) IBOutlet UILabel *nameLabel, *albumLabel, *artistLabel;
 @property (nonatomic, retain) IBOutlet UIButton *playButton;
-@property (nonatomic, retain) IBOutlet UISegmentedControl *controls;
 @property (nonatomic, retain) IBOutlet UIImageView *artworkImage;
 @property (nonatomic, retain) Track *track;
 @property (nonatomic, retain) SocksoServer *server;

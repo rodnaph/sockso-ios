@@ -156,7 +156,8 @@
 
 - (void) dealloc {
     
-    [self.listContent release];
+    [server release];
+    [listContent release];
     
     [super dealloc];
     

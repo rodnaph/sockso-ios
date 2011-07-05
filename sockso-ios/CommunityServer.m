@@ -96,4 +96,15 @@
     
 }
 
+- (void) dealloc {
+    
+    [title release];
+    [tagline release];
+    [version release];
+    [ipAndPort release];
+    
+    [super dealloc];
+    
+}
+
 @end
