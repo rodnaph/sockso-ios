@@ -21,9 +21,27 @@
                                     
 }
 
+- (BOOL) hasPrefix:(NSString *)prefix {
+    
+    return [[mid substringToIndex:2] isEqualToString:prefix];
+    
+}
+
 - (BOOL) isTrack {
     
-    return [[mid substringToIndex:2] isEqualToString:@"tr"];
+    return [self hasPrefix:@"tr"];
+    
+}
+
+- (BOOL) isAlbum {
+    
+    return [self hasPrefix:@"al"];
+    
+}
+
+- (BOOL) isArtist {
+    
+    return [self hasPrefix:@"ar"];
     
 }
 

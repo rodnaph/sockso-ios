@@ -76,30 +76,34 @@
 	
 	cell.textLabel.text = item.name;
     cell.imageView.image = nil;
-
-    if ( [[item.mid substringToIndex:2] isEqualToString:@"al"] ) {
-
-        NSString *key = [NSString stringWithFormat:@"image-%@", item.mid];
-        UIImage *image = [images objectForKey:key];
-
-        if ( image ) {
-            
-            cell.imageView.image = image;
-            
-        }
-        
-        else {
-        
-            ImageLoader *loader = [ImageLoader fromServer:server forItem:item atIndex:indexPath];
-            [loader setDelegate:self];
-            [loader load];
-        
-        }
-        
+    
+    if ( [item isAlbum] || [item isArtist] ) {
+        [self setArtworkOnCell:cell forMusicItem:item atIndex:indexPath];
     }
     
 	return cell;
     
+}
+
+//
+// Sets cell artwork for an artist or album
+//
+
+- (void) setArtworkOnCell:(UITableViewCell *)cell forMusicItem:(MusicItem *)item atIndex:(NSIndexPath *)indexPath {
+    
+    NSString *key = [NSString stringWithFormat:@"image-%@", item.mid];
+    UIImage *image = [images objectForKey:key];
+    
+    if ( image ) {
+        cell.imageView.image = image;
+    }
+    
+    else {
+        ImageLoader *loader = [ImageLoader fromServer:server forItem:item atIndex:indexPath];
+        [loader setDelegate:self];
+        [loader load];
+    }
+
 }
 
 //

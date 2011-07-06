@@ -8,6 +8,11 @@
 + (id) itemWithName:(NSString *)mid name:(NSString *)name;
 
 - (NSString *) getId;
+
+- (BOOL) hasPrefix:(NSString *)prefix;
+
 - (BOOL) isTrack;
+- (BOOL) isAlbum;
+- (BOOL) isArtist;
 
 @end

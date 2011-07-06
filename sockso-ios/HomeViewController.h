@@ -18,4 +18,6 @@
 
 - (void) performSearch:(NSString *)query;
 
+- (void) setArtworkOnCell:(UITableViewCell *)cell forMusicItem:(MusicItem *)item atIndex:(NSIndexPath *)indexPath;
+
 @end
