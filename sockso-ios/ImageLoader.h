@@ -12,7 +12,7 @@
 @property (nonatomic, retain) SocksoServer *server;
 @property (nonatomic, retain) MusicItem *item;
 @property (nonatomic, retain) NSIndexPath *indexPath;
-@property (nonatomic, assign) id *delegate;
+@property (nonatomic, assign) id <ImageLoaderDelegate> *delegate;
 
 + (ImageLoader *) fromServer:(SocksoServer *)server forItem:(MusicItem *)item atIndex:(NSIndexPath *)indexPath;
 

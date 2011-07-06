@@ -37,7 +37,7 @@
         
     UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
     
-    [[self delegate] imageDidLoad:image atIndex:indexPath];
+    [delegate imageDidLoad:image atIndex:indexPath];
 
     [url release];
     
