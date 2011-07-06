@@ -61,8 +61,6 @@
 		DCF0660613BBD6E9000ECDEE /* Artist.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF0660513BBD6E9000ECDEE /* Artist.m */; };
 		DCF0660913BBD6F5000ECDEE /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF0660813BBD6F4000ECDEE /* Album.m */; };
 		DCF0660C13BBD883000ECDEE /* MusicItemTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF0660B13BBD883000ECDEE /* MusicItemTest.m */; };
-		DCFD950F13C3C4380068330A /* WebImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCFD950E13C3C4380068330A /* WebImageView.m */; };
-		DCFD951213C3C48C0068330A /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DCFD951113C3C48C0068330A /* ImageCache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,10 +168,6 @@
 		DCF0660813BBD6F4000ECDEE /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
 		DCF0660A13BBD883000ECDEE /* MusicItemTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicItemTest.h; sourceTree = "<group>"; };
 		DCF0660B13BBD883000ECDEE /* MusicItemTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicItemTest.m; sourceTree = "<group>"; };
-		DCFD950D13C3C4380068330A /* WebImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebImageView.h; sourceTree = "<group>"; };
-		DCFD950E13C3C4380068330A /* WebImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebImageView.m; sourceTree = "<group>"; };
-		DCFD951013C3C48B0068330A /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
-		DCFD951113C3C48C0068330A /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -287,7 +281,6 @@
 		DC43F94313A15012001B41F6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				DCFD950B13C39AA30068330A /* Controls */,
 				DCF065FF13BBD62E000ECDEE /* Controllers */,
 				DCF065FE13BBD622000ECDEE /* Sockso */,
 				DC43F91A13A14E4F001B41F6 /* SocksoAppDelegate.h */,
@@ -404,8 +397,6 @@
 				DCE38BFE13C2F77A006FD270 /* ImageLoader.h */,
 				DCE38BFF13C2F77A006FD270 /* ImageLoader.m */,
 				DC5E60B713C376A5004A61BD /* ImageLoaderDelegate.h */,
-				DCFD951013C3C48B0068330A /* ImageCache.h */,
-				DCFD951113C3C48C0068330A /* ImageCache.m */,
 			);
 			name = Sockso;
 			sourceTree = "<group>";
@@ -467,15 +458,6 @@
 				DCF0660B13BBD883000ECDEE /* MusicItemTest.m */,
 			);
 			name = Music;
-			sourceTree = "<group>";
-		};
-		DCFD950B13C39AA30068330A /* Controls */ = {
-			isa = PBXGroup;
-			children = (
-				DCFD950D13C3C4380068330A /* WebImageView.h */,
-				DCFD950E13C3C4380068330A /* WebImageView.m */,
-			);
-			name = Controls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -618,8 +600,6 @@
 				DCEFDDAB13BC5B270024A989 /* MusicViewController.m in Sources */,
 				DC5BAFCF13BDA44300D80EC6 /* CommunityServer.m in Sources */,
 				DCE38C0013C2F77B006FD270 /* ImageLoader.m in Sources */,
-				DCFD950F13C3C4380068330A /* WebImageView.m in Sources */,
-				DCFD951213C3C48C0068330A /* ImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
