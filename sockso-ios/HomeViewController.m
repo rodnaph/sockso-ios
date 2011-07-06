@@ -85,6 +85,10 @@
         [self setArtworkOnCell:cell forMusicItem:item atIndex:indexPath];
     }
     
+    else {
+        cell.actionImage.image = [UIImage imageNamed:@"play.png"];
+    }
+    
 	return cell;
     
 }

@@ -3,7 +3,7 @@
 
 @implementation MusicCell
 
-@synthesize trackName, artistName;
+@synthesize trackName, artistName, actionImage;
 
 - (void) drawForItem:(MusicItem *)item {
 
@@ -28,6 +28,7 @@
     
     [trackName release];
     [artistName release];
+    [actionImage release];
     
     [super dealloc];
     
