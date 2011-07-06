@@ -8,12 +8,16 @@
 #import "PlayViewController.h"
 #import "MusicViewController.h"
 #import "Track.h"
+#import "ImageLoader.h"
+#import "ImageLoaderDelegate.h"
 
 @implementation HomeViewController
 
 @synthesize server, listContent;
 
 - (void) viewDidLoad {
+    
+    images = [[NSMutableDictionary alloc] init];
     
     self.title = server.title;
     
@@ -71,7 +75,29 @@
     MusicItem *item = [self.listContent objectAtIndex:indexPath.row];
 	
 	cell.textLabel.text = item.name;
+    cell.imageView.image = nil;
+
+    if ( [[item.mid substringToIndex:2] isEqualToString:@"al"] ) {
+
+        NSString *key = [NSString stringWithFormat:@"image-%@", item.mid];
+        UIImage *image = [images objectForKey:key];
+
+        if ( image ) {
+            
+            cell.imageView.image = image;
+            
+        }
         
+        else {
+        
+            ImageLoader *loader = [ImageLoader fromServer:server forItem:item atIndex:indexPath];
+            [loader setDelegate:self];
+            [loader load];
+        
+        }
+        
+    }
+    
 	return cell;
     
 }
@@ -144,11 +170,26 @@
     }
     
     else {
-        [self.navigationController pushViewController:[MusicViewController viewForItem:item] animated:YES];
+        NSLog( @"NOT YET IMPLEMENTED" );
+//        [self.navigationController pushViewController:[MusicViewController viewForItem:item] animated:YES];
     }
     
 }
 
+//
+// The image has loaded and is for the table item at the specified index
+//
+
+- (void) imageDidLoad:(UIImage *)image atIndex:(NSIndexPath *)indexPath {
+
+    MusicItem *item = [listContent objectAtIndex:indexPath.row];
+    NSString *key = [NSString stringWithFormat:@"image-%@", item.mid];
+        
+    [images setValue:image forKey:key];
+        
+    [self.tableView reloadData];
+    
+}
 
 //
 // dealloc
@@ -156,6 +197,7 @@
 
 - (void) dealloc {
     
+    [images release];
     [server release];
     [listContent release];
     
