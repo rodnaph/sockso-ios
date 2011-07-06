@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DC01055713C4BF850066B9DF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC01055613C4BF850066B9DF /* CoreData.framework */; };
 		DC03909313B8FE6800843F95 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC03909213B8FE6800843F95 /* HomeViewController.m */; };
 		DC0390A013B906C700843F95 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC03909F13B906C700843F95 /* HomeView.xib */; };
 		DC0390A613B9149000843F95 /* MusicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0390A513B9149000843F95 /* MusicItem.m */; };
@@ -48,6 +49,7 @@
 		DC5BAFCF13BDA44300D80EC6 /* CommunityServer.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5BAFCE13BDA44300D80EC6 /* CommunityServer.m */; };
 		DC5BAFD813BDB3DB00D80EC6 /* CommunityServerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5BAFD713BDB3DB00D80EC6 /* CommunityServerTest.m */; };
 		DC8659B413B9345100DB4DB3 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC8659B313B9345100DB4DB3 /* MainWindow.xib */; };
+		DCA0512813C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCA0512613C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld */; };
 		DCAE3C8013BB47360017BE29 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCAE3C7F13BB47360017BE29 /* QuartzCore.framework */; };
 		DCB881BA13BA5E660095656A /* CommunityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCB881B913BA5E660095656A /* CommunityView.xib */; };
 		DCB881BE13BA5E980095656A /* CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB881BD13BA5E980095656A /* CommunityViewController.m */; };
@@ -77,6 +79,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DC01055613C4BF850066B9DF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		DC03909113B8FE6800843F95 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		DC03909213B8FE6800843F95 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		DC03909F13B906C700843F95 /* HomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
@@ -149,6 +152,7 @@
 		DC5BAFD713BDB3DB00D80EC6 /* CommunityServerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityServerTest.m; sourceTree = "<group>"; };
 		DC5E60B713C376A5004A61BD /* ImageLoaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLoaderDelegate.h; sourceTree = "<group>"; };
 		DC8659B313B9345100DB4DB3 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		DCA0512713C4C14C002F8FC6 /* SocksoDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SocksoDataModel.xcdatamodel; sourceTree = "<group>"; };
 		DCAE3C7F13BB47360017BE29 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DCB881B913BA5E660095656A /* CommunityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommunityView.xib; sourceTree = "<group>"; };
 		DCB881BC13BA5E980095656A /* CommunityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityViewController.h; sourceTree = "<group>"; };
@@ -182,6 +186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC01055713C4BF850066B9DF /* CoreData.framework in Frameworks */,
 				DCF065ED13BBCBD8000ECDEE /* AudioToolbox.framework in Frameworks */,
 				DCAE3C8013BB47360017BE29 /* QuartzCore.framework in Frameworks */,
 				DC5B660513A4E46B006ED498 /* libz.1.2.3.dylib in Frameworks */,
@@ -236,6 +241,7 @@
 		DC43F90A13A14E4F001B41F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DC01055613C4BF850066B9DF /* CoreData.framework */,
 				DC43F90B13A14E4F001B41F6 /* UIKit.framework */,
 				DC43F90D13A14E4F001B41F6 /* Foundation.framework */,
 				DC43F90F13A14E4F001B41F6 /* CoreGraphics.framework */,
@@ -314,6 +320,7 @@
 		DC43F94513A15476001B41F6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DCA0512413C4C139002F8FC6 /* Data */,
 				DC43F95A13A16DA6001B41F6 /* Images */,
 			);
 			name = Resources;
@@ -394,6 +401,14 @@
 				DC5B65E913A4DFD4006ED498 /* ASIProgressDelegate.h */,
 			);
 			name = ASIHTTPRequest;
+			sourceTree = "<group>";
+		};
+		DCA0512413C4C139002F8FC6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				DCA0512613C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld */,
+			);
+			name = Data;
 			sourceTree = "<group>";
 		};
 		DCF065E013BBCA69000ECDEE /* AudioStreamer */ = {
@@ -622,6 +637,7 @@
 				DC5BAFCF13BDA44300D80EC6 /* CommunityServer.m in Sources */,
 				DCE38C0013C2F77B006FD270 /* ImageLoader.m in Sources */,
 				DC481D7B13C480A400F2B052 /* MusicCell.m in Sources */,
+				DCA0512813C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -801,6 +817,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DCA0512613C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DCA0512713C4C14C002F8FC6 /* SocksoDataModel.xcdatamodel */,
+			);
+			currentVersion = DCA0512713C4C14C002F8FC6 /* SocksoDataModel.xcdatamodel */;
+			path = SocksoDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DC43F8FE13A14E4F001B41F6 /* Project object */;
 }

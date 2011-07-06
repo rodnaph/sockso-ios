@@ -202,8 +202,6 @@
 
 - (void) dealloc {
 
-    NSLog( @"DEALLOC SERVER" );
-    
     [streamer release];
     [parser release];
     [ipAndPort release];

@@ -4,7 +4,7 @@
 
 @implementation SocksoAppDelegate
 
-@synthesize window, navigationController;
+@synthesize window, navigationController, managedObjectModel, managedObjectContext, persistentStoreCoordinator;
 
 - (void) applicationDidFinishLaunching:(UIApplication *)application {
 
@@ -29,6 +29,10 @@
 }
 
 - (void) dealloc {
+    
+    [managedObjectContext release];
+    [managedObjectModel release];
+    [persistentStoreCoordinator release];
     
     [navigationController release];
     [window release];
