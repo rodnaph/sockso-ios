@@ -10,6 +10,7 @@
 #import "Track.h"
 #import "ImageLoader.h"
 #import "ImageLoaderDelegate.h"
+#import "MusicCell.h"
 
 @implementation HomeViewController
 
@@ -65,17 +66,20 @@
 
 	static NSString *kCellID = @"cellID";
 	
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellID];
+	MusicCell *cell = (MusicCell *) [tableView dequeueReusableCellWithIdentifier:kCellID];
     
 	if ( cell == nil ) {
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellID] autorelease];
-		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
+        NSArray *objects = [[NSBundle mainBundle] loadNibNamed:@"MusicCellView"
+                                                         owner:self
+                                                       options:nil];
+        cell = (MusicCell *) [objects objectAtIndex:0];
+        
 	}
-	
+	    
     MusicItem *item = [self.listContent objectAtIndex:indexPath.row];
 	
-	cell.textLabel.text = item.name;
-    cell.imageView.image = nil;
+    [cell drawForItem:item];
     
     if ( [item isAlbum] || [item isArtist] ) {
         [self setArtworkOnCell:cell forMusicItem:item atIndex:indexPath];

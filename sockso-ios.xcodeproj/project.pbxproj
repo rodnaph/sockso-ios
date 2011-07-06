@@ -25,6 +25,8 @@
 		DC43F94713A154A5001B41F6 /* background.gif in Resources */ = {isa = PBXBuildFile; fileRef = DC43F94613A154A5001B41F6 /* background.gif */; };
 		DC43F95E13A16E1C001B41F6 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DC43F95D13A16E1C001B41F6 /* logo.png */; };
 		DC43F96013A1F224001B41F6 /* community.png in Resources */ = {isa = PBXBuildFile; fileRef = DC43F95F13A1F223001B41F6 /* community.png */; };
+		DC481D7613C4803000F2B052 /* MusicCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC481D7513C4803000F2B052 /* MusicCellView.xib */; };
+		DC481D7B13C480A400F2B052 /* MusicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC481D7A13C480A400F2B052 /* MusicCell.m */; };
 		DC5B65D013A4DF55006ED498 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5B65C713A4DF55006ED498 /* NSObject+SBJSON.m */; };
 		DC5B65D113A4DF55006ED498 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5B65C913A4DF55006ED498 /* NSString+SBJSON.m */; };
 		DC5B65D213A4DF55006ED498 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5B65CB13A4DF55006ED498 /* SBJsonBase.m */; };
@@ -99,6 +101,9 @@
 		DC43F94613A154A5001B41F6 /* background.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = background.gif; sourceTree = "<group>"; };
 		DC43F95D13A16E1C001B41F6 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo.png; path = ../logo.png; sourceTree = "<group>"; };
 		DC43F95F13A1F223001B41F6 /* community.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = community.png; sourceTree = "<group>"; };
+		DC481D7513C4803000F2B052 /* MusicCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicCellView.xib; sourceTree = "<group>"; };
+		DC481D7913C480A400F2B052 /* MusicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicCell.h; sourceTree = "<group>"; };
+		DC481D7A13C480A400F2B052 /* MusicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicCell.m; sourceTree = "<group>"; };
 		DC5B65C513A4DF55006ED498 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		DC5B65C613A4DF55006ED498 /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		DC5B65C713A4DF55006ED498 /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -281,6 +286,7 @@
 		DC43F94313A15012001B41F6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DC481D7813C4808700F2B052 /* Controls */,
 				DCF065FF13BBD62E000ECDEE /* Controllers */,
 				DCF065FE13BBD622000ECDEE /* Sockso */,
 				DC43F91A13A14E4F001B41F6 /* SocksoAppDelegate.h */,
@@ -298,6 +304,7 @@
 				DCB881B913BA5E660095656A /* CommunityView.xib */,
 				DCF065CA13BBB9DB000ECDEE /* PlayView.xib */,
 				DCEFDDA713BC5AF90024A989 /* MusicView.xib */,
+				DC481D7513C4803000F2B052 /* MusicCellView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -318,6 +325,15 @@
 				DC43F94613A154A5001B41F6 /* background.gif */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		DC481D7813C4808700F2B052 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				DC481D7913C480A400F2B052 /* MusicCell.h */,
+				DC481D7A13C480A400F2B052 /* MusicCell.m */,
+			);
+			name = Controls;
 			sourceTree = "<group>";
 		};
 		DC4C95F413A4CB6100958C0E /* Vendor */ = {
@@ -537,6 +553,7 @@
 				DCB881BA13BA5E660095656A /* CommunityView.xib in Resources */,
 				DCF065CB13BBB9DB000ECDEE /* PlayView.xib in Resources */,
 				DCEFDDA813BC5AF90024A989 /* MusicView.xib in Resources */,
+				DC481D7613C4803000F2B052 /* MusicCellView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -600,6 +617,7 @@
 				DCEFDDAB13BC5B270024A989 /* MusicViewController.m in Sources */,
 				DC5BAFCF13BDA44300D80EC6 /* CommunityServer.m in Sources */,
 				DCE38C0013C2F77B006FD270 /* ImageLoader.m in Sources */,
+				DC481D7B13C480A400F2B052 /* MusicCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
