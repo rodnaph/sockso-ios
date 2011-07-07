@@ -63,6 +63,8 @@
 		DCF0660613BBD6E9000ECDEE /* Artist.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF0660513BBD6E9000ECDEE /* Artist.m */; };
 		DCF0660913BBD6F5000ECDEE /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF0660813BBD6F4000ECDEE /* Album.m */; };
 		DCF0660C13BBD883000ECDEE /* MusicItemTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF0660B13BBD883000ECDEE /* MusicItemTest.m */; };
+		DCF25B8B13C6372C00B82267 /* InfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF25B8A13C6372C00B82267 /* InfoViewController.m */; };
+		DCF25B9013C6377C00B82267 /* InfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCF25B8F13C6377C00B82267 /* InfoView.xib */; };
 		DCF2ABC313C4BB7200C5F3E4 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = DCF2ABC213C4BB7200C5F3E4 /* play.png */; };
 /* End PBXBuildFile section */
 
@@ -174,6 +176,9 @@
 		DCF0660813BBD6F4000ECDEE /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
 		DCF0660A13BBD883000ECDEE /* MusicItemTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicItemTest.h; sourceTree = "<group>"; };
 		DCF0660B13BBD883000ECDEE /* MusicItemTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicItemTest.m; sourceTree = "<group>"; };
+		DCF25B8913C6372C00B82267 /* InfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InfoViewController.h; sourceTree = "<group>"; };
+		DCF25B8A13C6372C00B82267 /* InfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InfoViewController.m; sourceTree = "<group>"; };
+		DCF25B8F13C6377C00B82267 /* InfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoView.xib; sourceTree = "<group>"; };
 		DCF2ABC213C4BB7200C5F3E4 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -307,6 +312,7 @@
 				DCF065CA13BBB9DB000ECDEE /* PlayView.xib */,
 				DCEFDDA713BC5AF90024A989 /* MusicView.xib */,
 				DC481D7513C4803000F2B052 /* MusicCellView.xib */,
+				DCF25B8F13C6377C00B82267 /* InfoView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -433,6 +439,8 @@
 				DCF065CE13BBBE59000ECDEE /* PlayViewController.m */,
 				DCEFDDA913BC5B270024A989 /* MusicViewController.h */,
 				DCEFDDAA13BC5B270024A989 /* MusicViewController.m */,
+				DCF25B8913C6372C00B82267 /* InfoViewController.h */,
+				DCF25B8A13C6372C00B82267 /* InfoViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -558,6 +566,7 @@
 				DCEFDDA813BC5AF90024A989 /* MusicView.xib in Resources */,
 				DC481D7613C4803000F2B052 /* MusicCellView.xib in Resources */,
 				DCF2ABC313C4BB7200C5F3E4 /* play.png in Resources */,
+				DCF25B9013C6377C00B82267 /* InfoView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +631,7 @@
 				DC5BAFCF13BDA44300D80EC6 /* CommunityServer.m in Sources */,
 				DCE38C0013C2F77B006FD270 /* ImageLoader.m in Sources */,
 				DC481D7B13C480A400F2B052 /* MusicCell.m in Sources */,
+				DCF25B8B13C6372C00B82267 /* InfoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,7 @@
 - (void) viewDidLoad {
 
     self.title = @"Community";
-    
+
     [self.tableView reloadData];
 
 }
