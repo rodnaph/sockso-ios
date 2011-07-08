@@ -19,4 +19,10 @@
 
 + (Properties *) initWithName:(NSString *)name andValue:(NSString *)value from:(NSManagedObjectContext *)context;
 
+//
+// Updates specified property if it exists, or creates a new one
+//
+
++ (BOOL) createOrUpdateWithName:(NSString *)name andValue:(NSString *)value from:(NSManagedObjectContext *)context;
+
 @end

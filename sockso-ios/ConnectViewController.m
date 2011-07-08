@@ -56,21 +56,10 @@
 
 - (void) saveServerInput {
     
-    Properties *prop = [Properties findByName:@"autosave.connectServer" from:context];
+    [Properties createOrUpdateWithName:@"autosave.connectServer"
+                andValue:serverInput.text
+                from:context];
     
-    if ( prop != nil ) {
-        prop.value = serverInput.text;
-    }
-    
-    else {
-        prop = [Properties initWithName:@"autosave.connectServer" andValue:serverInput.text from:context];
-    }
-    
-    NSError *error;
-    if ( ![context save:&error] ) {
-        NSLog( @"Failed to save server data: %@", [error localizedDescription] );
-    }
-        
 }
 
 //

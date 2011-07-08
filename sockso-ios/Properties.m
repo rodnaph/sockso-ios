@@ -36,4 +36,27 @@
     
 }
 
++ (BOOL) createOrUpdateWithName:(NSString *)name andValue:(NSString *)value from:(NSManagedObjectContext *)context {
+    
+    Properties *prop = [Properties findByName:name from:context];
+    
+    if ( prop != nil ) {
+        prop.value = value;
+    }
+    
+    else {
+        prop = [Properties initWithName:name andValue:value from:context];
+    }
+    
+    NSError *error;
+    
+    if ( ![context save:&error] ) {
+        NSLog( @"Failed to save context: %@", [error localizedDescription] );
+        return NO;
+    }
+    
+    return YES;
+
+}
+
 @end
