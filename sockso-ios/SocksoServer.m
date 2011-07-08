@@ -47,7 +47,6 @@
     [super init];
     
     mode = SS_MODE_STOPPED;
-    parser = [[SBJsonParser alloc] init];
     
     return self;
     
@@ -68,11 +67,14 @@
     
     [request setCompletionBlock:^{
         
+        SBJsonParser *parser = [[SBJsonParser alloc] init];
         NSDictionary *serverInfo = [parser objectWithString:[request responseString]];
         self.title = [serverInfo objectForKey:@"title"];
         self.tagline = [serverInfo objectForKey:@"tagline"];
         
         onConnect();
+        
+        [parser release];
         
     }];
     
@@ -89,9 +91,10 @@
     
     NSURL *url = [self getSearchUrl:query];
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-        
+
     [request setCompletionBlock:^{
 
+        SBJsonParser *parser = [[SBJsonParser alloc] init];
         NSArray *results = [parser objectWithString:[request responseString]];
         NSMutableArray *items = [[[NSMutableArray alloc] init] autorelease];
 
@@ -105,7 +108,9 @@
         NSLog( @"Search returned %d results", [items count] );
         
         onComplete( items );
-
+        
+        [parser release];
+        
     }];
     
     [request setFailedBlock:onFailure];
@@ -126,8 +131,10 @@
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     
     [request setCompletionBlock:^{
+        SBJsonParser *parser = [[SBJsonParser alloc] init];
         NSDictionary *data = [parser objectWithString:[request responseString]];
         onComplete( [Track fromData:data] );
+        [parser release];
     }];
     
     [request startAsynchronous];
@@ -202,8 +209,9 @@
 
 - (void) dealloc {
 
+    NSLog( @"DEALLOC OK!" );
+    
     [streamer release];
-    [parser release];
     [ipAndPort release];
     [title release];
     [tagline release];

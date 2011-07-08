@@ -13,7 +13,6 @@ typedef enum {
 
 @interface SocksoServer : NSObject {
     AudioStreamer *streamer;
-    SBJsonParser *parser;
 }
 
 @property (nonatomic, retain) NSString *ipAndPort, *title, *tagline;
