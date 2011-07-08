@@ -88,10 +88,6 @@
         return YES;
     }
     
-    else if ( major > 0 && minor > 2 && revision > 4 ) {
-        return YES;
-    }
-    
     return NO;
     
 }

@@ -4,6 +4,7 @@
 #import "CommunityViewController.h"
 #import "QuartzCore/CAAnimation.h"
 #import "CommunityServer.h"
+#import "InfoViewController.h"
 
 @implementation ConnectViewController
 
@@ -40,9 +41,27 @@
 - (IBAction) communityClicked {
 
     [CommunityServer fetchAll:^(NSMutableArray *servers) {
-        [self showCommunityView:servers];
+        if ( [servers count] > 0 ) {
+            [self showCommunityView:servers];
+        }
+        else {
+            [self showNoCommunityServersFound];
+        }
     }];
 
+}
+
+//
+// Shows the user a view informing them no community servers were found
+//
+
+- (void) showNoCommunityServersFound {
+    
+    NSString *message = @"Sorry, but no community servers that support Sockso iOS are currently online :(";
+
+    [self presentModalViewController:[InfoViewController initWithString:message]
+                            animated:YES];
+    
 }
 
 //

@@ -20,6 +20,7 @@
 
 - (IBAction) communityClicked;
 - (void) showCommunityView:(NSMutableArray *) servers;
+- (void) showNoCommunityServersFound;
 
 - (void) tryToConnect;
 - (void) showConnectFailed;

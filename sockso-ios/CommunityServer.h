@@ -1,7 +1,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define CS_MIN_VERSION @"1.3.5"
+#define CS_MIN_VERSION @"1.4.0"
 #define CS_SOCKSO_DOMAIN @"sockso.pu-gh.com"
 
 @interface CommunityServer : NSObject {}
