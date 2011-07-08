@@ -1,14 +1,16 @@
 
+#import <CoreData/CoreData.h>
 #import "ConnectViewController.h"
 #import "HomeViewController.h"
 #import "CommunityViewController.h"
 #import "QuartzCore/CAAnimation.h"
 #import "CommunityServer.h"
 #import "InfoViewController.h"
+#import "Properties.h"
 
 @implementation ConnectViewController
 
-@synthesize serverInput, connect, community, activity, connectFailed;
+@synthesize serverInput, connect, community, activity, connectFailed, context;
 
 //
 // Handler for view load time
@@ -17,8 +19,33 @@
 - (void) viewDidLoad {
     
     [super viewDidLoad];
-    
+
     self.title = @"Connect";
+    
+    [self initServerInput];
+    
+}
+
+//
+// Initialise the server input with any previously saved value
+//
+
+- (void) initServerInput {
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Properties" inManagedObjectContext:context];
+    
+    [request setEntity:entity];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"name = 'autosave.connectServer'"]];
+
+    NSArray *results = [context executeFetchRequest:request error:nil];
+    
+    if ( [results count] > 0 ) {
+        Properties *p = [results objectAtIndex:0];
+        serverInput.text = p.value;
+    }
+    
+    [request release];
     
 }
 

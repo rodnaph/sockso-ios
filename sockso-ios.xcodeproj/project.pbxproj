@@ -49,6 +49,7 @@
 		DC5BAFCF13BDA44300D80EC6 /* CommunityServer.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5BAFCE13BDA44300D80EC6 /* CommunityServer.m */; };
 		DC5BAFD813BDB3DB00D80EC6 /* CommunityServerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5BAFD713BDB3DB00D80EC6 /* CommunityServerTest.m */; };
 		DC8659B413B9345100DB4DB3 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC8659B313B9345100DB4DB3 /* MainWindow.xib */; };
+		DC8BA6CD13C5925100F21C3C /* Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8BA6CC13C5925100F21C3C /* Properties.m */; };
 		DCA0512813C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCA0512613C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld */; };
 		DCAE3C8013BB47360017BE29 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCAE3C7F13BB47360017BE29 /* QuartzCore.framework */; };
 		DCB881BA13BA5E660095656A /* CommunityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCB881B913BA5E660095656A /* CommunityView.xib */; };
@@ -154,6 +155,8 @@
 		DC5BAFD713BDB3DB00D80EC6 /* CommunityServerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityServerTest.m; sourceTree = "<group>"; };
 		DC5E60B713C376A5004A61BD /* ImageLoaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLoaderDelegate.h; sourceTree = "<group>"; };
 		DC8659B313B9345100DB4DB3 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		DC8BA6CB13C5925100F21C3C /* Properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Properties.h; sourceTree = "<group>"; };
+		DC8BA6CC13C5925100F21C3C /* Properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Properties.m; sourceTree = "<group>"; };
 		DCA0512713C4C14C002F8FC6 /* SocksoDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SocksoDataModel.xcdatamodel; sourceTree = "<group>"; };
 		DCAE3C7F13BB47360017BE29 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DCB881B913BA5E660095656A /* CommunityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommunityView.xib; sourceTree = "<group>"; };
@@ -299,6 +302,7 @@
 		DC43F94313A15012001B41F6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DC8BA6C913C591F300F21C3C /* Entities */,
 				DC481D7813C4808700F2B052 /* Controls */,
 				DCF065FF13BBD62E000ECDEE /* Controllers */,
 				DCF065FE13BBD622000ECDEE /* Sockso */,
@@ -407,6 +411,15 @@
 				DC5B65E913A4DFD4006ED498 /* ASIProgressDelegate.h */,
 			);
 			name = ASIHTTPRequest;
+			sourceTree = "<group>";
+		};
+		DC8BA6C913C591F300F21C3C /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				DC8BA6CB13C5925100F21C3C /* Properties.h */,
+				DC8BA6CC13C5925100F21C3C /* Properties.m */,
+			);
+			name = Entities;
 			sourceTree = "<group>";
 		};
 		DCA0512413C4C139002F8FC6 /* Data */ = {
@@ -648,6 +661,7 @@
 				DC481D7B13C480A400F2B052 /* MusicCell.m in Sources */,
 				DCA0512813C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld in Sources */,
 				DCF25B8B13C6372C00B82267 /* InfoViewController.m in Sources */,
+				DC8BA6CD13C5925100F21C3C /* Properties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

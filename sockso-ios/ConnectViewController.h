@@ -5,6 +5,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 #import "SocksoServer.h"
 
 @interface ConnectViewController : UIViewController <UITextFieldDelegate> {}
@@ -14,6 +15,8 @@
 @property (nonatomic, retain) IBOutlet UIButton *connect;
 @property (nonatomic, retain) IBOutlet UIButton *community;
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView *activity;
+
+@property (nonatomic, retain) NSManagedObjectContext *context;
 
 - (IBAction) connectClicked;
 - (void) showHomeView:(SocksoServer *) server;
@@ -26,5 +29,7 @@
 - (void) showConnectFailed;
 - (void) showConnecting;
 - (void) setControlsActive:(BOOL) active;
+
+- (void) initServerInput;
 
 @end
