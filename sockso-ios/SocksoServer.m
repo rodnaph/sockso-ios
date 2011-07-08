@@ -90,7 +90,7 @@
 - (void) search:(NSString *)query onComplete:(void (^)(NSMutableArray *))onComplete onFailure:(void (^)(void))onFailure {
     
     NSURL *url = [self getSearchUrl:query];
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
 
     [request setCompletionBlock:^{
 
@@ -128,7 +128,7 @@
                                        ipAndPort,
                                        trackId]];
     
-    ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     
     [request setCompletionBlock:^{
         SBJsonParser *parser = [[SBJsonParser alloc] init];
