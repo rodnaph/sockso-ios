@@ -211,6 +211,8 @@
 
     NSLog( @"DEALLOC OK!" );
     
+    [streamer stop];
+    
     [streamer release];
     [ipAndPort release];
     [title release];
