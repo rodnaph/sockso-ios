@@ -31,5 +31,6 @@
 - (void) setControlsActive:(BOOL) active;
 
 - (void) initServerInput;
+- (void) saveServerInput;
 
 @end

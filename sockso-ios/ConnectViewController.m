@@ -32,33 +32,45 @@
 
 - (void) initServerInput {
     
-    NSFetchRequest *request = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Properties" inManagedObjectContext:context];
+    Properties *prop = [Properties findByName:@"autosave.connectServer" from:context];
     
-    [request setEntity:entity];
-    [request setPredicate:[NSPredicate predicateWithFormat:@"name = 'autosave.connectServer'"]];
-
-    NSArray *results = [context executeFetchRequest:request error:nil];
-    
-    if ( [results count] > 0 ) {
-        Properties *p = [results objectAtIndex:0];
-        serverInput.text = p.value;
+    if ( prop != nil ) {
+        serverInput.text = prop.value;
     }
-    
-    [request release];
     
 }
 
 //
-// Indicates if the keyboard inout should hide
+// Indicates if the keyboard input should hide
 //
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     
     [serverInput resignFirstResponder];
     
+    [self saveServerInput];
+    
     return YES;
     
+}
+
+- (void) saveServerInput {
+    
+    Properties *prop = [Properties findByName:@"autosave.connectServer" from:context];
+    
+    if ( prop != nil ) {
+        prop.value = serverInput.text;
+    }
+    
+    else {
+        prop = [Properties initWithName:@"autosave.connectServer" andValue:serverInput.text from:context];
+    }
+    
+    NSError *error;
+    if ( ![context save:&error] ) {
+        NSLog( @"Failed to save server data: %@", [error localizedDescription] );
+    }
+        
 }
 
 //
