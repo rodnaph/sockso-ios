@@ -12,6 +12,16 @@
     STAssertFalse( [server isSupportedVersion], @"Version should not be supported" );
 }
 
+- (void) testIssupportedversionReturnsFalseWhenVersionIsInvalid {
+    CommunityServer *server = [[CommunityServer alloc] init];
+    server.version = @"";
+    STAssertFalse( [server isSupportedVersion], @"Version should not be supported" );
+    server.version = @"1";
+    STAssertFalse( [server isSupportedVersion], @"Version should not be supported" );
+    server.version = @"asdhjas.asdasd";
+    STAssertFalse( [server isSupportedVersion], @"Version should not be supported" );
+}
+
 - (void) testIssupportedversionReturnsTrueWhenVersionEqualsRequired {
     CommunityServer *server = [[CommunityServer alloc] init];
     server.version = @"1.4.0";

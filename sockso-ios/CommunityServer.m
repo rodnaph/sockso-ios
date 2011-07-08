@@ -75,10 +75,12 @@
     
     NSArray *versionParts = [version componentsSeparatedByString:@"."];
     
+    if ( [versionParts count] < 2 ) {
+        return NO;
+    }
+    
     int major = [[versionParts objectAtIndex:0] intValue];
     int minor = [[versionParts objectAtIndex:1] intValue];
-    int revision = [[versionParts objectAtIndex:2] intValue];
-    
     
     if ( major > 1 ) {
         return YES;
