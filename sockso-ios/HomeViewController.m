@@ -1,12 +1,8 @@
 
 #import "HomeViewController.h"
 #import "MusicItem.h"
-#import "ASIHTTPRequest.h"
-#import "ASIFormDataRequest.h"
-#import "JSON.h"
 #import "SocksoServer.h"
 #import "PlayViewController.h"
-#import "MusicViewController.h"
 #import "Track.h"
 #import "ImageLoader.h"
 #import "ImageLoaderDelegate.h"
@@ -108,7 +104,7 @@
     
     else {
         ImageLoader *loader = [ImageLoader fromServer:server forItem:item atIndex:indexPath];
-        [loader setDelegate:self];
+        [loader setDelegate:(id<ImageLoaderDelegate> *)self];
         [loader load];
     }
 
@@ -183,7 +179,6 @@
     
     else {
         NSLog( @"NOT YET IMPLEMENTED" );
-//        [self.navigationController pushViewController:[MusicViewController viewForItem:item] animated:YES];
     }
     
 }

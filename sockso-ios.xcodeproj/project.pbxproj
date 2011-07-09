@@ -58,8 +58,6 @@
 		DCE38C0013C2F77B006FD270 /* ImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE38BFF13C2F77A006FD270 /* ImageLoader.m */; };
 		DCEB12A513BB0E99000806A4 /* SocksoServer.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEB12A413BB0E98000806A4 /* SocksoServer.m */; };
 		DCEFDDA613BC505E0024A989 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEFDDA513BC505E0024A989 /* AudioStreamer.m */; };
-		DCEFDDA813BC5AF90024A989 /* MusicView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCEFDDA713BC5AF90024A989 /* MusicView.xib */; };
-		DCEFDDAB13BC5B270024A989 /* MusicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEFDDAA13BC5B270024A989 /* MusicViewController.m */; };
 		DCF065CB13BBB9DB000ECDEE /* PlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCF065CA13BBB9DB000ECDEE /* PlayView.xib */; };
 		DCF065CF13BBBE5C000ECDEE /* PlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCF065CE13BBBE59000ECDEE /* PlayViewController.m */; };
 		DCF065ED13BBCBD8000ECDEE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCF065EC13BBCBD8000ECDEE /* AudioToolbox.framework */; };
@@ -170,9 +168,6 @@
 		DCEB12A413BB0E98000806A4 /* SocksoServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocksoServer.m; sourceTree = "<group>"; };
 		DCEFDDA413BC505E0024A989 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
 		DCEFDDA513BC505E0024A989 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioStreamer.m; sourceTree = "<group>"; };
-		DCEFDDA713BC5AF90024A989 /* MusicView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MusicView.xib; sourceTree = "<group>"; };
-		DCEFDDA913BC5B270024A989 /* MusicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicViewController.h; sourceTree = "<group>"; };
-		DCEFDDAA13BC5B270024A989 /* MusicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicViewController.m; sourceTree = "<group>"; };
 		DCF065CA13BBB9DB000ECDEE /* PlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayView.xib; sourceTree = "<group>"; };
 		DCF065CD13BBBE57000ECDEE /* PlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayViewController.h; sourceTree = "<group>"; };
 		DCF065CE13BBBE59000ECDEE /* PlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayViewController.m; sourceTree = "<group>"; };
@@ -323,7 +318,6 @@
 				DC8659B313B9345100DB4DB3 /* MainWindow.xib */,
 				DCB881B913BA5E660095656A /* CommunityView.xib */,
 				DCF065CA13BBB9DB000ECDEE /* PlayView.xib */,
-				DCEFDDA713BC5AF90024A989 /* MusicView.xib */,
 				DC481D7513C4803000F2B052 /* MusicCellView.xib */,
 				DCF25B8F13C6377C00B82267 /* InfoView.xib */,
 			);
@@ -468,8 +462,6 @@
 				DCB881BD13BA5E980095656A /* CommunityViewController.m */,
 				DCF065CD13BBBE57000ECDEE /* PlayViewController.h */,
 				DCF065CE13BBBE59000ECDEE /* PlayViewController.m */,
-				DCEFDDA913BC5B270024A989 /* MusicViewController.h */,
-				DCEFDDAA13BC5B270024A989 /* MusicViewController.m */,
 				DCF25B8913C6372C00B82267 /* InfoViewController.h */,
 				DCF25B8A13C6372C00B82267 /* InfoViewController.m */,
 			);
@@ -602,7 +594,6 @@
 				DC8659B413B9345100DB4DB3 /* MainWindow.xib in Resources */,
 				DCB881BA13BA5E660095656A /* CommunityView.xib in Resources */,
 				DCF065CB13BBB9DB000ECDEE /* PlayView.xib in Resources */,
-				DCEFDDA813BC5AF90024A989 /* MusicView.xib in Resources */,
 				DC481D7613C4803000F2B052 /* MusicCellView.xib in Resources */,
 				DCF2ABC313C4BB7200C5F3E4 /* play.png in Resources */,
 				DCF25B9013C6377C00B82267 /* InfoView.xib in Resources */,
@@ -667,7 +658,6 @@
 				DCF0660613BBD6E9000ECDEE /* Artist.m in Sources */,
 				DCF0660913BBD6F5000ECDEE /* Album.m in Sources */,
 				DCEFDDA613BC505E0024A989 /* AudioStreamer.m in Sources */,
-				DCEFDDAB13BC5B270024A989 /* MusicViewController.m in Sources */,
 				DC5BAFCF13BDA44300D80EC6 /* CommunityServer.m in Sources */,
 				DCE38C0013C2F77B006FD270 /* ImageLoader.m in Sources */,
 				DC481D7B13C480A400F2B052 /* MusicCell.m in Sources */,
