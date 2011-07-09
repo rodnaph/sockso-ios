@@ -7,6 +7,7 @@
 #import "ImageLoader.h"
 #import "ImageLoaderDelegate.h"
 #import "MusicCell.h"
+#import "ArtistViewController.h"
 
 @implementation HomeViewController
 
@@ -183,6 +184,11 @@
                                                  animated:YES];
         }];
         
+    }
+    
+    else if ( [item isArtist] ) {
+        ArtistViewController *ctrl = [ArtistViewController initWithItem:item forServer:server];
+        [self.navigationController pushViewController:ctrl animated:YES];
     }
     
     else {

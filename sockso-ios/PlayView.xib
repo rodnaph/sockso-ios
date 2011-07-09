@@ -114,7 +114,11 @@
 						<bool key="IBUIUserInteractionEnabled">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<string key="IBUIText">TRACK</string>
-						<reference key="IBUIFont" ref="16247823"/>
+						<object class="NSFont" key="IBUIFont">
+							<string key="NSName">Helvetica-Bold</string>
+							<double key="NSSize">24</double>
+							<int key="NSfFlags">16</int>
+						</object>
 						<reference key="IBUITextColor" ref="438548654"/>
 						<nil key="IBUIHighlightedColor"/>
 						<int key="IBUIBaselineAdjustment">1</int>
@@ -128,7 +132,6 @@
 						<string key="NSFrame">{{99, 273}, {123, 37}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -487,7 +490,6 @@
 							<string>albumLabel</string>
 							<string>artistLabel</string>
 							<string>artworkImage</string>
-							<string>controls</string>
 							<string>nameLabel</string>
 							<string>playButton</string>
 						</object>
@@ -496,7 +498,6 @@
 							<string>UILabel</string>
 							<string>UILabel</string>
 							<string>UIImageView</string>
-							<string>UISegmentedControl</string>
 							<string>UILabel</string>
 							<string>UIButton</string>
 						</object>
@@ -508,7 +509,6 @@
 							<string>albumLabel</string>
 							<string>artistLabel</string>
 							<string>artworkImage</string>
-							<string>controls</string>
 							<string>nameLabel</string>
 							<string>playButton</string>
 						</object>
@@ -525,10 +525,6 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">artworkImage</string>
 								<string key="candidateClassName">UIImageView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">controls</string>
-								<string key="candidateClassName">UISegmentedControl</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">nameLabel</string>

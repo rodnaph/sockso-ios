@@ -54,6 +54,8 @@
 		DCA057A213C788C200850DA2 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCA057A113C788C200850DA2 /* Entitlements.plist */; };
 		DCA057A513C835A400850DA2 /* SocksoServerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA057A413C835A400850DA2 /* SocksoServerTest.m */; };
 		DCA057A713C84A9E00850DA2 /* transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = DCA057A613C84A9E00850DA2 /* transparent.png */; };
+		DCA057A913C84D6D00850DA2 /* ArtistView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCA057A813C84D6D00850DA2 /* ArtistView.xib */; };
+		DCA057AC13C84F5E00850DA2 /* ArtistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA057AB13C84F5E00850DA2 /* ArtistViewController.m */; };
 		DCAE3C8013BB47360017BE29 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCAE3C7F13BB47360017BE29 /* QuartzCore.framework */; };
 		DCB881BA13BA5E660095656A /* CommunityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCB881B913BA5E660095656A /* CommunityView.xib */; };
 		DCB881BE13BA5E980095656A /* CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB881BD13BA5E980095656A /* CommunityViewController.m */; };
@@ -163,6 +165,9 @@
 		DCA057A313C835A400850DA2 /* SocksoServerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocksoServerTest.h; sourceTree = "<group>"; };
 		DCA057A413C835A400850DA2 /* SocksoServerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocksoServerTest.m; sourceTree = "<group>"; };
 		DCA057A613C84A9E00850DA2 /* transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transparent.png; sourceTree = "<group>"; };
+		DCA057A813C84D6D00850DA2 /* ArtistView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtistView.xib; sourceTree = "<group>"; };
+		DCA057AA13C84F5D00850DA2 /* ArtistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistViewController.h; sourceTree = "<group>"; };
+		DCA057AB13C84F5E00850DA2 /* ArtistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistViewController.m; sourceTree = "<group>"; };
 		DCAE3C7F13BB47360017BE29 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DCB881B913BA5E660095656A /* CommunityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommunityView.xib; sourceTree = "<group>"; };
 		DCB881BC13BA5E980095656A /* CommunityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityViewController.h; sourceTree = "<group>"; };
@@ -325,6 +330,7 @@
 				DCF065CA13BBB9DB000ECDEE /* PlayView.xib */,
 				DC481D7513C4803000F2B052 /* MusicCellView.xib */,
 				DCF25B8F13C6377C00B82267 /* InfoView.xib */,
+				DCA057A813C84D6D00850DA2 /* ArtistView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -470,6 +476,8 @@
 				DCF065CE13BBBE59000ECDEE /* PlayViewController.m */,
 				DCF25B8913C6372C00B82267 /* InfoViewController.h */,
 				DCF25B8A13C6372C00B82267 /* InfoViewController.m */,
+				DCA057AA13C84F5D00850DA2 /* ArtistViewController.h */,
+				DCA057AB13C84F5E00850DA2 /* ArtistViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -607,6 +615,7 @@
 				DCF25B9013C6377C00B82267 /* InfoView.xib in Resources */,
 				DCA057A213C788C200850DA2 /* Entitlements.plist in Resources */,
 				DCA057A713C84A9E00850DA2 /* transparent.png in Resources */,
+				DCA057A913C84D6D00850DA2 /* ArtistView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,6 +682,7 @@
 				DCA0512813C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld in Sources */,
 				DCF25B8B13C6372C00B82267 /* InfoViewController.m in Sources */,
 				DC8BA6CD13C5925100F21C3C /* Properties.m in Sources */,
+				DCA057AC13C84F5E00850DA2 /* ArtistViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
