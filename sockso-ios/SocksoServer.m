@@ -181,6 +181,7 @@
         for ( NSDictionary *data in [artist objectForKey:@"albums"] ) {
             Album *album = [Album itemWithName:[NSString stringWithFormat:@"al%@", [data objectForKey:@"id"]]
                                           name:[data objectForKey:@"name"]];
+            album.artist = item;
             [albums addObject:album];
         }
         

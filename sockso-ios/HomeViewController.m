@@ -8,6 +8,7 @@
 #import "ImageLoaderDelegate.h"
 #import "MusicCell.h"
 #import "ArtistViewController.h"
+#import "AlbumViewController.h"
 
 @implementation HomeViewController
 
@@ -188,6 +189,11 @@
     
     else if ( [item isArtist] ) {
         ArtistViewController *ctrl = [ArtistViewController initWithItem:item forServer:server];
+        [self.navigationController pushViewController:ctrl animated:YES];
+    }
+    
+    else if ( [item isAlbum] ) {
+        AlbumViewController *ctrl = [AlbumViewController initWithItem:item forServer:server];
         [self.navigationController pushViewController:ctrl animated:YES];
     }
     

@@ -4,6 +4,7 @@
 #import "ImageLoader.h"
 #import "MusicCell.h"
 #import "MusicItem.h"
+#import "AlbumViewController.h"
 
 @implementation ArtistViewController
 
@@ -201,6 +202,11 @@
                                                  animated:YES];
         }];
         
+    }
+    
+    else if ( [cellItem isAlbum] ) {
+        AlbumViewController *ctrl = [AlbumViewController initWithItem:cellItem forServer:server];
+        [self.navigationController pushViewController:ctrl animated:YES];
     }
     
     else {
