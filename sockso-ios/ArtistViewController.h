@@ -22,6 +22,7 @@ enum AV_MODES {
 @property (nonatomic, retain) IBOutlet UIImageView *artworkImage;
 @property (nonatomic, retain) IBOutlet UISegmentedControl *modeButtons;
 @property (nonatomic, retain) IBOutlet UITableView *musicTable;
+@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *activityView;
 
 + (ArtistViewController *) initWithItem:(MusicItem *)item forServer:(SocksoServer *)server;
 

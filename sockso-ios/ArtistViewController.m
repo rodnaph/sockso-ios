@@ -7,7 +7,7 @@
 @implementation ArtistViewController
 
 @synthesize item, server, nameLabel, artworkImage, modeButtons,
-            albums, tracks, musicTable;
+            albums, tracks, musicTable, activityView;
 
 + (ArtistViewController *) initWithItem:(MusicItem *)item forServer:(SocksoServer *)server {
     
@@ -116,8 +116,10 @@
     mode = AV_MODE_ALBUMS;
     
     if ( albums == nil ) {
+        [activityView setHidden:NO];
         [server getAlbumsForArtist:item
                 onComplete:^(NSMutableArray *_albums) {
+                    [activityView setHidden:YES];
                     this.albums = _albums;
                     [this showAlbums];
                 }
@@ -137,8 +139,10 @@
     mode = AV_MODE_TRACKS;
     
     if ( tracks == nil ) {
+        [activityView setHidden:NO];
         [server getTracksForArtist:item
                 onComplete:^(NSMutableArray *_tracks) {
+                    [activityView setHidden:YES];
                     this.tracks = _tracks;
                     [this showTracks];
                 }
@@ -200,6 +204,7 @@
     [albums release];
     [tracks release];
     [musicTable release];
+    [activityView release];
 
     [super dealloc];
     
