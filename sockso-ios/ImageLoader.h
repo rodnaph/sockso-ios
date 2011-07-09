@@ -17,7 +17,6 @@
 + (ImageLoader *) fromServer:(SocksoServer *)server forItem:(MusicItem *)item atIndex:(NSIndexPath *)indexPath;
 
 - (void) load;
-- (void) loadAsync;
 
 @end
 

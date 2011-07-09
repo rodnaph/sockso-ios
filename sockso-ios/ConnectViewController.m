@@ -68,12 +68,14 @@
 
 - (IBAction) communityClicked {
 
+    __block ConnectViewController *this = self;
+    
     [CommunityServer fetchAll:^(NSMutableArray *servers) {
         if ( [servers count] > 0 ) {
-            [self showCommunityView:servers];
+            [this showCommunityView:servers];
         }
         else {
-            [self showNoCommunityServersFound];
+            [this showNoCommunityServersFound];
         }
     }];
 
@@ -127,10 +129,12 @@
 
 - (IBAction) tryToConnect {
 
+    __block ConnectViewController *this = self;
+    
     SocksoServer *server = [SocksoServer disconnectedServer:[serverInput text]];
     
-    [server connect:^{ [self showHomeView:server]; }
-          onFailure:^{ [self showConnectFailed]; }];
+    [server connect:^{ [this showHomeView:server]; }
+          onFailure:^{ [this showConnectFailed]; }];
     
 }
 

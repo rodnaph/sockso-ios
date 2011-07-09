@@ -128,11 +128,13 @@
 
 - (void) performSearch:(NSString *)query {
     
+    __block HomeViewController *this = self;
+    
     [server search:query
          onComplete:^(NSMutableArray *items) {
-             [self showSearchResults:items];
+             [this showSearchResults:items];
          }
-         onFailure:^{}];
+         onFailure:^{ [this showSearchFailed]; }];
     
 }
 
@@ -143,6 +145,8 @@
 - (void) showSearchFailed {
     
     // @todo
+    
+    NSLog( @"Search failed..." );
     
 }
 

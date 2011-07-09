@@ -149,7 +149,7 @@
     
     NSString *fullUrl = [NSString stringWithFormat:@"http://%@/json/search/%@",
                          ipAndPort,
-                         query];
+                         [query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSURL *url = [NSURL URLWithString:fullUrl];
     
     NSLog( @"Search Query URL: %@", fullUrl );

@@ -1,5 +1,6 @@
 
 #import <UIKit/UIKit.h>
+#import "ASIHTTPRequest.h"
 #import "ImageLoader.h"
 #import "ImageLoaderDelegate.h"
 #import "SocksoServer.h"
@@ -21,26 +22,19 @@
 }
 
 - (void) load {
-    
-    [NSThread detachNewThreadSelector:@selector(loadAsync)
-                             toTarget:self withObject:nil];
-    
-}
 
-- (void) loadAsync {
-    
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/file/cover/%@",
                                        server.ipAndPort,
                                        item.mid]];
-        
-    NSLog( @"Fetch image: %@ (%@)", url, item.name );
-        
-    UIImage *image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    __block id <ImageLoaderDelegate> *del = delegate;
     
-    [(id<ImageLoaderDelegate>)delegate imageDidLoad:image atIndex:indexPath];
-
-    [pool release];
+    [request setCompletionBlock:^{
+        UIImage *image = [UIImage imageWithData:[request responseData]];
+        [(id <ImageLoaderDelegate> )del imageDidLoad:image atIndex:indexPath];
+    }];
+    
+    [request startAsynchronous];
     
 }
 
