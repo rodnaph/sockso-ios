@@ -158,6 +158,43 @@
     
 }
 
+//
+// Returns albums for the specified artist
+//
+
+- (void) getAlbumsForArtist:(MusicItem *)item onComplete:(void (^)(NSMutableArray *))onComplete onFailure:(void (^)(void))onFailure {
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/api/artists/%@",
+                           ipAndPort,
+                           [item getId]];
+    NSURL *url = [NSURL URLWithString:urlString];
+    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+
+    NSLog( @"Query artist: %@ (%@)", urlString, item.mid );
+    
+    [request setCompletionBlock:^{
+        
+        SBJsonParser *parser = [[SBJsonParser alloc] init];
+        NSDictionary *artist = [parser objectWithString:[request responseString]];
+        NSMutableArray *albums = [[[NSMutableArray alloc] init] autorelease];
+        
+        for ( NSDictionary *data in [artist objectForKey:@"albums"] ) {
+            Album *album = [Album itemWithName:[NSString stringWithFormat:@"al%@", [data objectForKey:@"id"]]
+                                          name:[data objectForKey:@"name"]];
+            [albums addObject:album];
+        }
+        
+        onComplete( albums );
+        
+        [parser release];
+        
+    }];
+    
+    [request setFailedBlock:onFailure];
+
+    [request startAsynchronous];
+    
+}
 
 //
 //  start playing a music item, stop any other playing if it is

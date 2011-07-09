@@ -9,19 +9,26 @@ enum AV_MODES {
     AV_MODE_TRACKS = 2
 };
 
-@interface ArtistViewController : UIViewController <ImageLoaderDelegate> {
+@interface ArtistViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, ImageLoaderDelegate> {
     int mode;
-    NSMutableArray *albums, *tracks;
+    NSMutableDictionary *images;
 }
 
 @property (nonatomic, retain) MusicItem *item;
 @property (nonatomic, retain) SocksoServer *server;
+@property (nonatomic, retain) NSMutableArray *albums, *tracks;
 
 @property (nonatomic, retain) IBOutlet UILabel *nameLabel;
 @property (nonatomic, retain) IBOutlet UIImageView *artworkImage;
+@property (nonatomic, retain) IBOutlet UITabBarItem *albumsTab, *tracksTab;
+@property (nonatomic, retain) IBOutlet UITableView *musicTable;
 
 + (ArtistViewController *) initWithItem:(MusicItem *)item forServer:(SocksoServer *)server;
 
-- (void) loadArtwork;
+- (void) showArtwork;
+- (void) showAlbums;
+- (void) showTracks;
+
+- (void) setArtworkOnCell:(UITableViewCell *)cell forMusicItem:(MusicItem *)cellItem atIndex:(NSIndexPath *)indexPath;
 
 @end
