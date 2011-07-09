@@ -103,9 +103,13 @@
     }
     
     else {
+        
+        cell.imageView.image = [UIImage imageNamed:@"transparent.png"];
+        
         ImageLoader *loader = [ImageLoader fromServer:server forItem:item atIndex:indexPath];
         [loader setDelegate:(id<ImageLoaderDelegate> *)self];
         [loader load];
+        
     }
 
 }

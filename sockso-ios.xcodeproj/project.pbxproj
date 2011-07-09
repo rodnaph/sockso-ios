@@ -53,6 +53,7 @@
 		DCA0512813C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCA0512613C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld */; };
 		DCA057A213C788C200850DA2 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCA057A113C788C200850DA2 /* Entitlements.plist */; };
 		DCA057A513C835A400850DA2 /* SocksoServerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA057A413C835A400850DA2 /* SocksoServerTest.m */; };
+		DCA057A713C84A9E00850DA2 /* transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = DCA057A613C84A9E00850DA2 /* transparent.png */; };
 		DCAE3C8013BB47360017BE29 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCAE3C7F13BB47360017BE29 /* QuartzCore.framework */; };
 		DCB881BA13BA5E660095656A /* CommunityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCB881B913BA5E660095656A /* CommunityView.xib */; };
 		DCB881BE13BA5E980095656A /* CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB881BD13BA5E980095656A /* CommunityViewController.m */; };
@@ -161,6 +162,7 @@
 		DCA057A113C788C200850DA2 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		DCA057A313C835A400850DA2 /* SocksoServerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocksoServerTest.h; sourceTree = "<group>"; };
 		DCA057A413C835A400850DA2 /* SocksoServerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocksoServerTest.m; sourceTree = "<group>"; };
+		DCA057A613C84A9E00850DA2 /* transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transparent.png; sourceTree = "<group>"; };
 		DCAE3C7F13BB47360017BE29 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		DCB881B913BA5E660095656A /* CommunityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommunityView.xib; sourceTree = "<group>"; };
 		DCB881BC13BA5E980095656A /* CommunityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityViewController.h; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 		DC43F95A13A16DA6001B41F6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DCA057A613C84A9E00850DA2 /* transparent.png */,
 				DCF2ABC213C4BB7200C5F3E4 /* play.png */,
 				DC43F95F13A1F223001B41F6 /* community.png */,
 				DC43F95D13A16E1C001B41F6 /* logo.png */,
@@ -603,6 +606,7 @@
 				DCF2ABC313C4BB7200C5F3E4 /* play.png in Resources */,
 				DCF25B9013C6377C00B82267 /* InfoView.xib in Resources */,
 				DCA057A213C788C200850DA2 /* Entitlements.plist in Resources */,
+				DCA057A713C84A9E00850DA2 /* transparent.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
