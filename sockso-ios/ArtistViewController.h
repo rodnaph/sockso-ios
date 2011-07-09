@@ -20,7 +20,7 @@ enum AV_MODES {
 
 @property (nonatomic, retain) IBOutlet UILabel *nameLabel;
 @property (nonatomic, retain) IBOutlet UIImageView *artworkImage;
-@property (nonatomic, retain) IBOutlet UITabBarItem *albumsTab, *tracksTab;
+@property (nonatomic, retain) IBOutlet UISegmentedControl *modeButtons;
 @property (nonatomic, retain) IBOutlet UITableView *musicTable;
 
 + (ArtistViewController *) initWithItem:(MusicItem *)item forServer:(SocksoServer *)server;
@@ -28,6 +28,8 @@ enum AV_MODES {
 - (void) showArtwork;
 - (void) showAlbums;
 - (void) showTracks;
+
+- (IBAction) modeButtonChanged;
 
 - (void) setArtworkOnCell:(UITableViewCell *)cell forMusicItem:(MusicItem *)cellItem atIndex:(NSIndexPath *)indexPath;
 

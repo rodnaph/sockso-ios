@@ -196,6 +196,40 @@
     
 }
 
+- (void) getTracksForArtist:(MusicItem *)item onComplete:(void (^)(NSMutableArray *))onComplete onFailure:(void (^)(void))onFailure {
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/api/artists/%@/tracks",
+                           ipAndPort,
+                           [item getId]];
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    
+    NSLog( @"Query artist tracks: %@", urlString );
+    
+    [request setCompletionBlock:^{
+        
+        SBJsonParser *parser = [[SBJsonParser alloc] init];
+        NSArray *trackData = [parser objectWithString:[request responseString]];
+        NSMutableArray *tracks = [[[NSMutableArray alloc] init] autorelease];
+        
+        for ( NSDictionary *data in trackData ) {
+            Track *track = [Track itemWithName:[NSString stringWithFormat:@"tr%@", [data objectForKey:@"id"]]
+                                          name:[data objectForKey:@"name"]];
+            [tracks addObject:track];
+        }
+        
+        onComplete( tracks );
+        
+        [parser release];
+        
+    }];
+    
+    [request setFailedBlock:onFailure];
+    [request startAsynchronous];
+    
+}
+
 //
 //  start playing a music item, stop any other playing if it is
 //

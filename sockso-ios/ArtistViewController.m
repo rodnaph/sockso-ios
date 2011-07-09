@@ -6,7 +6,7 @@
 
 @implementation ArtistViewController
 
-@synthesize item, server, nameLabel, artworkImage, albumsTab, tracksTab,
+@synthesize item, server, nameLabel, artworkImage, modeButtons,
             albums, tracks, musicTable;
 
 + (ArtistViewController *) initWithItem:(MusicItem *)item forServer:(SocksoServer *)server {
@@ -132,6 +132,23 @@
 
 - (void) showTracks {
     
+    __block ArtistViewController *this = self;
+    
+    mode = AV_MODE_TRACKS;
+    
+    if ( tracks == nil ) {
+        [server getTracksForArtist:item
+                onComplete:^(NSMutableArray *_tracks) {
+                    this.tracks = _tracks;
+                    [this showTracks];
+                }
+                onFailure:^{}];
+    }
+    
+    else {
+        [musicTable reloadData];
+    }
+    
 }
 
 - (void) showArtwork {
@@ -161,13 +178,29 @@
     
 }
 
+- (IBAction) modeButtonChanged {
+    
+    if ( [modeButtons selectedSegmentIndex] == 0 ) {
+        [self showAlbums];
+    }
+    
+    else {
+        [self showTracks];
+    }
+    
+}
+
 - (void) dealloc {
     
     [item release];
     [server release];
     [nameLabel release];
     [artworkImage release];
-    
+    [modeButtons release];
+    [albums release];
+    [tracks release];
+    [musicTable release];
+
     [super dealloc];
     
 }
