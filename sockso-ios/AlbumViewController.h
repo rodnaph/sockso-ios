@@ -12,9 +12,11 @@
 
 @property (nonatomic, retain) MusicItem *albumItem;
 @property (nonatomic, retain) SocksoServer *server;
+@property (nonatomic, retain) NSMutableArray *tracks;
 
 + (AlbumViewController *) initWithItem:(MusicItem *)albumItem forServer:(SocksoServer *)server;
 
 - (void) showArtwork;
+- (void) loadTracks;
 
 @end

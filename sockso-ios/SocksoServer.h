@@ -34,9 +34,12 @@ typedef enum {
 - (void) getTrack:(int)trackId onComplete:(void (^)(Track *))onComplete;
 - (void) getAlbumsForArtist:(MusicItem *)item onComplete:(void (^)(NSMutableArray *))onComplete onFailure:(void (^)(void))onFailure;
 - (void) getTracksForArtist:(MusicItem *)item onComplete:(void (^)(NSMutableArray *))onComplete onFailure:(void (^)(void))onFailure;
+- (void) getTracksForAlbum:(MusicItem *)item onComplete:(void (^)(NSMutableArray *))onComplete onFailure:(void (^)(void))onFailure;
 
 // private
 
 - (NSURL *) getSearchUrl:(NSString *)query;
+
+- (void) getTracksForMusicItem:(MusicItem *)item onComplete:(void (^)(NSMutableArray *))onComplete onFailure:(void (^)(void))onFailure;
 
 @end

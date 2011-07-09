@@ -158,49 +158,18 @@
     
 }
 
-//
-// Returns albums for the specified artist
-//
-
-- (void) getAlbumsForArtist:(MusicItem *)item onComplete:(void (^)(NSMutableArray *))onComplete onFailure:(void (^)(void))onFailure {
+- (void) getTracksForAlbum:(MusicItem *)item onComplete:(void (^)(NSMutableArray *))onComplete onFailure:(void (^)(void))onFailure {
     
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/api/artists/%@",
-                           ipAndPort,
-                           [item getId]];
-    NSURL *url = [NSURL URLWithString:urlString];
-    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-
-    NSLog( @"Query artist: %@ (%@)", urlString, item.mid );
-    
-    [request setCompletionBlock:^{
-        
-        SBJsonParser *parser = [[SBJsonParser alloc] init];
-        NSDictionary *artist = [parser objectWithString:[request responseString]];
-        NSMutableArray *albums = [[[NSMutableArray alloc] init] autorelease];
-        
-        for ( NSDictionary *data in [artist objectForKey:@"albums"] ) {
-            Album *album = [Album itemWithName:[NSString stringWithFormat:@"al%@", [data objectForKey:@"id"]]
-                                          name:[data objectForKey:@"name"]];
-            album.artist = item;
-            [albums addObject:album];
-        }
-        
-        onComplete( albums );
-        
-        [parser release];
-        
-    }];
-    
-    [request setFailedBlock:onFailure];
-
-    [request startAsynchronous];
+    [self getTracksForMusicItem:item onComplete:onComplete onFailure:onFailure];
     
 }
 
-- (void) getTracksForArtist:(MusicItem *)item onComplete:(void (^)(NSMutableArray *))onComplete onFailure:(void (^)(void))onFailure {
+- (void) getTracksForMusicItem:(MusicItem *)item onComplete:(void (^)(NSMutableArray *))onComplete onFailure:(void (^)(void))onFailure {
     
-    NSString *urlString = [NSString stringWithFormat:@"http://%@/api/artists/%@/tracks",
+    NSString *itemType = [item isArtist] ? @"artists" : @"albums";
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/api/%@/%@/tracks",
                            ipAndPort,
+                           itemType,
                            [item getId]];
     NSURL *url = [NSURL URLWithString:urlString];
     
@@ -228,6 +197,51 @@
     
     [request setFailedBlock:onFailure];
     [request startAsynchronous];
+
+}
+
+//
+// Returns albums for the specified artist
+//
+
+- (void) getAlbumsForArtist:(MusicItem *)item onComplete:(void (^)(NSMutableArray *))onComplete onFailure:(void (^)(void))onFailure {
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/api/artists/%@",
+                           ipAndPort,
+                           [item getId]];
+    NSURL *url = [NSURL URLWithString:urlString];
+    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    
+    NSLog( @"Query: %@ (%@)", urlString, item.mid );
+    
+    [request setCompletionBlock:^{
+        
+        SBJsonParser *parser = [[SBJsonParser alloc] init];
+        NSDictionary *artist = [parser objectWithString:[request responseString]];
+        NSMutableArray *albums = [[[NSMutableArray alloc] init] autorelease];
+        
+        for ( NSDictionary *data in [artist objectForKey:@"albums"] ) {
+            Album *album = [Album itemWithName:[NSString stringWithFormat:@"al%@", [data objectForKey:@"id"]]
+                                          name:[data objectForKey:@"name"]];
+            album.artist = item;
+            [albums addObject:album];
+        }
+        
+        onComplete( albums );
+        
+        [parser release];
+        
+    }];
+    
+    [request setFailedBlock:onFailure];
+    
+    [request startAsynchronous];
+    
+}
+
+- (void) getTracksForArtist:(MusicItem *)item onComplete:(void (^)(NSMutableArray *))onComplete onFailure:(void (^)(void))onFailure {
+    
+    [self getTracksForMusicItem:item onComplete:onComplete onFailure:onFailure];
     
 }
 

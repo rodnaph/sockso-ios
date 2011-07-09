@@ -4,10 +4,11 @@
 #import "MusicItem.h"
 #import "ImageLoader.h"
 #import "Album.h"
+#import "PlayViewController.h"
 
 @implementation AlbumViewController
 
-@synthesize trackTable, nameLabel, artworkImage, albumItem, server, artistLabel;
+@synthesize trackTable, nameLabel, artworkImage, albumItem, server, artistLabel, tracks;
 
 + (AlbumViewController *) initWithItem:(MusicItem *)albumItem forServer:(SocksoServer *)server {
     
@@ -27,9 +28,27 @@
     self.title = albumItem.name;
     
     nameLabel.text = albumItem.name;
-    artistLabel.text = ((Album *) albumItem).artist.name;
+    artistLabel.text = @"";
+    
+    if ( [albumItem isKindOfClass:[Album class]] ) {
+        artistLabel.text = ((Album *) albumItem).artist.name;
+    }
     
     [self showArtwork];
+    [self loadTracks];
+    
+}
+
+- (void) loadTracks {
+
+    __block AlbumViewController *this = self;
+    
+    [server getTracksForAlbum:albumItem
+                   onComplete:^(NSMutableArray *_tracks) {
+                       this.tracks = _tracks;
+                       [this.trackTable reloadData];
+                   }
+                    onFailure:^{}];
     
 }
 
@@ -49,7 +68,7 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-	return 0;
+	return [tracks count];
     
 }
 
@@ -72,7 +91,7 @@
         
 	}
     
-    MusicItem *cellItem = [nil objectAtIndex:indexPath.row];
+    MusicItem *cellItem = [tracks objectAtIndex:indexPath.row];
     
     cell.textLabel.text = cellItem.name;
     cell.trackName.text = @"";
@@ -81,6 +100,19 @@
     
 	return cell;
     
+}
+
+- (void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    MusicItem *cellItem = [tracks objectAtIndex:[indexPath row]];
+    
+    int trackId = [[cellItem getId] intValue];
+        
+    [server getTrack:trackId onComplete:^(Track *track){
+        [self.navigationController pushViewController:[PlayViewController viewForTrack:track server:server]
+                                             animated:YES];
+    }];
+        
 }
 
 
@@ -92,6 +124,7 @@
     [artworkImage release];
     [albumItem release];
     [server release];
+    [tracks release];
     
     [super dealloc];
     
