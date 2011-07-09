@@ -29,6 +29,7 @@
 
 - (void) loadAsync {
     
+    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/file/cover/%@",
                                        server.ipAndPort,
                                        item.mid]];
@@ -39,12 +40,12 @@
     
     [(id<ImageLoaderDelegate>)delegate imageDidLoad:image atIndex:indexPath];
 
-    [url release];
+    [pool release];
     
 }
 
 - (void) dealloc {
-    
+
     [indexPath release];
     [item release];
     [server release];

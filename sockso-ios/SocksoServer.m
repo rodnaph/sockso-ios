@@ -209,8 +209,6 @@
 
 - (void) dealloc {
 
-    NSLog( @"DEALLOC OK!" );
-    
     [streamer stop];
     
     [streamer release];
