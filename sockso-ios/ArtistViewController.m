@@ -1,5 +1,6 @@
 
 #import "ArtistViewController.h"
+#import "PlayViewController.h"
 #import "ImageLoader.h"
 #import "MusicCell.h"
 #import "MusicItem.h"
@@ -178,6 +179,32 @@
         
         [self.musicTable reloadData];
 
+    }
+    
+}
+
+//
+// Music item selected
+//
+
+- (void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSMutableArray *items = mode == AV_MODE_ALBUMS ? albums : tracks;
+    MusicItem *cellItem = [items objectAtIndex:[indexPath row]];
+    
+    if ( [cellItem isTrack] ) {
+        
+        int trackId = [[cellItem getId] intValue];
+        
+        [server getTrack:trackId onComplete:^(Track *track){
+            [self.navigationController pushViewController:[PlayViewController viewForTrack:track server:server]
+                                                 animated:YES];
+        }];
+        
+    }
+    
+    else {
+        NSLog( @"NOT YET IMPLEMENTED" );
     }
     
 }
