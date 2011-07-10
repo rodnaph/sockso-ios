@@ -182,6 +182,7 @@
 		DCE333E613C99F4300251B18 /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		DCE333E913C9A1D700251B18 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		DCE333EA13C9A1D800251B18 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		DCE333ED13C9B78700251B18 /* LoginHandlerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginHandlerDelegate.h; sourceTree = "<group>"; };
 		DCE38BFE13C2F77A006FD270 /* ImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLoader.h; sourceTree = "<group>"; };
 		DCE38BFF13C2F77A006FD270 /* ImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLoader.m; sourceTree = "<group>"; };
 		DCEB12A313BB0E98000806A4 /* SocksoServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocksoServer.h; sourceTree = "<group>"; };
@@ -471,6 +472,7 @@
 				DCE38BFE13C2F77A006FD270 /* ImageLoader.h */,
 				DCE38BFF13C2F77A006FD270 /* ImageLoader.m */,
 				DC5E60B713C376A5004A61BD /* ImageLoaderDelegate.h */,
+				DCE333ED13C9B78700251B18 /* LoginHandlerDelegate.h */,
 			);
 			name = Sockso;
 			sourceTree = "<group>";

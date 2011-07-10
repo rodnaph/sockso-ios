@@ -24,7 +24,7 @@
     self.title = @"Connect";
     
     [self initServerInput];
-    
+        
 }
 
 //
@@ -149,6 +149,7 @@
 
     if ( server.requiresLogin && ![server hasSession] ) {
         LoginViewController *ctrl = [LoginViewController initWithServer:server];
+        ctrl.delegate = (id <LoginHandlerDelegate> *) self;
         [self presentModalViewController:ctrl animated:YES];
     }
     
@@ -212,6 +213,12 @@
     
     [self.navigationController pushViewController:[HomeViewController viewForServer:server]
                                          animated:TRUE];
+    
+}
+
+- (void) loginOccurredTo:(SocksoServer *)server {
+    
+    [self showHomeView:server];
     
 }
 

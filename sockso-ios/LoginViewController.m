@@ -1,10 +1,11 @@
 
 #import "LoginViewController.h"
 #import "SocksoServer.h"
+#import "LoginHandlerDelegate.h"
 
 @implementation LoginViewController
 
-@synthesize nameInput, passwordInput, loginButton, server, cancelButton;
+@synthesize nameInput, passwordInput, loginButton, server, cancelButton, delegate;
 
 + (LoginViewController *) initWithServer:(SocksoServer *)server {
     
@@ -40,7 +41,8 @@
 
 - (void) loginSuccess {
     
-    
+    [self dismissModalViewControllerAnimated:YES];
+    [(id <LoginHandlerDelegate>)delegate loginOccurredTo:server];
     
 }
 

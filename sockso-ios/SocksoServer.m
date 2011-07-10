@@ -60,8 +60,6 @@
     NSArray *cookies = [jar cookiesForURL:url];
     BOOL gotSessId = NO, gotSessCode = NO;
     
-    NSLog( @"Check current cookies..." );
-    
     for ( NSHTTPCookie *cookie in cookies ) {
         if ( [[cookie name] isEqualToString:@"sessId"] ) { gotSessId = YES; }
         if ( [[cookie name] isEqualToString:@"sessCode"] ) { gotSessCode = YES; }
@@ -89,7 +87,7 @@
     [request setCompletionBlock:^{
     
         if ( [this hasSession] ) {
-            NSLog( @"Session established!" );
+            onSuccess();
         }
         
         else {

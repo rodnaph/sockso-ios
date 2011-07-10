@@ -7,8 +7,9 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 #import "SocksoServer.h"
+#import "LoginHandlerDelegate.h"
 
-@interface ConnectViewController : UIViewController <UITextFieldDelegate> {}
+@interface ConnectViewController : UIViewController <UITextFieldDelegate, LoginHandlerDelegate> {}
 
 @property (nonatomic, retain) IBOutlet UILabel *connectFailed;
 @property (nonatomic, retain) IBOutlet UITextField *serverInput;
