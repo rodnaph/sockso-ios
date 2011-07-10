@@ -61,6 +61,8 @@
 		DCAE3C8013BB47360017BE29 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCAE3C7F13BB47360017BE29 /* QuartzCore.framework */; };
 		DCB881BA13BA5E660095656A /* CommunityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCB881B913BA5E660095656A /* CommunityView.xib */; };
 		DCB881BE13BA5E980095656A /* CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB881BD13BA5E980095656A /* CommunityViewController.m */; };
+		DCE333E713C99F4300251B18 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCE333E613C99F4300251B18 /* LoginView.xib */; };
+		DCE333EB13C9A1D800251B18 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE333EA13C9A1D800251B18 /* LoginViewController.m */; };
 		DCE38C0013C2F77B006FD270 /* ImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE38BFF13C2F77A006FD270 /* ImageLoader.m */; };
 		DCEB12A513BB0E99000806A4 /* SocksoServer.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEB12A413BB0E98000806A4 /* SocksoServer.m */; };
 		DCEFDDA613BC505E0024A989 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEFDDA513BC505E0024A989 /* AudioStreamer.m */; };
@@ -177,6 +179,9 @@
 		DCB881B913BA5E660095656A /* CommunityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommunityView.xib; sourceTree = "<group>"; };
 		DCB881BC13BA5E980095656A /* CommunityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityViewController.h; sourceTree = "<group>"; };
 		DCB881BD13BA5E980095656A /* CommunityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityViewController.m; sourceTree = "<group>"; };
+		DCE333E613C99F4300251B18 /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
+		DCE333E913C9A1D700251B18 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		DCE333EA13C9A1D800251B18 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		DCE38BFE13C2F77A006FD270 /* ImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLoader.h; sourceTree = "<group>"; };
 		DCE38BFF13C2F77A006FD270 /* ImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLoader.m; sourceTree = "<group>"; };
 		DCEB12A313BB0E98000806A4 /* SocksoServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocksoServer.h; sourceTree = "<group>"; };
@@ -337,6 +342,7 @@
 				DCF25B8F13C6377C00B82267 /* InfoView.xib */,
 				DCA057A813C84D6D00850DA2 /* ArtistView.xib */,
 				DCA057BE13C88B2E00850DA2 /* AlbumView.xib */,
+				DCE333E613C99F4300251B18 /* LoginView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -486,6 +492,8 @@
 				DCA057AB13C84F5E00850DA2 /* ArtistViewController.m */,
 				DCA057C113C88B9000850DA2 /* AlbumViewController.h */,
 				DCA057C213C88B9000850DA2 /* AlbumViewController.m */,
+				DCE333E913C9A1D700251B18 /* LoginViewController.h */,
+				DCE333EA13C9A1D800251B18 /* LoginViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -625,6 +633,7 @@
 				DCA057A713C84A9E00850DA2 /* transparent.png in Resources */,
 				DCA057A913C84D6D00850DA2 /* ArtistView.xib in Resources */,
 				DCA057BF13C88B2E00850DA2 /* AlbumView.xib in Resources */,
+				DCE333E713C99F4300251B18 /* LoginView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,6 +702,7 @@
 				DC8BA6CD13C5925100F21C3C /* Properties.m in Sources */,
 				DCA057AC13C84F5E00850DA2 /* ArtistViewController.m in Sources */,
 				DCA057C313C88B9000850DA2 /* AlbumViewController.m in Sources */,
+				DCE333EB13C9A1D800251B18 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

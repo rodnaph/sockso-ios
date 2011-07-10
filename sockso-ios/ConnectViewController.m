@@ -7,6 +7,7 @@
 #import "CommunityServer.h"
 #import "InfoViewController.h"
 #import "Properties.h"
+#import "LoginViewController.h"
 
 @implementation ConnectViewController
 
@@ -133,8 +134,27 @@
     
     SocksoServer *server = [SocksoServer disconnectedServer:[serverInput text]];
     
-    [server connect:^{ [this showHomeView:server]; }
+    [server connect:^{ [this hasConnectedTo:server]; }
           onFailure:^{ [this showConnectFailed]; }];
+    
+}
+
+//
+//  Need to check if server requires we login first
+//
+
+- (void) hasConnectedTo:(SocksoServer *)server {
+    
+    [self setControlsActive:YES];
+
+    if ( server.requiresLogin ) {
+        [self.navigationController pushViewController:[LoginViewController initWithServer:server]
+                                             animated:YES];
+    }
+    
+    else {
+        [self showHomeView:server];
+    }
     
 }
 
@@ -201,7 +221,6 @@
 
 - (void) showHomeView:(SocksoServer *) server {
     
-    [self setControlsActive:YES];
     [self.navigationController pushViewController:[HomeViewController viewForServer:server]
                                          animated:TRUE];
     

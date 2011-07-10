@@ -17,6 +17,7 @@ typedef enum {
 
 @property (nonatomic, retain) NSString *ipAndPort, *title, *tagline;
 @property (nonatomic) int mode;
+@property (nonatomic) BOOL requiresLogin;
 
 + (SocksoServer *) disconnectedServer:(NSString *) ipAndPort;
 + (SocksoServer *) connectedServer:(NSString *) ipAndPort title:(NSString *) title tagline:(NSString *) tagline;

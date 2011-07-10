@@ -26,6 +26,7 @@
 - (void) showNoCommunityServersFound;
 
 - (void) tryToConnect;
+- (void) hasConnectedTo:(SocksoServer *)server;
 - (void) showConnectFailed;
 - (void) showConnecting;
 - (void) setControlsActive:(BOOL) active;

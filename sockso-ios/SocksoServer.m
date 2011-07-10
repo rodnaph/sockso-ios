@@ -7,7 +7,7 @@
 
 @implementation SocksoServer
 
-@synthesize ipAndPort, title, tagline, mode;
+@synthesize ipAndPort, title, tagline, mode, requiresLogin;
 
 //
 // creates a server not yet connected
@@ -71,6 +71,7 @@
         NSDictionary *serverInfo = [parser objectWithString:[request responseString]];
         self.title = [serverInfo objectForKey:@"title"];
         self.tagline = [serverInfo objectForKey:@"tagline"];
+        self.requiresLogin = [[serverInfo objectForKey:@"requiresLogin"] isEqualToString:@"1"] ? YES : NO;
         
         onConnect();
         
