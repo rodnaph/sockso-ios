@@ -28,9 +28,14 @@ typedef enum {
 - (void) play;
 - (void) pause;
 
-// connection and querying
+// connection
 
 - (void) connect:(void (^)(void)) onConnect onFailure:(void (^)(void)) onFailure;
+- (void) loginWithName:(NSString *)name andPassword:(NSString *)password onSuccess:(void (^)(void))onSuccess onFailure:(void (^)(void))onFailure;
+- (BOOL) hasSession;
+
+// querying
+
 - (void) search:(NSString *)query onComplete:(void (^)(NSMutableArray *))onComplete onFailure:(void (^)(void))onFailure;
 - (void) getTrack:(int)trackId onComplete:(void (^)(Track *))onComplete;
 - (void) getAlbumsForArtist:(MusicItem *)item onComplete:(void (^)(NSMutableArray *))onComplete onFailure:(void (^)(void))onFailure;

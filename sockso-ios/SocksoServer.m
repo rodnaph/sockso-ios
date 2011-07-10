@@ -3,6 +3,7 @@
 #import "MusicItem.h"
 #import "AudioStreamer.h"
 #import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
 #import "JSON.h"
 
 @implementation SocksoServer
@@ -49,6 +50,55 @@
     mode = SS_MODE_STOPPED;
     
     return self;
+    
+}
+
+- (BOOL) hasSession {
+    
+    NSHTTPCookieStorage *jar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@", ipAndPort]];
+    NSArray *cookies = [jar cookiesForURL:url];
+    BOOL gotSessId = NO, gotSessCode = NO;
+    
+    NSLog( @"Check current cookies..." );
+    
+    for ( NSHTTPCookie *cookie in cookies ) {
+        if ( [[cookie name] isEqualToString:@"sessId"] ) { gotSessId = YES; }
+        if ( [[cookie name] isEqualToString:@"sessCode"] ) { gotSessCode = YES; }
+    }
+    
+    return gotSessId && gotSessCode;
+    
+}
+
+- (void) loginWithName:(NSString *)name andPassword:(NSString *)password onSuccess:(void (^)(void))onSuccess onFailure:(void (^)(void))onFailure {
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/user/login", ipAndPort]];
+    
+    __block SocksoServer *this = self;
+    __block ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+
+    [ASIHTTPRequest clearSession];
+    
+    request.shouldRedirect = NO;
+
+    [request setPostValue:@"login" forKey:@"todo"];
+    [request setPostValue:name forKey:@"name"];
+    [request setPostValue:password forKey:@"pass"];
+    
+    [request setCompletionBlock:^{
+    
+        if ( [this hasSession] ) {
+            NSLog( @"Session established!" );
+        }
+        
+        else {
+            onFailure();
+        }
+        
+    }];
+    
+    [request startAsynchronous];
     
 }
 

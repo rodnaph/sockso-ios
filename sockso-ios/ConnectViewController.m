@@ -147,9 +147,9 @@
     
     [self setControlsActive:YES];
 
-    if ( server.requiresLogin ) {
-        [self.navigationController pushViewController:[LoginViewController initWithServer:server]
-                                             animated:YES];
+    if ( server.requiresLogin && ![server hasSession] ) {
+        LoginViewController *ctrl = [LoginViewController initWithServer:server];
+        [self presentModalViewController:ctrl animated:YES];
     }
     
     else {
@@ -189,29 +189,18 @@
 //
 
 - (void) showConnectFailed {
-    
-    connectFailed.alpha = 0;
-    [connectFailed setHidden:NO];
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDelegate:self];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    [UIView setAnimationDuration:0.5f];
-    connectFailed.alpha = 1;
-    [UIView setAnimationDidStopSelector:@selector(showLabelAnimationDidStop:finished:)];
-    [UIView commitAnimations];
-    
+
     [self setControlsActive:YES];
     
-}
-
-- (void)showLabelAnimationDidStop:(CAAnimation *)theAnimation finished:(BOOL)flag {
-
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    [UIView setAnimationDuration:1.0f];
-    connectFailed.alpha = 0;
-    [UIView commitAnimations];
+    UIAlertView *alert = [[UIAlertView alloc]
+                          initWithTitle:@"Connect Failed"
+                          message:@"Connection failed, please check the address you entered"
+                          delegate:nil
+                          cancelButtonTitle:@"Try again"
+                          otherButtonTitles:nil, nil];
+    
+    [alert show];
+    [alert release];
 
 }
 
@@ -233,6 +222,7 @@
     [community release];
     [activity release];
     [connectFailed release];
+    [context release];
     
     [super dealloc];
     
