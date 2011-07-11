@@ -4,9 +4,11 @@
 #import "MusicItem.h"
 #import "SocksoServer.h"
 #import "ImageLoaderDelegate.h"
+#import "ImageCache.h"
 
 @interface ImageLoader : NSObject {
     id <ImageLoaderDelegate> *delegate;
+    ImageCache *cache;
 }
 
 @property (nonatomic, retain) SocksoServer *server;

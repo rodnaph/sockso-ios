@@ -48,6 +48,7 @@
 		DC5B660513A4E46B006ED498 /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5B660413A4E46B006ED498 /* libz.1.2.3.dylib */; };
 		DC5BAFCF13BDA44300D80EC6 /* CommunityServer.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5BAFCE13BDA44300D80EC6 /* CommunityServer.m */; };
 		DC5BAFD813BDB3DB00D80EC6 /* CommunityServerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5BAFD713BDB3DB00D80EC6 /* CommunityServerTest.m */; };
+		DC5D731B13CADC9600EF0C85 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5D731A13CADC9600EF0C85 /* ImageCache.m */; };
 		DC8659B413B9345100DB4DB3 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC8659B313B9345100DB4DB3 /* MainWindow.xib */; };
 		DC8BA6CD13C5925100F21C3C /* Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8BA6CC13C5925100F21C3C /* Properties.m */; };
 		DCA0512813C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCA0512613C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld */; };
@@ -160,6 +161,8 @@
 		DC5BAFCE13BDA44300D80EC6 /* CommunityServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityServer.m; sourceTree = "<group>"; };
 		DC5BAFD613BDB3DA00D80EC6 /* CommunityServerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityServerTest.h; sourceTree = "<group>"; };
 		DC5BAFD713BDB3DB00D80EC6 /* CommunityServerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityServerTest.m; sourceTree = "<group>"; };
+		DC5D731913CADC9600EF0C85 /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
+		DC5D731A13CADC9600EF0C85 /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
 		DC5E60B713C376A5004A61BD /* ImageLoaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLoaderDelegate.h; sourceTree = "<group>"; };
 		DC8659B313B9345100DB4DB3 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		DC8BA6CB13C5925100F21C3C /* Properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Properties.h; sourceTree = "<group>"; };
@@ -473,6 +476,8 @@
 				DCE38BFF13C2F77A006FD270 /* ImageLoader.m */,
 				DC5E60B713C376A5004A61BD /* ImageLoaderDelegate.h */,
 				DCE333ED13C9B78700251B18 /* LoginHandlerDelegate.h */,
+				DC5D731913CADC9600EF0C85 /* ImageCache.h */,
+				DC5D731A13CADC9600EF0C85 /* ImageCache.m */,
 			);
 			name = Sockso;
 			sourceTree = "<group>";
@@ -705,6 +710,7 @@
 				DCA057AC13C84F5E00850DA2 /* ArtistViewController.m in Sources */,
 				DCA057C313C88B9000850DA2 /* AlbumViewController.m in Sources */,
 				DCE333EB13C9A1D800251B18 /* LoginViewController.m in Sources */,
+				DC5D731B13CADC9600EF0C85 /* ImageCache.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
