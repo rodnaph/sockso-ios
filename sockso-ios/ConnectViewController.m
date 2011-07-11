@@ -4,7 +4,6 @@
 #import "HomeViewController.h"
 #import "CommunityViewController.h"
 #import "QuartzCore/CAAnimation.h"
-#import "CommunityServer.h"
 #import "InfoViewController.h"
 #import "Properties.h"
 #import "LoginViewController.h"
