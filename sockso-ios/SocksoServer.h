@@ -15,12 +15,16 @@ typedef enum {
     AudioStreamer *streamer;
 }
 
-@property (nonatomic, retain) NSString *ipAndPort, *title, *tagline;
+@property (nonatomic, retain) NSString *ipAndPort, *title, *tagline, *version;
 @property (nonatomic) int mode;
 @property (nonatomic) BOOL requiresLogin;
 
 + (SocksoServer *) disconnectedServer:(NSString *) ipAndPort;
 + (SocksoServer *) connectedServer:(NSString *) ipAndPort title:(NSString *) title tagline:(NSString *) tagline;
+
++ (void) findCommunityServers:(void (^)(NSMutableArray *))onComplete;
+
+- (BOOL) isSupportedVersion;
 
 // playing musc stream
 

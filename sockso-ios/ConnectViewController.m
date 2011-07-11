@@ -71,7 +71,7 @@
 
     __block ConnectViewController *this = self;
     
-    [CommunityServer fetchAll:^(NSMutableArray *servers) {
+    [SocksoServer findCommunityServers:^(NSMutableArray *servers) {
         if ( [servers count] > 0 ) {
             [this showCommunityView:servers];
         }
@@ -79,7 +79,7 @@
             [this showNoCommunityServersFound];
         }
     }];
-
+    
 }
 
 //

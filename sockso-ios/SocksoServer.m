@@ -8,7 +8,7 @@
 
 @implementation SocksoServer
 
-@synthesize ipAndPort, title, tagline, mode, requiresLogin;
+@synthesize ipAndPort, title, tagline, mode, requiresLogin, version;
 
 //
 // creates a server not yet connected
@@ -50,6 +50,67 @@
     mode = SS_MODE_STOPPED;
     
     return self;
+    
+}
+
+//
+// Fetch all valid community servers and pass to onComplete handler
+//
+
++ (void) findCommunityServers:(void (^)(NSMutableArray *))onComplete {
+    
+    NSString *jsonUrl = @"http://sockso.pu-gh.com/community.html?format=json";
+    NSURL *url = [NSURL URLWithString:jsonUrl];
+    
+    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
+    
+    [request setCompletionBlock:^{
+
+        SBJsonParser *parser = [[SBJsonParser alloc] init];
+        NSMutableArray *servers = [[NSMutableArray alloc] init];
+        NSArray *data = [parser objectWithString:[request responseString]];
+        
+        [parser release];
+        
+        for ( NSDictionary *datum in data ) {
+            NSString *ipAndPort = [NSString stringWithFormat:@"%@:%@", [datum objectForKey:@"ip"], [datum objectForKey:@"port"]];
+            SocksoServer *server = [SocksoServer disconnectedServer:ipAndPort];
+            server.title = [datum objectForKey:@"title"];
+            server.tagline = [datum objectForKey:@"tagline"];
+            server.version = [datum objectForKey:@"version"];
+            server.requiresLogin = [[datum objectForKey:@"requiresLogin"] isEqualToString:@"1"] ? YES : NO;
+            if ( [server isSupportedVersion] ) {
+                [servers addObject:server];
+            }
+        }
+        
+        onComplete( [servers autorelease] );
+        
+    }];
+    [request startAsynchronous];
+    
+}
+
+- (BOOL) isSupportedVersion {
+    
+    NSArray *versionParts = [version componentsSeparatedByString:@"."];
+    
+    if ( [versionParts count] < 2 ) {
+        return NO;
+    }
+    
+    int major = [[versionParts objectAtIndex:0] intValue];
+    int minor = [[versionParts objectAtIndex:1] intValue];
+    
+    if ( major > 1 ) {
+        return YES;
+    }
+    
+    else if ( major > 0 && minor > 3 ) {
+        return YES;
+    }
+    
+    return NO;
     
 }
 
@@ -342,6 +403,7 @@
 
     [streamer stop];
     
+    [version release];
     [streamer release];
     [ipAndPort release];
     [title release];

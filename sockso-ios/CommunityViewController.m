@@ -2,7 +2,7 @@
 #import "CommunityViewController.h"
 #import "HomeViewController.h"
 #import "SocksoServer.h"
-#import "CommunityServer.h"
+#import "LoginViewController.h"
 
 @implementation CommunityViewController
 
@@ -41,7 +41,7 @@
 		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	}
 	
-    CommunityServer *server = [self.servers objectAtIndex:indexPath.row];
+    SocksoServer *server = [self.servers objectAtIndex:indexPath.row];
 	
 	cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",
                            server.title,
@@ -58,18 +58,51 @@
 
 - (void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSDictionary *serverInfo = [self.servers objectAtIndex:[indexPath row]];
-    NSString *ipAndPort = [NSString stringWithFormat:@"%@:%@",
-                           [serverInfo objectForKey:@"ip"],
-                           [serverInfo objectForKey:@"port"]];
+    SocksoServer *server = [self.servers objectAtIndex:[indexPath row]];
     
-    SocksoServer *server = [SocksoServer connectedServer:ipAndPort
-                                          title:[serverInfo objectForKey:@"title"]
-                                          tagline:[serverInfo objectForKey:@"tagline"]];
+    [self connectTo:server];
+    
+}
+
+- (void) showHomeView:(SocksoServer *)server {
     
     [self.navigationController pushViewController:[HomeViewController viewForServer:server]
                                          animated:YES];
-        
+    
+}
+
+- (void) loginOccurredTo:(SocksoServer *)server {
+    
+    [self showHomeView:server];
+    
+}
+
+- (void) showLoginView:(SocksoServer *)server {
+
+    LoginViewController *ctrl = [LoginViewController initWithServer:server];
+    [ctrl setDelegate:(id <LoginHandlerDelegate> *)self];
+
+    [self presentModalViewController:ctrl animated:YES];
+    
+}
+
+- (void) connectTo:(SocksoServer *)server {
+
+    __block CommunityViewController *this = self;
+    
+    if ( [server requiresLogin] ) {
+        [server hasSession:^{
+            [this showHomeView:server];
+        }
+        onFailure:^{
+            [this showLoginView:server];
+        }];
+    }
+    
+    else {
+        [self showHomeView:server];
+    }
+
 }
 
 - (void) dealloc {

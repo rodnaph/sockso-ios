@@ -46,8 +46,6 @@
 		DC5B660013A4E44C006ED498 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5B65FF13A4E44C006ED498 /* SystemConfiguration.framework */; };
 		DC5B660213A4E457006ED498 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5B660113A4E457006ED498 /* MobileCoreServices.framework */; };
 		DC5B660513A4E46B006ED498 /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5B660413A4E46B006ED498 /* libz.1.2.3.dylib */; };
-		DC5BAFCF13BDA44300D80EC6 /* CommunityServer.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5BAFCE13BDA44300D80EC6 /* CommunityServer.m */; };
-		DC5BAFD813BDB3DB00D80EC6 /* CommunityServerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5BAFD713BDB3DB00D80EC6 /* CommunityServerTest.m */; };
 		DC5D731B13CADC9600EF0C85 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5D731A13CADC9600EF0C85 /* ImageCache.m */; };
 		DC8659B413B9345100DB4DB3 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC8659B313B9345100DB4DB3 /* MainWindow.xib */; };
 		DC8BA6CD13C5925100F21C3C /* Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8BA6CC13C5925100F21C3C /* Properties.m */; };
@@ -157,10 +155,6 @@
 		DC5B660113A4E457006ED498 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		DC5B660313A4E45F006ED498 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DC5B660413A4E46B006ED498 /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
-		DC5BAFCD13BDA44300D80EC6 /* CommunityServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityServer.h; sourceTree = "<group>"; };
-		DC5BAFCE13BDA44300D80EC6 /* CommunityServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityServer.m; sourceTree = "<group>"; };
-		DC5BAFD613BDB3DA00D80EC6 /* CommunityServerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityServerTest.h; sourceTree = "<group>"; };
-		DC5BAFD713BDB3DB00D80EC6 /* CommunityServerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityServerTest.m; sourceTree = "<group>"; };
 		DC5D731913CADC9600EF0C85 /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
 		DC5D731A13CADC9600EF0C85 /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
 		DC5E60B713C376A5004A61BD /* ImageLoaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLoaderDelegate.h; sourceTree = "<group>"; };
@@ -470,8 +464,6 @@
 				DCEB12A313BB0E98000806A4 /* SocksoServer.h */,
 				DCEB12A413BB0E98000806A4 /* SocksoServer.m */,
 				DCF0660013BBD63C000ECDEE /* Music */,
-				DC5BAFCD13BDA44300D80EC6 /* CommunityServer.h */,
-				DC5BAFCE13BDA44300D80EC6 /* CommunityServer.m */,
 				DCE38BFE13C2F77A006FD270 /* ImageLoader.h */,
 				DCE38BFF13C2F77A006FD270 /* ImageLoader.m */,
 				DC5E60B713C376A5004A61BD /* ImageLoaderDelegate.h */,
@@ -533,8 +525,6 @@
 			isa = PBXGroup;
 			children = (
 				DCF0660F13BBDB6A000ECDEE /* Music */,
-				DC5BAFD613BDB3DA00D80EC6 /* CommunityServerTest.h */,
-				DC5BAFD713BDB3DB00D80EC6 /* CommunityServerTest.m */,
 				DCA057A313C835A400850DA2 /* SocksoServerTest.h */,
 				DCA057A413C835A400850DA2 /* SocksoServerTest.m */,
 			);
@@ -701,7 +691,6 @@
 				DCF0660613BBD6E9000ECDEE /* Artist.m in Sources */,
 				DCF0660913BBD6F5000ECDEE /* Album.m in Sources */,
 				DCEFDDA613BC505E0024A989 /* AudioStreamer.m in Sources */,
-				DC5BAFCF13BDA44300D80EC6 /* CommunityServer.m in Sources */,
 				DCE38C0013C2F77B006FD270 /* ImageLoader.m in Sources */,
 				DC481D7B13C480A400F2B052 /* MusicCell.m in Sources */,
 				DCA0512813C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld in Sources */,
@@ -719,7 +708,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCF0660C13BBD883000ECDEE /* MusicItemTest.m in Sources */,
-				DC5BAFD813BDB3DB00D80EC6 /* CommunityServerTest.m in Sources */,
 				DCA057A513C835A400850DA2 /* SocksoServerTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
