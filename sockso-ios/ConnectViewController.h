@@ -11,7 +11,6 @@
 
 @interface ConnectViewController : UIViewController <UITextFieldDelegate, LoginHandlerDelegate> {}
 
-@property (nonatomic, retain) IBOutlet UILabel *connectFailed;
 @property (nonatomic, retain) IBOutlet UITextField *serverInput;
 @property (nonatomic, retain) IBOutlet UIButton *connect;
 @property (nonatomic, retain) IBOutlet UIButton *community;

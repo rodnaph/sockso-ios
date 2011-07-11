@@ -10,7 +10,7 @@
 
 @implementation ConnectViewController
 
-@synthesize serverInput, connect, community, activity, connectFailed, context;
+@synthesize serverInput, connect, community, activity, context;
 
 //
 // Handler for view load time
@@ -235,7 +235,6 @@
     [connect release];
     [community release];
     [activity release];
-    [connectFailed release];
     [context release];
     
     [super dealloc];
