@@ -2,6 +2,7 @@
 #import "PlayViewController.h"
 #import "SocksoServer.h"
 #import "Track.h"
+#import "ImageLoader.h"
 
 @implementation PlayViewController
 
@@ -32,9 +33,10 @@
     [albumLabel setText:track.album.name];
     [artistLabel setText:track.artist.name];
     
-    [NSThread detachNewThreadSelector:@selector(loadAlbumArt)
-                             toTarget:self withObject:nil];
-
+    ImageLoader *loader = [ImageLoader fromServer:server forItem:track.album atIndex:nil];
+    [loader setDelegate:(id <ImageLoaderDelegate> *)self];
+    [loader load];
+    
     [server play:track];
     
 }
@@ -43,15 +45,9 @@
 // Loads album art
 //
 
-- (void) loadAlbumArt {
+- (void) imageDidLoad:(UIImage *)image atIndex:(NSIndexPath *)indexPath {
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/file/cover/%@",
-                                       server.ipAndPort,
-                                       track.album.mid]];
-    
-    NSLog( @"Fetch image: %@ (%@)", url, track.album.name );
-    
-    artworkImage.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+    artworkImage.image = image;
 
 }
 
