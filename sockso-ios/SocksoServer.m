@@ -53,19 +53,23 @@
     
 }
 
-- (BOOL) hasSession {
+- (void) hasSession:(void (^)(void))onSuccess onFailure:(void (^)(void))onFailure {
     
-    NSHTTPCookieStorage *jar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@", ipAndPort]];
-    NSArray *cookies = [jar cookiesForURL:url];
-    BOOL gotSessId = NO, gotSessCode = NO;
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/api/session", ipAndPort]];
     
-    for ( NSHTTPCookie *cookie in cookies ) {
-        if ( [[cookie name] isEqualToString:@"sessId"] ) { gotSessId = YES; }
-        if ( [[cookie name] isEqualToString:@"sessCode"] ) { gotSessCode = YES; }
-    }
+    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     
-    return gotSessId && gotSessCode;
+    [request setCompletionBlock:^{
+        if ( [[request responseString] isEqualToString:@"1"] ) {
+            onSuccess();
+        }
+        else {
+            onFailure();
+        }
+    }];
+    
+    [request setFailedBlock:onFailure];
+    [request startAsynchronous];
     
 }
 
@@ -85,15 +89,7 @@
     [request setPostValue:password forKey:@"pass"];
     
     [request setCompletionBlock:^{
-    
-        if ( [this hasSession] ) {
-            onSuccess();
-        }
-        
-        else {
-            onFailure();
-        }
-        
+        [this hasSession:onSuccess onFailure:onFailure];
     }];
     
     [request startAsynchronous];

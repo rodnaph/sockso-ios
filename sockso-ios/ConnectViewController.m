@@ -147,10 +147,18 @@
     
     [self setControlsActive:YES];
 
-    if ( server.requiresLogin && ![server hasSession] ) {
-        LoginViewController *ctrl = [LoginViewController initWithServer:server];
-        ctrl.delegate = (id <LoginHandlerDelegate> *) self;
-        [self presentModalViewController:ctrl animated:YES];
+    if ( server.requiresLogin ) {
+
+        __block ConnectViewController *this = self;
+        
+        [server hasSession:^{
+            [this showHomeView:server];
+        } onFailure:^{
+            LoginViewController *ctrl = [LoginViewController initWithServer:server];
+            ctrl.delegate = (id <LoginHandlerDelegate> *) self;
+            [this presentModalViewController:ctrl animated:YES];
+        }];
+        
     }
     
     else {

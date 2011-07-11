@@ -32,7 +32,7 @@ typedef enum {
 
 - (void) connect:(void (^)(void)) onConnect onFailure:(void (^)(void)) onFailure;
 - (void) loginWithName:(NSString *)name andPassword:(NSString *)password onSuccess:(void (^)(void))onSuccess onFailure:(void (^)(void))onFailure;
-- (BOOL) hasSession;
+- (void) hasSession:(void (^)(void))onSuccess onFailure:(void (^)(void))onFailure;
 
 // querying
 
