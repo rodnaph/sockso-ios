@@ -48,6 +48,8 @@
 		DC5B660513A4E46B006ED498 /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5B660413A4E46B006ED498 /* libz.1.2.3.dylib */; };
 		DC5D731B13CADC9600EF0C85 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5D731A13CADC9600EF0C85 /* ImageCache.m */; };
 		DC8659B413B9345100DB4DB3 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC8659B313B9345100DB4DB3 /* MainWindow.xib */; };
+		DC88D2E813CC31E90064A5B6 /* ArtistsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC88D2E713CC31E90064A5B6 /* ArtistsView.xib */; };
+		DC88D2EC13CC32DD0064A5B6 /* ArtistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC88D2EB13CC32DD0064A5B6 /* ArtistsViewController.m */; };
 		DC8BA6CD13C5925100F21C3C /* Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8BA6CC13C5925100F21C3C /* Properties.m */; };
 		DCA0512813C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCA0512613C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld */; };
 		DCA057A213C788C200850DA2 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCA057A113C788C200850DA2 /* Entitlements.plist */; };
@@ -159,6 +161,9 @@
 		DC5D731A13CADC9600EF0C85 /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
 		DC5E60B713C376A5004A61BD /* ImageLoaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLoaderDelegate.h; sourceTree = "<group>"; };
 		DC8659B313B9345100DB4DB3 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		DC88D2E713CC31E90064A5B6 /* ArtistsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtistsView.xib; sourceTree = "<group>"; };
+		DC88D2EA13CC32DD0064A5B6 /* ArtistsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistsViewController.h; sourceTree = "<group>"; };
+		DC88D2EB13CC32DD0064A5B6 /* ArtistsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistsViewController.m; sourceTree = "<group>"; };
 		DC8BA6CB13C5925100F21C3C /* Properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Properties.h; sourceTree = "<group>"; };
 		DC8BA6CC13C5925100F21C3C /* Properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Properties.m; sourceTree = "<group>"; };
 		DCA0512713C4C14C002F8FC6 /* SocksoDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SocksoDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -341,6 +346,7 @@
 				DCA057A813C84D6D00850DA2 /* ArtistView.xib */,
 				DCA057BE13C88B2E00850DA2 /* AlbumView.xib */,
 				DCE333E613C99F4300251B18 /* LoginView.xib */,
+				DC88D2E713CC31E90064A5B6 /* ArtistsView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -493,6 +499,8 @@
 				DCA057C213C88B9000850DA2 /* AlbumViewController.m */,
 				DCE333E913C9A1D700251B18 /* LoginViewController.h */,
 				DCE333EA13C9A1D800251B18 /* LoginViewController.m */,
+				DC88D2EA13CC32DD0064A5B6 /* ArtistsViewController.h */,
+				DC88D2EB13CC32DD0064A5B6 /* ArtistsViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -631,6 +639,7 @@
 				DCA057A913C84D6D00850DA2 /* ArtistView.xib in Resources */,
 				DCA057BF13C88B2E00850DA2 /* AlbumView.xib in Resources */,
 				DCE333E713C99F4300251B18 /* LoginView.xib in Resources */,
+				DC88D2E813CC31E90064A5B6 /* ArtistsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,6 +709,7 @@
 				DCA057C313C88B9000850DA2 /* AlbumViewController.m in Sources */,
 				DCE333EB13C9A1D800251B18 /* LoginViewController.m in Sources */,
 				DC5D731B13CADC9600EF0C85 /* ImageCache.m in Sources */,
+				DC88D2EC13CC32DD0064A5B6 /* ArtistsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
