@@ -250,13 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				DCA057A113C788C200850DA2 /* Entitlements.plist */,
-				DCF065EC13BBCBD8000ECDEE /* AudioToolbox.framework */,
-				DCAE3C7F13BB47360017BE29 /* QuartzCore.framework */,
 				DC5B660413A4E46B006ED498 /* libz.1.2.3.dylib */,
-				DC5B660313A4E45F006ED498 /* CoreGraphics.framework */,
-				DC5B660113A4E457006ED498 /* MobileCoreServices.framework */,
-				DC5B65FF13A4E44C006ED498 /* SystemConfiguration.framework */,
-				DC5B65FD13A4E438006ED498 /* CFNetwork.framework */,
 				DC43F91113A14E4F001B41F6 /* sockso-ios */,
 				DC43F92B13A14E50001B41F6 /* sockso-iosTests */,
 				DC43F90A13A14E4F001B41F6 /* Frameworks */,
@@ -276,6 +270,12 @@
 		DC43F90A13A14E4F001B41F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DCF065EC13BBCBD8000ECDEE /* AudioToolbox.framework */,
+				DCAE3C7F13BB47360017BE29 /* QuartzCore.framework */,
+				DC5B660313A4E45F006ED498 /* CoreGraphics.framework */,
+				DC5B660113A4E457006ED498 /* MobileCoreServices.framework */,
+				DC5B65FF13A4E44C006ED498 /* SystemConfiguration.framework */,
+				DC5B65FD13A4E438006ED498 /* CFNetwork.framework */,
 				DC01055613C4BF850066B9DF /* CoreData.framework */,
 				DC43F90B13A14E4F001B41F6 /* UIKit.framework */,
 				DC43F90D13A14E4F001B41F6 /* Foundation.framework */,
