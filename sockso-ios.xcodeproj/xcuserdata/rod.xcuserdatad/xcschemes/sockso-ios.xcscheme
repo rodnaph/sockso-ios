@@ -81,6 +81,7 @@
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Ad Hoc"
+      customArchiveName = "Sockso"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

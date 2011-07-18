@@ -1,9 +1,6 @@
 
-#import <Foundation/Foundation.h>
 #import "MusicItem.h"
 
-@interface Artist : MusicItem {
-    
-}
+@interface Artist : MusicItem {}
 
 @end
