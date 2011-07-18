@@ -16,7 +16,10 @@
 
 @implementation HomeViewController
 
-@synthesize server, viewControllers, activeViewController, viewContainer;
+@synthesize server, viewControllers, activeViewController, viewContainer, tabBar;
+
+#pragma mark -
+#pragma mark Constructors
 
 + (HomeViewController *)initWithServer:(SocksoServer *)server {
     
@@ -29,6 +32,23 @@
     return [homeView autorelease];
 
 }
+
+#pragma mark -
+#pragma mark init
+
+- (void)dealloc {
+    
+    [server release];
+    [viewControllers release];
+    [activeViewController release];
+    [tabBar release];
+    
+    [super dealloc];
+    
+}
+
+#pragma mark -
+#pragma mark View
 
 - (void)viewDidLoad {
     
@@ -65,13 +85,12 @@
     
 }
 
-- (void)dealloc {
+#pragma mark -
+#pragma mark Tab Bar
+
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
     
-    [server release];
-    [viewControllers release];
-    [activeViewController release];
-    
-    [super dealloc];
+    [self showViewControllerAtIndex:item.tag];
     
 }
 
