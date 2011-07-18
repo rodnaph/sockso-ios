@@ -10,6 +10,9 @@
 
 @synthesize ipAndPort, title, tagline, mode, requiresLogin, version;
 
+#pragma mark -
+#pragma mark Constructors
+
 //
 // creates a server not yet connected
 //
@@ -39,6 +42,8 @@
     
 }
 
+#pragma mark -
+
 //
 // init server objects
 //
@@ -52,6 +57,23 @@
     return self;
     
 }
+
+- (void) dealloc {
+    
+    [streamer stop];
+    
+    [version release];
+    [streamer release];
+    [ipAndPort release];
+    [title release];
+    [tagline release];
+    
+    [super dealloc];
+    
+}
+
+#pragma mark -
+#pragma mark Querying
 
 //
 // Fetch all valid community servers and pass to onComplete handler
@@ -351,12 +373,15 @@
     
 }
 
+#pragma mark -
+#pragma mark Playing Music
+
 //
 //  start playing a music item, stop any other playing if it is
 //
 
 - (void) play:(MusicItem *)item {
-
+    
     if ( mode != SS_MODE_STOPPED ) {
         [streamer stop];
         [streamer release];
@@ -372,7 +397,7 @@
 	streamer = [[AudioStreamer alloc] initWithURL:url];
     
     [streamer start];
-
+    
     mode = SS_MODE_PLAYING;
     
 }
@@ -396,20 +421,6 @@
     
     [streamer pause];
     mode = SS_MODE_PAUSED;
-    
-}
-
-- (void) dealloc {
-
-    [streamer stop];
-    
-    [version release];
-    [streamer release];
-    [ipAndPort release];
-    [title release];
-    [tagline release];
-    
-    [super dealloc];
     
 }
 

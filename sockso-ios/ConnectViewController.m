@@ -23,7 +23,12 @@
     self.title = @"Connect";
     
     [self initServerInput];
-        
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] init];
+    item.title = @"Back";
+    
+    self.navigationItem.backBarButtonItem = item;
+
 }
 
 //
@@ -220,7 +225,7 @@
     
     [self.navigationController pushViewController:[HomeViewController viewForServer:server]
                                          animated:TRUE];
-    
+
 }
 
 - (void) loginOccurredTo:(SocksoServer *)server {
