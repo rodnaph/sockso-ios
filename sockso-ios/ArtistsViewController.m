@@ -4,7 +4,7 @@
 
 @implementation ArtistsViewController
 
-@synthesize artistsTable, server;
+@synthesize artistsTable, server, homeViewController;
 
 + (ArtistsViewController *) viewForServer:(SocksoServer *)server {
     
@@ -53,6 +53,7 @@
     [artistsTable release];
     [server release];
     [artists release];
+    [homeViewController release];
     
     [super dealloc];
     

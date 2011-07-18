@@ -101,6 +101,7 @@
 		DC1A0B5113D4A2AF00594D9D /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		DC1A0B5213D4A2AF00594D9D /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		DC1A0B5413D4A39F00594D9D /* HomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
+		DC1A0B5613D4A93B00594D9D /* HomeViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewDelegate.h; sourceTree = "<group>"; };
 		DC43F90713A14E4F001B41F6 /* sockso-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sockso-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC43F90B13A14E4F001B41F6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DC43F90D13A14E4F001B41F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -509,6 +510,7 @@
 				DC88D2EB13CC32DD0064A5B6 /* ArtistsViewController.m */,
 				DC1A0B5113D4A2AF00594D9D /* HomeViewController.h */,
 				DC1A0B5213D4A2AF00594D9D /* HomeViewController.m */,
+				DC1A0B5613D4A93B00594D9D /* HomeViewDelegate.h */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

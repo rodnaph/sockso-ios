@@ -3,13 +3,16 @@
 #import "SocksoServer.h"
 #import "ImageLoader.h"
 #import "ImageLoaderDelegate.h"
+#import "HomeViewDelegate.h"
+#import "HomeViewController.h"
 
-@interface SearchViewController : UITableViewController  <UISearchDisplayDelegate, UISearchBarDelegate, ImageLoaderDelegate> {
+@interface SearchViewController : UITableViewController  <UISearchDisplayDelegate, UISearchBarDelegate, ImageLoaderDelegate, HomeViewDelegate> {
     NSMutableDictionary *images;
 }
 
 @property (nonatomic, retain) SocksoServer *server;
 @property (nonatomic, retain) NSMutableArray *listContent;
+@property (nonatomic, retain) HomeViewController *homeViewController;
 
 + (SearchViewController *) viewForServer:(SocksoServer *)server;
 

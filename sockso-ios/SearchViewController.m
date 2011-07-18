@@ -12,7 +12,7 @@
 
 @implementation SearchViewController
 
-@synthesize server, listContent;
+@synthesize server, listContent, homeViewController;
 
 - (void) viewDidLoad {
     
@@ -181,7 +181,7 @@
         int trackId = [[item.mid substringFromIndex:2] intValue];
         
         [server getTrack:trackId onComplete:^(Track *track){
-            [self.navigationController pushViewController:[PlayViewController viewForTrack:track server:server]
+            [self.homeViewController.navigationController pushViewController:[PlayViewController viewForTrack:track server:server]
                                                  animated:YES];
         }];
         
@@ -189,12 +189,12 @@
     
     else if ( [item isArtist] ) {
         ArtistViewController *ctrl = [ArtistViewController initWithItem:item forServer:server];
-        [self.navigationController pushViewController:ctrl animated:YES];
+        [self.homeViewController.navigationController pushViewController:ctrl animated:YES];
     }
     
     else if ( [item isAlbum] ) {
         AlbumViewController *ctrl = [AlbumViewController initWithItem:item forServer:server];
-        [self.navigationController pushViewController:ctrl animated:YES];
+        [self.homeViewController.navigationController pushViewController:ctrl animated:YES];
     }
     
     else {
@@ -227,6 +227,7 @@
     [images release];
     [server release];
     [listContent release];
+    [homeViewController release];
     
     [super dealloc];
     
