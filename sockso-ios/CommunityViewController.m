@@ -1,6 +1,6 @@
 
 #import "CommunityViewController.h"
-#import "HomeViewController.h"
+#import "SearchViewController.h"
 #import "SocksoServer.h"
 #import "LoginViewController.h"
 
@@ -66,7 +66,7 @@
 
 - (void) showHomeView:(SocksoServer *)server {
     
-    [self.navigationController pushViewController:[HomeViewController viewForServer:server]
+    [self.navigationController pushViewController:[SearchViewController viewForServer:server]
                                          animated:YES];
     
 }

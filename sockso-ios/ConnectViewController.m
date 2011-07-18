@@ -1,7 +1,7 @@
 
 #import <CoreData/CoreData.h>
 #import "ConnectViewController.h"
-#import "HomeViewController.h"
+#import "SearchViewController.h"
 #import "CommunityViewController.h"
 #import "QuartzCore/CAAnimation.h"
 #import "InfoViewController.h"
@@ -223,7 +223,7 @@
 
 - (void) showHomeView:(SocksoServer *) server {
     
-    [self.navigationController pushViewController:[HomeViewController viewForServer:server]
+    [self.navigationController pushViewController:[SearchViewController viewForServer:server]
                                          animated:TRUE];
 
 }

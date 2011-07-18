@@ -1,5 +1,5 @@
 
-#import "HomeViewController.h"
+#import "SearchViewController.h"
 #import "MusicItem.h"
 #import "SocksoServer.h"
 #import "PlayViewController.h"
@@ -10,7 +10,7 @@
 #import "ArtistViewController.h"
 #import "AlbumViewController.h"
 
-@implementation HomeViewController
+@implementation SearchViewController
 
 @synthesize server, listContent;
 
@@ -34,11 +34,11 @@
 // Create a view controller for the server
 //
 
-+ (HomeViewController *) viewForServer:(SocksoServer *)server {
++ (SearchViewController *) viewForServer:(SocksoServer *)server {
     
-    HomeViewController *aView = [[HomeViewController alloc]
-                                 initWithNibName:@"HomeView"
-                                 bundle:nil];
+    SearchViewController *aView = [[SearchViewController alloc]
+                                    initWithNibName:@"HomeView"
+                                    bundle:nil];
     
     aView.server = server;
     
@@ -134,7 +134,7 @@
 
 - (void) performSearch:(NSString *)query {
     
-    __block HomeViewController *this = self;
+    __block SearchViewController *this = self;
     
     [server search:query
          onComplete:^(NSMutableArray *items) {
