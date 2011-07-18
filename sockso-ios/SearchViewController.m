@@ -37,7 +37,7 @@
 + (SearchViewController *) viewForServer:(SocksoServer *)server {
     
     SearchViewController *aView = [[SearchViewController alloc]
-                                    initWithNibName:@"HomeView"
+                                    initWithNibName:@"SearchView"
                                     bundle:nil];
     
     aView.server = server;

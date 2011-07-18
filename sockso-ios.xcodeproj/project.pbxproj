@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		DC01055713C4BF850066B9DF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC01055613C4BF850066B9DF /* CoreData.framework */; };
 		DC03909313B8FE6800843F95 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC03909213B8FE6800843F95 /* SearchViewController.m */; };
-		DC0390A013B906C700843F95 /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC03909F13B906C700843F95 /* HomeView.xib */; };
+		DC0390A013B906C700843F95 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC03909F13B906C700843F95 /* SearchView.xib */; };
 		DC0390A613B9149000843F95 /* MusicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0390A513B9149000843F95 /* MusicItem.m */; };
+		DC1A0B5313D4A2AF00594D9D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1A0B5213D4A2AF00594D9D /* HomeViewController.m */; };
+		DC1A0B5513D4A39F00594D9D /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC1A0B5413D4A39F00594D9D /* HomeView.xib */; };
 		DC43F90C13A14E4F001B41F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90B13A14E4F001B41F6 /* UIKit.framework */; };
 		DC43F90E13A14E4F001B41F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90D13A14E4F001B41F6 /* Foundation.framework */; };
 		DC43F91013A14E4F001B41F6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90F13A14E4F001B41F6 /* CoreGraphics.framework */; };
@@ -93,9 +95,12 @@
 		DC01055613C4BF850066B9DF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		DC03909113B8FE6800843F95 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		DC03909213B8FE6800843F95 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		DC03909F13B906C700843F95 /* HomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
+		DC03909F13B906C700843F95 /* SearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		DC0390A413B9149000843F95 /* MusicItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicItem.h; sourceTree = "<group>"; };
 		DC0390A513B9149000843F95 /* MusicItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicItem.m; sourceTree = "<group>"; };
+		DC1A0B5113D4A2AF00594D9D /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		DC1A0B5213D4A2AF00594D9D /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		DC1A0B5413D4A39F00594D9D /* HomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
 		DC43F90713A14E4F001B41F6 /* sockso-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sockso-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC43F90B13A14E4F001B41F6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DC43F90D13A14E4F001B41F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -337,7 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				DC43F94013A14E7F001B41F6 /* ConnectView.xib */,
-				DC03909F13B906C700843F95 /* HomeView.xib */,
+				DC03909F13B906C700843F95 /* SearchView.xib */,
 				DC8659B313B9345100DB4DB3 /* MainWindow.xib */,
 				DCB881B913BA5E660095656A /* CommunityView.xib */,
 				DCF065CA13BBB9DB000ECDEE /* PlayView.xib */,
@@ -347,6 +352,7 @@
 				DCA057BE13C88B2E00850DA2 /* AlbumView.xib */,
 				DCE333E613C99F4300251B18 /* LoginView.xib */,
 				DC88D2E713CC31E90064A5B6 /* ArtistsView.xib */,
+				DC1A0B5413D4A39F00594D9D /* HomeView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -501,6 +507,8 @@
 				DCE333EA13C9A1D800251B18 /* LoginViewController.m */,
 				DC88D2EA13CC32DD0064A5B6 /* ArtistsViewController.h */,
 				DC88D2EB13CC32DD0064A5B6 /* ArtistsViewController.m */,
+				DC1A0B5113D4A2AF00594D9D /* HomeViewController.h */,
+				DC1A0B5213D4A2AF00594D9D /* HomeViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -627,7 +635,7 @@
 				DC43F94713A154A5001B41F6 /* background.gif in Resources */,
 				DC43F95E13A16E1C001B41F6 /* logo.png in Resources */,
 				DC43F96013A1F224001B41F6 /* community.png in Resources */,
-				DC0390A013B906C700843F95 /* HomeView.xib in Resources */,
+				DC0390A013B906C700843F95 /* SearchView.xib in Resources */,
 				DC8659B413B9345100DB4DB3 /* MainWindow.xib in Resources */,
 				DCB881BA13BA5E660095656A /* CommunityView.xib in Resources */,
 				DCF065CB13BBB9DB000ECDEE /* PlayView.xib in Resources */,
@@ -640,6 +648,7 @@
 				DCA057BF13C88B2E00850DA2 /* AlbumView.xib in Resources */,
 				DCE333E713C99F4300251B18 /* LoginView.xib in Resources */,
 				DC88D2E813CC31E90064A5B6 /* ArtistsView.xib in Resources */,
+				DC1A0B5513D4A39F00594D9D /* HomeView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,6 +719,7 @@
 				DCE333EB13C9A1D800251B18 /* LoginViewController.m in Sources */,
 				DC5D731B13CADC9600EF0C85 /* ImageCache.m in Sources */,
 				DC88D2EC13CC32DD0064A5B6 /* ArtistsViewController.m in Sources */,
+				DC1A0B5313D4A2AF00594D9D /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

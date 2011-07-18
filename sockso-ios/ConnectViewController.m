@@ -7,6 +7,7 @@
 #import "InfoViewController.h"
 #import "Properties.h"
 #import "LoginViewController.h"
+#import "HomeViewController.h"
 
 @implementation ConnectViewController
 
@@ -222,9 +223,11 @@
 //
 
 - (void) showHomeView:(SocksoServer *) server {
+
+    [self.navigationController pushViewController:[HomeViewController initWithServer:server] animated:YES];
     
-    [self.navigationController pushViewController:[SearchViewController viewForServer:server]
-                                         animated:TRUE];
+//    [self.navigationController pushViewController:[SearchViewController viewForServer:server]
+//                                         animated:TRUE];
 
 }
 
