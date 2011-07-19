@@ -95,7 +95,7 @@
 // Sets cell artwork for an artist or album
 //
 
-- (void) setArtworkOnCell:(UITableViewCell *)cell forMusicItem:(MusicItem *)item atIndex:(NSIndexPath *)indexPath {
+- (void) setArtworkOnCell:(MusicCell *)cell forMusicItem:(MusicItem *)item atIndex:(NSIndexPath *)indexPath {
     
     NSString *key = [NSString stringWithFormat:@"image-%@", item.mid];
     UIImage *image = [images objectForKey:key];

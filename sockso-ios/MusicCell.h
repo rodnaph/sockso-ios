@@ -5,7 +5,7 @@
 @interface MusicCell : UITableViewCell {}
 
 @property (nonatomic, retain) IBOutlet UILabel *trackName, *artistName;
-@property (nonatomic, retain) IBOutlet UIImageView *actionImage;
+@property (nonatomic, retain) IBOutlet UIImageView *actionImage, *artworkImage;
 
 - (void) drawForItem:(MusicItem *)item;
 

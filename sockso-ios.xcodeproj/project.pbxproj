@@ -53,6 +53,7 @@
 		DC88D2E813CC31E90064A5B6 /* ArtistsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC88D2E713CC31E90064A5B6 /* ArtistsView.xib */; };
 		DC88D2EC13CC32DD0064A5B6 /* ArtistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC88D2EB13CC32DD0064A5B6 /* ArtistsViewController.m */; };
 		DC8BA6CD13C5925100F21C3C /* Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8BA6CC13C5925100F21C3C /* Properties.m */; };
+		DC97F4F613D630FA0051363B /* small-image-back.png in Resources */ = {isa = PBXBuildFile; fileRef = DC97F4F513D630FA0051363B /* small-image-back.png */; };
 		DCA0512813C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCA0512613C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld */; };
 		DCA057A213C788C200850DA2 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCA057A113C788C200850DA2 /* Entitlements.plist */; };
 		DCA057A513C835A400850DA2 /* SocksoServerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA057A413C835A400850DA2 /* SocksoServerTest.m */; };
@@ -172,6 +173,7 @@
 		DC88D2EB13CC32DD0064A5B6 /* ArtistsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistsViewController.m; sourceTree = "<group>"; };
 		DC8BA6CB13C5925100F21C3C /* Properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Properties.h; sourceTree = "<group>"; };
 		DC8BA6CC13C5925100F21C3C /* Properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Properties.m; sourceTree = "<group>"; };
+		DC97F4F513D630FA0051363B /* small-image-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "small-image-back.png"; sourceTree = "<group>"; };
 		DCA0512713C4C14C002F8FC6 /* SocksoDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SocksoDataModel.xcdatamodel; sourceTree = "<group>"; };
 		DCA057A113C788C200850DA2 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		DCA057A313C835A400850DA2 /* SocksoServerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocksoServerTest.h; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 		DC43F95A13A16DA6001B41F6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DC97F4F513D630FA0051363B /* small-image-back.png */,
 				DCA057A613C84A9E00850DA2 /* transparent.png */,
 				DCF2ABC213C4BB7200C5F3E4 /* play.png */,
 				DC43F95F13A1F223001B41F6 /* community.png */,
@@ -651,6 +654,7 @@
 				DCE333E713C99F4300251B18 /* LoginView.xib in Resources */,
 				DC88D2E813CC31E90064A5B6 /* ArtistsView.xib in Resources */,
 				DC1A0B5513D4A39F00594D9D /* HomeView.xib in Resources */,
+				DC97F4F613D630FA0051363B /* small-image-back.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
