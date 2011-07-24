@@ -2,9 +2,8 @@
 #import <UIKit/UIKit.h>
 #import "MusicItem.h"
 #import "SocksoServer.h"
-#import "ImageLoaderDelegate.h"
 
-@interface AlbumViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, ImageLoaderDelegate> {}
+@interface AlbumViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {}
 
 @property (nonatomic, retain) IBOutlet UITableView *trackTable;
 @property (nonatomic, retain) IBOutlet UILabel *nameLabel, *artistLabel;

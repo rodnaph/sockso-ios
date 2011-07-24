@@ -48,7 +48,6 @@
 		DC5B660013A4E44C006ED498 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5B65FF13A4E44C006ED498 /* SystemConfiguration.framework */; };
 		DC5B660213A4E457006ED498 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5B660113A4E457006ED498 /* MobileCoreServices.framework */; };
 		DC5B660513A4E46B006ED498 /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5B660413A4E46B006ED498 /* libz.1.2.3.dylib */; };
-		DC5D731B13CADC9600EF0C85 /* ImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5D731A13CADC9600EF0C85 /* ImageCache.m */; };
 		DC8659B413B9345100DB4DB3 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC8659B313B9345100DB4DB3 /* MainWindow.xib */; };
 		DC88D2E813CC31E90064A5B6 /* ArtistsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC88D2E713CC31E90064A5B6 /* ArtistsView.xib */; };
 		DC88D2EC13CC32DD0064A5B6 /* ArtistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC88D2EB13CC32DD0064A5B6 /* ArtistsViewController.m */; };
@@ -65,9 +64,12 @@
 		DCAE3C8013BB47360017BE29 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCAE3C7F13BB47360017BE29 /* QuartzCore.framework */; };
 		DCB881BA13BA5E660095656A /* CommunityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCB881B913BA5E660095656A /* CommunityView.xib */; };
 		DCB881BE13BA5E980095656A /* CommunityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCB881BD13BA5E980095656A /* CommunityViewController.m */; };
+		DCD7B08813DCDB2100A5B31C /* EGOCache.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD7B08113DCDB2100A5B31C /* EGOCache.m */; };
+		DCD7B08913DCDB2100A5B31C /* EGOImageLoadConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD7B08313DCDB2100A5B31C /* EGOImageLoadConnection.m */; };
+		DCD7B08A13DCDB2100A5B31C /* EGOImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD7B08513DCDB2100A5B31C /* EGOImageLoader.m */; };
+		DCD7B08B13DCDB2100A5B31C /* EGOImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = DCD7B08713DCDB2100A5B31C /* EGOImageView.m */; };
 		DCE333E713C99F4300251B18 /* LoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCE333E613C99F4300251B18 /* LoginView.xib */; };
 		DCE333EB13C9A1D800251B18 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE333EA13C9A1D800251B18 /* LoginViewController.m */; };
-		DCE38C0013C2F77B006FD270 /* ImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = DCE38BFF13C2F77A006FD270 /* ImageLoader.m */; };
 		DCEB12A513BB0E99000806A4 /* SocksoServer.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEB12A413BB0E98000806A4 /* SocksoServer.m */; };
 		DCEFDDA613BC505E0024A989 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = DCEFDDA513BC505E0024A989 /* AudioStreamer.m */; };
 		DCF065CB13BBB9DB000ECDEE /* PlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DCF065CA13BBB9DB000ECDEE /* PlayView.xib */; };
@@ -164,9 +166,6 @@
 		DC5B660113A4E457006ED498 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		DC5B660313A4E45F006ED498 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		DC5B660413A4E46B006ED498 /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
-		DC5D731913CADC9600EF0C85 /* ImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCache.h; sourceTree = "<group>"; };
-		DC5D731A13CADC9600EF0C85 /* ImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCache.m; sourceTree = "<group>"; };
-		DC5E60B713C376A5004A61BD /* ImageLoaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLoaderDelegate.h; sourceTree = "<group>"; };
 		DC8659B313B9345100DB4DB3 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		DC88D2E713CC31E90064A5B6 /* ArtistsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtistsView.xib; sourceTree = "<group>"; };
 		DC88D2EA13CC32DD0064A5B6 /* ArtistsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistsViewController.h; sourceTree = "<group>"; };
@@ -189,12 +188,18 @@
 		DCB881B913BA5E660095656A /* CommunityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommunityView.xib; sourceTree = "<group>"; };
 		DCB881BC13BA5E980095656A /* CommunityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityViewController.h; sourceTree = "<group>"; };
 		DCB881BD13BA5E980095656A /* CommunityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityViewController.m; sourceTree = "<group>"; };
+		DCD7B08013DCDB2100A5B31C /* EGOCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGOCache.h; path = vendor/EGOCache/EGOCache.h; sourceTree = SOURCE_ROOT; };
+		DCD7B08113DCDB2100A5B31C /* EGOCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EGOCache.m; path = vendor/EGOCache/EGOCache.m; sourceTree = SOURCE_ROOT; };
+		DCD7B08213DCDB2100A5B31C /* EGOImageLoadConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGOImageLoadConnection.h; path = vendor/EGOImageLoader/EGOImageLoadConnection.h; sourceTree = SOURCE_ROOT; };
+		DCD7B08313DCDB2100A5B31C /* EGOImageLoadConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EGOImageLoadConnection.m; path = vendor/EGOImageLoader/EGOImageLoadConnection.m; sourceTree = SOURCE_ROOT; };
+		DCD7B08413DCDB2100A5B31C /* EGOImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGOImageLoader.h; path = vendor/EGOImageLoader/EGOImageLoader.h; sourceTree = SOURCE_ROOT; };
+		DCD7B08513DCDB2100A5B31C /* EGOImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EGOImageLoader.m; path = vendor/EGOImageLoader/EGOImageLoader.m; sourceTree = SOURCE_ROOT; };
+		DCD7B08613DCDB2100A5B31C /* EGOImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EGOImageView.h; path = vendor/EGOImageView/EGOImageView.h; sourceTree = SOURCE_ROOT; };
+		DCD7B08713DCDB2100A5B31C /* EGOImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EGOImageView.m; path = vendor/EGOImageView/EGOImageView.m; sourceTree = SOURCE_ROOT; };
 		DCE333E613C99F4300251B18 /* LoginView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginView.xib; sourceTree = "<group>"; };
 		DCE333E913C9A1D700251B18 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		DCE333EA13C9A1D800251B18 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		DCE333ED13C9B78700251B18 /* LoginHandlerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginHandlerDelegate.h; sourceTree = "<group>"; };
-		DCE38BFE13C2F77A006FD270 /* ImageLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLoader.h; sourceTree = "<group>"; };
-		DCE38BFF13C2F77A006FD270 /* ImageLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLoader.m; sourceTree = "<group>"; };
 		DCEB12A313BB0E98000806A4 /* SocksoServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocksoServer.h; sourceTree = "<group>"; };
 		DCEB12A413BB0E98000806A4 /* SocksoServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocksoServer.m; sourceTree = "<group>"; };
 		DCEFDDA413BC505E0024A989 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioStreamer.h; sourceTree = "<group>"; };
@@ -394,6 +399,7 @@
 		DC4C95F413A4CB6100958C0E /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				DCD7B07E13DCDB0100A5B31C /* EGOImageLoading */,
 				DCF065E013BBCA69000ECDEE /* AudioStreamer */,
 				DC5B65D513A4DF86006ED498 /* ASIHTTPRequest */,
 				DC5B65C413A4DF38006ED498 /* JSON */,
@@ -465,6 +471,21 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
+		DCD7B07E13DCDB0100A5B31C /* EGOImageLoading */ = {
+			isa = PBXGroup;
+			children = (
+				DCD7B08013DCDB2100A5B31C /* EGOCache.h */,
+				DCD7B08113DCDB2100A5B31C /* EGOCache.m */,
+				DCD7B08213DCDB2100A5B31C /* EGOImageLoadConnection.h */,
+				DCD7B08313DCDB2100A5B31C /* EGOImageLoadConnection.m */,
+				DCD7B08413DCDB2100A5B31C /* EGOImageLoader.h */,
+				DCD7B08513DCDB2100A5B31C /* EGOImageLoader.m */,
+				DCD7B08613DCDB2100A5B31C /* EGOImageView.h */,
+				DCD7B08713DCDB2100A5B31C /* EGOImageView.m */,
+			);
+			name = EGOImageLoading;
+			sourceTree = "<group>";
+		};
 		DCF065E013BBCA69000ECDEE /* AudioStreamer */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,12 +501,7 @@
 				DCEB12A313BB0E98000806A4 /* SocksoServer.h */,
 				DCEB12A413BB0E98000806A4 /* SocksoServer.m */,
 				DCF0660013BBD63C000ECDEE /* Music */,
-				DCE38BFE13C2F77A006FD270 /* ImageLoader.h */,
-				DCE38BFF13C2F77A006FD270 /* ImageLoader.m */,
-				DC5E60B713C376A5004A61BD /* ImageLoaderDelegate.h */,
 				DCE333ED13C9B78700251B18 /* LoginHandlerDelegate.h */,
-				DC5D731913CADC9600EF0C85 /* ImageCache.h */,
-				DC5D731A13CADC9600EF0C85 /* ImageCache.m */,
 			);
 			name = Sockso;
 			sourceTree = "<group>";
@@ -715,7 +731,6 @@
 				DCF0660613BBD6E9000ECDEE /* Artist.m in Sources */,
 				DCF0660913BBD6F5000ECDEE /* Album.m in Sources */,
 				DCEFDDA613BC505E0024A989 /* AudioStreamer.m in Sources */,
-				DCE38C0013C2F77B006FD270 /* ImageLoader.m in Sources */,
 				DC481D7B13C480A400F2B052 /* MusicCell.m in Sources */,
 				DCA0512813C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld in Sources */,
 				DCF25B8B13C6372C00B82267 /* InfoViewController.m in Sources */,
@@ -723,9 +738,12 @@
 				DCA057AC13C84F5E00850DA2 /* ArtistViewController.m in Sources */,
 				DCA057C313C88B9000850DA2 /* AlbumViewController.m in Sources */,
 				DCE333EB13C9A1D800251B18 /* LoginViewController.m in Sources */,
-				DC5D731B13CADC9600EF0C85 /* ImageCache.m in Sources */,
 				DC88D2EC13CC32DD0064A5B6 /* ArtistsViewController.m in Sources */,
 				DC1A0B5313D4A2AF00594D9D /* HomeViewController.m in Sources */,
+				DCD7B08813DCDB2100A5B31C /* EGOCache.m in Sources */,
+				DCD7B08913DCDB2100A5B31C /* EGOImageLoadConnection.m in Sources */,
+				DCD7B08A13DCDB2100A5B31C /* EGOImageLoader.m in Sources */,
+				DCD7B08B13DCDB2100A5B31C /* EGOImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

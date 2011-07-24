@@ -362,7 +362,6 @@
     }];
     
     [request setFailedBlock:onFailure];
-    
     [request startAsynchronous];
     
 }
@@ -370,6 +369,56 @@
 - (void) getTracksForArtist:(MusicItem *)item onComplete:(void (^)(NSMutableArray *))onComplete onFailure:(void (^)(void))onFailure {
     
     [self getTracksForMusicItem:item onComplete:onComplete onFailure:onFailure];
+    
+}
+
+
+//
+// Returns all artists
+//
+
+- (void) getArtists:(void (^)(NSArray *))onComplete onFailure:(void (^)(void))onFailure {
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/api/artists?limit=-1", ipAndPort];
+    
+    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:[NSURL URLWithString:urlString]];
+    
+    NSLog( @"Query artists: %@", urlString );
+    
+    [request setCompletionBlock:^{
+
+        SBJsonParser *parser = [[SBJsonParser alloc] init];
+        NSMutableArray *artists = [[NSMutableArray alloc] init];
+        NSArray *artistsData = [parser objectWithString:[request responseString]];
+        
+        for ( NSDictionary *artistData in artistsData ) {
+            
+            Artist *artist = [Artist itemWithName:[NSString stringWithFormat:@"ar%@", [artistData objectForKey:@"id"]] 
+                                             name:[artistData objectForKey:@"name"]];
+            
+            [artists addObject:artist];
+            
+        }
+        
+        onComplete( [NSArray arrayWithArray:artists] );
+        
+        [artists release];
+        [parser release];
+        
+    }];
+    
+    [request setTimeOutSeconds:5];
+    [request setFailedBlock:onFailure];
+    [request startAsynchronous];
+    
+}
+
+- (NSURL *)getImageUrlForMusicItem:(MusicItem *)item {
+    
+    NSString *urlString = [NSString stringWithFormat:@"http://%@/file/cover/%@", ipAndPort, item.mid];
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    return url;
     
 }
 

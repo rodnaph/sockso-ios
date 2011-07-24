@@ -2,14 +2,13 @@
 #import <UIKit/UIKit.h>
 #import "MusicItem.h"
 #import "SocksoServer.h"
-#import "ImageLoaderDelegate.h"
 
 enum AV_MODES {
     AV_MODE_ALBUMS = 1,
     AV_MODE_TRACKS = 2
 };
 
-@interface ArtistViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, ImageLoaderDelegate> {
+@interface ArtistViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
     int mode;
     NSMutableDictionary *images;
 }
@@ -31,7 +30,5 @@ enum AV_MODES {
 - (void) showTracks;
 
 - (IBAction) modeButtonChanged;
-
-- (void) setArtworkOnCell:(UITableViewCell *)cell forMusicItem:(MusicItem *)cellItem atIndex:(NSIndexPath *)indexPath;
 
 @end

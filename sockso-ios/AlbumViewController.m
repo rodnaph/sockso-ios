@@ -2,7 +2,6 @@
 #import "AlbumViewController.h"
 #import "MusicCell.h"
 #import "MusicItem.h"
-#import "ImageLoader.h"
 #import "Album.h"
 #import "PlayViewController.h"
 
@@ -53,11 +52,6 @@
 }
 
 - (void) showArtwork {
-    
-    ImageLoader *loader = [ImageLoader fromServer:server forItem:albumItem atIndex:nil];
-    [loader setDelegate:(id<ImageLoaderDelegate> *)self];
-    [loader load];
-    
 }
 
 - (void) imageDidLoad:(UIImage *)image atIndex:(NSIndexPath *)indexPath {

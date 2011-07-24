@@ -1,12 +1,10 @@
 
 #import <UIKit/UIKit.h>
 #import "SocksoServer.h"
-#import "ImageLoader.h"
-#import "ImageLoaderDelegate.h"
 #import "HomeViewDelegate.h"
 #import "HomeViewController.h"
 
-@interface SearchViewController : UITableViewController  <UISearchDisplayDelegate, UISearchBarDelegate, ImageLoaderDelegate, HomeViewDelegate> {
+@interface SearchViewController : UITableViewController  <UISearchDisplayDelegate, UISearchBarDelegate, HomeViewDelegate> {
     NSMutableDictionary *images;
 }
 
@@ -20,7 +18,5 @@
 - (void) showSearchFailed;
 
 - (void) performSearch:(NSString *)query;
-
-- (void) setArtworkOnCell:(UITableViewCell *)cell forMusicItem:(MusicItem *)item atIndex:(NSIndexPath *)indexPath;
 
 @end

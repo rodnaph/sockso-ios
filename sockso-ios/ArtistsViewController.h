@@ -5,7 +5,7 @@
 #import "HomeViewController.h"
 
 @interface ArtistsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, HomeViewDelegate> {
-    NSArray *artists;
+    NSMutableDictionary *sections;
 }
 
 @property (nonatomic, retain) SocksoServer *server;
@@ -13,7 +13,5 @@
 @property (nonatomic, retain) HomeViewController *homeViewController;
 
 + (ArtistsViewController *) viewForServer:(SocksoServer *)server;
-
-- (void) loadArtists;
 
 @end

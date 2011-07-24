@@ -2,9 +2,8 @@
 #import <UIKit/UIKit.h>
 #import "SocksoServer.h"
 #import "Track.h"
-#import "ImageLoaderDelegate.h"
 
-@interface PlayViewController : UIViewController <ImageLoaderDelegate> {}
+@interface PlayViewController : UIViewController {}
 
 @property (nonatomic, retain) IBOutlet UILabel *nameLabel, *albumLabel, *artistLabel;
 @property (nonatomic, retain) IBOutlet UIButton *playButton;

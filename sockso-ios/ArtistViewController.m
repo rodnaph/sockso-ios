@@ -1,7 +1,6 @@
 
 #import "ArtistViewController.h"
 #import "PlayViewController.h"
-#import "ImageLoader.h"
 #import "MusicCell.h"
 #import "MusicItem.h"
 #import "AlbumViewController.h"
@@ -33,6 +32,10 @@
         
     [self showArtwork];
     [self showAlbums];
+    
+}
+
+- (void)showArtwork {
     
 }
 
@@ -75,7 +78,7 @@
     cell.artistName.text = @"";
     
     if ( [cellItem isAlbum] ) {
-        [self setArtworkOnCell:cell forMusicItem:cellItem atIndex:indexPath];
+//        cell.artworkImage.imageURL = 
     }
     
     else {
@@ -83,31 +86,6 @@
     }
     
 	return cell;
-    
-}
-
-//
-// Sets cell artwork for an artist or album
-//
-
-- (void) setArtworkOnCell:(UITableViewCell *)cell forMusicItem:(MusicItem *)cellItem atIndex:(NSIndexPath *)indexPath {
-    
-    NSString *key = [NSString stringWithFormat:@"image-%@", cellItem.mid];
-    UIImage *image = [images objectForKey:key];
-    
-    if ( image ) {
-        cell.imageView.image = image;
-    }
-    
-    else {
-        
-        cell.imageView.image = [UIImage imageNamed:@"transparent.png"];
-        
-        ImageLoader *loader = [ImageLoader fromServer:server forItem:cellItem atIndex:indexPath];
-        [loader setDelegate:(id<ImageLoaderDelegate> *)self];
-        [loader load];
-        
-    }
     
 }
 
@@ -153,33 +131,6 @@
     
     else {
         [musicTable reloadData];
-    }
-    
-}
-
-- (void) showArtwork {
-
-    ImageLoader *loader = [ImageLoader fromServer:server forItem:item atIndex:nil];
-    [loader setDelegate:(id<ImageLoaderDelegate> *)self];
-    [loader load];
-
-}
-
-- (void) imageDidLoad:(UIImage *)image atIndex:(NSIndexPath *)indexPath {
-    
-    if ( indexPath == nil ) {
-        artworkImage.image = image;
-    }
-    
-    else {
-    
-        MusicItem *cellItem = [albums objectAtIndex:indexPath.row];
-        NSString *key = [NSString stringWithFormat:@"image-%@", cellItem.mid];
-        
-        [images setValue:image forKey:key];
-        
-        [self.musicTable reloadData];
-
     }
     
 }

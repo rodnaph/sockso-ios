@@ -53,7 +53,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{55, 2}, {209, 22}}</string>
 								<reference key="NSSuperview" ref="657717133"/>
-								<reference key="NSNextKeyView" ref="605167307"/>
+								<reference key="NSNextKeyView" ref="389526659"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -88,6 +88,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{55, 20}, {207, 21}}</string>
 								<reference key="NSSuperview" ref="657717133"/>
+								<reference key="NSNextKeyView" ref="605167307"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -105,10 +106,19 @@
 								<float key="IBUIMinimumFontSize">10</float>
 								<int key="IBUINumberOfLines">0</int>
 							</object>
+							<object class="IBUIImageView" id="486477162">
+								<reference key="NSNextResponder" ref="657717133"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{12, 7}, {35, 30}}</string>
+								<reference key="NSSuperview" ref="657717133"/>
+								<reference key="NSNextKeyView" ref="550703118"/>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+							</object>
 						</object>
 						<string key="NSFrameSize">{320, 44}</string>
 						<reference key="NSSuperview" ref="1053487005"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSNextKeyView" ref="486477162"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MCAwAA</bytes>
@@ -160,6 +170,14 @@
 					</object>
 					<int key="connectionID">27</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">artworkImage</string>
+						<reference key="source" ref="1053487005"/>
+						<reference key="destination" ref="486477162"/>
+					</object>
+					<int key="connectionID">29</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -189,6 +207,7 @@
 							<reference ref="605167307"/>
 							<reference ref="389526659"/>
 							<reference ref="550703118"/>
+							<reference ref="486477162"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -207,6 +226,11 @@
 						<reference key="object" ref="389526659"/>
 						<reference key="parent" ref="1053487005"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">28</int>
+						<reference key="object" ref="486477162"/>
+						<reference key="parent" ref="1053487005"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -217,6 +241,8 @@
 					<string>-2.CustomClassName</string>
 					<string>15.IBPluginDependency</string>
 					<string>25.IBPluginDependency</string>
+					<string>28.CustomClassName</string>
+					<string>28.IBPluginDependency</string>
 					<string>3.CustomClassName</string>
 					<string>3.IBPluginDependency</string>
 					<string>3.IBUserGuides</string>
@@ -228,18 +254,20 @@
 					<string>UIResponder</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<string>EGOImageView</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>MusicCell</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<object class="NSArray">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="IBUserGuide">
 							<reference key="view" ref="1053487005"/>
-							<double key="location">18.270660400390625</double>
+							<double key="location">17.271000000000015</double>
 							<int key="affinity">1</int>
 						</object>
 						<object class="IBUserGuide">
 							<reference key="view" ref="1053487005"/>
-							<double key="location">16.271000000000015</double>
+							<double key="location">15.271000000000015</double>
 							<int key="affinity">1</int>
 						</object>
 						<object class="IBUserGuide">
@@ -263,7 +291,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">27</int>
+			<int key="maxID">29</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>

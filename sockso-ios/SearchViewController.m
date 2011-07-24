@@ -4,15 +4,48 @@
 #import "SocksoServer.h"
 #import "PlayViewController.h"
 #import "Track.h"
-#import "ImageLoader.h"
-#import "ImageLoaderDelegate.h"
 #import "MusicCell.h"
 #import "ArtistViewController.h"
 #import "AlbumViewController.h"
+#import "EGOImageView.h"
 
 @implementation SearchViewController
 
 @synthesize server, listContent, homeViewController;
+
+//
+// Create a view controller for the server
+//
+
++ (SearchViewController *) viewForServer:(SocksoServer *)server {
+    
+    SearchViewController *aView = [[SearchViewController alloc]
+                                   initWithNibName:@"SearchView"
+                                   bundle:nil];
+    
+    aView.server = server;
+    
+    return [aView autorelease];
+    
+}
+
+//
+// dealloc
+//
+
+- (void) dealloc {
+    
+    [images release];
+    [server release];
+    [listContent release];
+    [homeViewController release];
+    
+    [super dealloc];
+    
+}
+
+#pragma mark -
+#pragma mark View
 
 - (void) viewDidLoad {
     
@@ -27,22 +60,6 @@
     if ( [self.title isEqualToString:@""] ) {
         self.title = @"Sockso";
     }
-    
-}
-
-//
-// Create a view controller for the server
-//
-
-+ (SearchViewController *) viewForServer:(SocksoServer *)server {
-    
-    SearchViewController *aView = [[SearchViewController alloc]
-                                    initWithNibName:@"SearchView"
-                                    bundle:nil];
-    
-    aView.server = server;
-    
-    return [aView autorelease];
     
 }
 
@@ -80,7 +97,7 @@
     [cell drawForItem:item];
     
     if ( [item isAlbum] || [item isArtist] ) {
-        [self setArtworkOnCell:cell forMusicItem:item atIndex:indexPath];
+        cell.artworkImage.imageURL = [server getImageUrlForMusicItem:item];
     }
     
     else {
@@ -89,31 +106,6 @@
     
 	return cell;
     
-}
-
-//
-// Sets cell artwork for an artist or album
-//
-
-- (void) setArtworkOnCell:(MusicCell *)cell forMusicItem:(MusicItem *)item atIndex:(NSIndexPath *)indexPath {
-    
-    NSString *key = [NSString stringWithFormat:@"image-%@", item.mid];
-    UIImage *image = [images objectForKey:key];
-    
-    if ( image ) {
-        cell.imageView.image = image;
-    }
-    
-    else {
-        
-        cell.imageView.image = [UIImage imageNamed:@"transparent.png"];
-        
-        ImageLoader *loader = [ImageLoader fromServer:server forItem:item atIndex:indexPath];
-        [loader setDelegate:(id<ImageLoaderDelegate> *)self];
-        [loader load];
-        
-    }
-
 }
 
 //
@@ -200,36 +192,6 @@
     else {
         NSLog( @"NOT YET IMPLEMENTED" );
     }
-    
-}
-
-//
-// The image has loaded and is for the table item at the specified index
-//
-
-- (void) imageDidLoad:(UIImage *)image atIndex:(NSIndexPath *)indexPath {
-
-    MusicItem *item = [listContent objectAtIndex:indexPath.row];
-    NSString *key = [NSString stringWithFormat:@"image-%@", item.mid];
-        
-    [images setValue:image forKey:key];
-        
-    [self.tableView reloadData];
-    
-}
-
-//
-// dealloc
-//
-
-- (void) dealloc {
-    
-    [images release];
-    [server release];
-    [listContent release];
-    [homeViewController release];
-    
-    [super dealloc];
     
 }
 
