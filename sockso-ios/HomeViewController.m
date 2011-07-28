@@ -54,7 +54,7 @@
     
     self.viewControllers = [self createViewControllers];
     
-    [self showViewControllerAtIndex:0];
+    [self showViewControllerAtIndex:1];
     
 }
 

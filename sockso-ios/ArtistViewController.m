@@ -7,8 +7,9 @@
 
 @implementation ArtistViewController
 
-@synthesize item, server, nameLabel, artworkImage, modeButtons,
-            albums, tracks, musicTable, activityView;
+@synthesize item, server, nameLabel,
+            artworkImage=artworkImage_,
+            modeButtons, albums, tracks, musicTable, activityView;
 
 + (ArtistViewController *) initWithItem:(MusicItem *)item forServer:(SocksoServer *)server {
     
@@ -23,6 +24,28 @@
     
 }
 
+#pragma mark -
+#pragma mark init
+
+- (void) dealloc {
+    
+    [item release];
+    [server release];
+    [nameLabel release];
+    [artworkImage_ release];
+    [modeButtons release];
+    [albums release];
+    [tracks release];
+    [musicTable release];
+    [activityView release];
+    
+    [super dealloc];
+    
+}
+
+#pragma mark -
+#pragma mark View
+
 - (void) viewDidLoad {
     
     images = [[NSMutableDictionary alloc] init];
@@ -36,6 +59,8 @@
 }
 
 - (void)showArtwork {
+    
+    artworkImage_.imageURL = [server getImageUrlForMusicItem:item];
     
 }
 
@@ -175,22 +200,6 @@
     else {
         [self showTracks];
     }
-    
-}
-
-- (void) dealloc {
-    
-    [item release];
-    [server release];
-    [nameLabel release];
-    [artworkImage release];
-    [modeButtons release];
-    [albums release];
-    [tracks release];
-    [musicTable release];
-    [activityView release];
-
-    [super dealloc];
     
 }
 

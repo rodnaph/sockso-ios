@@ -7,7 +7,9 @@
 
 @implementation AlbumViewController
 
-@synthesize trackTable, nameLabel, artworkImage, albumItem, server, artistLabel, tracks;
+@synthesize trackTable, nameLabel,
+            artworkImage=artworkImage_,
+            albumItem, server, artistLabel, tracks;
 
 + (AlbumViewController *) initWithItem:(MusicItem *)albumItem forServer:(SocksoServer *)server {
     
@@ -21,6 +23,26 @@
     return [ctrl autorelease];
     
 }
+
+#pragma mark -
+#pragma mark init
+
+- (void) dealloc {
+    
+    [artistLabel release];
+    [trackTable release];
+    [nameLabel release];
+    [artworkImage_ release];
+    [albumItem release];
+    [server release];
+    [tracks release];
+    
+    [super dealloc];
+    
+}
+
+#pragma mark -
+#pragma mark View
 
 - (void) viewDidLoad {
     
@@ -52,11 +74,8 @@
 }
 
 - (void) showArtwork {
-}
-
-- (void) imageDidLoad:(UIImage *)image atIndex:(NSIndexPath *)indexPath {
     
-    artworkImage.image = image;
+    artworkImage_.imageURL = [server getImageUrlForMusicItem:albumItem];
     
 }
 
@@ -107,21 +126,6 @@
                                              animated:YES];
     }];
         
-}
-
-
-- (void) dealloc {
-    
-    [artistLabel release];
-    [trackTable release];
-    [nameLabel release];
-    [artworkImage release];
-    [albumItem release];
-    [server release];
-    [tracks release];
-    
-    [super dealloc];
-    
 }
 
 @end

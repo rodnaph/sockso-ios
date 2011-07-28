@@ -51,15 +51,11 @@
     
     images = [[NSMutableDictionary alloc] init];
     
-    self.title = server.title;
-    
-    if ( [self.title isEqualToString:@""] ) {
-        self.title = server.tagline;
-    }
+}
 
-    if ( [self.title isEqualToString:@""] ) {
-        self.title = @"Sockso";
-    }
+- (void)viewDidAppear:(BOOL)animated {
+    
+    self.homeViewController.title = @"Search";
     
 }
 

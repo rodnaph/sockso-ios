@@ -2,12 +2,13 @@
 #import <UIKit/UIKit.h>
 #import "MusicItem.h"
 #import "SocksoServer.h"
+#import "EGOImageView.h"
 
 @interface AlbumViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {}
 
 @property (nonatomic, retain) IBOutlet UITableView *trackTable;
 @property (nonatomic, retain) IBOutlet UILabel *nameLabel, *artistLabel;
-@property (nonatomic, retain) IBOutlet UIImageView *artworkImage;
+@property (nonatomic, retain) IBOutlet EGOImageView *artworkImage;
 
 @property (nonatomic, retain) MusicItem *albumItem;
 @property (nonatomic, retain) SocksoServer *server;

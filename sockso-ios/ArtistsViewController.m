@@ -58,6 +58,12 @@
     
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    
+    self.homeViewController.title = @"Artists";
+    
+}
+
 - (void) initArtists {
     
     __block ArtistsViewController *this = self;
