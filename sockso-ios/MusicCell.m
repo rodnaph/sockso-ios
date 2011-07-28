@@ -14,7 +14,7 @@
     artistName.text = @"";
     
     if ( ![item isArtist] ) {
-        artistName.text = @"Artist Name";
+        artistName.text = @"(@todo artist)";
     }
     
 }

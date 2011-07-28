@@ -3,9 +3,18 @@
 #import "SocksoServer.h"
 #import "Track.h"
 
+@interface PlayViewController ()
+
+- (void)initLabels;
+- (void)initArtwork;
+
+@end
+
 @implementation PlayViewController
 
-@synthesize nameLabel, playButton, track, server, artworkImage, albumLabel, artistLabel;
+@synthesize nameLabel, playButton, track, server,
+            artworkImage=artworkImage_,
+            albumLabel, artistLabel;
 
 //
 //  Create play controller to play a track on a server
@@ -26,21 +35,53 @@
     
 }
 
+#pragma mark -
+#pragma mark init
+
+- (void) dealloc {
+    
+    [nameLabel release];
+    [playButton release];
+    [track release];
+    [server release];
+    [artworkImage_ release];
+    [albumLabel release];
+    [artistLabel release];
+    
+    [super dealloc];
+    
+}
+
+#pragma mark -
+#pragma mark View
+
 - (void) viewDidAppear:(BOOL) animated {
     
-    [nameLabel setText:track.name];
-    [albumLabel setText:track.album.name];
-    [artistLabel setText:track.artist.name];
+    [self initLabels];
+    [self initArtwork];
     
     [server play:track];
     
 }
 
-//
-// Toggle play/paused
-//
+- (void)initLabels {
+    
+    [nameLabel setText:track.name];
+    [albumLabel setText:track.album.name];
+    [artistLabel setText:track.artist.name];
+    
+}
 
-- (IBAction) playClicked {
+- (void)initArtwork {    
+    
+    artworkImage_.imageURL = [server getImageUrlForMusicItem:track];
+
+}
+
+#pragma mark -
+#pragma mark Actions
+
+- (IBAction)playClicked {
     
     if ( server.mode == SS_MODE_PAUSED ) {
         [playButton setTitle:@"Pause" forState:UIControlStateNormal];    
@@ -52,20 +93,6 @@
         [server pause];
     }
 
-}
-
-- (void) dealloc {
-    
-    [nameLabel release];
-    [playButton release];
-    [track release];
-    [server release];
-    [artworkImage release];
-    [albumLabel release];
-    [artistLabel release];
-    
-    [super dealloc];
-    
 }
 
 @end

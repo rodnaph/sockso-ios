@@ -87,23 +87,20 @@
 	MusicCell *cell = (MusicCell *) [tableView dequeueReusableCellWithIdentifier:kCellID];
     
 	if ( cell == nil ) {
-        
         NSArray *objects = [[NSBundle mainBundle] loadNibNamed:@"MusicCellView"
                                                          owner:self
                                                        options:nil];
         cell = (MusicCell *) [objects objectAtIndex:0];
-        
 	}
     
     NSMutableArray *items = mode == AV_MODE_ALBUMS ? albums : tracks;
     MusicItem *cellItem = [items objectAtIndex:indexPath.row];
 	
-    cell.textLabel.text = cellItem.name;
-    cell.trackName.text = @"";
-    cell.artistName.text = @"";
+    cell.trackName.text = cellItem.name;
+    cell.artistName.text = @"(@todo album info)";
     
     if ( [cellItem isAlbum] ) {
-//        cell.artworkImage.imageURL = 
+        cell.artworkImage.imageURL = [server getImageUrlForMusicItem:cellItem];
     }
     
     else {
