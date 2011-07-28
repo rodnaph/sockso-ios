@@ -2,6 +2,7 @@
 #import "ArtistsViewController.h"
 #import "SocksoServer.h"
 #import "MusicCell.h"
+#import "ArtistViewController.h"
 
 @interface ArtistsViewController ()
 
@@ -10,6 +11,9 @@
 
 - (void)showArtists:(NSArray *)artists;
 - (void)showQueryError;
+
+- (Artist *)artistForIndexPath:(NSIndexPath *)indexPath;
+- (NSArray *)sortedArtists;
 
 @end
 
@@ -113,7 +117,7 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
-    NSString *title = [[[sections allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:section];
+    NSString *title = [[self sortedArtists] objectAtIndex:section];
     
     return [title isEqualToString:@"_"] ? @"Misc" : title;
     
@@ -121,8 +125,7 @@
 
 - (int)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    NSArray *sorted = [[sections allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-    NSString *letter = [sorted objectAtIndex:section];
+    NSString *letter = [[self sortedArtists] objectAtIndex:section];
     
     return [[sections valueForKey:letter] count];
     
@@ -137,7 +140,7 @@
         cell = (MusicCell *) [objects objectAtIndex:0];
     }
     
-    Artist *artist = [[sections valueForKey:[[[sections allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+    Artist *artist = [self artistForIndexPath:indexPath];
 
     cell.trackName.text = artist.name;
     cell.artistName.text = @"";
@@ -147,7 +150,26 @@
     
 }
 
+- (NSArray *)sortedArtists {
+    
+    return [[sections allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+
+}
+
+- (Artist *)artistForIndexPath:(NSIndexPath *)indexPath {
+    
+    return [[sections valueForKey:[[self sortedArtists] objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+    
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSLog( @"Artist selected" );
+    
+    Artist *artist = [self artistForIndexPath:indexPath];
+    ArtistViewController *artistView = [ArtistViewController initWithItem:artist forServer:server];
+    
+    [self.homeViewController.navigationController pushViewController:artistView animated:YES];
     
 }
 
