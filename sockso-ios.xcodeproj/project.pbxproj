@@ -11,6 +11,9 @@
 		DC03909313B8FE6800843F95 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC03909213B8FE6800843F95 /* SearchViewController.m */; };
 		DC0390A013B906C700843F95 /* SearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC03909F13B906C700843F95 /* SearchView.xib */; };
 		DC0390A613B9149000843F95 /* MusicItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0390A513B9149000843F95 /* MusicItem.m */; };
+		DC0A51BD13E2074400847364 /* CommunityServerCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC0A51BC13E2074400847364 /* CommunityServerCellView.xib */; };
+		DC0A51C313E2077000847364 /* CommunityServerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC0A51C213E2077000847364 /* CommunityServerCell.m */; };
+		DC0A51C513E2083C00847364 /* padlock.png in Resources */ = {isa = PBXBuildFile; fileRef = DC0A51C413E2083C00847364 /* padlock.png */; };
 		DC1A0B5313D4A2AF00594D9D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1A0B5213D4A2AF00594D9D /* HomeViewController.m */; };
 		DC1A0B5513D4A39F00594D9D /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC1A0B5413D4A39F00594D9D /* HomeView.xib */; };
 		DC43F90C13A14E4F001B41F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90B13A14E4F001B41F6 /* UIKit.framework */; };
@@ -101,6 +104,10 @@
 		DC03909F13B906C700843F95 /* SearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchView.xib; sourceTree = "<group>"; };
 		DC0390A413B9149000843F95 /* MusicItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicItem.h; sourceTree = "<group>"; };
 		DC0390A513B9149000843F95 /* MusicItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicItem.m; sourceTree = "<group>"; };
+		DC0A51BC13E2074400847364 /* CommunityServerCellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommunityServerCellView.xib; sourceTree = "<group>"; };
+		DC0A51C113E2077000847364 /* CommunityServerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommunityServerCell.h; sourceTree = "<group>"; };
+		DC0A51C213E2077000847364 /* CommunityServerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommunityServerCell.m; sourceTree = "<group>"; };
+		DC0A51C413E2083C00847364 /* padlock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = padlock.png; sourceTree = "<group>"; };
 		DC1A0B5113D4A2AF00594D9D /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		DC1A0B5213D4A2AF00594D9D /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		DC1A0B5413D4A39F00594D9D /* HomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
@@ -361,6 +368,7 @@
 				DCE333E613C99F4300251B18 /* LoginView.xib */,
 				DC88D2E713CC31E90064A5B6 /* ArtistsView.xib */,
 				DC1A0B5413D4A39F00594D9D /* HomeView.xib */,
+				DC0A51BC13E2074400847364 /* CommunityServerCellView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -377,6 +385,7 @@
 		DC43F95A13A16DA6001B41F6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DC0A51C413E2083C00847364 /* padlock.png */,
 				DC97F4F513D630FA0051363B /* small-image-back.png */,
 				DCA057A613C84A9E00850DA2 /* transparent.png */,
 				DCF2ABC213C4BB7200C5F3E4 /* play.png */,
@@ -392,6 +401,8 @@
 			children = (
 				DC481D7913C480A400F2B052 /* MusicCell.h */,
 				DC481D7A13C480A400F2B052 /* MusicCell.m */,
+				DC0A51C113E2077000847364 /* CommunityServerCell.h */,
+				DC0A51C213E2077000847364 /* CommunityServerCell.m */,
 			);
 			name = Controls;
 			sourceTree = "<group>";
@@ -671,6 +682,8 @@
 				DC88D2E813CC31E90064A5B6 /* ArtistsView.xib in Resources */,
 				DC1A0B5513D4A39F00594D9D /* HomeView.xib in Resources */,
 				DC97F4F613D630FA0051363B /* small-image-back.png in Resources */,
+				DC0A51BD13E2074400847364 /* CommunityServerCellView.xib in Resources */,
+				DC0A51C513E2083C00847364 /* padlock.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,6 +757,7 @@
 				DCD7B08913DCDB2100A5B31C /* EGOImageLoadConnection.m in Sources */,
 				DCD7B08A13DCDB2100A5B31C /* EGOImageLoader.m in Sources */,
 				DCD7B08B13DCDB2100A5B31C /* EGOImageView.m in Sources */,
+				DC0A51C313E2077000847364 /* CommunityServerCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,8 +1,9 @@
 
 #import "CommunityViewController.h"
-#import "SearchViewController.h"
+#import "HomeViewController.h"
 #import "SocksoServer.h"
 #import "LoginViewController.h"
+#import "CommunityServerCell.h"
 
 @implementation CommunityViewController
 
@@ -34,18 +35,21 @@
     
 	static NSString *kCellID = @"cellID";
 	
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellID];
+	CommunityServerCell *cell = (CommunityServerCell *) [tableView dequeueReusableCellWithIdentifier:kCellID];
     
 	if ( cell == nil ) {
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCellID] autorelease];
-		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        NSArray *objects = [[NSBundle mainBundle] loadNibNamed:@"CommunityServerCellView"
+                                                         owner:self
+                                                       options:nil];
+		cell = (CommunityServerCell *) [objects objectAtIndex:0];
 	}
 	
     SocksoServer *server = [self.servers objectAtIndex:indexPath.row];
 	
-	cell.textLabel.text = [NSString stringWithFormat:@"%@ - %@",
-                           server.title,
-                           server.tagline];
+    cell.padlockImage.hidden = !server.requiresLogin;
+	cell.serverNameLabel.text = [NSString stringWithFormat:@"%@ - %@",
+                                 server.title,
+                                 server.tagline];
     
 	return cell;
     
@@ -66,7 +70,7 @@
 
 - (void) showHomeView:(SocksoServer *)server {
     
-    [self.navigationController pushViewController:[SearchViewController viewForServer:server]
+    [self.navigationController pushViewController:[HomeViewController initWithServer:server]
                                          animated:YES];
     
 }
