@@ -85,8 +85,8 @@
     
     for ( Artist *artist in artists ) {
         
-        char firstLetter = [artist.name characterAtIndex:0];
-        NSString *letter = ( firstLetter > 90 || firstLetter < 65 ) ? @"_" : [artist.name substringToIndex:1];
+        char firstLetter = [[artist.name uppercaseString] characterAtIndex:0];
+        NSString *letter = ( firstLetter > 90 || firstLetter < 65 ) ? @"_" : [[artist.name uppercaseString] substringToIndex:1];
         
         if ( [sections objectForKey:letter] == nil ) {
             NSMutableArray *array = [[[NSMutableArray alloc] init] autorelease];
