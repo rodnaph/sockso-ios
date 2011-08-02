@@ -104,7 +104,10 @@
     }
     
     else {
+        Album *album = [(Track *)cellItem album];
         cell.actionImage.image = [UIImage imageNamed:@"play.png"];
+        cell.artistName.text = [album name];
+        cell.artworkImage.imageURL = [server getImageUrlForMusicItem:album];
     }
     
 	return cell;

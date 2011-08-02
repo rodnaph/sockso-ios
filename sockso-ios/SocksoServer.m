@@ -312,9 +312,17 @@
         NSMutableArray *tracks = [[[NSMutableArray alloc] init] autorelease];
         
         for ( NSDictionary *data in trackData ) {
+            
+            NSDictionary *albumData = [data objectForKey:@"album"];
+            Album *album = [Album itemWithName:[NSString stringWithFormat:@"al%@", [albumData objectForKey:@"id"]]
+                                          name:[albumData objectForKey:@"name"]];
+            
             Track *track = [Track itemWithName:[NSString stringWithFormat:@"tr%@", [data objectForKey:@"id"]]
                                           name:[data objectForKey:@"name"]];
+            [track setAlbum:album];
+            
             [tracks addObject:track];
+            
         }
         
         onComplete( tracks );
