@@ -100,7 +100,9 @@
     cell.artistName.text = @"(@todo album info)";
     
     if ( [cellItem isAlbum] ) {
+        Album *album = (Album *) cellItem;
         cell.artworkImage.imageURL = [server getImageUrlForMusicItem:cellItem];
+        cell.artistName.text = album.year;
     }
     
     else {

@@ -360,6 +360,7 @@
             Album *album = [Album itemWithName:[NSString stringWithFormat:@"al%@", [data objectForKey:@"id"]]
                                           name:[data objectForKey:@"name"]];
             album.artist = item;
+            album.year = [data objectForKey:@"year"];
             [albums addObject:album];
         }
         

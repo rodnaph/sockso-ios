@@ -72,9 +72,9 @@
     
 }
 
-- (void)initArtwork {    
-    
-    artworkImage_.imageURL = [server getImageUrlForMusicItem:track];
+- (void)initArtwork {
+
+    artworkImage_.imageURL = [server getImageUrlForMusicItem:track.album];
 
 }
 

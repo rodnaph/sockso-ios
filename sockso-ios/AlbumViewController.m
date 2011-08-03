@@ -109,7 +109,6 @@
     cell.textLabel.text = cellItem.name;
     cell.trackName.text = @"";
     cell.artistName.text = @"";
-    cell.actionImage.image = [UIImage imageNamed:@"play.png"];
     
 	return cell;
     

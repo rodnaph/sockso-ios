@@ -3,11 +3,13 @@
 
 @implementation Album
 
-@synthesize artist;
+@synthesize artist,
+            year=year_;
 
 - (void) dealloc {
     
     [artist release];
+    [year_ release];
     
     [super dealloc];
     
