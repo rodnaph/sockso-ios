@@ -7,6 +7,7 @@
 
 - (void)initLabels;
 - (void)initArtwork;
+- (void)initSlider;
 
 @end
 
@@ -14,7 +15,9 @@
 
 @synthesize nameLabel, playButton, track, server,
             artworkImage=artworkImage_,
-            albumLabel, artistLabel;
+            albumLabel, artistLabel,
+            playSlider=playSlider_,
+            timeLabel=timeLabel_;
 
 //
 //  Create play controller to play a track on a server
@@ -40,6 +43,8 @@
 
 - (void) dealloc {
     
+    [timeLabel_ release];
+    [playSlider_ release];
     [nameLabel release];
     [playButton release];
     [track release];
@@ -59,9 +64,21 @@
     
     [self initLabels];
     [self initArtwork];
+    [self initSlider];
     
     [server play:track];
     
+}
+
+- (void)initSlider {
+    
+    [timeLabel_ setText:@""];
+    
+    [playSlider_ setMaximumValue:1.0];
+    [playSlider_ setValue:0.0];
+    
+    [NSThread detachNewThreadSelector:@selector(updatePlaySliderTicker) toTarget:self withObject:nil];
+
 }
 
 - (void)initLabels {
@@ -79,6 +96,48 @@
 }
 
 #pragma mark -
+#pragma mark Play Slider
+
+- (void)updatePlaySliderTicker {
+    
+    while ( TRUE ) {
+        sleep( 1 );
+//        if ( self.isVisible ) {
+            [self performSelectorOnMainThread:@selector(updatePlaySlider)
+                                   withObject:nil
+                                waitUntilDone:NO];
+//        }
+//        else {
+//            [self performSelectorOnMainThread:@selector(pause)
+//                                   withObject:nil
+//                                waitUntilDone:NO];
+//            break;
+//        }
+    }
+    
+}
+
+- (void)updatePlaySlider {
+    
+    if ( [server isPlaying] ) {
+        
+        double duration = [server duration];
+        int minutes = currentTime / 60;
+        int seconds = currentTime - (minutes * 60);
+        
+        self.timeLabel.text = [NSString stringWithFormat:@"%d:%02d", minutes, seconds];
+        
+        if ( duration > 0 ) {
+            [playSlider_ setValue:(currentTime / duration)];
+        }
+        
+        currentTime++;
+        
+    }
+    
+}
+
+#pragma mark -
 #pragma mark Actions
 
 - (IBAction)playClicked {
@@ -93,6 +152,16 @@
         [server pause];
     }
 
+}
+
+- (IBAction)playSliderMoved {
+    NSLog( @"Slider moved" );
+    if ( [server isPlaying] ) {
+        currentTime = [server duration] * [playSlider_ value];
+        NSLog( @"Seek to %d", currentTime );
+        [server seekTo:currentTime];
+    }
+    
 }
 
 @end
