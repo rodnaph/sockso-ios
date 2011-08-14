@@ -60,6 +60,8 @@
 
 - (void) dealloc {
     
+    NSLog( @"SERVER DEALLOC" );
+    
     [streamer stop];
     
     [version release];
@@ -227,10 +229,26 @@
         NSMutableArray *items = [[[NSMutableArray alloc] init] autorelease];
 
         for ( NSDictionary *result in results ) {
-            MusicItem *item = [MusicItem
-                               itemWithName:[result objectForKey:@"id"]
-                               name:[result objectForKey:@"name"]];
-            [items addObject:item];
+            
+            NSString *mid = [result objectForKey:@"id"];
+            MusicItem *item = nil;
+            
+            if ( [MusicItem isTrack:mid] ) {
+                item = [Track fromData:result];
+            }
+            
+            else if ( [MusicItem isAlbum:mid] ) {
+                item = [Album fromData:result];
+            }
+            
+            else if ( [MusicItem isArtist:mid] ) {
+                item = [Artist fromData:result];
+            }
+            
+            if ( item != nil ) {
+                [items addObject:item];
+            }
+            
         }
 
         NSLog( @"Search returned %d results", [items count] );
@@ -438,7 +456,7 @@
 //  start playing a music item, stop any other playing if it is
 //
 
-- (void) play:(MusicItem *)item {
+- (void)play:(MusicItem *)item {
     
     if ( mode != SS_MODE_STOPPED ) {
         [streamer stop];
@@ -464,7 +482,7 @@
 // play the current track if it's paused or stopped
 //
 
-- (void) play {
+- (void)play {
     
     [streamer start];
     mode = SS_MODE_PLAYING;
@@ -475,10 +493,28 @@
 // pause current track
 //
 
-- (void) pause {
+- (void)pause {
     
     [streamer pause];
     mode = SS_MODE_PAUSED;
+    
+}
+
+- (void)seekTo:(int)time {
+    
+    [streamer seekToTime:time];
+    
+}
+
+- (int)duration {
+    
+    return [streamer duration];
+    
+}
+
+- (BOOL)isPlaying {
+    
+    return [streamer isPlaying];
     
 }
 

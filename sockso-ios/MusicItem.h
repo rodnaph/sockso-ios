@@ -7,12 +7,16 @@
 
 + (id) itemWithName:(NSString *)mid name:(NSString *)name;
 
-- (NSString *) getId;
+- (void)fromData:(NSDictionary *)data;
 
-- (BOOL) hasPrefix:(NSString *)prefix;
+- (NSString *)getId;
 
-- (BOOL) isTrack;
-- (BOOL) isAlbum;
-- (BOOL) isArtist;
+- (BOOL)isTrack;
+- (BOOL)isAlbum;
+- (BOOL)isArtist;
+
++ (BOOL)isTrack:(NSString *)mid;
++ (BOOL)isAlbum:(NSString *)mid;
++ (BOOL)isArtist:(NSString *)mid;
 
 @end

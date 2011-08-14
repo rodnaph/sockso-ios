@@ -28,9 +28,12 @@ typedef enum {
 
 // playing musc stream
 
-- (void) play:(MusicItem*) item;
-- (void) play;
-- (void) pause;
+- (void)play:(MusicItem*) item;
+- (void)play;
+- (void)pause;
+- (void)seekTo:(int)time;
+- (int)duration;
+- (BOOL)isPlaying;
 
 // connection
 

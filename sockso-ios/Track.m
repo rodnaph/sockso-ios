@@ -5,31 +5,38 @@
 
 @implementation Track
 
-@synthesize album, artist;
+@synthesize album=album_,
+            artist=artist_;
 
-//
-// Creates a track from the data returned by API
-//
+#pragma mark -
+#pragma mark Init
+
+- (void)dealloc {
+    
+    [album_ release];
+    [artist_ release];
+    
+    [super dealloc];
+    
+}
+
+#pragma mark -
+#pragma mark Helpers
 
 + (Track *) fromData:(NSDictionary *)data {
     
     Track *track = [[[Track alloc] init] autorelease];
-    Album *album = [[[Album alloc] init] autorelease];
-    Artist *artist = [[[Artist alloc] init] autorelease];
     
-    NSDictionary *artistData = [data objectForKey:@"artist"];
-    artist.mid = [NSString stringWithFormat:@"al%@", [artistData objectForKey:@"id"]];
-    artist.name = [artistData objectForKey:@"name"];
+    [track fromData:data];
     
-    NSDictionary *albumData = [data objectForKey:@"album"];
-    album.mid = [NSString stringWithFormat:@"al%@", [albumData objectForKey:@"id"]];
-    album.name = [albumData objectForKey:@"name"];
+    if ( [data objectForKey:@"artist"] != nil ) {
+        track.artist = [Artist fromData:[data objectForKey:@"artist"]];
+    }
     
-    track.mid = [NSString stringWithFormat:@"tr%@", [data objectForKey:@"id"]];
-    track.name = [data objectForKey:@"name"];
-    track.album = album;
-    track.artist = artist;
-    
+    if ( [data objectForKey:@"album"] != nil ) {
+        track.album = [Album fromData:[data objectForKey:@"album"]];
+    }
+        
     return track;
     
 }

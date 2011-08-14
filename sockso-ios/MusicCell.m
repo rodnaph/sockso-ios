@@ -1,5 +1,7 @@
 
 #import "MusicCell.h"
+#import "Track.h"
+#import "Album.h"
 
 @implementation MusicCell
 
@@ -12,9 +14,15 @@
     
     trackName.text = item.name;
     artistName.text = @"";
+
+    if ( [item isAlbum] ) {
+        Album *album = (Album *) item;
+        artistName.text = album.artist.name;
+    }
     
-    if ( ![item isArtist] ) {
-        artistName.text = @"(@todo artist)";
+    else if ( [item isTrack] ) {
+        Track *track = (Track *) item;
+        artistName.text = track.artist.name;
     }
     
 }

@@ -6,9 +6,6 @@
 
 @interface HomeViewController ()
 
-@property (nonatomic, retain) NSArray *viewControllers;
-@property (nonatomic, retain) UIViewController *activeViewController;
-
 - (NSArray *)createViewControllers;
 - (void)showViewControllerAtIndex:(int)index;
 
@@ -42,6 +39,7 @@
     [viewControllers release];
     [activeViewController release];
     [tabBar release];
+    [viewContainer release];
     
     [super dealloc];
     
@@ -74,7 +72,7 @@
         [self.activeViewController.view removeFromSuperview];
         [self.activeViewController viewDidDisappear:NO];
     }
-    
+
     self.activeViewController = [self.viewControllers objectAtIndex:index];
     self.activeViewController.view.frame = self.viewContainer.frame;
     [(id <HomeViewDelegate>)self.activeViewController setHomeViewController:self];
