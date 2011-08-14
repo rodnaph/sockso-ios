@@ -81,7 +81,7 @@
 // Fetch all valid community servers and pass to onComplete handler
 //
 
-+ (void) findCommunityServers:(void (^)(NSMutableArray *))onComplete {
++ (void) findCommunityServers:(void (^)(NSMutableArray *))onComplete onFailure:(void (^)(void))onFailure {
     
     NSString *jsonUrl = @"http://sockso.pu-gh.com/community.html?format=json";
     NSURL *url = [NSURL URLWithString:jsonUrl];
@@ -111,6 +111,8 @@
         onComplete( [servers autorelease] );
         
     }];
+    
+    [request setFailedBlock:onFailure];
     [request startAsynchronous];
     
 }

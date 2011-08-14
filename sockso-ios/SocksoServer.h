@@ -22,7 +22,7 @@ typedef enum {
 + (SocksoServer *) disconnectedServer:(NSString *) ipAndPort;
 + (SocksoServer *) connectedServer:(NSString *) ipAndPort title:(NSString *) title tagline:(NSString *) tagline;
 
-+ (void) findCommunityServers:(void (^)(NSMutableArray *))onComplete;
++ (void) findCommunityServers:(void (^)(NSMutableArray *))onComplete onFailure:(void (^)(void))onFailure;
 
 - (BOOL) isSupportedVersion;
 

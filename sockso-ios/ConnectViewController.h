@@ -14,7 +14,7 @@
 @property (nonatomic, retain) IBOutlet UITextField *serverInput;
 @property (nonatomic, retain) IBOutlet UIButton *connect;
 @property (nonatomic, retain) IBOutlet UIButton *community;
-@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *activity;
+@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *activity, *communityActivity;
 
 @property (nonatomic, retain) NSManagedObjectContext *context;
 

@@ -12,12 +12,15 @@
 @interface ConnectViewController (Private)
 
 - (void)showVersionNotSupported;
+- (void)showBrowseCommunityFailed;
+- (void)showAlertWithTitle:(NSString *)title andMessage:(NSString *)message;
 
 @end
 
 @implementation ConnectViewController
 
-@synthesize serverInput, connect, community, activity, context;
+@synthesize serverInput, connect, community, activity, context,
+            communityActivity=communityActivity_;
 
 #pragma mark -
 #pragma mark Init
@@ -29,6 +32,7 @@
     [community release];
     [activity release];
     [context release];
+    [communityActivity_ release];
     
     [super dealloc];
     
@@ -49,6 +53,9 @@
     item.title = @"Back";
     
     self.navigationItem.backBarButtonItem = item;
+    
+    activity.hidden = YES;
+    communityActivity_.hidden = YES;
 
 }
 
@@ -93,17 +100,27 @@
 // Handler for when community button is clicked
 //
 
-- (IBAction) communityClicked {
+- (IBAction)communityClicked {
 
     __block ConnectViewController *this = self;
     
+    communityActivity_.hidden = NO;
+    [communityActivity_ startAnimating];
+    
     [SocksoServer findCommunityServers:^(NSMutableArray *servers) {
+        
+        communityActivity_.hidden = YES;
+        [communityActivity_ stopAnimating];
+        
         if ( [servers count] > 0 ) {
             [this showCommunityView:servers];
         }
         else {
             [this showNoCommunityServersFound];
         }
+        
+    } onFailure:^{
+        [this showBrowseCommunityFailed];
     }];
     
 }
@@ -230,24 +247,31 @@
 - (void) showConnectFailed {
 
     [self setControlsActive:YES];
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connect Failed"
-                                                    message:@"Connection failed, please check the address you entered"
-                                                   delegate:nil
-                                          cancelButtonTitle:@"Try again"
-                                          otherButtonTitles:nil, nil];
-    
-    [alert show];
-    [alert release];
+    [self showAlertWithTitle:@"Connect Failed" 
+                  andMessage:@"Connection failed, please check the address you entered"];
 
 }
 
 - (void)showVersionNotSupported {
+
+    [self showAlertWithTitle:@"Unsupported Version"
+                  andMessage:@"Sorry, but you need at least Sockso 1.5 for Sockso iOS"];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Incorrect Version"
-                                                    message:@"Sorry, but you need at least Sockso 1.5 for Sockso iOS"
+}
+
+- (void)showBrowseCommunityFailed {
+
+    [self showAlertWithTitle:@"Request Failed"
+                  andMessage:@"Sorry, but the request for community servers failed.  Check your internet connection."];
+
+}
+
+- (void)showAlertWithTitle:(NSString *)title andMessage:(NSString *)message {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+                                                    message:message
                                                    delegate:nil
-                                          cancelButtonTitle:@"Try another"
+                                          cancelButtonTitle:@"Try again"
                                           otherButtonTitles:nil, nil];
     
     [alert show];

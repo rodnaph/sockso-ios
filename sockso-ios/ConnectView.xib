@@ -61,6 +61,18 @@
 							<string key="NSResourceName">background.gif</string>
 						</object>
 					</object>
+					<object class="IBUIActivityIndicatorView" id="293831304">
+						<reference key="NSNextResponder" ref="191373211"/>
+						<int key="NSvFlags">-2147483356</int>
+						<string key="NSFrame">{{274, 251}, {20, 20}}</string>
+						<reference key="NSSuperview" ref="191373211"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
+						<bool key="IBUIOpaque">NO</bool>
+						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+						<bool key="IBUIHidesWhenStopped">NO</bool>
+						<int key="IBUIStyle">2</int>
+					</object>
 					<object class="IBUILabel" id="984710700">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
@@ -94,7 +106,7 @@
 						<string key="NSFrame">{{107, 84}, {156, 31}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
+						<reference key="NSNextKeyView" ref="886812861"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -156,6 +168,7 @@
 						<string key="NSFrame">{{57, 251}, {206, 37}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="293831304"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -275,6 +288,14 @@
 					</object>
 					<int key="connectionID">37</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">communityActivity</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="293831304"/>
+					</object>
+					<int key="connectionID">39</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -297,6 +318,7 @@
 							<reference ref="9539492"/>
 							<reference ref="384029725"/>
 							<reference ref="886812861"/>
+							<reference ref="293831304"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -346,6 +368,11 @@
 						<reference key="object" ref="886812861"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">38</int>
+						<reference key="object" ref="293831304"/>
+						<reference key="parent" ref="191373211"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -362,6 +389,7 @@
 					<string>16.IBPluginDependency</string>
 					<string>26.IBPluginDependency</string>
 					<string>33.IBPluginDependency</string>
+					<string>38.IBPluginDependency</string>
 					<string>4.IBPluginDependency</string>
 					<string>6.IBPluginDependency</string>
 				</object>
@@ -372,6 +400,7 @@
 					<string>{{556, 412}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>IBBuiltInLabel-Red</string>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -393,7 +422,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">37</int>
+			<int key="maxID">39</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -439,16 +468,16 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>activity</string>
 							<string>community</string>
+							<string>communityActivity</string>
 							<string>connect</string>
-							<string>connectFailed</string>
 							<string>serverInput</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>UIActivityIndicatorView</string>
 							<string>UIButton</string>
+							<string>UIActivityIndicatorView</string>
 							<string>UIButton</string>
-							<string>UILabel</string>
 							<string>UITextField</string>
 						</object>
 					</object>
@@ -458,8 +487,8 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>activity</string>
 							<string>community</string>
+							<string>communityActivity</string>
 							<string>connect</string>
-							<string>connectFailed</string>
 							<string>serverInput</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
@@ -473,12 +502,12 @@
 								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">connect</string>
-								<string key="candidateClassName">UIButton</string>
+								<string key="name">communityActivity</string>
+								<string key="candidateClassName">UIActivityIndicatorView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">connectFailed</string>
-								<string key="candidateClassName">UILabel</string>
+								<string key="name">connect</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">serverInput</string>
