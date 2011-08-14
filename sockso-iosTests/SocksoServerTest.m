@@ -33,12 +33,14 @@
 }
 
 - (void) testIssupportedversionReturnsTrueWhenVersionEqualsRequired {
-    server.version = @"1.4.0";
+    server.version = @"1.5.0";
+    STAssertTrue( [server isSupportedVersion], @"Version should be supported" );
+    server.version = @"1.5";
     STAssertTrue( [server isSupportedVersion], @"Version should be supported" );
 }
 
 - (void) testIssupportedversionReturnsTrueWhenVersionAboveRequired {
-    server.version = @"1.4.5";
+    server.version = @"1.5.5";
     STAssertTrue( [server isSupportedVersion], @"Version should be supported" );
     server.version = @"2.0.1";
     STAssertTrue( [server isSupportedVersion], @"Version should be supported" );

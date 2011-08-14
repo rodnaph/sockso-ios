@@ -9,13 +9,33 @@
 #import "LoginViewController.h"
 #import "HomeViewController.h"
 
+@interface ConnectViewController (Private)
+
+- (void)showVersionNotSupported;
+
+@end
+
 @implementation ConnectViewController
 
 @synthesize serverInput, connect, community, activity, context;
 
-//
-// Handler for view load time
-//
+#pragma mark -
+#pragma mark Init
+
+- (void)dealloc {
+    
+    [serverInput release];
+    [connect release];
+    [community release];
+    [activity release];
+    [context release];
+    
+    [super dealloc];
+    
+}
+
+#pragma mark -
+#pragma mark View
 
 - (void) viewDidLoad {
     
@@ -45,6 +65,7 @@
     }
     
 }
+
 
 //
 // Indicates if the keyboard input should hide
@@ -152,23 +173,27 @@
     
     [self setControlsActive:YES];
 
-    if ( server.requiresLogin ) {
-
-        __block ConnectViewController *this = self;
-        
-        [server hasSession:^{
-            [this showHomeView:server];
-        } onFailure:^{
-            LoginViewController *ctrl = [LoginViewController initWithServer:server];
-            ctrl.delegate = (id <LoginHandlerDelegate> *) self;
-            [this presentModalViewController:ctrl animated:YES];
-        }];
-        
+    if ( ![server isSupportedVersion] ) {
+        [self showVersionNotSupported];
+        return;
     }
-    
-    else {
+        
+    if ( !server.requiresLogin ) {
         [self showHomeView:server];
+        return;
     }
+
+    // login required
+
+    __block ConnectViewController *this = self;
+        
+    [server hasSession:^{
+        [this showHomeView:server];
+    } onFailure:^{
+        LoginViewController *ctrl = [LoginViewController initWithServer:server];
+        ctrl.delegate = (id <LoginHandlerDelegate> *) self;
+        [this presentModalViewController:ctrl animated:YES];
+    }];
     
 }
 
@@ -206,16 +231,28 @@
 
     [self setControlsActive:YES];
     
-    UIAlertView *alert = [[UIAlertView alloc]
-                          initWithTitle:@"Connect Failed"
-                          message:@"Connection failed, please check the address you entered"
-                          delegate:nil
-                          cancelButtonTitle:@"Try again"
-                          otherButtonTitles:nil, nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connect Failed"
+                                                    message:@"Connection failed, please check the address you entered"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Try again"
+                                          otherButtonTitles:nil, nil];
     
     [alert show];
     [alert release];
 
+}
+
+- (void)showVersionNotSupported {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Incorrect Version"
+                                                    message:@"Sorry, but you need at least Sockso 1.5 for Sockso iOS"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Try another"
+                                          otherButtonTitles:nil, nil];
+    
+    [alert show];
+    [alert release];
+    
 }
 
 //
@@ -224,28 +261,14 @@
 
 - (void) showHomeView:(SocksoServer *) server {
 
-    [self.navigationController pushViewController:[HomeViewController initWithServer:server] animated:YES];
+    [self.navigationController pushViewController:[HomeViewController initWithServer:server]
+                                         animated:YES];
     
-//    [self.navigationController pushViewController:[SearchViewController viewForServer:server]
-//                                         animated:TRUE];
-
 }
 
 - (void) loginOccurredTo:(SocksoServer *)server {
     
     [self showHomeView:server];
-    
-}
-
-- (void) dealloc {
-    
-    [serverInput release];
-    [connect release];
-    [community release];
-    [activity release];
-    [context release];
-    
-    [super dealloc];
     
 }
 

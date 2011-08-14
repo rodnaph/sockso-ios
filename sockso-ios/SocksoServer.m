@@ -130,7 +130,7 @@
         return YES;
     }
     
-    else if ( major > 0 && minor > 3 ) {
+    else if ( major > 0 && minor > 4 ) {
         return YES;
     }
     
@@ -200,6 +200,7 @@
         NSDictionary *serverInfo = [parser objectWithString:[request responseString]];
         self.title = [serverInfo objectForKey:@"title"];
         self.tagline = [serverInfo objectForKey:@"tagline"];
+        self.version = [serverInfo objectForKey:@"version"];
         self.requiresLogin = [[serverInfo objectForKey:@"requiresLogin"] isEqualToString:@"1"] ? YES : NO;
         
         onConnect();
