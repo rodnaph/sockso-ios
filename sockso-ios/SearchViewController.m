@@ -89,7 +89,9 @@
         cell.artworkImage.imageURL = [server getImageUrlForMusicItem:item];
     }
     
-    else {
+    else if ( [item isTrack] ) {
+        Track *track = (Track *) item;
+        cell.artworkImage.imageURL = [server getImageUrlForMusicItem:track.album];
         cell.actionImage.image = [UIImage imageNamed:@"play.png"];
     }
     
