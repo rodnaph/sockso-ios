@@ -173,12 +173,11 @@
     
     if ( [cellItem isTrack] ) {
         
-        int trackId = [[cellItem getId] intValue];
+        PlayViewController *playView = [PlayViewController viewForTrack:(Track *)cellItem
+                                                                 server:server];
         
-        [server getTrack:trackId onComplete:^(Track *track){
-            [self.navigationController pushViewController:[PlayViewController viewForTrack:track server:server]
-                                                 animated:YES];
-        }];
+        [self.navigationController pushViewController:playView
+                                             animated:YES];
         
     }
     

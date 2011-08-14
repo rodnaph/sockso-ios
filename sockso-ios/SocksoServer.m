@@ -268,29 +268,6 @@
 }
 
 //
-//  Find a track by id
-//
-
-- (void) getTrack:(int)trackId onComplete:(void (^)(Track *))onComplete {
-    
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://%@/api/tracks/%d",
-                                       ipAndPort,
-                                       trackId]];
-    
-    __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
-    
-    [request setCompletionBlock:^{
-        SBJsonParser *parser = [[SBJsonParser alloc] init];
-        NSDictionary *data = [parser objectWithString:[request responseString]];
-        onComplete( [Track fromData:data] );
-        [parser release];
-    }];
-    
-    [request startAsynchronous];
-    
-}
-
-//
 // returns the URL for a search query using the string in the searchbar
 //
 
@@ -324,7 +301,7 @@
     
     __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
     
-    NSLog( @"Query artist tracks: %@", urlString );
+    NSLog( @"Query tracks: %@", urlString );
     
     [request setCompletionBlock:^{
         
@@ -333,17 +310,8 @@
         NSMutableArray *tracks = [[[NSMutableArray alloc] init] autorelease];
         
         for ( NSDictionary *data in trackData ) {
-            
-            NSDictionary *albumData = [data objectForKey:@"album"];
-            Album *album = [Album itemWithName:[NSString stringWithFormat:@"al%@", [albumData objectForKey:@"id"]]
-                                          name:[albumData objectForKey:@"name"]];
-            
-            Track *track = [Track itemWithName:[NSString stringWithFormat:@"tr%@", [data objectForKey:@"id"]]
-                                          name:[data objectForKey:@"name"]];
-            [track setAlbum:album];
-            
+            Track *track = [Track fromData:data];
             [tracks addObject:track];
-            
         }
         
         onComplete( tracks );
@@ -378,10 +346,7 @@
         NSMutableArray *albums = [[[NSMutableArray alloc] init] autorelease];
         
         for ( NSDictionary *data in [artist objectForKey:@"albums"] ) {
-            Album *album = [Album itemWithName:[NSString stringWithFormat:@"al%@", [data objectForKey:@"id"]]
-                                          name:[data objectForKey:@"name"]];
-            album.artist = item;
-            album.year = [data objectForKey:@"year"];
+            Album *album = [Album fromData:data];
             [albums addObject:album];
         }
         
@@ -422,12 +387,8 @@
         NSArray *artistsData = [parser objectWithString:[request responseString]];
         
         for ( NSDictionary *artistData in artistsData ) {
-            
-            Artist *artist = [Artist itemWithName:[NSString stringWithFormat:@"ar%@", [artistData objectForKey:@"id"]] 
-                                             name:[artistData objectForKey:@"name"]];
-            
+            Artist *artist = [Artist fromData:artistData];
             [artists addObject:artist];
-            
         }
         
         onComplete( [NSArray arrayWithArray:artists] );

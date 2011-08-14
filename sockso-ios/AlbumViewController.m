@@ -117,13 +117,12 @@
 - (void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     MusicItem *cellItem = [tracks objectAtIndex:[indexPath row]];
-    
-    int trackId = [[cellItem getId] intValue];
-        
-    [server getTrack:trackId onComplete:^(Track *track){
-        [self.navigationController pushViewController:[PlayViewController viewForTrack:track server:server]
-                                             animated:YES];
-    }];
+
+    PlayViewController *playView = [PlayViewController viewForTrack:(Track *)cellItem
+                                                             server:server];
+
+    [self.navigationController pushViewController:playView
+                                         animated:YES];
         
 }
 

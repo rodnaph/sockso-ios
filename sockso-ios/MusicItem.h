@@ -10,6 +10,7 @@
 - (void)fromData:(NSDictionary *)data;
 
 - (NSString *)getId;
+- (void)setMidPrefix:(NSString *)prefix;
 
 - (BOOL)isTrack;
 - (BOOL)isAlbum;

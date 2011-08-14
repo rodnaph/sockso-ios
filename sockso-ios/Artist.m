@@ -16,4 +16,15 @@
     
 }
 
+#pragma mark -
+#pragma mark Methods
+
+- (void)setMid:(NSString *)mid {
+    
+    [super setMid:mid];
+    
+    [self setMidPrefix:@"ar"];
+    
+}
+
 @end

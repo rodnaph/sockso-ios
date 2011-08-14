@@ -13,23 +13,40 @@
 
 @implementation PlayViewController
 
-@synthesize nameLabel, playButton, track, server,
+@synthesize nameLabel=nameLabel_, playButton, track, server,
             artworkImage=artworkImage_,
-            albumLabel, artistLabel,
+            albumLabel=albumLabel_,
+            artistLabel=artistLabel_,
             playSlider=playSlider_,
             timeLabel=timeLabel_;
 
-//
-//  Create play controller to play a track on a server
-//
+#pragma mark -
+#pragma mark init
+
+- (void) dealloc {
+    
+    [timeLabel_ release];
+    [playSlider_ release];
+    [playButton release];
+    [track release];
+    [server release];
+    [artworkImage_ release];
+    [nameLabel_ release];
+    [albumLabel_ release];
+    [artistLabel_ release];
+    
+    [super dealloc];
+    
+}
+
+#pragma mark -
+#pragma mark Helpers
 
 + (PlayViewController *) viewForTrack:(Track *)track server:(SocksoServer *) server {
     
     PlayViewController *aView = [[PlayViewController alloc]
                                  initWithNibName:@"PlayView"
                                  bundle:nil];
-
-    NSLog( @"Track: %@", track.mid );
     
     aView.track = track;
     aView.server = server;
@@ -39,33 +56,14 @@
 }
 
 #pragma mark -
-#pragma mark init
-
-- (void) dealloc {
-    
-    [timeLabel_ release];
-    [playSlider_ release];
-    [nameLabel release];
-    [playButton release];
-    [track release];
-    [server release];
-    [artworkImage_ release];
-    [albumLabel release];
-    [artistLabel release];
-    
-    [super dealloc];
-    
-}
-
-#pragma mark -
 #pragma mark View
 
-- (void) viewDidAppear:(BOOL) animated {
+- (void)viewDidLoad {
     
     [self initLabels];
     [self initArtwork];
     [self initSlider];
-    
+
     [server play:track];
     
 }
@@ -77,16 +75,18 @@
     [playSlider_ setMaximumValue:1.0];
     [playSlider_ setValue:0.0];
     
-    [NSThread detachNewThreadSelector:@selector(updatePlaySliderTicker) toTarget:self withObject:nil];
+    [NSThread detachNewThreadSelector:@selector(updatePlaySliderTicker)
+                             toTarget:self
+                           withObject:nil];
 
 }
 
 - (void)initLabels {
     
-    [nameLabel setText:track.name];
-    [albumLabel setText:track.album.name];
-    [artistLabel setText:track.artist.name];
-    
+    nameLabel_.text = track.name;
+    albumLabel_.text = track.album.name;
+    artistLabel_.text = track.artist.name;
+
 }
 
 - (void)initArtwork {
@@ -102,17 +102,9 @@
     
     while ( TRUE ) {
         sleep( 1 );
-//        if ( self.isVisible ) {
-            [self performSelectorOnMainThread:@selector(updatePlaySlider)
-                                   withObject:nil
-                                waitUntilDone:NO];
-//        }
-//        else {
-//            [self performSelectorOnMainThread:@selector(pause)
-//                                   withObject:nil
-//                                waitUntilDone:NO];
-//            break;
-//        }
+        [self performSelectorOnMainThread:@selector(updatePlaySlider)
+                               withObject:nil
+                            waitUntilDone:NO];
     }
     
 }
@@ -155,10 +147,9 @@
 }
 
 - (IBAction)playSliderMoved {
-    NSLog( @"Slider moved" );
+
     if ( [server isPlaying] ) {
         currentTime = [server duration] * [playSlider_ value];
-        NSLog( @"Seek to %d", currentTime );
         [server seekTo:currentTime];
     }
     

@@ -101,13 +101,13 @@
 
 - (void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSLog( @"Select" );
-    
     MusicItem *item = [self.listContent objectAtIndex:[indexPath row]];
     
     if ( [item isTrack] ) {
         
-        PlayViewController *playView = [PlayViewController viewForTrack:(Track *)item
+        Track *track = (Track *) item;
+        
+        PlayViewController *playView = [PlayViewController viewForTrack:track
                                                                  server:server];
         
         [self.homeViewController.navigationController pushViewController:playView

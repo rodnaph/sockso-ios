@@ -67,15 +67,17 @@
 
 - (void)fromData:(NSDictionary *)data {
     
-    self.mid = [data objectForKey:@"id"];
+    self.mid = [NSString stringWithFormat:@"%@", [data objectForKey:@"id"]];
     self.name = [data objectForKey:@"name"];
     
 }
 
-- (void)fromData:(NSDictionary *)data withType:(NSString *)type {
-    
-    [self fromData:data];
-    
+- (void)setMidPrefix:(NSString *)prefix {
+
+    if ( [mid_ length] < 2 || ![[mid_ substringToIndex:2] isEqualToString:prefix] ) {
+        self.mid = [NSString stringWithFormat:@"%@%@", prefix, mid_];
+    }
+
 }
 
 - (NSString *) getId {
