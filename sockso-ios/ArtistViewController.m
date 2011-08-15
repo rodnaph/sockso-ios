@@ -96,21 +96,7 @@
     NSMutableArray *items = mode == AV_MODE_ALBUMS ? albums : tracks;
     MusicItem *cellItem = [items objectAtIndex:indexPath.row];
 	
-    cell.trackName.text = cellItem.name;
-    cell.artistName.text = @"(@todo album info)";
-    
-    if ( [cellItem isAlbum] ) {
-        Album *album = (Album *) cellItem;
-        cell.artworkImage.imageURL = [server getImageUrlForMusicItem:cellItem];
-        cell.artistName.text = album.year;
-    }
-    
-    else {
-        Album *album = [(Track *)cellItem album];
-        cell.actionImage.image = [UIImage imageNamed:@"play.png"];
-        cell.artistName.text = [album name];
-        cell.artworkImage.imageURL = [server getImageUrlForMusicItem:album];
-    }
+    [cell drawForItem:cellItem fromServer:server];
     
 	return cell;
     

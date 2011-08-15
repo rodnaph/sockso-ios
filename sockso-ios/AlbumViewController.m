@@ -60,34 +60,14 @@
     
 }
 
-- (void) loadTracks {
-
-    __block AlbumViewController *this = self;
-    
-    [server getTracksForAlbum:albumItem
-                   onComplete:^(NSMutableArray *_tracks) {
-                       this.tracks = _tracks;
-                       [this.trackTable reloadData];
-                   }
-                    onFailure:^{}];
-    
-}
-
-- (void) showArtwork {
-    
-    artworkImage_.imageURL = [server getImageUrlForMusicItem:albumItem];
-    
-}
+#pragma mark -
+#pragma mark Table View
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
 	return [tracks count];
     
 }
-
-//
-// return the cell for the row at the specified index
-//
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -106,9 +86,7 @@
     
     MusicItem *cellItem = [tracks objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = cellItem.name;
-    cell.trackName.text = @"";
-    cell.artistName.text = @"";
+    [cell drawForItem:cellItem fromServer:server];
     
 	return cell;
     
@@ -124,6 +102,28 @@
     [self.navigationController pushViewController:playView
                                          animated:YES];
         
+}
+
+#pragma mark -
+#pragma mark Misc
+
+- (void) loadTracks {
+    
+    __block AlbumViewController *this = self;
+    
+    [server getTracksForAlbum:albumItem
+                   onComplete:^(NSMutableArray *_tracks) {
+                       this.tracks = _tracks;
+                       [this.trackTable reloadData];
+                   }
+                    onFailure:^{}];
+    
+}
+
+- (void) showArtwork {
+    
+    artworkImage_.imageURL = [server getImageUrlForMusicItem:albumItem];
+    
 }
 
 @end

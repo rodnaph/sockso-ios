@@ -16,6 +16,8 @@
 		DC0A51C513E2083C00847364 /* padlock.png in Resources */ = {isa = PBXBuildFile; fileRef = DC0A51C413E2083C00847364 /* padlock.png */; };
 		DC1A0B5313D4A2AF00594D9D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC1A0B5213D4A2AF00594D9D /* HomeViewController.m */; };
 		DC1A0B5513D4A39F00594D9D /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC1A0B5413D4A39F00594D9D /* HomeView.xib */; };
+		DC29FEDB13F9B04100C08C94 /* album-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DC29FED913F9B04100C08C94 /* album-icon.png */; };
+		DC29FEDC13F9B04100C08C94 /* artist-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DC29FEDA13F9B04100C08C94 /* artist-icon.png */; };
 		DC43F90C13A14E4F001B41F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90B13A14E4F001B41F6 /* UIKit.framework */; };
 		DC43F90E13A14E4F001B41F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90D13A14E4F001B41F6 /* Foundation.framework */; };
 		DC43F91013A14E4F001B41F6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90F13A14E4F001B41F6 /* CoreGraphics.framework */; };
@@ -112,6 +114,8 @@
 		DC1A0B5213D4A2AF00594D9D /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		DC1A0B5413D4A39F00594D9D /* HomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
 		DC1A0B5613D4A93B00594D9D /* HomeViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewDelegate.h; sourceTree = "<group>"; };
+		DC29FED913F9B04100C08C94 /* album-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "album-icon.png"; sourceTree = "<group>"; };
+		DC29FEDA13F9B04100C08C94 /* artist-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "artist-icon.png"; sourceTree = "<group>"; };
 		DC43F90713A14E4F001B41F6 /* sockso-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sockso-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC43F90B13A14E4F001B41F6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DC43F90D13A14E4F001B41F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -385,6 +389,8 @@
 		DC43F95A13A16DA6001B41F6 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				DC29FED913F9B04100C08C94 /* album-icon.png */,
+				DC29FEDA13F9B04100C08C94 /* artist-icon.png */,
 				DC0A51C413E2083C00847364 /* padlock.png */,
 				DC97F4F513D630FA0051363B /* small-image-back.png */,
 				DCA057A613C84A9E00850DA2 /* transparent.png */,
@@ -684,6 +690,8 @@
 				DC97F4F613D630FA0051363B /* small-image-back.png in Resources */,
 				DC0A51BD13E2074400847364 /* CommunityServerCellView.xib in Resources */,
 				DC0A51C513E2083C00847364 /* padlock.png in Resources */,
+				DC29FEDB13F9B04100C08C94 /* album-icon.png in Resources */,
+				DC29FEDC13F9B04100C08C94 /* artist-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

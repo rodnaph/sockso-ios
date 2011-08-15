@@ -148,9 +148,7 @@
     
     Artist *artist = [self artistForIndexPath:indexPath];
 
-    cell.trackName.text = artist.name;
-    cell.artistName.text = @"";
-    cell.artworkImage.imageURL = [server getImageUrlForMusicItem:artist];
+    [cell drawForItem:artist fromServer:server];
     
     return cell;
     

@@ -83,17 +83,7 @@
 	    
     MusicItem *item = [self.listContent objectAtIndex:indexPath.row];
 
-    [cell drawForItem:item];
-
-    if ( [item isAlbum] || [item isArtist] ) {
-        cell.artworkImage.imageURL = [server getImageUrlForMusicItem:item];
-    }
-    
-    else if ( [item isTrack] ) {
-        Track *track = (Track *) item;
-        cell.artworkImage.imageURL = [server getImageUrlForMusicItem:track.album];
-        cell.actionImage.image = [UIImage imageNamed:@"play.png"];
-    }
+    [cell drawForItem:item fromServer:server];
     
 	return cell;
     
