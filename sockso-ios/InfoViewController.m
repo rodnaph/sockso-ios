@@ -3,9 +3,27 @@
 
 @implementation InfoViewController
 
-@synthesize infoLabel, okButton, message;
+@synthesize infoLabel=infoLabel_,
+            okButton=okButton_,
+            message=message_;
 
-+ (InfoViewController *) initWithString:(NSString *)message {
+#pragma mark -
+#pragma mark Init
+
+- (void)dealloc {
+    
+    [message_ release];
+    [infoLabel_ release];
+    [okButton_ release];
+    
+    [super dealloc];
+    
+}
+
+#pragma mark -
+#pragma mark Helpers
+
++ (InfoViewController *)initWithString:(NSString *)message {
     
     InfoViewController *viewCtrl = [[InfoViewController alloc]
                                     initWithNibName:@"InfoView"
@@ -18,29 +36,21 @@
     
 }
 
+#pragma mark -
+#pragma mark View
+
 - (void) viewDidLoad {
     
-    infoLabel.text = message;
+    infoLabel_.text = message_;
     
 }
 
-//
-// ok clicked, dispose of the dialog
-//
+#pragma mark -
+#pragma mark Actions
 
 - (IBAction) okClicked {
     
     [self dismissModalViewControllerAnimated:YES];
-    
-}
-
-- (void) dealloc {
-    
-    [message release];
-    [infoLabel release];
-    [okButton release];
-    
-    [super dealloc];
     
 }
 

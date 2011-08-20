@@ -1,7 +1,7 @@
 
-#import <UIKit/UIKit.h>
-#import "SocksoServer.h"
 #import "LoginHandlerDelegate.h"
+
+@class SocksoServer;
 
 @interface LoginViewController : UIViewController {}
 
@@ -11,12 +11,10 @@
 @property (nonatomic, retain) SocksoServer *server;
 @property (nonatomic, assign) id <LoginHandlerDelegate> *delegate;
 
-+ (LoginViewController *) initWithServer:(SocksoServer *)server;
++ (LoginViewController *)initWithServer:(SocksoServer *)server;
 
-- (IBAction) loginClicked;
-- (IBAction) cancelClicked;
+- (IBAction)loginClicked;
+- (IBAction)cancelClicked;
 
-- (void) loginSuccess;
-- (void) loginFailure;
 
 @end

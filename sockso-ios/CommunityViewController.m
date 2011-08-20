@@ -5,9 +5,32 @@
 #import "LoginViewController.h"
 #import "CommunityServerCell.h"
 
+@interface CommunityViewController (Private)
+
+- (void)connectTo:(SocksoServer *)server;
+
+- (void)showHomeView:(SocksoServer *)server;
+- (void)showLoginView:(SocksoServer *)server;
+
+@end
+
 @implementation CommunityViewController
 
-@synthesize servers;
+@synthesize servers=servers_;
+
+#pragma mark -
+#pragma mark Init
+
+- (void)dealloc {
+    
+    [servers_ release];
+    
+    [super dealloc];
+    
+}
+
+#pragma mark -
+#pragma mark View
 
 - (void) viewDidLoad {
 
@@ -17,19 +40,14 @@
 
 }
 
-//
-// return the number of rows in the list
-//
+#pragma mark -
+#pragma mark Table View
 
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-	return [self.servers count];
+	return [servers_ count];
     
 }
-
-//
-// return the cell for the row at the specified index
-//
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -44,7 +62,7 @@
 		cell = (CommunityServerCell *) [objects objectAtIndex:0];
 	}
 	
-    SocksoServer *server = [self.servers objectAtIndex:indexPath.row];
+    SocksoServer *server = [servers_ objectAtIndex:indexPath.row];
 	
     cell.padlockImage.hidden = !server.requiresLogin;
 	cell.serverNameLabel.text = [NSString stringWithFormat:@"%@ - %@",
@@ -55,33 +73,30 @@
     
 }
 
-//
-// When a row is selected show the server, no need to query for info as we've
-// already got it from the community listing
-//
-
-- (void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    SocksoServer *server = [self.servers objectAtIndex:[indexPath row]];
+    SocksoServer *server = [servers_ objectAtIndex:[indexPath row]];
     
     [self connectTo:server];
     
 }
 
-- (void) showHomeView:(SocksoServer *)server {
+- (void)showHomeView:(SocksoServer *)server {
     
-    [self.navigationController pushViewController:[HomeViewController initWithServer:server]
+    HomeViewController *homeView = [HomeViewController initWithServer:server];
+    
+    [self.navigationController pushViewController:homeView
                                          animated:YES];
     
 }
 
-- (void) loginOccurredTo:(SocksoServer *)server {
+- (void)loginOccurredTo:(SocksoServer *)server {
     
     [self showHomeView:server];
     
 }
 
-- (void) showLoginView:(SocksoServer *)server {
+- (void)showLoginView:(SocksoServer *)server {
 
     LoginViewController *ctrl = [LoginViewController initWithServer:server];
     [ctrl setDelegate:(id <LoginHandlerDelegate> *)self];
@@ -107,14 +122,6 @@
         [self showHomeView:server];
     }
 
-}
-
-- (void) dealloc {
-    
-    [servers release];
-    
-    [super dealloc];
-    
 }
 
 @end

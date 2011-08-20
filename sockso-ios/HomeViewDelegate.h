@@ -1,5 +1,5 @@
 
-#import "HomeViewController.h"
+@class HomeViewController;
 
 @protocol HomeViewDelegate <NSObject>
 

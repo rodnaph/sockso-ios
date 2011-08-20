@@ -14,17 +14,20 @@
 
 @implementation MusicCell
 
-@synthesize trackName, artistName, actionImage, artworkImage;
+@synthesize trackName=trackName_,
+            artistName=artistName_,
+            actionImage=actionImage_,
+            artworkImage=artworkImage_;
 
 #pragma mark -
 #pragma mark Init
 
 - (void) dealloc {
     
-    [trackName release];
-    [artistName release];
-    [actionImage release];
-    [artworkImage release];
+    [trackName_ release];
+    [artistName_ release];
+    [actionImage_ release];
+    [artworkImage_ release];
     
     [super dealloc];
     
@@ -36,12 +39,12 @@
 - (void) drawForItem:(MusicItem *)item fromServer:(SocksoServer *)server {
 
     self.imageView.image = nil;
-    self.artworkImage.image = nil;
-    self.actionImage.image = nil;
     self.textLabel.text = @"";
     
-    trackName.text = item.name;
-    artistName.text = @"";
+    trackName_.text = item.name;
+    artworkImage_.image = nil;
+    actionImage_.image = nil;
+    artistName_.text = @"";
 
     if ( [item isArtist] ) {
         [self drawForArtist:(Artist *)item fromServer:server];
@@ -59,24 +62,24 @@
 
 - (void)drawForArtist:(Artist *)artist fromServer:(SocksoServer *)server {
 
-    actionImage.image = [UIImage imageNamed:@"artist-icon.png"];
-    artworkImage.imageURL = [server getImageUrlForMusicItem:artist];
+    actionImage_.image = [UIImage imageNamed:@"artist-icon.png"];
+    artworkImage_.imageURL = [server getImageUrlForMusicItem:artist];
 
 }
 
 - (void)drawForAlbum:(Album *)album fromServer:(SocksoServer *)server {
 
-    artistName.text = album.artist.name;
-    actionImage.image = [UIImage imageNamed:@"album-icon.png"];
-    artworkImage.imageURL = [server getImageUrlForMusicItem:album];
+    artistName_.text = album.artist.name;
+    actionImage_.image = [UIImage imageNamed:@"album-icon.png"];
+    artworkImage_.imageURL = [server getImageUrlForMusicItem:album];
 
 }
 
 - (void)drawForTrack:(Track *)track fromServer:(SocksoServer *)server {
 
-    artistName.text = track.artist.name;
-    artworkImage.imageURL = [server getImageUrlForMusicItem:track.album];
-    actionImage.image = [UIImage imageNamed:@"play.png"];
+    artistName_.text = track.artist.name;
+    artworkImage_.imageURL = [server getImageUrlForMusicItem:track.album];
+    actionImage_.image = [UIImage imageNamed:@"play.png"];
 
 }
 

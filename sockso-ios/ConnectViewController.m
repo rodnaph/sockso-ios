@@ -19,7 +19,11 @@
 
 @implementation ConnectViewController
 
-@synthesize serverInput, connect, community, activity, context,
+@synthesize serverInput=serverInput_,
+            connect=connect_,
+            community=community_,
+            activity=activity_,
+            context=context_,
             communityActivity=communityActivity_;
 
 #pragma mark -
@@ -27,11 +31,11 @@
 
 - (void)dealloc {
     
-    [serverInput release];
-    [connect release];
-    [community release];
-    [activity release];
-    [context release];
+    [serverInput_ release];
+    [connect_ release];
+    [community_ release];
+    [activity_ release];
+    [context_ release];
     [communityActivity_ release];
     
     [super dealloc];
@@ -54,7 +58,7 @@
     
     self.navigationItem.backBarButtonItem = item;
     
-    activity.hidden = YES;
+    activity_.hidden = YES;
     communityActivity_.hidden = YES;
 
 }
@@ -65,10 +69,10 @@
 
 - (void) initServerInput {
     
-    Properties *prop = [Properties findByName:@"autosave.connectServer" from:context];
+    Properties *prop = [Properties findByName:@"autosave.connectServer" from:context_];
     
     if ( prop != nil ) {
-        serverInput.text = prop.value;
+        serverInput_.text = prop.value;
     }
     
 }
@@ -80,7 +84,7 @@
 
 - (BOOL) textFieldShouldReturn:(UITextField *)textField {
     
-    [serverInput resignFirstResponder];
+    [serverInput_ resignFirstResponder];
     
     [self saveServerInput];
     
@@ -91,8 +95,8 @@
 - (void) saveServerInput {
     
     [Properties createOrUpdateWithName:@"autosave.connectServer"
-                andValue:serverInput.text
-                from:context];
+                andValue:serverInput_.text
+                from:context_];
     
 }
 
@@ -175,7 +179,7 @@
 
     __block ConnectViewController *this = self;
     
-    SocksoServer *server = [SocksoServer disconnectedServer:[serverInput text]];
+    SocksoServer *server = [SocksoServer disconnectedServer:[serverInput_ text]];
     
     [server connect:^{ [this hasConnectedTo:server]; }
           onFailure:^{ [this showConnectFailed]; }];
@@ -231,12 +235,12 @@
 
 - (void) setControlsActive:(BOOL) active {
 
-    [activity setHidden:active];
-    [activity startAnimating];
+    [activity_ setHidden:active];
+    [activity_ startAnimating];
     
-    [serverInput setEnabled:active];
-    [community setEnabled:active];
-    [connect setEnabled:active];
+    [serverInput_ setEnabled:active];
+    [community_ setEnabled:active];
+    [connect_ setEnabled:active];
 
 }
 

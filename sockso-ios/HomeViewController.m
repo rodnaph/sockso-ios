@@ -13,10 +13,27 @@
 
 @implementation HomeViewController
 
-@synthesize viewControllers, activeViewController, viewContainer, tabBar;
+@synthesize viewControllers=viewControllers_,
+            activeViewController=activeViewController_,
+            viewContainer=viewContainer_,
+            tabBar=tabBar_;
 
 #pragma mark -
-#pragma mark Constructors
+#pragma mark Init
+
+- (void)dealloc {
+    
+    [viewControllers_ release];
+    [activeViewController_ release];
+    [tabBar_ release];
+    [viewContainer_ release];
+    
+    [super dealloc];
+    
+}
+
+#pragma mark -
+#pragma mark Helpers
 
 + (HomeViewController *)initWithServer:(SocksoServer *)server {
     
@@ -27,20 +44,6 @@
     homeView.server = server;
     
     return [homeView autorelease];
-
-}
-
-#pragma mark -
-#pragma mark init
-
-- (void)dealloc {
-    
-    [viewControllers release];
-    [activeViewController release];
-    [tabBar release];
-    [viewContainer release];
-    
-    [super dealloc];
     
 }
 

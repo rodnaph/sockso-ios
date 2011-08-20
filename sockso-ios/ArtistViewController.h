@@ -1,9 +1,7 @@
 
-#import <UIKit/UIKit.h>
-#import "MusicItem.h"
-#import "SocksoServer.h"
-#import "EGOImageView.h"
 #import "ServerViewController.h"
+
+@class SocksoServer, MusicItem, EGOImageView;
 
 enum AV_MODES {
     AV_MODE_ALBUMS = 1,
@@ -12,7 +10,6 @@ enum AV_MODES {
 
 @interface ArtistViewController : ServerViewController <UITableViewDelegate, UITableViewDataSource> {
     int mode;
-    NSMutableDictionary *images;
 }
 
 @property (nonatomic, retain) MusicItem *item;
@@ -24,12 +21,8 @@ enum AV_MODES {
 @property (nonatomic, retain) IBOutlet UITableView *musicTable;
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView *activityView;
 
-+ (ArtistViewController *) initWithItem:(MusicItem *)item forServer:(SocksoServer *)server;
++ (ArtistViewController *)initWithItem:(MusicItem *)item forServer:(SocksoServer *)server;
 
-- (void) showArtwork;
-- (void) showAlbums;
-- (void) showTracks;
-
-- (IBAction) modeButtonChanged;
+- (IBAction)modeButtonChanged;
 
 @end

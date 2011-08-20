@@ -3,11 +3,41 @@
 #import "SocksoServer.h"
 #import "LoginHandlerDelegate.h"
 
+@interface LoginViewController (Private)
+
+- (void)loginSuccess;
+- (void)loginFailure;
+
+@end
+
 @implementation LoginViewController
 
-@synthesize nameInput, passwordInput, loginButton, server, cancelButton, delegate;
+@synthesize nameInput=nameInput_,
+            passwordInput=passwordInput_,
+            loginButton=loginButton_,
+            server=server_,
+            cancelButton=cancelButton_,
+            delegate;
 
-+ (LoginViewController *) initWithServer:(SocksoServer *)server {
+#pragma mark -
+#pragma mark Init
+
+- (void)dealloc {
+    
+    [nameInput_ release];
+    [passwordInput_ release];
+    [loginButton_ release];
+    [server_ release];
+    [cancelButton_ release];
+    
+    [super dealloc];
+    
+}
+
+#pragma mark -
+#pragma mark Helpers
+
++ (LoginViewController *)initWithServer:(SocksoServer *)server {
     
     LoginViewController *ctrl = [[LoginViewController alloc]
                                  initWithNibName:@"LoginView"
@@ -20,7 +50,10 @@
     
 }
 
-- (BOOL) textFieldShouldReturn:(UITextField *)textField {
+#pragma mark -
+#pragma mark Actions
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
     [textField resignFirstResponder];
     
@@ -32,21 +65,21 @@
     
     __block LoginViewController *this = self;
     
-    [server loginWithName:nameInput.text
-              andPassword:passwordInput.text
+    [server_ loginWithName:nameInput_.text
+              andPassword:passwordInput_.text
                 onSuccess:^{ [this loginSuccess]; }
                 onFailure:^{ [this loginFailure]; }];
     
 }
 
-- (void) loginSuccess {
+- (void)loginSuccess {
     
     [self dismissModalViewControllerAnimated:YES];
-    [(id <LoginHandlerDelegate>)delegate loginOccurredTo:server];
+    [(id <LoginHandlerDelegate>)delegate loginOccurredTo:server_];
     
 }
 
-- (void) loginFailure {
+- (void)loginFailure {
     
     UIAlertView *alert = [[UIAlertView alloc]
                           initWithTitle:@"Login Failed"
@@ -60,21 +93,9 @@
     
 }
 
-- (void) cancelClicked {
+- (void)cancelClicked {
     
     [self dismissModalViewControllerAnimated:YES];
-    
-}
-
-- (void) dealloc {
-    
-    [nameInput release];
-    [passwordInput release];
-    [loginButton release];
-    [server release];
-    [cancelButton release];
-    
-    [super dealloc];
     
 }
 

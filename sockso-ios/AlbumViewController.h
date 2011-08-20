@@ -1,9 +1,7 @@
 
-#import <UIKit/UIKit.h>
-#import "MusicItem.h"
-#import "SocksoServer.h"
-#import "EGOImageView.h"
 #import "ServerViewController.h"
+
+@class MusicItem, SocksoServer, EGOImageView;
 
 @interface AlbumViewController : ServerViewController <UITableViewDelegate, UITableViewDataSource> {}
 
@@ -14,9 +12,6 @@
 @property (nonatomic, retain) MusicItem *albumItem;
 @property (nonatomic, retain) NSArray *tracks;
 
-+ (AlbumViewController *) initWithItem:(MusicItem *)albumItem forServer:(SocksoServer *)server;
-
-- (void) showArtwork;
-- (void) loadTracks;
++ (AlbumViewController *)initWithItem:(MusicItem *)albumItem forServer:(SocksoServer *)server;
 
 @end

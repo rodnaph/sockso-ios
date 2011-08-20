@@ -1,6 +1,8 @@
 
 #import "ServerViewController.h"
 #import "PlayViewController.h"
+#import "SocksoPlayer.h"
+#import "SocksoServer.h"
 
 @interface ServerViewController (Private)
 

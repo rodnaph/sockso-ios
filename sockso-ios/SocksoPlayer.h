@@ -1,5 +1,5 @@
 
-@class SocksoServer, Artist, Album, Track;
+@class SocksoServer, Artist, Album, Track, AudioStreamer;
 
 @interface SocksoPlayer : NSObject {
     AudioStreamer *streamer_;

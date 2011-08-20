@@ -1,5 +1,5 @@
 
-#import "SocksoServer.h"
+@class SocksoServer;
 
 @interface ServerViewController : UIViewController {}
 

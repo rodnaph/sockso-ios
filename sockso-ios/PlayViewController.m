@@ -3,6 +3,7 @@
 #import "SocksoServer.h"
 #import "SocksoPlayer.h"
 #import "Track.h"
+#import "EGOImageView.h"
 
 @interface PlayViewController ()
 

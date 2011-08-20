@@ -4,6 +4,8 @@
 #import "SocksoApi.h"
 #import "MusicCell.h"
 #import "ArtistViewController.h"
+#import "HomeViewController.h"
+#import "Artist.h"
 
 @interface ArtistsViewController ()
 
@@ -20,7 +22,26 @@
 
 @implementation ArtistsViewController
 
-@synthesize artistsTable, server, homeViewController;
+@synthesize artistsTable=artistsTable_,
+            server=server_,
+            homeViewController=homeViewController_;
+
+#pragma mark -
+#pragma mark init
+
+- (void) dealloc {
+
+    [sections release];
+    [artistsTable_ release];
+    [server_ release];
+    [homeViewController_ release];
+    
+    [super dealloc];
+    
+}
+
+#pragma mark -
+#pragma mark Helpers
 
 + (ArtistsViewController *) viewForServer:(SocksoServer *)server {
     
@@ -31,20 +52,6 @@
     ctrl.server = server;
     
     return [ctrl autorelease];
-    
-}
-
-#pragma mark -
-#pragma mark init
-
-- (void) dealloc {
-
-    [sections release];
-    [artistsTable release];
-    [server release];
-    [homeViewController release];
-    
-    [super dealloc];
     
 }
 
@@ -69,7 +76,7 @@
     
     __block ArtistsViewController *this = self;
     
-    [server.api artists:^(NSArray *artists){ [this showArtists:artists]; }
+    [server_.api artists:^(NSArray *artists){ [this showArtists:artists]; }
              onFailure:^{ [this showQueryError]; }];
     
 }
@@ -78,7 +85,7 @@
 
     [self initSectionsFromArtists:artists];
     
-    [artistsTable reloadData];
+    [artistsTable_ reloadData];
     
 }
 
@@ -149,7 +156,7 @@
     
     Artist *artist = [self artistForIndexPath:indexPath];
 
-    [cell drawForItem:artist fromServer:server];
+    [cell drawForItem:artist fromServer:server_];
     
     return cell;
     
@@ -172,7 +179,7 @@
     NSLog( @"Artist selected" );
     
     Artist *artist = [self artistForIndexPath:indexPath];
-    ArtistViewController *artistView = [ArtistViewController initWithItem:artist forServer:server];
+    ArtistViewController *artistView = [ArtistViewController initWithItem:artist forServer:server_];
     
     [self.homeViewController.navigationController pushViewController:artistView animated:YES];
     

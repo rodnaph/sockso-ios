@@ -7,11 +7,40 @@
 #import "Album.h"
 #import "PlayViewController.h"
 
+@interface AlbumViewController (Private)
+
+- (void)showArtwork;
+- (void)loadTracks;
+
+@end
+
 @implementation AlbumViewController
 
-@synthesize trackTable, nameLabel,
+@synthesize trackTable=trackTable_,
+            nameLabel=nameLabel_,
             artworkImage=artworkImage_,
-            albumItem, artistLabel, tracks;
+            albumItem=albumItem_,
+            artistLabel=artistLabel_,
+            tracks=tracks_;
+
+#pragma mark -
+#pragma mark Init
+
+- (void)dealloc {
+    
+    [artistLabel_ release];
+    [trackTable_ release];
+    [nameLabel_ release];
+    [artworkImage_ release];
+    [albumItem_ release];
+    [tracks_ release];
+    
+    [super dealloc];
+    
+}
+
+#pragma mark -
+#pragma mark Helpers
 
 + (AlbumViewController *) initWithItem:(MusicItem *)albumItem forServer:(SocksoServer *)server {
     
@@ -27,33 +56,17 @@
 }
 
 #pragma mark -
-#pragma mark init
-
-- (void) dealloc {
-    
-    [artistLabel release];
-    [trackTable release];
-    [nameLabel release];
-    [artworkImage_ release];
-    [albumItem release];
-    [tracks release];
-    
-    [super dealloc];
-    
-}
-
-#pragma mark -
 #pragma mark View
 
 - (void) viewDidLoad {
     
-    self.title = albumItem.name;
+    self.title = albumItem_.name;
     
-    nameLabel.text = albumItem.name;
-    artistLabel.text = @"";
+    nameLabel_.text = albumItem_.name;
+    artistLabel_.text = @"";
     
-    if ( [albumItem isKindOfClass:[Album class]] ) {
-        artistLabel.text = ((Album *) albumItem).artist.name;
+    if ( [albumItem_ isKindOfClass:[Album class]] ) {
+        artistLabel_.text = ((Album *) albumItem_).artist.name;
     }
     
     [self showArtwork];
@@ -66,7 +79,7 @@
 
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-	return [tracks count];
+	return [tracks_ count];
     
 }
 
@@ -85,7 +98,7 @@
         
 	}
     
-    MusicItem *cellItem = [tracks objectAtIndex:indexPath.row];
+    MusicItem *cellItem = [tracks_ objectAtIndex:indexPath.row];
     
     [cell drawForItem:cellItem fromServer:self.server];
     
@@ -95,7 +108,7 @@
 
 - (void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    MusicItem *cellItem = [tracks objectAtIndex:[indexPath row]];
+    MusicItem *cellItem = [tracks_ objectAtIndex:[indexPath row]];
     
     [self.server.player playTrack:(Track *)cellItem];
 
@@ -113,7 +126,7 @@
     
     __block AlbumViewController *this = self;
     
-    [self.server.api tracksForAlbum:(Album *)albumItem
+    [self.server.api tracksForAlbum:(Album *)albumItem_
                    onComplete:^(NSArray *_tracks) {
                        this.tracks = _tracks;
                        [this.trackTable reloadData];
@@ -124,7 +137,7 @@
 
 - (void) showArtwork {
     
-    artworkImage_.imageURL = [self.server getImageUrlForMusicItem:albumItem];
+    artworkImage_.imageURL = [self.server getImageUrlForMusicItem:albumItem_];
     
 }
 

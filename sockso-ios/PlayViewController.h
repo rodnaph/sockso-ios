@@ -1,8 +1,5 @@
 
-#import <UIKit/UIKit.h>
-#import "SocksoServer.h"
-#import "Track.h"
-#import "EGOImageView.h"
+@class SocksoServer, Track, EGOImageView;
 
 @interface PlayViewController : UIViewController {
     int currentTime;

@@ -1,15 +1,12 @@
 
-#import <UIKit/UIKit.h>
-
 @interface InfoViewController : UIViewController {}
 
 @property (nonatomic, retain) NSString *message;
-
 @property (nonatomic, retain) IBOutlet UILabel *infoLabel;
 @property (nonatomic, retain) IBOutlet UIButton *okButton;
 
-+ (InfoViewController *) initWithString:(NSString *)message;
++ (InfoViewController *)initWithString:(NSString *)message;
 
-- (IBAction) okClicked;
+- (IBAction)okClicked;
 
 @end

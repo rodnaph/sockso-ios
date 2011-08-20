@@ -1,13 +1,7 @@
 
-//
-//  The initial view that presents the user with the dialog
-//  to enter the details of the server to connect to.
-//
-
-#import <UIKit/UIKit.h>
-#import <CoreData/CoreData.h>
-#import "SocksoServer.h"
 #import "LoginHandlerDelegate.h"
+
+@class SocksoServer;
 
 @interface ConnectViewController : UIViewController <UITextFieldDelegate, LoginHandlerDelegate> {}
 
@@ -18,20 +12,20 @@
 
 @property (nonatomic, retain) NSManagedObjectContext *context;
 
-- (IBAction) connectClicked;
-- (void) showHomeView:(SocksoServer *) server;
-
+- (IBAction)connectClicked;
 - (IBAction) communityClicked;
-- (void) showCommunityView:(NSMutableArray *) servers;
-- (void) showNoCommunityServersFound;
 
-- (void) tryToConnect;
-- (void) hasConnectedTo:(SocksoServer *)server;
-- (void) showConnectFailed;
-- (void) showConnecting;
-- (void) setControlsActive:(BOOL) active;
+- (void)showHomeView:(SocksoServer *) server;
+- (void)showCommunityView:(NSMutableArray *) servers;
+- (void)showNoCommunityServersFound;
 
-- (void) initServerInput;
-- (void) saveServerInput;
+- (void)tryToConnect;
+- (void)hasConnectedTo:(SocksoServer *)server;
+- (void)showConnectFailed;
+- (void)showConnecting;
+- (void)setControlsActive:(BOOL) active;
+
+- (void)initServerInput;
+- (void)saveServerInput;
 
 @end

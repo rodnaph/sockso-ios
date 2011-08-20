@@ -1,8 +1,7 @@
 
-#import <UIKit/UIKit.h>
-#import "SocksoServer.h"
 #import "HomeViewDelegate.h"
-#import "HomeViewController.h"
+
+@class SocksoServer, HomeViewController;
 
 @interface ArtistsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, HomeViewDelegate> {
     NSMutableDictionary *sections;
@@ -12,6 +11,6 @@
 @property (nonatomic, retain) IBOutlet UITableView *artistsTable;
 @property (nonatomic, retain) HomeViewController *homeViewController;
 
-+ (ArtistsViewController *) viewForServer:(SocksoServer *)server;
++ (ArtistsViewController *)viewForServer:(SocksoServer *)server;
 
 @end

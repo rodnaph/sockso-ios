@@ -7,6 +7,9 @@
 #import "JSON.h"
 #import "SocksoApi.h"
 #import "SocksoPlayer.h"
+#import "Artist.h"
+#import "Album.h"
+#import "Track.h"
 
 @implementation SocksoServer
 
@@ -196,7 +199,7 @@
 
 }
 
-- (void)search:(NSString *)query onComplete:(void (^)(NSMutableArray *))onComplete onFailure:(void (^)(void))onFailure {
+- (void)search:(NSString *)query onComplete:(void (^)(NSArray *))onComplete onFailure:(void (^)(void))onFailure {
     
     NSURL *url = [self getSearchUrl:query];
     __block ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
@@ -232,7 +235,7 @@
 
         NSLog( @"Search returned %d results", [items count] );
         
-        onComplete( items );
+        onComplete( [NSArray arrayWithArray:items] );
         
         [parser release];
         

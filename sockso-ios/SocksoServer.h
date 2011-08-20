@@ -1,10 +1,5 @@
 
-#import "MusicItem.h"
-#import "AudioStreamer.h"
-#import "JSON.h"
-#import "Track.h"
-
-@class SocksoApi, SocksoPlayer;
+@class SocksoApi, SocksoPlayer, MusicItem, Track, AudioStreamer;
 
 @interface SocksoServer : NSObject {
     AudioStreamer *streamer;
@@ -31,7 +26,7 @@
 
 // querying
 
-- (void) search:(NSString *)query onComplete:(void (^)(NSMutableArray *))onComplete onFailure:(void (^)(void))onFailure;
+- (void) search:(NSString *)query onComplete:(void (^)(NSArray *))onComplete onFailure:(void (^)(void))onFailure;
 
 - (NSURL *)getImageUrlForMusicItem:(MusicItem *)item;
 - (NSURL *)getSearchUrl:(NSString *)query;

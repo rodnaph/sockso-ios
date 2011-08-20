@@ -9,20 +9,31 @@
 #import "ArtistViewController.h"
 #import "AlbumViewController.h"
 #import "EGOImageView.h"
+#import "HomeViewController.h"
+
+@interface SearchViewController (Private)
+
+- (void)showSearchResults:(NSArray *)items;
+- (void)showSearchFailed;
+
+- (void)performSearch:(NSString *)query;
+
+@end
 
 @implementation SearchViewController
 
-@synthesize server, listContent, homeViewController;
+@synthesize server=server_,
+            listContent=listContent_,
+            homeViewController=homeViewController_;
 
 #pragma mark -
 #pragma mark Init
 
-- (void) dealloc {
+- (void)dealloc {
 
-    [images release];
-    [server release];
-    [listContent release];
-    [homeViewController release];
+    [server_ release];
+    [listContent_ release];
+    [homeViewController_ release];
     
     [super dealloc];
     
@@ -31,7 +42,7 @@
 #pragma mark -
 #pragma mark Helpers
 
-+ (SearchViewController *) viewForServer:(SocksoServer *)server {
++ (SearchViewController *)viewForServer:(SocksoServer *)server {
     
     SearchViewController *aView = [[SearchViewController alloc]
                                    initWithNibName:@"SearchView"
@@ -46,12 +57,6 @@
 #pragma mark -
 #pragma mark View
 
-- (void) viewDidLoad {
-    
-    images = [[NSMutableDictionary alloc] init];
-    
-}
-
 - (void)viewDidAppear:(BOOL)animated {
     
     self.homeViewController.title = @"Search";
@@ -61,9 +66,9 @@
 #pragma mark -
 #pragma mark TableView
 
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-	return [self.listContent count];
+	return [listContent_ count];
 
 }
 
@@ -82,23 +87,23 @@
         
 	}
 	    
-    MusicItem *item = [self.listContent objectAtIndex:indexPath.row];
+    MusicItem *item = [listContent_ objectAtIndex:indexPath.row];
 
-    [cell drawForItem:item fromServer:server];
+    [cell drawForItem:item fromServer:server_];
     
 	return cell;
     
 }
 
-- (void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    MusicItem *item = [self.listContent objectAtIndex:[indexPath row]];
+    MusicItem *item = [listContent_ objectAtIndex:[indexPath row]];
     
     if ( [item isTrack] ) {
         
-        [server.player playTrack:(Track *)item];
+        [server_.player playTrack:(Track *)item];
         
-        PlayViewController *playView = [PlayViewController viewForServer:server];
+        PlayViewController *playView = [PlayViewController viewForServer:server_];
         
         [self.homeViewController.navigationController pushViewController:playView
                                                                 animated:YES];
@@ -108,7 +113,7 @@
     else if ( [item isArtist] ) {
         
         ArtistViewController *ctrl = [ArtistViewController initWithItem:item
-                                                              forServer:server];
+                                                              forServer:server_];
         
         [self.homeViewController.navigationController pushViewController:ctrl
                                                                 animated:YES];
@@ -118,7 +123,7 @@
     else if ( [item isAlbum] ) {
         
         AlbumViewController *ctrl = [AlbumViewController initWithItem:item
-                                                            forServer:server];
+                                                            forServer:server_];
         
         [self.homeViewController.navigationController pushViewController:ctrl
                                                                 animated:YES];
@@ -142,8 +147,8 @@
     
     __block SearchViewController *this = self;
     
-    [server search:query
-         onComplete:^(NSMutableArray *items) {
+    [server_ search:query
+         onComplete:^(NSArray *items) {
              [this showSearchResults:items];
          }
          onFailure:^{ [this showSearchFailed]; }];
@@ -152,13 +157,18 @@
 
 - (void)showSearchFailed {
     
-    // @todo
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Search Failed"
+                                                        message:@"Sorry, but the search failed"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Try again"
+                                              otherButtonTitles:nil, nil];
     
-    NSLog( @"Search failed..." );
+    [alertView show];
+    [alertView release];
     
 }
 
-- (void)showSearchResults:(NSMutableArray *) items {
+- (void)showSearchResults:(NSArray *) items {
         
     self.listContent = items;
     

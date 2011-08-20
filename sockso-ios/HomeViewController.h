@@ -1,6 +1,7 @@
 
-#import "SocksoServer.h"
 #import "ServerViewController.h"
+
+@class SocksoServer;
 
 @interface HomeViewController : ServerViewController <UITabBarDelegate> {}
 
