@@ -161,16 +161,16 @@
 #pragma mark -
 #pragma mark Actions
 
-- (IBAction)playClicked {
+- (IBAction)didClickPlayButton {
     
     if ( [server_.player isPlaying] ) {
-        [playButton setTitle:@"Pause" forState:UIControlStateNormal];    
-        [server_.player play];
+        [playButton setTitle:@"Play" forState:UIControlStateNormal];    
+        [server_.player pause];
     }
     
     else if ( [server_.player isPaused] ) {
-        [playButton setTitle:@"Play" forState:UIControlStateNormal];    
-        [server_.player pause];
+        [playButton setTitle:@"Pause" forState:UIControlStateNormal];    
+        [server_.player play];
     }
 
 }

@@ -17,9 +17,9 @@
 
 + (PlayViewController *)viewForServer:(SocksoServer *)server;
 
-- (IBAction)playClicked;
 - (IBAction)playSliderMoved;
 
+- (IBAction)didClickPlayButton;
 - (IBAction)didClickBackButton;
 - (IBAction)didClickNextButton;
 

@@ -283,7 +283,6 @@
 			isa = PBXGroup;
 			children = (
 				DCA057A113C788C200850DA2 /* Entitlements.plist */,
-				DC5B660413A4E46B006ED498 /* libz.1.2.3.dylib */,
 				DC43F91113A14E4F001B41F6 /* sockso-ios */,
 				DC43F92B13A14E50001B41F6 /* sockso-iosTests */,
 				DC43F90A13A14E4F001B41F6 /* Frameworks */,
@@ -303,6 +302,7 @@
 		DC43F90A13A14E4F001B41F6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DC5B660413A4E46B006ED498 /* libz.1.2.3.dylib */,
 				DCF065EC13BBCBD8000ECDEE /* AudioToolbox.framework */,
 				DCAE3C7F13BB47360017BE29 /* QuartzCore.framework */,
 				DC5B660313A4E45F006ED498 /* CoreGraphics.framework */,

@@ -30,7 +30,7 @@
     
     [super viewDidAppear:animated];
     
-    if ( [server_.player isPlaying] ) {
+    if ( [server_.player isPlaying] || [server_.player isPaused] ) {
         
         UIBarButtonItem *playIcon = [[UIBarButtonItem alloc] initWithTitle:@"Playing"
                                                                      style:UIBarButtonItemStylePlain
