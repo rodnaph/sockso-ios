@@ -1,5 +1,4 @@
 
-#import <SenTestingKit/SenTestingKit.h>
 #import "SocksoServerTest.h"
 #import "SocksoServer.h"
 

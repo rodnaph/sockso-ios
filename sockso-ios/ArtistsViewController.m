@@ -1,6 +1,7 @@
 
 #import "ArtistsViewController.h"
 #import "SocksoServer.h"
+#import "SocksoApi.h"
 #import "MusicCell.h"
 #import "ArtistViewController.h"
 
@@ -68,7 +69,7 @@
     
     __block ArtistsViewController *this = self;
     
-    [server getArtists:^(NSArray *artists){ [this showArtists:artists]; }
+    [server.api artists:^(NSArray *artists){ [this showArtists:artists]; }
              onFailure:^{ [this showQueryError]; }];
     
 }

@@ -13,7 +13,7 @@
 
 @implementation HomeViewController
 
-@synthesize server, viewControllers, activeViewController, viewContainer, tabBar;
+@synthesize viewControllers, activeViewController, viewContainer, tabBar;
 
 #pragma mark -
 #pragma mark Constructors
@@ -35,7 +35,6 @@
 
 - (void)dealloc {
     
-    [server release];
     [viewControllers release];
     [activeViewController release];
     [tabBar release];
@@ -58,8 +57,8 @@
 
 - (NSArray *)createViewControllers {
     
-    SearchViewController *searchView = [SearchViewController viewForServer:server];
-    ArtistsViewController *artistsView = [ArtistsViewController viewForServer:server];
+    SearchViewController *searchView = [SearchViewController viewForServer:self.server];
+    ArtistsViewController *artistsView = [ArtistsViewController viewForServer:self.server];
     
     return [NSArray arrayWithObjects:searchView, artistsView, nil];
 

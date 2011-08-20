@@ -2,6 +2,7 @@
 #import "SearchViewController.h"
 #import "MusicItem.h"
 #import "SocksoServer.h"
+#import "SocksoPlayer.h"
 #import "PlayViewController.h"
 #import "Track.h"
 #import "MusicCell.h"
@@ -95,10 +96,9 @@
     
     if ( [item isTrack] ) {
         
-        Track *track = (Track *) item;
+        [server.player playTrack:(Track *)item];
         
-        PlayViewController *playView = [PlayViewController viewForTrack:track
-                                                                 server:server];
+        PlayViewController *playView = [PlayViewController viewForServer:server];
         
         [self.homeViewController.navigationController pushViewController:playView
                                                                 animated:YES];

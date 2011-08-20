@@ -4,10 +4,12 @@
 #import "MusicCell.h"
 #import "MusicItem.h"
 #import "AlbumViewController.h"
+#import "SocksoApi.h"
+#import "SocksoPlayer.h"
 
 @implementation ArtistViewController
 
-@synthesize item, server, nameLabel,
+@synthesize item, nameLabel,
             artworkImage=artworkImage_,
             modeButtons, albums, tracks, musicTable, activityView;
 
@@ -30,7 +32,6 @@
 - (void) dealloc {
     
     [item release];
-    [server release];
     [nameLabel release];
     [artworkImage_ release];
     [modeButtons release];
@@ -60,7 +61,7 @@
 
 - (void)showArtwork {
     
-    artworkImage_.imageURL = [server getImageUrlForMusicItem:item];
+    artworkImage_.imageURL = [self.server getImageUrlForMusicItem:item];
     
 }
 
@@ -93,10 +94,10 @@
         cell = (MusicCell *) [objects objectAtIndex:0];
 	}
     
-    NSMutableArray *items = mode == AV_MODE_ALBUMS ? albums : tracks;
+    NSArray *items = mode == AV_MODE_ALBUMS ? albums : tracks;
     MusicItem *cellItem = [items objectAtIndex:indexPath.row];
 	
-    [cell drawForItem:cellItem fromServer:server];
+    [cell drawForItem:cellItem fromServer:self.server];
     
 	return cell;
     
@@ -110,8 +111,9 @@
     
     if ( albums == nil ) {
         [activityView setHidden:NO];
-        [server getAlbumsForArtist:item
-                onComplete:^(NSMutableArray *_albums) {
+        
+        [self.server.api albumsForArtist:(Artist *)item
+                onComplete:^(NSArray *_albums) {
                     [activityView setHidden:YES];
                     this.albums = _albums;
                     [this showAlbums];
@@ -133,8 +135,8 @@
     
     if ( tracks == nil ) {
         [activityView setHidden:NO];
-        [server getTracksForArtist:item
-                onComplete:^(NSMutableArray *_tracks) {
+        [self.server.api tracksForArtist:(Artist *)item
+                onComplete:^(NSArray *_tracks) {
                     [activityView setHidden:YES];
                     this.tracks = _tracks;
                     [this showTracks];
@@ -154,13 +156,14 @@
 
 - (void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    NSMutableArray *items = mode == AV_MODE_ALBUMS ? albums : tracks;
+    NSArray *items = mode == AV_MODE_ALBUMS ? albums : tracks;
     MusicItem *cellItem = [items objectAtIndex:[indexPath row]];
     
     if ( [cellItem isTrack] ) {
         
-        PlayViewController *playView = [PlayViewController viewForTrack:(Track *)cellItem
-                                                                 server:server];
+        [self.server.player playTrack:(Track *)cellItem];
+        
+        PlayViewController *playView = [PlayViewController viewForServer:self.server];
         
         [self.navigationController pushViewController:playView
                                              animated:YES];
@@ -168,7 +171,7 @@
     }
     
     else if ( [cellItem isAlbum] ) {
-        AlbumViewController *ctrl = [AlbumViewController initWithItem:cellItem forServer:server];
+        AlbumViewController *ctrl = [AlbumViewController initWithItem:cellItem forServer:self.server];
         [self.navigationController pushViewController:ctrl animated:YES];
     }
     

@@ -1,7 +1,5 @@
-//
-// Prefix header for all source files of the 'sockso-iosTests' target in the 'sockso-iosTests' project
-//
 
 #ifdef __OBJC__
+    #import <SenTestingKit/SenTestingKit.h>
     #import <UIKit/UIKit.h>
 #endif

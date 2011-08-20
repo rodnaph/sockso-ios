@@ -18,6 +18,9 @@
 		DC1A0B5513D4A39F00594D9D /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC1A0B5413D4A39F00594D9D /* HomeView.xib */; };
 		DC29FEDB13F9B04100C08C94 /* album-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DC29FED913F9B04100C08C94 /* album-icon.png */; };
 		DC29FEDC13F9B04100C08C94 /* artist-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DC29FEDA13F9B04100C08C94 /* artist-icon.png */; };
+		DC29FEE813F9C4C800C08C94 /* ServerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC29FEE713F9C4C800C08C94 /* ServerViewController.m */; };
+		DC29FEEC13FA47E500C08C94 /* SocksoApi.m in Sources */ = {isa = PBXBuildFile; fileRef = DC29FEEB13FA47E500C08C94 /* SocksoApi.m */; };
+		DC29FEEF13FA47FC00C08C94 /* SocksoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DC29FEEE13FA47FC00C08C94 /* SocksoPlayer.m */; };
 		DC43F90C13A14E4F001B41F6 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90B13A14E4F001B41F6 /* UIKit.framework */; };
 		DC43F90E13A14E4F001B41F6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90D13A14E4F001B41F6 /* Foundation.framework */; };
 		DC43F91013A14E4F001B41F6 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC43F90F13A14E4F001B41F6 /* CoreGraphics.framework */; };
@@ -58,6 +61,8 @@
 		DC88D2EC13CC32DD0064A5B6 /* ArtistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC88D2EB13CC32DD0064A5B6 /* ArtistsViewController.m */; };
 		DC8BA6CD13C5925100F21C3C /* Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8BA6CC13C5925100F21C3C /* Properties.m */; };
 		DC97F4F613D630FA0051363B /* small-image-back.png in Resources */ = {isa = PBXBuildFile; fileRef = DC97F4F513D630FA0051363B /* small-image-back.png */; };
+		DC9B801A13FF1258001861D6 /* TrackTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9B801913FF1258001861D6 /* TrackTest.m */; };
+		DC9B802113FF1425001861D6 /* AlbumTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9B802013FF1424001861D6 /* AlbumTest.m */; };
 		DCA0512813C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCA0512613C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld */; };
 		DCA057A213C788C200850DA2 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCA057A113C788C200850DA2 /* Entitlements.plist */; };
 		DCA057A513C835A400850DA2 /* SocksoServerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA057A413C835A400850DA2 /* SocksoServerTest.m */; };
@@ -116,6 +121,12 @@
 		DC1A0B5613D4A93B00594D9D /* HomeViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewDelegate.h; sourceTree = "<group>"; };
 		DC29FED913F9B04100C08C94 /* album-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "album-icon.png"; sourceTree = "<group>"; };
 		DC29FEDA13F9B04100C08C94 /* artist-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "artist-icon.png"; sourceTree = "<group>"; };
+		DC29FEE613F9C4C800C08C94 /* ServerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerViewController.h; sourceTree = "<group>"; };
+		DC29FEE713F9C4C800C08C94 /* ServerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServerViewController.m; sourceTree = "<group>"; };
+		DC29FEEA13FA47E500C08C94 /* SocksoApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocksoApi.h; sourceTree = "<group>"; };
+		DC29FEEB13FA47E500C08C94 /* SocksoApi.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocksoApi.m; sourceTree = "<group>"; };
+		DC29FEED13FA47FC00C08C94 /* SocksoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocksoPlayer.h; sourceTree = "<group>"; };
+		DC29FEEE13FA47FC00C08C94 /* SocksoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocksoPlayer.m; sourceTree = "<group>"; };
 		DC43F90713A14E4F001B41F6 /* sockso-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "sockso-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC43F90B13A14E4F001B41F6 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DC43F90D13A14E4F001B41F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -184,6 +195,10 @@
 		DC8BA6CB13C5925100F21C3C /* Properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Properties.h; sourceTree = "<group>"; };
 		DC8BA6CC13C5925100F21C3C /* Properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Properties.m; sourceTree = "<group>"; };
 		DC97F4F513D630FA0051363B /* small-image-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "small-image-back.png"; sourceTree = "<group>"; };
+		DC9B801813FF1258001861D6 /* TrackTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackTest.h; sourceTree = "<group>"; };
+		DC9B801913FF1258001861D6 /* TrackTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackTest.m; sourceTree = "<group>"; };
+		DC9B801F13FF1424001861D6 /* AlbumTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumTest.h; sourceTree = "<group>"; };
+		DC9B802013FF1424001861D6 /* AlbumTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumTest.m; sourceTree = "<group>"; };
 		DCA0512713C4C14C002F8FC6 /* SocksoDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SocksoDataModel.xcdatamodel; sourceTree = "<group>"; };
 		DCA057A113C788C200850DA2 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		DCA057A313C835A400850DA2 /* SocksoServerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocksoServerTest.h; sourceTree = "<group>"; };
@@ -515,9 +530,13 @@
 		DCF065FE13BBD622000ECDEE /* Sockso */ = {
 			isa = PBXGroup;
 			children = (
+				DCF0660013BBD63C000ECDEE /* Music */,
 				DCEB12A313BB0E98000806A4 /* SocksoServer.h */,
 				DCEB12A413BB0E98000806A4 /* SocksoServer.m */,
-				DCF0660013BBD63C000ECDEE /* Music */,
+				DC29FEEA13FA47E500C08C94 /* SocksoApi.h */,
+				DC29FEEB13FA47E500C08C94 /* SocksoApi.m */,
+				DC29FEED13FA47FC00C08C94 /* SocksoPlayer.h */,
+				DC29FEEE13FA47FC00C08C94 /* SocksoPlayer.m */,
 				DCE333ED13C9B78700251B18 /* LoginHandlerDelegate.h */,
 			);
 			name = Sockso;
@@ -547,6 +566,8 @@
 				DC1A0B5113D4A2AF00594D9D /* HomeViewController.h */,
 				DC1A0B5213D4A2AF00594D9D /* HomeViewController.m */,
 				DC1A0B5613D4A93B00594D9D /* HomeViewDelegate.h */,
+				DC29FEE613F9C4C800C08C94 /* ServerViewController.h */,
+				DC29FEE713F9C4C800C08C94 /* ServerViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -590,6 +611,10 @@
 			children = (
 				DCF0660A13BBD883000ECDEE /* MusicItemTest.h */,
 				DCF0660B13BBD883000ECDEE /* MusicItemTest.m */,
+				DC9B801813FF1258001861D6 /* TrackTest.h */,
+				DC9B801913FF1258001861D6 /* TrackTest.m */,
+				DC9B801F13FF1424001861D6 /* AlbumTest.h */,
+				DC9B802013FF1424001861D6 /* AlbumTest.m */,
 			);
 			name = Music;
 			sourceTree = "<group>";
@@ -766,6 +791,9 @@
 				DCD7B08A13DCDB2100A5B31C /* EGOImageLoader.m in Sources */,
 				DCD7B08B13DCDB2100A5B31C /* EGOImageView.m in Sources */,
 				DC0A51C313E2077000847364 /* CommunityServerCell.m in Sources */,
+				DC29FEE813F9C4C800C08C94 /* ServerViewController.m in Sources */,
+				DC29FEEC13FA47E500C08C94 /* SocksoApi.m in Sources */,
+				DC29FEEF13FA47FC00C08C94 /* SocksoPlayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -775,6 +803,8 @@
 			files = (
 				DCF0660C13BBD883000ECDEE /* MusicItemTest.m in Sources */,
 				DCA057A513C835A400850DA2 /* SocksoServerTest.m in Sources */,
+				DC9B801A13FF1258001861D6 /* TrackTest.m in Sources */,
+				DC9B802113FF1425001861D6 /* AlbumTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

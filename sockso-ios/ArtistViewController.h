@@ -3,20 +3,20 @@
 #import "MusicItem.h"
 #import "SocksoServer.h"
 #import "EGOImageView.h"
+#import "ServerViewController.h"
 
 enum AV_MODES {
     AV_MODE_ALBUMS = 1,
     AV_MODE_TRACKS = 2
 };
 
-@interface ArtistViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface ArtistViewController : ServerViewController <UITableViewDelegate, UITableViewDataSource> {
     int mode;
     NSMutableDictionary *images;
 }
 
 @property (nonatomic, retain) MusicItem *item;
-@property (nonatomic, retain) SocksoServer *server;
-@property (nonatomic, retain) NSMutableArray *albums, *tracks;
+@property (nonatomic, retain) NSArray *albums, *tracks;
 
 @property (nonatomic, retain) IBOutlet UILabel *nameLabel;
 @property (nonatomic, retain) IBOutlet EGOImageView *artworkImage;

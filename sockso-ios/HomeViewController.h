@@ -1,12 +1,12 @@
 
 #import "SocksoServer.h"
+#import "ServerViewController.h"
 
-@interface HomeViewController : UIViewController <UITabBarDelegate> {}
+@interface HomeViewController : ServerViewController <UITabBarDelegate> {}
 
 @property (nonatomic, retain) IBOutlet UIView *viewContainer;
 @property (nonatomic, retain) IBOutlet UITabBar *tabBar;
 
-@property (nonatomic, retain) SocksoServer *server;
 @property (nonatomic, retain) NSArray *viewControllers;
 @property (nonatomic, retain) UIViewController *activeViewController;
 

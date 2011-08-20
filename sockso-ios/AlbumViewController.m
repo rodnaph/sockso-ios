@@ -1,5 +1,7 @@
 
 #import "AlbumViewController.h"
+#import "SocksoApi.h"
+#import "SocksoPlayer.h"
 #import "MusicCell.h"
 #import "MusicItem.h"
 #import "Album.h"
@@ -9,7 +11,7 @@
 
 @synthesize trackTable, nameLabel,
             artworkImage=artworkImage_,
-            albumItem, server, artistLabel, tracks;
+            albumItem, artistLabel, tracks;
 
 + (AlbumViewController *) initWithItem:(MusicItem *)albumItem forServer:(SocksoServer *)server {
     
@@ -34,7 +36,6 @@
     [nameLabel release];
     [artworkImage_ release];
     [albumItem release];
-    [server release];
     [tracks release];
     
     [super dealloc];
@@ -86,7 +87,7 @@
     
     MusicItem *cellItem = [tracks objectAtIndex:indexPath.row];
     
-    [cell drawForItem:cellItem fromServer:server];
+    [cell drawForItem:cellItem fromServer:self.server];
     
 	return cell;
     
@@ -95,9 +96,10 @@
 - (void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     MusicItem *cellItem = [tracks objectAtIndex:[indexPath row]];
+    
+    [self.server.player playTrack:(Track *)cellItem];
 
-    PlayViewController *playView = [PlayViewController viewForTrack:(Track *)cellItem
-                                                             server:server];
+    PlayViewController *playView = [PlayViewController viewForServer:self.server];
 
     [self.navigationController pushViewController:playView
                                          animated:YES];
@@ -111,8 +113,8 @@
     
     __block AlbumViewController *this = self;
     
-    [server getTracksForAlbum:albumItem
-                   onComplete:^(NSMutableArray *_tracks) {
+    [self.server.api tracksForAlbum:(Album *)albumItem
+                   onComplete:^(NSArray *_tracks) {
                        this.tracks = _tracks;
                        [this.trackTable reloadData];
                    }
@@ -122,7 +124,7 @@
 
 - (void) showArtwork {
     
-    artworkImage_.imageURL = [server getImageUrlForMusicItem:albumItem];
+    artworkImage_.imageURL = [self.server getImageUrlForMusicItem:albumItem];
     
 }
 
