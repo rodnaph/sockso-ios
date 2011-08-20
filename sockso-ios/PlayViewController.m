@@ -12,6 +12,8 @@
 - (void)initSlider;
 - (void)initCurrentTime;
 
+- (void)didTrackChange;
+
 @end
 
 @implementation PlayViewController
@@ -80,6 +82,8 @@
         [server_.player play];
     }
 
+    [self didTrackChange];
+    
 }
 
 - (void)initCurrentTime {
@@ -187,9 +191,27 @@
 
 - (IBAction)didClickBackButton {
     
+    if ( [server_.player playPrev] ) {
+        [self didTrackChange];
+    }
+    
 }
 
 - (IBAction)didClickNextButton {
+
+    if ( [server_.player playNext] ) {
+        [self didTrackChange];
+    }
+
+}
+
+- (void)didTrackChange {
+    
+    [playButton setTitle:@"Pause" forState:UIControlStateNormal];
+
+    [self initLabels];
+    [self initArtwork];
+    [self initCurrentTime];
     
 }
 

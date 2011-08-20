@@ -15,6 +15,7 @@ enum AV_MODES {
 @property (nonatomic, retain) MusicItem *item;
 @property (nonatomic, retain) NSArray *albums, *tracks;
 
+@property (nonatomic, retain) IBOutlet UIButton *playArtistButton;
 @property (nonatomic, retain) IBOutlet UILabel *nameLabel;
 @property (nonatomic, retain) IBOutlet EGOImageView *artworkImage;
 @property (nonatomic, retain) IBOutlet UISegmentedControl *modeButtons;
@@ -24,5 +25,6 @@ enum AV_MODES {
 + (ArtistViewController *)initWithItem:(MusicItem *)item forServer:(SocksoServer *)server;
 
 - (IBAction)modeButtonChanged;
+- (IBAction)didClickPlayArtist;
 
 @end

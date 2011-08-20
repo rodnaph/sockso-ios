@@ -24,7 +24,8 @@
             albums=albums_,
             tracks=tracks_,
             musicTable=musicTable_,
-            activityView=activityView_;
+            activityView=activityView_,
+            playArtistButton=playArtistButton_;
 
 #pragma mark -
 #pragma mark Init
@@ -39,6 +40,7 @@
     [tracks_ release];
     [musicTable_ release];
     [activityView_ release];
+    [playArtistButton_ release];
     
     [super dealloc];
     
@@ -203,6 +205,17 @@
     else {
         [self showTracks];
     }
+    
+}
+
+- (IBAction)didClickPlayArtist {
+    
+    [self.server.player playArtist:(Artist *)item_];
+    
+    PlayViewController *playView = [PlayViewController viewForServer:self.server];
+    
+    [self.navigationController pushViewController:playView
+                                         animated:YES];
     
 }
 

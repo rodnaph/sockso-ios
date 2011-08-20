@@ -2,15 +2,16 @@
 #import "AudioStreamer.h"
 #import "SocksoServer.h"
 #import "SocksoPlayer.h"
+#import "SocksoApi.h"
 #import "Track.h"
 #import "Album.h"
 #import "Artist.h"
 
 @interface SocksoPlayer (Private)
 
-- (void)playPrev;
+- (void)initEventThread;
+- (void)pollAudioEvents;
 - (void)playCurrent;
-- (void)playNext;
 
 @end
 
@@ -39,19 +40,71 @@
     
     if ( (self = [super init]) ) {
         self.server = server;
+        state = SP_NONE;
+        [self initEventThread];
     }
     
     return self;
     
 }
 
+- (void)initEventThread {
+    
+    [NSThread detachNewThreadSelector:@selector(pollAudioEvents)
+                             toTarget:self
+                           withObject:nil];
+    
+}
+
+- (void)pollAudioEvents {
+    
+    while ( true ) {
+        
+        sleep( 1 );
+        
+        if ( state == SP_PLAYING && !([streamer_ isPlaying] || [streamer_ isWaiting]) ) {
+            [self playNext];
+        }
+        
+    }
+    
+}
+
 #pragma mark -
 #pragma mark Methods
 
-- (void)playArtist:(Album *)artist {
+- (void)playArtist:(Artist *)artist {
+    
+    [server_.api tracksForArtist:artist
+                      onComplete:^(NSArray *tracks) {
+                          [self setTracks:tracks];
+                          [self playCurrent];
+                      }
+                       onFailure:^{}];
+    
 }
 
 - (void)playAlbum:(Album *)album {
+    
+    [server_.api tracksForAlbum:album
+                     onComplete:^(NSArray *tracks) {
+                         [self setTracks:tracks];
+                         [self playCurrent];
+                     }
+                      onFailure:^{}];
+    
+}
+
+- (void)setTracks:(NSArray *)tracks {
+
+    if ( tracks_ != nil ) {
+        [tracks_ release];
+    }
+    
+    tracks_ = [tracks retain];
+    
+    currentTrackIndex_ = 0;
+
 }
 
 - (void)playTrack:(Track *)track {
@@ -65,14 +118,29 @@
 
 - (void)play {
     
+    state = SP_PLAYING;
+    
     [streamer_ start];
     
 }
 
 - (void)pause {
     
+    state = SP_PAUSED;
+    
     [streamer_ pause];
     
+}
+
+- (void)stop {
+    
+    state = SP_STOPPED;
+    
+    [streamer_ stop];
+    [streamer_ release];
+    
+    streamer_ = nil;
+
 }
 
 - (void)seekTo:(int)seconds {
@@ -95,13 +163,19 @@
 
 - (BOOL)isPlaying {
     
-    return [streamer_ isPlaying];
+    return state == SP_PLAYING;
     
 }
 
 - (BOOL)isPaused {
     
-    return [streamer_ isPaused];
+    return state == SP_PAUSED;
+    
+}
+
+- (BOOL)isStopped {
+    
+    return state == SP_STOPPED;
     
 }
 
@@ -111,45 +185,46 @@
     
 }
 
+- (BOOL)playPrev {
+    
+    if ( currentTrackIndex_ > 0 ) {
+        currentTrackIndex_--;
+        [self playCurrent];
+        return YES;
+    }
+    
+    return NO;
+    
+}
+
+- (BOOL)playNext {
+    
+    if ( currentTrackIndex_ < ([tracks_ count] - 1) ) {
+        currentTrackIndex_++;
+        [self playCurrent];
+        return YES;
+    }
+    
+    return NO;
+    
+}
+
 #pragma mark -
 #pragma mark Private Methods
 
-- (void)playPrev {
-    
-    currentTrackIndex_--;
-    
-    [self playCurrent];
-    
-}
-
 - (void)playCurrent {
     
-    MusicItem *item = [tracks_ objectAtIndex:currentTrackIndex_];
-    
     if ( [self isPlaying] ) {
-        [streamer_ stop];
-        [streamer_ release];
-        streamer_ = nil;
+        [self stop];
     }
     
-    NSString *playUrl = [NSString stringWithFormat:@"http://%@/stream/%@",
-                         server_.ipAndPort,
-                         [item getId]];
-    
-    NSLog( @"Play URL: %@", playUrl );
-    
+    MusicItem *item = [tracks_ objectAtIndex:currentTrackIndex_];
+    NSString *playUrl = [NSString stringWithFormat:@"http://%@/stream/%@", server_.ipAndPort, [item getId]];
 	NSURL *url = [NSURL URLWithString:playUrl];
+    
 	streamer_ = [[[AudioStreamer alloc] initWithURL:url] retain];
     
-    [streamer_ start];
-    
-}
-
-- (void)playNext {
-    
-    currentTrackIndex_++;
-    
-    [self playCurrent];
+    [self play];
     
 }
 

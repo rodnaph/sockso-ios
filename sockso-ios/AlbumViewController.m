@@ -21,7 +21,8 @@
             artworkImage=artworkImage_,
             albumItem=albumItem_,
             artistLabel=artistLabel_,
-            tracks=tracks_;
+            tracks=tracks_,
+            playAlbumButton=playAlbumButton_;
 
 #pragma mark -
 #pragma mark Init
@@ -34,6 +35,7 @@
     [artworkImage_ release];
     [albumItem_ release];
     [tracks_ release];
+    [playAlbumButton_ release];
     
     [super dealloc];
     
@@ -117,6 +119,20 @@
     [self.navigationController pushViewController:playView
                                          animated:YES];
         
+}
+
+#pragma mark -
+#pragma mark Actions
+
+- (IBAction)didClickPlayAlbum {
+    
+    [self.server.player playAlbum:(Album *)albumItem_];
+    
+    PlayViewController *playView = [PlayViewController viewForServer:self.server];
+    
+    [self.navigationController pushViewController:playView
+                                         animated:YES];
+    
 }
 
 #pragma mark -
