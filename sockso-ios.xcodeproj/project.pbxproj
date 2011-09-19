@@ -33,6 +33,8 @@
 		DC481D7613C4803000F2B052 /* MusicCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC481D7513C4803000F2B052 /* MusicCellView.xib */; };
 		DC481D7B13C480A400F2B052 /* MusicCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DC481D7A13C480A400F2B052 /* MusicCell.m */; };
 		DC5B56A71427F46100F84016 /* Objection-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5B56A61427F46100F84016 /* Objection-iOS.framework */; };
+		DC5B56AA1427F8CD00F84016 /* SocksoModule.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5B56A91427F8CD00F84016 /* SocksoModule.m */; };
+		DC5B56BF142805E600F84016 /* CoreDataProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = DC5B56BE142805E600F84016 /* CoreDataProvider.m */; };
 		DC5B65FE13A4E438006ED498 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5B65FD13A4E438006ED498 /* CFNetwork.framework */; };
 		DC5B660013A4E44C006ED498 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5B65FF13A4E44C006ED498 /* SystemConfiguration.framework */; };
 		DC5B660213A4E457006ED498 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC5B660113A4E457006ED498 /* MobileCoreServices.framework */; };
@@ -151,6 +153,10 @@
 		DC481D7913C480A400F2B052 /* MusicCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MusicCell.h; sourceTree = "<group>"; };
 		DC481D7A13C480A400F2B052 /* MusicCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MusicCell.m; sourceTree = "<group>"; };
 		DC5B56A61427F46100F84016 /* Objection-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Objection-iOS.framework"; path = "vendor/Objection/build/Release-iphoneuniversal/Objection-iOS.framework"; sourceTree = "<group>"; };
+		DC5B56A81427F8CD00F84016 /* SocksoModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocksoModule.h; sourceTree = "<group>"; };
+		DC5B56A91427F8CD00F84016 /* SocksoModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocksoModule.m; sourceTree = "<group>"; };
+		DC5B56BD142805E600F84016 /* CoreDataProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataProvider.h; sourceTree = "<group>"; };
+		DC5B56BE142805E600F84016 /* CoreDataProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataProvider.m; sourceTree = "<group>"; };
 		DC5B65FD13A4E438006ED498 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		DC5B65FF13A4E44C006ED498 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		DC5B660113A4E457006ED498 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -377,6 +383,7 @@
 		DC43F94313A15012001B41F6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				DC5B56BB142805AF00F84016 /* Inject */,
 				DC8BA6C913C591F300F21C3C /* Entities */,
 				DC481D7813C4808700F2B052 /* Controls */,
 				DCF065FF13BBD62E000ECDEE /* Controllers */,
@@ -454,6 +461,17 @@
 				DC5B65C413A4DF38006ED498 /* JSON */,
 			);
 			name = Vendor;
+			sourceTree = "<group>";
+		};
+		DC5B56BB142805AF00F84016 /* Inject */ = {
+			isa = PBXGroup;
+			children = (
+				DC5B56A81427F8CD00F84016 /* SocksoModule.h */,
+				DC5B56A91427F8CD00F84016 /* SocksoModule.m */,
+				DC5B56BD142805E600F84016 /* CoreDataProvider.h */,
+				DC5B56BE142805E600F84016 /* CoreDataProvider.m */,
+			);
+			name = Inject;
 			sourceTree = "<group>";
 		};
 		DC5B65C413A4DF38006ED498 /* JSON */ = {
@@ -834,6 +852,8 @@
 				DC9B805913FFBD13001861D6 /* ASIInputStream.m in Sources */,
 				DC9B805A13FFBD13001861D6 /* ASINetworkQueue.m in Sources */,
 				DC9B805D13FFBD1E001861D6 /* AudioStreamer.m in Sources */,
+				DC5B56AA1427F8CD00F84016 /* SocksoModule.m in Sources */,
+				DC5B56BF142805E600F84016 /* CoreDataProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,21 +1,22 @@
 
 #import "SocksoAppDelegate.h"
 #import "ConnectViewController.h"
+#import "SocksoModule.h"
 
 @implementation SocksoAppDelegate
 
-@synthesize window, navigationController, managedObjectModel, managedObjectContext, persistentStoreCoordinator;
+@synthesize window, navigationController;
 
 - (void) applicationDidFinishLaunching:(UIApplication *)application {
 
-    [self initCoreData];
-    
-    ConnectViewController *aView = [[ConnectViewController alloc]
-                                    initWithNibName:@"ConnectView"
-                                    bundle:nil];
-    
-    aView.context = managedObjectContext;
+    SocksoModule *socksoModule = [[[SocksoModule alloc] init] autorelease];
+    JSObjectionInjector *injector = [JSObjection createInjector:socksoModule];
 
+    [JSObjection setGlobalInjector:injector];
+    
+    ConnectViewController *aView = [[injector getObject:[ConnectViewController class]]
+                                    initWithNibName:@"ConnectView" bundle:nil];
+    
     UINavigationController *navController = [[UINavigationController alloc]
                                              initWithRootViewController:aView];
     
@@ -32,33 +33,7 @@
 
 }
 
-- (void) initCoreData {
-    
-    NSURL *appDirectory = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    NSURL *storeURL = [appDirectory URLByAppendingPathComponent:@"sockso-ios.sqlite"];
-    
-    NSLog( @"CoreData: Create Managed Object Model" );
-    
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"SocksoDataModel" withExtension:@"momd"];
-    managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    
-    NSLog( @"CoreData: Create Persistent Store Coordinator" );
-    
-    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    [persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:nil];
-    
-    NSLog( @"CoreData: Create Managed Object Context" );
-    
-    managedObjectContext = [[NSManagedObjectContext alloc] init];
-    [managedObjectContext setPersistentStoreCoordinator:persistentStoreCoordinator];
-        
-}
-
 - (void) dealloc {
-    
-    [managedObjectContext release];
-    [managedObjectModel release];
-    [persistentStoreCoordinator release];
     
     [navigationController release];
     [window release];

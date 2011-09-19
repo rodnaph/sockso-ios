@@ -1,0 +1,4 @@
+
+@interface SocksoModule : JSObjectionModule
+
+@end

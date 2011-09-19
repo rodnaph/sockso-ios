@@ -19,6 +19,9 @@
 
 @implementation ConnectViewController
 
+objection_register( ConnectViewController );
+objection_requires( @"context" );
+
 @synthesize serverInput=serverInput_,
             connect=connect_,
             community=community_,
@@ -28,6 +31,14 @@
 
 #pragma mark -
 #pragma mark Init
+
+- (id)init {
+    
+    NSLog( @"INIT CONNECT VIEW" );
+    
+    return [super init];
+    
+}
 
 - (void)dealloc {
     
