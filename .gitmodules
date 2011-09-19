@@ -1,0 +1,3 @@
+[submodule "vendor/Objection"]
+	path = vendor/Objection
+	url = https://github.com/atomicobject/objection.git
