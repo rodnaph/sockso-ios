@@ -3,7 +3,7 @@
 
 @interface SocksoApi : NSObject {}
 
-@property (nonatomic, retain) SocksoServer *server;
+@property (nonatomic, assign) SocksoServer *server;
 
 - (id)initWithServer:(SocksoServer *)server;
 

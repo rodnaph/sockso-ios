@@ -13,7 +13,7 @@ typedef enum {
     SocksoPlayerState state;
 }
 
-@property (nonatomic, retain) SocksoServer *server;
+@property (nonatomic, assign) SocksoServer *server;
 @property (nonatomic, retain) NSArray *tracks;
 @property (nonatomic, assign) int currentTrackIndex;
 

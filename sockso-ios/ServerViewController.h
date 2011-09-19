@@ -3,6 +3,6 @@
 
 @interface ServerViewController : UIViewController {}
 
-@property (nonatomic, retain) SocksoServer *server;
+@property (nonatomic, assign) SocksoServer *server;
 
 @end

@@ -26,21 +26,18 @@
             listContent=listContent_,
             homeViewController=homeViewController_;
 
-#pragma mark -
-#pragma mark Init
+#pragma mark - Init
 
 - (void)dealloc {
 
     [server_ release];
     [listContent_ release];
-    [homeViewController_ release];
     
     [super dealloc];
     
 }
 
-#pragma mark -
-#pragma mark Helpers
+#pragma mark - Helpers
 
 + (SearchViewController *)viewForServer:(SocksoServer *)server {
     
@@ -54,8 +51,7 @@
     
 }
 
-#pragma mark -
-#pragma mark View
+#pragma mark - View Methods
 
 - (void)viewDidAppear:(BOOL)animated {
     
@@ -63,8 +59,7 @@
     
 }
 
-#pragma mark -
-#pragma mark TableView
+#pragma mark - TableView
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     

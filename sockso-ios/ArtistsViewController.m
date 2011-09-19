@@ -34,7 +34,6 @@
     [sections release];
     [artistsTable_ release];
     [server_ release];
-    [homeViewController_ release];
     
     [super dealloc];
     

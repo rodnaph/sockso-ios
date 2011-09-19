@@ -22,13 +22,14 @@
 
 + (SocksoServer *)disconnectedServer:(NSString *)ipAndPort {
     
-    SocksoServer *server = [[SocksoServer alloc] init];
+    SocksoServer *server = [[[SocksoServer alloc] init] autorelease];
     
     server.ipAndPort = ipAndPort;
+    
     server.player = [[[SocksoPlayer alloc] initWithServer:server] autorelease];
     server.api = [[[SocksoApi alloc] initWithServer:server] autorelease];
     
-    return [server autorelease];
+    return server;
 
 }
 
@@ -47,6 +48,8 @@
 #pragma mark Init
 
 - (void)dealloc {
+    
+    NSLog( @"DEALLOC OK" );
     
     [streamer stop];
     

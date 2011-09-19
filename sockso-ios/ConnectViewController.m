@@ -101,35 +101,6 @@
 }
 
 //
-// Handler for when community button is clicked
-//
-
-- (IBAction)communityClicked {
-
-    __block ConnectViewController *this = self;
-    
-    communityActivity_.hidden = NO;
-    [communityActivity_ startAnimating];
-    
-    [SocksoServer findCommunityServers:^(NSMutableArray *servers) {
-        
-        communityActivity_.hidden = YES;
-        [communityActivity_ stopAnimating];
-        
-        if ( [servers count] > 0 ) {
-            [this showCommunityView:servers];
-        }
-        else {
-            [this showNoCommunityServersFound];
-        }
-        
-    } onFailure:^{
-        [this showBrowseCommunityFailed];
-    }];
-    
-}
-
-//
 // Shows the user a view informing them no community servers were found
 //
 
@@ -157,17 +128,6 @@
     [self.navigationController pushViewController:aView animated:YES];
     [aView release];
 
-}
-
-//
-// Connect clicked, try and connect to specified server
-//
-
-- (IBAction) connectClicked {
-    
-    [self showConnecting];
-    [self tryToConnect];
-    
 }
 
 //
@@ -289,7 +249,9 @@
 
 - (void) showHomeView:(SocksoServer *) server {
 
-    [self.navigationController pushViewController:[HomeViewController initWithServer:server]
+    HomeViewController *homeController = [HomeViewController initWithServer:server];
+    
+    [self.navigationController pushViewController:homeController
                                          animated:YES];
     
 }
@@ -297,6 +259,40 @@
 - (void) loginOccurredTo:(SocksoServer *)server {
     
     [self showHomeView:server];
+    
+}
+
+#pragma mark - Actions
+
+- (IBAction)communityClicked {
+    
+    __block ConnectViewController *this = self;
+    
+    communityActivity_.hidden = NO;
+    [communityActivity_ startAnimating];
+    
+    [SocksoServer findCommunityServers:^(NSMutableArray *servers) {
+        
+        communityActivity_.hidden = YES;
+        [communityActivity_ stopAnimating];
+        
+        if ( [servers count] > 0 ) {
+            [this showCommunityView:servers];
+        }
+        else {
+            [this showNoCommunityServersFound];
+        }
+        
+    } onFailure:^{
+        [this showBrowseCommunityFailed];
+    }];
+    
+}
+
+- (IBAction)connectClicked {
+    
+    [self showConnecting];
+    [self tryToConnect];
     
 }
 

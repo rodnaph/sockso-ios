@@ -19,17 +19,6 @@
 @synthesize server=server_;
 
 #pragma mark -
-#pragma mark Init
-
-- (void)dealloc {
-    
-    [server_ release];
-    
-    [super dealloc];
-    
-}
-
-#pragma mark -
 #pragma mark Helpers
 
 - (id)initWithServer:(SocksoServer *)server {

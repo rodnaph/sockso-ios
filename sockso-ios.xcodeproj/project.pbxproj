@@ -67,6 +67,10 @@
 		DC9B8090140016B5001861D6 /* small-image-back.png in Resources */ = {isa = PBXBuildFile; fileRef = DC9B8087140016B5001861D6 /* small-image-back.png */; };
 		DC9B8091140016B5001861D6 /* transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = DC9B8088140016B5001861D6 /* transparent.png */; };
 		DC9B809314001773001861D6 /* prev.png in Resources */ = {isa = PBXBuildFile; fileRef = DC9B809214001773001861D6 /* prev.png */; };
+		DC9B80AB14002D79001861D6 /* logo-57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = DC9B80AA14002D79001861D6 /* logo-57x57.png */; };
+		DC9B80AD14002DC7001861D6 /* logo-114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = DC9B80AC14002DC7001861D6 /* logo-114x114.png */; };
+		DC9B80AF14002F93001861D6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC9B80AE14002F93001861D6 /* Default@2x.png */; };
+		DC9B80B214002FC9001861D6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC9B80B014002F9C001861D6 /* Default.png */; };
 		DCA0512813C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCA0512613C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld */; };
 		DCA057A213C788C200850DA2 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCA057A113C788C200850DA2 /* Entitlements.plist */; };
 		DCA057A513C835A400850DA2 /* SocksoServerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA057A413C835A400850DA2 /* SocksoServerTest.m */; };
@@ -205,6 +209,10 @@
 		DC9B8087140016B5001861D6 /* small-image-back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "small-image-back.png"; path = "images/small-image-back.png"; sourceTree = "<group>"; };
 		DC9B8088140016B5001861D6 /* transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = transparent.png; path = images/transparent.png; sourceTree = "<group>"; };
 		DC9B809214001773001861D6 /* prev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = prev.png; path = images/prev.png; sourceTree = "<group>"; };
+		DC9B80AA14002D79001861D6 /* logo-57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-57x57.png"; path = "../logo-57x57.png"; sourceTree = "<group>"; };
+		DC9B80AC14002DC7001861D6 /* logo-114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-114x114.png"; path = "../logo-114x114.png"; sourceTree = "<group>"; };
+		DC9B80AE14002F93001861D6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
+		DC9B80B014002F9C001861D6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
 		DCA0512713C4C14C002F8FC6 /* SocksoDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SocksoDataModel.xcdatamodel; sourceTree = "<group>"; };
 		DCA057A113C788C200850DA2 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		DCA057A313C835A400850DA2 /* SocksoServerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocksoServerTest.h; sourceTree = "<group>"; };
@@ -322,6 +330,7 @@
 		DC43F91113A14E4F001B41F6 /* sockso-ios */ = {
 			isa = PBXGroup;
 			children = (
+				DC9B80A414002C7C001861D6 /* Assets */,
 				DC4C95F413A4CB6100958C0E /* Vendor */,
 				DC43F94513A15476001B41F6 /* Resources */,
 				DC43F94413A1503F001B41F6 /* Views */,
@@ -504,6 +513,17 @@
 				DC9B803D13FFBD05001861D6 /* Reachability.m */,
 			);
 			name = Reachability;
+			sourceTree = "<group>";
+		};
+		DC9B80A414002C7C001861D6 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				DC9B80B014002F9C001861D6 /* Default.png */,
+				DC9B80AE14002F93001861D6 /* Default@2x.png */,
+				DC9B80AA14002D79001861D6 /* logo-57x57.png */,
+				DC9B80AC14002DC7001861D6 /* logo-114x114.png */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 		DCA0512413C4C139002F8FC6 /* Data */ = {
@@ -729,6 +749,10 @@
 				DC9B8090140016B5001861D6 /* small-image-back.png in Resources */,
 				DC9B8091140016B5001861D6 /* transparent.png in Resources */,
 				DC9B809314001773001861D6 /* prev.png in Resources */,
+				DC9B80AB14002D79001861D6 /* logo-57x57.png in Resources */,
+				DC9B80AD14002DC7001861D6 /* logo-114x114.png in Resources */,
+				DC9B80AF14002F93001861D6 /* Default@2x.png in Resources */,
+				DC9B80B214002FC9001861D6 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,19 +14,7 @@
 
 @synthesize server=server_;
 
-#pragma mark -
-#pragma mark Init
-
-- (void)dealloc {
-    
-    [server_ release];
-    
-    [super dealloc];
-    
-}
-
-#pragma mark -
-#pragma mark View
+#pragma mark - View Methods
 
 - (void)viewDidAppear:(BOOL)animated {
     
@@ -50,8 +38,7 @@
     
 }
 
-#pragma mark -
-#pragma mark Methods
+#pragma mark - Methods
 
 - (void)didClickCurrentlyPlayingButton {
     

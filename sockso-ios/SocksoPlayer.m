@@ -26,7 +26,6 @@
 
 - (void)dealloc {
     
-    [server_ release];
     [tracks_ release];
     
     [super dealloc];

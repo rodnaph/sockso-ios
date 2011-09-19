@@ -9,7 +9,7 @@
 
 @property (nonatomic, retain) SocksoServer *server;
 @property (nonatomic, retain) IBOutlet UITableView *artistsTable;
-@property (nonatomic, retain) HomeViewController *homeViewController;
+@property (nonatomic, assign) HomeViewController *homeViewController;
 
 + (ArtistsViewController *)viewForServer:(SocksoServer *)server;
 

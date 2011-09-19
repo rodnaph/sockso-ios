@@ -7,7 +7,7 @@
 
 @property (nonatomic, retain) SocksoServer *server;
 @property (nonatomic, retain) NSArray *listContent;
-@property (nonatomic, retain) HomeViewController *homeViewController;
+@property (nonatomic, assign) HomeViewController *homeViewController;
 
 + (SearchViewController *)viewForServer:(SocksoServer *)server;
 
