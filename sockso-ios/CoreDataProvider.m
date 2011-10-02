@@ -3,21 +3,33 @@
 
 @implementation CoreDataProvider
 
+- (void)dealloc {
+
+    [context_ release];
+    
+    [super dealloc];
+
+}
+
 - (id)createInstance:(JSObjectionInjector *)context {
     
-    NSURL *appDirectory = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    NSURL *storeURL = [appDirectory URLByAppendingPathComponent:@"sockso-ios.sqlite"];
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"SocksoDataModel" withExtension:@"momd"];
+    if ( context_ == nil ) {
     
-    NSManagedObjectModel *managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
-    
-    NSPersistentStoreCoordinator *persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel];
-    [persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:nil];
-    
-    NSManagedObjectContext *managedObjectContext = [[NSManagedObjectContext alloc] init];
-    [managedObjectContext setPersistentStoreCoordinator:persistentStoreCoordinator];
+        NSURL *appDirectory = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+        NSURL *storeURL = [appDirectory URLByAppendingPathComponent:@"sockso-ios.sqlite"];
+        NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"SocksoDataModel" withExtension:@"momd"];
+        
+        NSManagedObjectModel *managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
+        
+        NSPersistentStoreCoordinator *persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:managedObjectModel];
+        [persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:nil];
+        
+        context_ = [[[NSManagedObjectContext alloc] init] retain];
+        [context_ setPersistentStoreCoordinator:persistentStoreCoordinator];
+        
+    }
 
-    return managedObjectContext;
+    return context_;
     
 }
 

@@ -1,4 +1,6 @@
 
-@interface CoreDataProvider : NSObject <JSObjectionProvider>
+@interface CoreDataProvider : NSObject <JSObjectionProvider> {
+    NSManagedObjectContext *context_;
+}
 
 @end

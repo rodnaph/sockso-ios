@@ -32,14 +32,6 @@ objection_requires( @"context" );
 #pragma mark -
 #pragma mark Init
 
-- (id)init {
-    
-    NSLog( @"INIT CONNECT VIEW" );
-    
-    return [super init];
-    
-}
-
 - (void)dealloc {
     
     [serverInput_ release];
@@ -59,7 +51,7 @@ objection_requires( @"context" );
 - (void) viewDidLoad {
     
     [super viewDidLoad];
-
+    
     self.title = @"Connect";
     
     [self initServerInput];
@@ -71,7 +63,7 @@ objection_requires( @"context" );
     
     activity_.hidden = YES;
     communityActivity_.hidden = YES;
-
+    
 }
 
 //
@@ -106,8 +98,8 @@ objection_requires( @"context" );
 - (void) saveServerInput {
     
     [Properties createOrUpdateWithName:@"autosave.connectServer"
-                andValue:serverInput_.text
-                from:context_];
+                              andValue:serverInput_.text
+                                  from:context_];
     
 }
 
@@ -118,7 +110,7 @@ objection_requires( @"context" );
 - (void) showNoCommunityServersFound {
     
     NSString *message = @"Sorry, but no community servers that support Sockso iOS are currently online :(";
-
+    
     [self presentModalViewController:[InfoViewController initWithString:message]
                             animated:YES];
     
@@ -138,7 +130,7 @@ objection_requires( @"context" );
     
     [self.navigationController pushViewController:aView animated:YES];
     [aView release];
-
+    
 }
 
 //
@@ -147,7 +139,7 @@ objection_requires( @"context" );
 //
 
 - (IBAction) tryToConnect {
-
+    
     __block ConnectViewController *this = self;
     
     SocksoServer *server = [SocksoServer disconnectedServer:[serverInput_ text]];
@@ -164,21 +156,21 @@ objection_requires( @"context" );
 - (void) hasConnectedTo:(SocksoServer *)server {
     
     [self setControlsActive:YES];
-
+    
     if ( ![server isSupportedVersion] ) {
         [self showVersionNotSupported];
         return;
     }
-        
+    
     if ( !server.requiresLogin ) {
         [self showHomeView:server];
         return;
     }
-
+    
     // login required
-
+    
     __block ConnectViewController *this = self;
-        
+    
     [server hasSession:^{
         [this showHomeView:server];
     } onFailure:^{
@@ -205,14 +197,14 @@ objection_requires( @"context" );
 //
 
 - (void) setControlsActive:(BOOL) active {
-
+    
     [activity_ setHidden:active];
     [activity_ startAnimating];
     
     [serverInput_ setEnabled:active];
     [community_ setEnabled:active];
     [connect_ setEnabled:active];
-
+    
 }
 
 //
@@ -220,25 +212,25 @@ objection_requires( @"context" );
 //
 
 - (void) showConnectFailed {
-
+    
     [self setControlsActive:YES];
     [self showAlertWithTitle:@"Connect Failed" 
                   andMessage:@"Connection failed, please check the address you entered"];
-
+    
 }
 
 - (void)showVersionNotSupported {
-
+    
     [self showAlertWithTitle:@"Unsupported Version"
                   andMessage:@"Sorry, but you need at least Sockso 1.5 for Sockso iOS"];
     
 }
 
 - (void)showBrowseCommunityFailed {
-
+    
     [self showAlertWithTitle:@"Request Failed"
                   andMessage:@"Sorry, but the request for community servers failed.  Check your internet connection."];
-
+    
 }
 
 - (void)showAlertWithTitle:(NSString *)title andMessage:(NSString *)message {
@@ -259,7 +251,7 @@ objection_requires( @"context" );
 //
 
 - (void) showHomeView:(SocksoServer *) server {
-
+    
     HomeViewController *homeController = [HomeViewController initWithServer:server];
     
     [self.navigationController pushViewController:homeController
