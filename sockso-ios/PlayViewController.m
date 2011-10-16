@@ -14,7 +14,7 @@
 
 - (void)didTrackChange;
 
-- (void)updatePlaySlider;
+- (void)updatePlaySlider:(NSTimer *)updatedTimer;
 
 @end
 
@@ -47,7 +47,10 @@
     [backButton_ release];
     [nextButton_ release];
     
-    playTimer_ = nil;
+    if ( playTimer_ ) {
+        [playTimer_ invalidate];
+        playTimer_ = nil;
+    }
     
     [super dealloc];
     
@@ -105,12 +108,12 @@
     [playSlider_ setMaximumValue:1.0];
     [playSlider_ setValue:0.0];
     
-    playTimer_ = [NSTimer timerWithTimeInterval:1.0
-                                         target:self
-                                       selector:@selector(updatePlaySlider)
-                                       userInfo:nil
-                                        repeats:YES];
-
+    playTimer_ = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                  target:self
+                                                selector:@selector(updatePlaySlider:)
+                                                userInfo:nil
+                                                 repeats:YES];
+    
 }
 
 - (void)initLabels {
@@ -138,7 +141,7 @@
 #pragma mark -
 #pragma mark Play Slider
 
-- (void)updatePlaySlider {
+- (void)updatePlaySlider:(NSTimer *)updatedTimer {
     
     if ( [server_.player isPlaying] ) {
         
