@@ -56,7 +56,6 @@
 		DC9B805813FFBD13001861D6 /* ASIHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9B804B13FFBD13001861D6 /* ASIHTTPRequest.m */; };
 		DC9B805913FFBD13001861D6 /* ASIInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9B804F13FFBD13001861D6 /* ASIInputStream.m */; };
 		DC9B805A13FFBD13001861D6 /* ASINetworkQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9B805113FFBD13001861D6 /* ASINetworkQueue.m */; };
-		DC9B805D13FFBD1E001861D6 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9B805C13FFBD1E001861D6 /* AudioStreamer.m */; };
 		DC9B8089140016B5001861D6 /* album-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DC9B8080140016B5001861D6 /* album-icon.png */; };
 		DC9B808A140016B5001861D6 /* artist-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DC9B8081140016B5001861D6 /* artist-icon.png */; };
 		DC9B808B140016B5001861D6 /* background.gif in Resources */ = {isa = PBXBuildFile; fileRef = DC9B8082140016B5001861D6 /* background.gif */; };
@@ -71,6 +70,7 @@
 		DC9B80AD14002DC7001861D6 /* logo-114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = DC9B80AC14002DC7001861D6 /* logo-114x114.png */; };
 		DC9B80AF14002F93001861D6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DC9B80AE14002F93001861D6 /* Default@2x.png */; };
 		DC9B80B214002FC9001861D6 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = DC9B80B014002F9C001861D6 /* Default.png */; };
+		DC9DE752144AD35F003EE221 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9DE751144AD35F003EE221 /* AudioStreamer.m */; };
 		DCA0512813C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DCA0512613C4C14C002F8FC6 /* SocksoDataModel.xcdatamodeld */; };
 		DCA057A213C788C200850DA2 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = DCA057A113C788C200850DA2 /* Entitlements.plist */; };
 		DCA057A513C835A400850DA2 /* SocksoServerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DCA057A413C835A400850DA2 /* SocksoServerTest.m */; };
@@ -197,8 +197,6 @@
 		DC9B805013FFBD13001861D6 /* ASINetworkQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASINetworkQueue.h; path = vendor/ASIHttpRequest/ASINetworkQueue.h; sourceTree = SOURCE_ROOT; };
 		DC9B805113FFBD13001861D6 /* ASINetworkQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ASINetworkQueue.m; path = vendor/ASIHttpRequest/ASINetworkQueue.m; sourceTree = SOURCE_ROOT; };
 		DC9B805213FFBD13001861D6 /* ASIProgressDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ASIProgressDelegate.h; path = vendor/ASIHttpRequest/ASIProgressDelegate.h; sourceTree = SOURCE_ROOT; };
-		DC9B805B13FFBD1E001861D6 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioStreamer.h; path = vendor/AudioStreamer/AudioStreamer.h; sourceTree = SOURCE_ROOT; };
-		DC9B805C13FFBD1E001861D6 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioStreamer.m; path = vendor/AudioStreamer/AudioStreamer.m; sourceTree = SOURCE_ROOT; };
 		DC9B8080140016B5001861D6 /* album-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "album-icon.png"; path = "images/album-icon.png"; sourceTree = "<group>"; };
 		DC9B8081140016B5001861D6 /* artist-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "artist-icon.png"; path = "images/artist-icon.png"; sourceTree = "<group>"; };
 		DC9B8082140016B5001861D6 /* background.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = background.gif; path = images/background.gif; sourceTree = "<group>"; };
@@ -213,6 +211,8 @@
 		DC9B80AC14002DC7001861D6 /* logo-114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-114x114.png"; path = "../logo-114x114.png"; sourceTree = "<group>"; };
 		DC9B80AE14002F93001861D6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
 		DC9B80B014002F9C001861D6 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
+		DC9DE750144AD35F003EE221 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioStreamer.h; path = vendor/AudioStreamer/Classes/AudioStreamer.h; sourceTree = SOURCE_ROOT; };
+		DC9DE751144AD35F003EE221 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioStreamer.m; path = vendor/AudioStreamer/Classes/AudioStreamer.m; sourceTree = SOURCE_ROOT; };
 		DCA0512713C4C14C002F8FC6 /* SocksoDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SocksoDataModel.xcdatamodel; sourceTree = "<group>"; };
 		DCA057A113C788C200850DA2 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		DCA057A313C835A400850DA2 /* SocksoServerTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocksoServerTest.h; sourceTree = "<group>"; };
@@ -552,8 +552,8 @@
 		DCF065E013BBCA69000ECDEE /* AudioStreamer */ = {
 			isa = PBXGroup;
 			children = (
-				DC9B805B13FFBD1E001861D6 /* AudioStreamer.h */,
-				DC9B805C13FFBD1E001861D6 /* AudioStreamer.m */,
+				DC9DE750144AD35F003EE221 /* AudioStreamer.h */,
+				DC9DE751144AD35F003EE221 /* AudioStreamer.m */,
 			);
 			name = AudioStreamer;
 			sourceTree = "<group>";
@@ -829,7 +829,7 @@
 				DC9B805813FFBD13001861D6 /* ASIHTTPRequest.m in Sources */,
 				DC9B805913FFBD13001861D6 /* ASIInputStream.m in Sources */,
 				DC9B805A13FFBD13001861D6 /* ASINetworkQueue.m in Sources */,
-				DC9B805D13FFBD1E001861D6 /* AudioStreamer.m in Sources */,
+				DC9DE752144AD35F003EE221 /* AudioStreamer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,3 @@
+[submodule "vendor/AudioStreamer"]
+	path = vendor/AudioStreamer
+	url = https://github.com/mattgallagher/AudioStreamer

@@ -11,6 +11,7 @@ typedef enum {
 @interface SocksoPlayer : NSObject {
     AudioStreamer *streamer_;
     SocksoPlayerState state;
+    NSTimer *progressTimer_;
 }
 
 @property (nonatomic, assign) SocksoServer *server;

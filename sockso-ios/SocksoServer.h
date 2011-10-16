@@ -1,9 +1,7 @@
 
 @class SocksoApi, SocksoPlayer, MusicItem, Track, AudioStreamer;
 
-@interface SocksoServer : NSObject {
-    AudioStreamer *streamer;
-}
+@interface SocksoServer : NSObject
 
 @property (nonatomic, retain) SocksoPlayer *player;
 @property (nonatomic, retain) SocksoApi *api;

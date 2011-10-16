@@ -3,6 +3,7 @@
 
 @interface PlayViewController : UIViewController {
     int currentTime;
+    NSTimer *playTimer_;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *nameLabel, *albumLabel, *artistLabel, *timeLabel;

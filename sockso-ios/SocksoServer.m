@@ -49,12 +49,7 @@
 
 - (void)dealloc {
     
-    NSLog( @"DEALLOC OK" );
-    
-    [streamer stop];
-    
     [version release];
-    [streamer release];
     [ipAndPort release];
     [title release];
     [tagline release];

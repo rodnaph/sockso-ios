@@ -26,7 +26,12 @@
 
 - (void)dealloc {
     
+    [streamer_ stop];
+    [streamer_ release];
+    
     [tracks_ release];
+    
+    progressTimer_ = nil;
     
     [super dealloc];
     
@@ -48,10 +53,12 @@
 }
 
 - (void)initEventThread {
-    
-    [NSThread detachNewThreadSelector:@selector(pollAudioEvents)
-                             toTarget:self
-                           withObject:nil];
+
+    progressTimer_ = [NSTimer timerWithTimeInterval:0.5
+                                             target:self
+                                           selector:@selector(pollAudioEvents)
+                                           userInfo:nil
+                                            repeats:YES];
     
 }
 

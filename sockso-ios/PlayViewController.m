@@ -14,6 +14,8 @@
 
 - (void)didTrackChange;
 
+- (void)updatePlaySlider;
+
 @end
 
 @implementation PlayViewController
@@ -44,6 +46,8 @@
     [artistLabel_ release];
     [backButton_ release];
     [nextButton_ release];
+    
+    playTimer_ = nil;
     
     [super dealloc];
     
@@ -101,9 +105,11 @@
     [playSlider_ setMaximumValue:1.0];
     [playSlider_ setValue:0.0];
     
-    [NSThread detachNewThreadSelector:@selector(updatePlaySliderTicker)
-                             toTarget:self
-                           withObject:nil];
+    playTimer_ = [NSTimer timerWithTimeInterval:1.0
+                                         target:self
+                                       selector:@selector(updatePlaySlider)
+                                       userInfo:nil
+                                        repeats:YES];
 
 }
 
@@ -131,17 +137,6 @@
 
 #pragma mark -
 #pragma mark Play Slider
-
-- (void)updatePlaySliderTicker {
-    
-    while ( TRUE ) {
-        sleep( 1 );
-        [self performSelectorOnMainThread:@selector(updatePlaySlider)
-                               withObject:nil
-                            waitUntilDone:NO];
-    }
-    
-}
 
 - (void)updatePlaySlider {
     
