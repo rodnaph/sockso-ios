@@ -4,6 +4,7 @@
 #import "SocksoServer.h"
 #import "LoginViewController.h"
 #import "CommunityServerCell.h"
+#import "SocksoPlayer.h"
 
 @interface CommunityViewController (Private)
 
@@ -36,8 +37,20 @@
 
     self.title = @"Community";
 
+    currentServer = nil;
+    
     [self.tableView reloadData];
 
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:animated];
+    
+    if ( currentServer != nil ) {
+        [[currentServer player] stop];
+    }
+    
 }
 
 #pragma mark -
@@ -107,6 +120,8 @@
 
 - (void) connectTo:(SocksoServer *)server {
 
+    currentServer = server;
+    
     __block CommunityViewController *this = self;
     
     if ( [server requiresLogin] ) {

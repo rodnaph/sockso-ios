@@ -24,7 +24,6 @@
 - (void)dealloc {
     
     [viewControllers_ release];
-    [activeViewController_ release];
     [tabBar_ release];
     [viewContainer_ release];
     

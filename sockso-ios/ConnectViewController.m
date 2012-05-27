@@ -8,6 +8,7 @@
 #import "Properties.h"
 #import "LoginViewController.h"
 #import "HomeViewController.h"
+#import "SocksoPlayer.h"
 
 @interface ConnectViewController (Private)
 
@@ -58,9 +59,26 @@
     
     self.navigationItem.backBarButtonItem = item;
     
+    currentServer = nil;
     activity_.hidden = YES;
     communityActivity_.hidden = YES;
 
+}
+- (void) viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:animated];
+    
+    if ( currentServer != nil ) {
+        UIViewController *ctrl = nil;
+        for ( ctrl in [[self navigationController] viewControllers] ) {
+            if ( ctrl != self ) {
+                [ctrl removeFromParentViewController];
+                [ctrl dealloc];
+            }
+        }
+        [[currentServer player] stop];
+    }
+    
 }
 
 //
@@ -139,10 +157,12 @@
 
     __block ConnectViewController *this = self;
     
-    SocksoServer *server = [SocksoServer disconnectedServer:[serverInput_ text]];
+    if ( currentServer == nil ) {
+        currentServer = [SocksoServer disconnectedServer:[serverInput_ text]];
+    }
     
-    [server connect:^{ [this hasConnectedTo:server]; }
-          onFailure:^{ [this showConnectFailed]; }];
+    [currentServer connect:^{ [this hasConnectedTo:currentServer]; }
+                 onFailure:^{ [this showConnectFailed]; }];
     
 }
 

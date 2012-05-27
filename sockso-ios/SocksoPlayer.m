@@ -54,26 +54,21 @@
 
 - (void)initEventThread {
 
-    progressTimer_ = [NSTimer timerWithTimeInterval:0.5
+    progressTimer_ = [NSTimer scheduledTimerWithTimeInterval:0.5
                                              target:self
                                            selector:@selector(pollAudioEvents)
                                            userInfo:nil
                                             repeats:YES];
     
+    
 }
 
 - (void)pollAudioEvents {
     
-    while ( true ) {
-        
-        sleep( 1 );
-        
-        if ( state == SP_PLAYING && !([streamer_ isPlaying] || [streamer_ isWaiting]) ) {
-            [self playNext];
-        }
-        
+    if ( state == SP_PLAYING && !([streamer_ isPlaying] || [streamer_ isWaiting]) ) {
+        [self playNext];
     }
-    
+        
 }
 
 #pragma mark -

@@ -3,7 +3,9 @@
 
 @class SocksoServer;
 
-@interface ConnectViewController : UIViewController <UITextFieldDelegate, LoginHandlerDelegate> {}
+@interface ConnectViewController : UIViewController <UITextFieldDelegate, LoginHandlerDelegate> {
+    SocksoServer *currentServer;
+}
 
 @property (nonatomic, retain) IBOutlet UITextField *serverInput;
 @property (nonatomic, retain) IBOutlet UIButton *connect;
@@ -19,7 +21,7 @@
 - (void)showCommunityView:(NSMutableArray *) servers;
 - (void)showNoCommunityServersFound;
 
-- (void)tryToConnect;
+- (IBAction)tryToConnect;
 - (void)hasConnectedTo:(SocksoServer *)server;
 - (void)showConnectFailed;
 - (void)showConnecting;
