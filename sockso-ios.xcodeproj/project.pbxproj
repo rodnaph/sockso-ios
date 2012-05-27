@@ -40,6 +40,7 @@
 		DC88D2E813CC31E90064A5B6 /* ArtistsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC88D2E713CC31E90064A5B6 /* ArtistsView.xib */; };
 		DC88D2EC13CC32DD0064A5B6 /* ArtistsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC88D2EB13CC32DD0064A5B6 /* ArtistsViewController.m */; };
 		DC8BA6CD13C5925100F21C3C /* Properties.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8BA6CC13C5925100F21C3C /* Properties.m */; };
+		DC98C80E1572A3980001DAB2 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DC98C80D1572A3980001DAB2 /* logo.png */; };
 		DC9B801A13FF1258001861D6 /* TrackTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9B801913FF1258001861D6 /* TrackTest.m */; };
 		DC9B802113FF1425001861D6 /* AlbumTest.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9B802013FF1424001861D6 /* AlbumTest.m */; };
 		DC9B803613FFBCEF001861D6 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = DC9B802D13FFBCEF001861D6 /* NSObject+SBJSON.m */; };
@@ -161,6 +162,7 @@
 		DC88D2EB13CC32DD0064A5B6 /* ArtistsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistsViewController.m; sourceTree = "<group>"; };
 		DC8BA6CB13C5925100F21C3C /* Properties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Properties.h; sourceTree = "<group>"; };
 		DC8BA6CC13C5925100F21C3C /* Properties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Properties.m; sourceTree = "<group>"; };
+		DC98C80D1572A3980001DAB2 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		DC9B801813FF1258001861D6 /* TrackTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrackTest.h; sourceTree = "<group>"; };
 		DC9B801913FF1258001861D6 /* TrackTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrackTest.m; sourceTree = "<group>"; };
 		DC9B801F13FF1424001861D6 /* AlbumTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumTest.h; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 		DC43F8FC13A14E4F001B41F6 = {
 			isa = PBXGroup;
 			children = (
+				DC98C80D1572A3980001DAB2 /* logo.png */,
 				DC6865651572866000A1A964 /* libz.1.2.5.dylib */,
 				DCA057A113C788C200850DA2 /* Entitlements.plist */,
 				DC43F91113A14E4F001B41F6 /* sockso-ios */,
@@ -755,6 +758,7 @@
 				DC9B80AD14002DC7001861D6 /* logo-114x114.png in Resources */,
 				DC9B80AF14002F93001861D6 /* Default@2x.png in Resources */,
 				DC9B80B214002FC9001861D6 /* Default.png in Resources */,
+				DC98C80E1572A3980001DAB2 /* logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
