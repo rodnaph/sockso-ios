@@ -124,7 +124,7 @@
 
 - (void) showNoCommunityServersFound {
     
-    NSString *message = @"Sorry, but no community servers that support Sockso iOS are currently online :(";
+    NSString *message = @"Sorry, but no community servers are currently online :(";
 
     [self presentModalViewController:[InfoViewController initWithString:message]
                             animated:YES];
@@ -239,7 +239,7 @@
 - (void)showVersionNotSupported {
 
     [self showAlertWithTitle:@"Unsupported Version"
-                  andMessage:@"Sorry, but you need at least Sockso 1.5 for Sockso iOS"];
+                  andMessage:@"Sorry, but your server needs to be at least Sockso 1.5"];
     
 }
 
