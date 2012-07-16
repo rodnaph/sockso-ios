@@ -10,6 +10,8 @@
 
     [self initCoreData];
     
+    [[UIApplication sharedApplication] setIdleTimerDisabled: YES];
+    
     ConnectViewController *aView = [[ConnectViewController alloc]
                                     initWithNibName:@"ConnectView"
                                     bundle:nil];
